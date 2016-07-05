@@ -1,0 +1,17 @@
+{
+  "name": "mumuki-styles",
+  "version": "0.0.1",
+  "description": "Mumuki Styles",
+  "authors": [
+    "Federico Scarpa <fedescarpa@mumuki.org>"
+  ],
+  "license": "GPL-3.0",
+  "keywords": [
+    "mumuki"
+  ],
+  "homepage": "https://github.com/mumuki/mumuki-styles",
+  "ignore": [
+    "bower.json",
+    "package.json"
+  ]
+}

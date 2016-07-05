@@ -1,0 +1,16 @@
+@each $font in $mu-fonts {
+  .breadcrumb {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    .#{$font} {
+      font-size: 44px;
+      a {
+        color: $brand-primary;
+        &:hover, &:focus {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

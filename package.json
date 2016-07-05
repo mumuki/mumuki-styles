@@ -1,0 +1,22 @@
+{
+  "name": "mumuki-styles",
+  "version": "0.0.1",
+  "description": "Mumuki Styles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mumuki/mumuki-styles.git"
+  },
+  "keywords": [
+    "mumuki"
+  ],
+  "author": "Federico Scarpa <fedescarpa@mumuki.org>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/mumuki/mumuki-styles/issues"
+  },
+  "homepage": "https://github.com/mumuki/mumuki-styles#readme"
+}
