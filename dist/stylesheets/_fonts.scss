@@ -1,16 +1,3 @@
 $font-size-base:   17px;
 $line-height-base: 1.8;
 $mu-fonts: (ahahamojimoji, mu-font);
-
-@font-face {
-  font-family: 'Mumuki';
-  src: url('../fonts/mumuki.ttf')  format('ttf'),
-       url('../fonts/mumuki.svg')  format('svg'),
-       url('../fonts/mumuki.woff') format('woff');
-}
-
-@each $font in $mu-fonts {
-  .#{$font} {
-    font-family: 'Mumuki', Verdana, Tahoma;
-  }
-}
