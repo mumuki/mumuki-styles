@@ -4,7 +4,10 @@
   "description": "Mumuki Styles",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node_modules/.bin/bower install",
+    "prebuild": "npm install",
+    "build": "node_modules/.bin/gulp dist"
   },
   "repository": {
     "type": "git",
@@ -18,5 +21,17 @@
   "bugs": {
     "url": "https://github.com/mumuki/mumuki-styles/issues"
   },
-  "homepage": "https://github.com/mumuki/mumuki-styles#readme"
+  "homepage": "https://github.com/mumuki/mumuki-styles#readme",
+  "dependencies": {
+    "bower": "^1.8.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.0.0",
+    "run-sequence": "^1.2.2",
+    "wiredep": "^4.0.0"
+  }
 }
