@@ -9,6 +9,10 @@
   "keywords": [
     "mumuki"
   ],
+  "main": [
+    "dist/js/mumuki-styles.min.js",
+    "dist/scss/mumuki-styles.scss"
+  ],
   "homepage": "https://github.com/mumuki/mumuki-styles",
   "ignore": [
     "src/",
