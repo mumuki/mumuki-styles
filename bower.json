@@ -1,6 +1,6 @@
 {
   "name": "mumuki-styles",
-  "version": "0.0.2",
+  "version": "v1.1.0",
   "description": "Mumuki Styles",
   "authors": [
     "Federico Scarpa <fedescarpa@mumuki.org>"
@@ -10,13 +10,16 @@
     "mumuki"
   ],
   "main": [
-    "dist/js/mumuki-styles.min.js",
-    "dist/scss/mumuki-styles.scss"
+    "dist/javascripts/mumuki-styles.js",
+    "dist/scss/mumuki-styles.scss",
+    "dist/css/mumuki-styles.css"
   ],
   "homepage": "https://github.com/mumuki/mumuki-styles",
   "ignore": [
     "src/",
-    "bower.json",
+    ".bowerrc",
+    ".editorconfig",
+    "gulpfile.js",
     "package.json"
   ],
   "dependencies": {
