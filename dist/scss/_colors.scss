@@ -1,25 +1,48 @@
-$brand-info:          #3498DB;
-$brand-primary:       #0B465D;
+$brand-info: #3498DB;
+$brand-primary: #0B465D;
 $brand-complementary: #FF5B81;
 
-$brand-danger:        #d9534f;
-$brand-success:       #5cb85c;
-$brand-warning:       #F39C12;
+$brand-danger: #d9534f;
+$brand-success: #5cb85c;
+$brand-warning: #F39C12;
 
-$brand-info-light:    lighten($brand-info, 35%);
-$brand-info-lighter:  #f4f6fb;
+$brand-info-light: lighten($brand-info, 35%);
+$brand-info-lighter: #f4f6fb;
 
-$brand-danger-light:  lighten($brand-danger, 35%);
+$brand-danger-light: lighten($brand-danger, 35%);
 $brand-success-light: lighten($brand-success, 35%);
 $brand-warning-light: lighten($brand-warning, 35%);
 
-$link-color:          $brand-info;
+$link-color: $brand-info;
 
-$code-color:          $brand-info;
-$code-bg:             $brand-info-lighter;
+$code-color: $brand-info;
+$code-bg: $brand-info-lighter;
 
-$btn-success-bg:      $brand-complementary;
+$btn-success-bg: $brand-complementary;
 
-$navbar-inverse-bg:               $brand-info;
+$navbar-inverse-bg: $brand-info;
 $navbar-inverse-link-hover-color: $brand-primary;
 $navbar-default-link-hover-color: $brand-info-light;
+
+$mu-color-info: $brand-info;
+$mu-color-primary: $brand-primary;
+$mu-color-complementary: $brand-complementary;
+
+$mu-color-danger: $brand-danger;
+$mu-color-success: $brand-success;
+$mu-color-warning: $brand-warning;
+
+$mu-color-disabled: #AAAAAA;
+$mu-color-info-light: lighten($brand-info, 35%);
+$mu-color-info-lighter: #f4f6fb;
+
+$mu-color-danger-light: lighten($brand-danger, 35%);
+$mu-color-success-light: lighten($brand-success, 35%);
+$mu-color-warning-light: lighten($brand-warning, 35%);
+
+$mu-color-link: $brand-info;
+$mu-color-code: $brand-info;
+$mu-color-code-bg: $brand-info-lighter;
+
+$mu-color-separator: #ecf0f1;
+$mu-color-content-editable: $mu-color-separator
