@@ -1,12 +1,12 @@
 
 @font-face {
   font-family:"dev-awesome";
-  src:url("../fonts/dev-awesome.eot?c884b9ad3fd6575bba90618d6881793a");
+  src:url("../fonts/dev-awesome.eot?6bd7a1554e5f029d3afdd0eeeeccb90e");
   src:url("../fonts/dev-awesome.eot?#iefix") format("embedded-opentype"),
-		url("../fonts/dev-awesome.woff2?c884b9ad3fd6575bba90618d6881793a") format("woff2"),
-		url("../fonts/dev-awesome.woff?c884b9ad3fd6575bba90618d6881793a") format("woff"),
-		url("../fonts/dev-awesome.ttf?c884b9ad3fd6575bba90618d6881793a") format("truetype"),
-		url("../fonts/dev-awesome.svg?c884b9ad3fd6575bba90618d6881793a#dev-awesome") format("svg");
+		url("../fonts/dev-awesome.woff2?6bd7a1554e5f029d3afdd0eeeeccb90e") format("woff2"),
+		url("../fonts/dev-awesome.woff?6bd7a1554e5f029d3afdd0eeeeccb90e") format("woff"),
+		url("../fonts/dev-awesome.ttf?6bd7a1554e5f029d3afdd0eeeeccb90e") format("truetype"),
+		url("../fonts/dev-awesome.svg?6bd7a1554e5f029d3afdd0eeeeccb90e#dev-awesome") format("svg");
   font-weight:normal;
   font-style:normal;
 }
@@ -40,66 +40,81 @@
 }
 
 
-.da-elixir:before {
+.da-css:before {
   content:"\f103";
 }
 
 
-.da-gobstones:before {
+.da-elixir:before {
   content:"\f104";
 }
 
 
-.da-haskell:before {
+.da-gobstones:before {
   content:"\f105";
 }
 
 
-.da-java:before {
+.da-haskell:before {
   content:"\f106";
 }
 
 
-.da-javascript:before {
+.da-html:before {
   content:"\f107";
 }
 
 
-.da-mumuki-circle:before {
+.da-java:before {
   content:"\f108";
 }
 
 
-.da-mumuki:before {
+.da-javascript:before {
   content:"\f109";
 }
 
 
-.da-prolog:before {
+.da-mongodb:before {
   content:"\f10a";
 }
 
 
-.da-python:before {
+.da-mumuki-circle:before {
   content:"\f10b";
 }
 
 
-.da-qsim:before {
+.da-mumuki:before {
   content:"\f10c";
 }
 
 
-.da-ruby:before {
+.da-prolog:before {
   content:"\f10d";
 }
 
 
-.da-text:before {
+.da-python:before {
   content:"\f10e";
 }
 
 
-.da-wollok:before {
+.da-qsim:before {
   content:"\f10f";
+}
+
+
+.da-ruby:before {
+  content:"\f110";
+}
+
+
+.da-text:before {
+  content:"\f111";
+}
+
+
+.da-wollok:before {
+  content:"\f112";
 }
