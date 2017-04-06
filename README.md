@@ -14,7 +14,7 @@
 
   ```ruby
   source 'https://rails-assets.org' do
-    gem 'rails-assets-mumuki-styles', '1.2.1'
+    gem 'rails-assets-mumuki-styles', '1.3.0'
   end
   ```
 
@@ -30,15 +30,15 @@
   //= require mumuki-styles
   //= require bootstrap-sass
   ```
-  
+
 1. Add the following code into `app/assets/stylesheets/application.scss`
 
   ```scss
   @import "mumuki-styles";
   ```
   **Note**: If you do not use SCSS, add `*= require mumuki-styles` to `app/assets/stylesheets/application.css` file
-  
-  
+
+
 ### How to use it with bower?
 
 1. Run `bower install --save mumuki-styles`
@@ -49,11 +49,11 @@
   <script src="bower_compoments/mumuki-styles/dist/javascript/mumuki-styles.js"></script>
   ```
 1. if you are using SCSS, simply import the scss file
-  
+
   ```scss
   @import "bower_compoments/mumuki-styles/dist/scss/mumuki-styles.scss"
   ```
-  
+
 ## License
 
 This project is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
