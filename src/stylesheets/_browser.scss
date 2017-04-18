@@ -1,0 +1,49 @@
+.mu-browser {
+  border-top: 2em solid #0b465d;
+  box-shadow: 0 0.1em 1em 0 rgba(11, 40, 93, 0.5);
+  position: relative;
+  border-radius: 3px 3px 0 0;
+  padding: 0px;
+  height: 250px;
+  
+  &:before {
+    display: block;
+    position: absolute;
+    content: '';
+    top: -1.25em;
+    left: 0.5em;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background-color: #ff5b81;
+    box-shadow: 0 0 0 2px #ff5b81;
+  }
+
+  &:after {
+    display: block;
+    position: absolute;
+    font-family: 'DejaVu Sans', 'Liberation Sans', sans-serif;
+    content: 'http://mysite.com';
+    top: -1.6em;
+    left: 1.5em;
+    padding: 0 0.2em;
+    width: calc(100% - 2.2em);
+    height: 1.2em;
+    border-radius: 2px;
+    background-color: white;
+  }
+
+  * {
+    display: block;
+    margin: 0em;
+  }
+
+  iframe {
+    border: none;
+    width: 100%;
+    height: 100%;
+  }
+  
+}
+
+   
