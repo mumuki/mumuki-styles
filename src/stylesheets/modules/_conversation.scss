@@ -184,12 +184,12 @@
       div {
         width: 100%;
 
-        &.magia-no {
+        &.hidden {
           height: 100px;
           overflow: hidden;
         }
 
-        &.magia {
+        &.visible {
           height: 100%;
         }
       }
