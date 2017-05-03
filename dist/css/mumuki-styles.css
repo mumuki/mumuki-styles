@@ -8757,6 +8757,64 @@ a.text-success:hover {
   .bs-callout-warning h4 {
     color: #F39C12; }
 
+.mu-radio div {
+  clear: both;
+  overflow: hidden; }
+
+.mu-radio label {
+  width: 100%;
+  font-weight: normal; }
+
+.mu-radio input[type="radio"]:empty,
+.mu-radio input[type="checkbox"]:empty {
+  display: none; }
+  .mu-radio input[type="radio"]:empty ~ label,
+  .mu-radio input[type="checkbox"]:empty ~ label {
+    position: relative;
+    line-height: 2em;
+    text-indent: 2.5em;
+    cursor: pointer;
+    user-select: none; }
+    .mu-radio input[type="radio"]:empty ~ label:before,
+    .mu-radio input[type="checkbox"]:empty ~ label:before {
+      position: absolute;
+      display: block;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      content: '';
+      width: 2em;
+      background: #D1D3D4;
+      border-radius: 3px 0 0 3px; }
+
+.mu-radio input[type="radio"]:hover:not(:checked) ~ label,
+.mu-radio input[type="checkbox"]:hover:not(:checked) ~ label {
+  color: #888; }
+  .mu-radio input[type="radio"]:hover:not(:checked) ~ label:before,
+  .mu-radio input[type="checkbox"]:hover:not(:checked) ~ label:before {
+    content: '\2714';
+    text-indent: .9em;
+    color: #C2C2C2; }
+
+.mu-radio input[type="radio"]:checked ~ label,
+.mu-radio input[type="checkbox"]:checked ~ label {
+  color: #777; }
+  .mu-radio input[type="radio"]:checked ~ label:before,
+  .mu-radio input[type="checkbox"]:checked ~ label:before {
+    content: '\2714';
+    text-indent: .6em;
+    color: #333;
+    background-color: #ccc; }
+
+.mu-radio input[type="radio"]:focus ~ label:before,
+.mu-radio input[type="checkbox"]:focus ~ label:before {
+  box-shadow: 0 0 0 3px #999; }
+
+.mu-radio-default input[type="radio"]:checked ~ label:before,
+.mu-radio-default input[type="checkbox"]:checked ~ label:before {
+  color: white;
+  background-color: #FF5B81; }
+
 #new-message-modal pre {
   max-height: 300px;
   overflow: auto; }
