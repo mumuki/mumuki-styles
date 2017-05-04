@@ -3,5 +3,14 @@
 }
 
 .badge-notifications {
+  position: absolute;
+  right: 52px;
+  font-size: 0.5em;
+  width: inherit;
+  padding: 2px 4px;
+  border-radius: 0;
+  text-align: right;
+  top: 6px;
+  border-radius: 10px;
   background-color: $brand-complementary;
 }
