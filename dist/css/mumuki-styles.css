@@ -9144,12 +9144,29 @@ pre code {
               text-decoration: none; }
         .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item.last a {
           color: #AAAAAA; }
-  .mu-navbar img.mu-profile-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    cursor: pointer; }
+  .mu-navbar .mu-navbar-avatar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start; }
+    .mu-navbar .mu-navbar-avatar .notifications-box .fa {
+      color: #0B465D; }
+    .mu-navbar .mu-navbar-avatar .notifications-box .badge-notifications {
+      position: absolute;
+      right: 15px;
+      font-size: .55em;
+      width: inherit;
+      padding: 2px 4px;
+      text-align: right;
+      top: 2px;
+      background-color: #FF5B81;
+      border: 1px solid #FFF; }
+    .mu-navbar .mu-navbar-avatar img.mu-profile-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer; }
 
 .pointer {
   cursor: pointer; }
