@@ -9081,6 +9081,12 @@ pre code {
 .si {
   color: #d01040; }
 
+.notifications-box-empty {
+  display: none; }
+
+.badge-notifications {
+  background-color: #FF5B81; }
+
 .mu-navbar {
   display: flex;
   flex-flow: row;
