@@ -64,13 +64,36 @@ $avatar-size: 40px;
     }
   }
 
-  img {
-    &.mu-profile-avatar {
-      width: $avatar-size;
-      height: $avatar-size;
-      border-radius: 50%;
-      object-fit: cover;
-      cursor: pointer;
+  .mu-navbar-avatar {
+    @include display-flex;
+
+    .notifications-box {
+      .fa {
+        color: $mu-color-primary;
+      }
+
+      .badge-notifications {
+        position: absolute;
+        right: 15px;
+        font-size: .55em;
+        width: inherit;
+        padding: 2px 4px;
+        text-align: right;
+        top: 2px;
+        background-color: $mu-color-complementary;
+        border: 1px solid #FFF;
+      }
+    }
+
+    img {
+      &.mu-profile-avatar {
+        width: $avatar-size;
+        height: $avatar-size;
+        border-radius: 50%;
+        object-fit: cover;
+        cursor: pointer;
+      }
     }
   }
+
 }
