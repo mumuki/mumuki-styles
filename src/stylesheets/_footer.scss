@@ -1,0 +1,18 @@
+$breadcrumb-separator-gap: 8px;
+
+$avatar-size: 40px;
+
+footer {
+
+  position: absolute;
+  height: 110px;
+  width: 100%;
+  bottom: 0;
+
+  .mu-footer {
+    padding-top: 30px;
+    border-top: 1px solid $mu-color-separator;
+    margin-bottom: 22px;
+  }
+
+}
