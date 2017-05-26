@@ -9109,6 +9109,7 @@ pre code {
     background-color: #3498DB;
     padding: 0 15px 0 15px; }
     .new-message-modal .mu-modal-header .mu-modal-header-text {
+      padding-left: 7px;
       color: white; }
     .new-message-modal .mu-modal-header .mu-modal-close-button {
       background-color: transparent;
