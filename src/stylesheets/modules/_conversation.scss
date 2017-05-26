@@ -151,13 +151,6 @@
     -ms-user-select: none;
     margin-left: 15px;
   }
-  .message time:before {
-    content: "\f017";
-    color: #ccc;
-    font-family: FontAwesome;
-    display: inline-block;
-    margin-right: 4px;
-  }
   .passed {
     background-color: $brand-success-light;
   }

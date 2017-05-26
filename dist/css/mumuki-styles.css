@@ -8943,12 +8943,6 @@ a.text-success:hover {
     -moz-user-select: none;
     -ms-user-select: none;
     margin-left: 15px; }
-  .mu-messages .message time:before {
-    content: "\f017";
-    color: #ccc;
-    font-family: FontAwesome;
-    display: inline-block;
-    margin-right: 4px; }
   .mu-messages .passed {
     background-color: #d8eed8; }
   .mu-messages .failed {
@@ -9094,6 +9088,43 @@ pre code {
   top: 6px;
   background-color: #FF5B81;
   border: 1px solid white; }
+
+.new-message-modal {
+  width: 0px; }
+  .new-message-modal pre {
+    max-height: 300px;
+    overflow: auto; }
+  .new-message-modal .modal-content {
+    width: 400px; }
+  .new-message-modal .modal-dialog {
+    position: fixed;
+    right: -50px;
+    bottom: -30px; }
+  .new-message-modal .mu-modal-header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    background-color: #3498DB;
+    padding: 0 15px 0 15px; }
+    .new-message-modal .mu-modal-header .mu-modal-header-text {
+      padding-left: 7px;
+      color: white; }
+    .new-message-modal .mu-modal-header .mu-modal-close-button {
+      background-color: transparent;
+      color: white;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      border: none;
+      padding: 0; }
+  .new-message-modal .mu-message-textarea {
+    resize: none;
+    border: none;
+    height: 250px;
+    width: 100%; }
+    .new-message-modal .mu-message-textarea:focus {
+      outline: -webkit-focus-ring-color none 0; }
 
 .mu-navbar {
   display: flex;
