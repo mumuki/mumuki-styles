@@ -8689,6 +8689,13 @@ input[type="checkbox"] .styled:checked + label::after,
 input[type="radio"] .styled:checked + label::after {
   color: #fff; }
 
+.progress-list-flex .broken {
+  background-color: #651621; }
+
+.text-broken,
+.text-broken:hover {
+  color: #651621; }
+
 a.text-info:hover {
   color: #3498DB; }
 
@@ -8700,6 +8707,9 @@ a.text-danger:hover {
 
 a.text-success:hover {
   color: #5cb85c; }
+
+a.text-broken:hover {
+  color: #651621; }
 
 .breadcrumb {
   margin: 0;
@@ -8762,6 +8772,11 @@ a.text-success:hover {
   border-left-color: #F39C12; }
   .bs-callout-warning h4 {
     color: #F39C12; }
+
+.bs-callout-broken {
+  border-left-color: #651621; }
+  .bs-callout-broken h4 {
+    color: #651621; }
 
 .mu-radio div {
   clear: both;
@@ -9224,7 +9239,9 @@ pre code {
   border-radius: 3px 3px 0 0;
   padding: 5px; }
   .mu-browser iframe {
-    margin: 0; }
+    margin: 0;
+    width: 100%;
+    border: none; }
   .mu-browser:before {
     display: block;
     position: absolute;
