@@ -28,6 +28,7 @@ $statuses: (
   danger: $brand-danger,
   success: $brand-success,
   warning: $brand-warning,
+  broken: $mu-color-broken,
 );
 @each $status, $color in $statuses {
   .bs-callout-#{$status} {
