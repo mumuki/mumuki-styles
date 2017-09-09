@@ -1,6 +1,20 @@
 header {
   nav.mu-nav {
+
     @include flexbox(row, space-between, center);
+
+    @media (max-width: $mu-max-xd) {
+      .mu-profile,
+      .mu-breadcrumb {
+        display: none;
+      }
+    }
+    @media (min-width: $mu-min-sd) {
+      @include flexbox(row, space-between, center);
+      .mu-hamburguer {
+        display: none;
+      }
+    }
 
     border-bottom: 1px solid $mu-color-separator;
   }
