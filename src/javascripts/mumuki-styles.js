@@ -12,6 +12,14 @@
 
   mumuki.load(function () {
 
+    $('header .mu-hamburguer').click(function () {
+      $('header .mu-nav').toggleClass('mu-hamburguer-open');
+    });
+
+  });
+
+  mumuki.load(function () {
+
     var descriptorType = {
       file: {
         open: function (state, filename) {
@@ -152,4 +160,3 @@
   });
 
 })(window, document);
-

@@ -1,5 +1,3 @@
-$avatar-size: 50px;
-
 ul.mu-profile {
   @include flexbox(row, flex-end, center);
 
@@ -9,13 +7,6 @@ ul.mu-profile {
   white-space: nowrap;
 
   list-style-type: none;
-
-  .avatar,
-  .notifications {
-    span {
-      display: none;
-    }
-  }
 
   li {
     float: left;

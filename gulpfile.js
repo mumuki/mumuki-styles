@@ -49,6 +49,7 @@ gulp.task('fonts', () => {
 
 gulp.task('watch', () => {
   gulp.watch('src/stylesheets/**/*.scss', ['css']);
+  gulp.watch('src/javascripts/**/*.js', ['js']);
 });
 
 gulp.task('dev', (done) => {

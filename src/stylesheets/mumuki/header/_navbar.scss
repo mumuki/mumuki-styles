@@ -1,18 +1,106 @@
+$avatar-size: 50px;
+$avatar-size-hamburguer: 30px;
+
 header {
   nav.mu-nav {
 
-    @include flexbox(row, space-between, center);
+    .mu-hamburguer{
+      cursor: pointer;
+    }
 
     @media (max-width: $mu-max-xd) {
-      .mu-profile,
-      .mu-breadcrumb {
-        display: none;
+      @include flexbox(column, flex-start, flex-start);
+
+      position: fixed;
+      .mu-hamburguer {
+        @include flexbox(row, flex-start, center);
+        height: $mu-header-height-hd;
+        width: 100%;
+        border-bottom: 1px solid $mu-color-separator;
+      }
+
+      &:not(.mu-hamburguer-open) {
+        .mu-profile,
+        .mu-breadcrumb {
+          display: none;
+        }
+      }
+
+      &.mu-hamburguer-open {
+        .mu-hamburguer {
+          i.fa:before {
+            content: $fa-var-arrow-left;
+          }
+        }
+        min-width: calc(100vw - #{$mu-gap-x2});
+        min-height: 100vh;
+        background-color: $mu-color-background;
+        z-index: 5000;
+        ul {
+          li {
+            padding: 5px;
+            span {
+              margin-left: $mu-gap-d2;
+            }
+          }
+        }
+        .mu-profile,
+        .mu-breadcrumb {
+          @include flexbox(column, flex-start, flex-start);
+        }
+        .mu-breadcrumb {
+          width: 100%;
+          padding-bottom: $mu-gap;
+          .brand {
+            font-size: 30px;
+          }
+          .item {
+            &:before {
+              content:  '-';
+              margin: 0 20px 0 10px;
+            }
+          }
+        }
+        .mu-profile {
+          width: 100%;
+          padding-top: $mu-gap;
+          border-top: 1px solid $mu-color-separator;
+          li {
+            margin-left: 0;
+            &.notifications {
+              i {
+                width: $avatar-size-hamburguer;
+                padding-left: $mu-gap-d3;
+                &:before {
+                  margin: auto;
+                }
+              }
+            }
+            &.avatar {
+              height: $avatar-size-hamburguer;
+              img {
+                object-fit: cover;
+                border-radius: 50%;
+                width: $avatar-size-hamburguer;
+                height: $avatar-size-hamburguer;
+              }
+            }
+          }
+        }
       }
     }
     @media (min-width: $mu-min-sd) {
       @include flexbox(row, space-between, center);
+
       .mu-hamburguer {
         display: none;
+      }
+      .brand,
+      .avatar,
+      .notifications {
+        span {
+          display: none;
+        }
       }
     }
 

@@ -8,6 +8,9 @@ footer {
     }
 
     padding: $mu-gap 0;
+
+    overflow-x: hidden;
+
     border-top: 1px solid $mu-color-separator;
   }
 }
