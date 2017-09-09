@@ -1,0 +1,7 @@
+header {
+  nav.mu-nav {
+    @include flexbox(row, space-between, center);
+
+    border-bottom: 1px solid $mu-color-separator;
+  }
+}

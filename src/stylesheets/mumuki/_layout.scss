@@ -1,0 +1,37 @@
+$mu-header-height-hd:  80px;
+$mu-footer-height-hd: 100px;
+$mu-footer-height-sd: 200px;
+
+header {
+  height: $mu-header-height-hd;
+}
+
+main {
+  @media (min-width: $mu-min-hd) {
+    min-height: calc(100% - #{$mu-header-height-hd} - #{$mu-footer-height-hd});
+  }
+  @media (max-width: $mu-max-sd) {
+    min-height: calc(100% - #{$mu-header-height-hd} - #{$mu-footer-height-sd});
+  }
+}
+
+footer {
+  @media (max-width: $mu-max-sd) {
+    height: $mu-footer-height-sd;
+  }
+  @media (min-width: $mu-min-hd) {
+    height: $mu-footer-height-hd;
+  }
+}
+
+.mu-container {
+  height: 100%;
+  @media (max-width: $mu-max-fd) {
+    margin: 0 $mu-gap;
+    width: calc(100% - #{$mu-gap-x2});
+  }
+  @media (min-width: $mu-min-ud) {
+    margin: 0 auto;
+    max-width: calc(#{$mu-min-ud} - #{$mu-gap-x2});
+  }
+}

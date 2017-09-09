@@ -1,0 +1,6 @@
+.mu-copyright {
+  @include flexbox(row, flex-start, center);
+
+  white-space: nowrap;
+  width: auto;
+}

@@ -1,0 +1,39 @@
+ul.mu-breadcrumb {
+  @include flexbox(row, flex-start, center);
+
+  margin: 0;
+  padding: 0;
+
+  height: auto;
+  list-style-type: none;
+
+  white-space: nowrap;
+  overflow: hidden;
+
+  li {
+    float: left;
+    &.brand {
+      font-size: 44.25px;
+      padding: 0;
+      * {
+        color: $mu-color-primary;
+      }
+    }
+    &.item {
+      &:before {
+        content: '/';
+        color: $mu-color-disabled;
+        margin: 0 5px 0 10px;
+        cursor: default;
+        pointer-events: none;
+      }
+      &:last-child {
+        * {
+          color: $mu-color-disabled;
+          cursor: default;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}

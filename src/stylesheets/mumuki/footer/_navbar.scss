@@ -1,0 +1,13 @@
+footer {
+  nav.mu-nav {
+    @media (max-width: $mu-max-sd) {
+      @include flexbox(column, space-around, center);
+    }
+    @media (min-width: $mu-min-hd) {
+      @include flexbox(row, space-between, center);
+    }
+
+    padding: $mu-gap 0;
+    border-top: 1px solid $mu-color-separator;
+  }
+}

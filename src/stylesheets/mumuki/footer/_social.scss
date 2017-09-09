@@ -1,0 +1,23 @@
+ul.mu-social {
+  @include flexbox(row, flex-end, center);
+
+  margin: 0;
+  padding: 0;
+  width: auto;
+
+  list-style-type: none;
+
+  li {
+    float: left;
+    &:not(:first-child) {
+      margin-left: $mu-gap-d2;
+    }
+    &.item {
+      a {
+        border: 2px solid $mu-color-link;
+        padding: 3px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
