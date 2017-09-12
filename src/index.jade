@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    title Styles
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', type='text/css', href='/css/mumuki-styles.css')
+    script(type='text/javascript', src='/javascripts/mumuki-styles.js')
+
+  body
+
+    header.mu-header
+      nav.mu-nav.mu-container
+        span.mu-hamburguer: i.fa.fa-fw.fa-bars.fa-lg
+        block breadcrumb
+          ul.mu-breadcrumb
+        ul.mu-profile
+          li.notifications: a(href='')
+            i.fa.fa-bell
+            span Notificaciones
+          li.avatar: a(href='')
+            img(src='//goo.gl/8ydqkL')
+            span Juan Pérez
+
+    main
+      block content
+        include views/book
+
+    footer
+      nav.mu-nav.mu-container
+        span.mu-copyright
+          span © Copyright 2015-2017
+          span &nbsp;
+          a(href='/')
+            i.da.da-fw.da-mumuki-circle
+            span Mumuki Project
+        img.mu-auth0(src='//cdn.auth0.com/oss/badges/a0-badge-light.png')
+        ul.mu-social
+          li.item: a(href=''): i.fa.fa-fw.fa-facebook
+          li.item: a(href=''): i.fa.fa-fw.fa-twitter
+          li.item: a(href=''): i.fa.fa-fw.fa-github
+          li.item: a(href=''): i.fa.fa-fw.fa-linkedin

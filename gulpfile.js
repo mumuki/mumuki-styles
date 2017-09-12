@@ -47,18 +47,31 @@ gulp.task('fonts', () => {
   return gulp.src(fonts).pipe(gulp.dest(`${out}/fonts`));
 });
 
+gulp.task('jade', ['jade:views'], () => {
+  return gulp.src('src/index.jade')
+    .pipe($.jade({pretty: true}))
+    .pipe(gulp.dest(`${out}`));
+});
+
+gulp.task('jade:views', () => {
+  return gulp.src('src/views/**/*.jade')
+    .pipe($.jade({pretty: true}))
+    .pipe(gulp.dest(`${out}`));
+});
+
 gulp.task('watch', () => {
   gulp.watch('src/stylesheets/**/*.scss', ['css']);
   gulp.watch('src/javascripts/**/*.js', ['js']);
+  gulp.watch('src/**/*.jade', ['jade']);
 });
 
 gulp.task('dev', (done) => {
   out = 'build';
-  runs('dist', 'watch', 'serve', done);
+  runs('dist', 'jade', 'watch', 'serve', done);
 });
 
 gulp.task('serve', () => {
-  return gulp.src('.')
+  return gulp.src(out)
     .pipe($.webserver({
       host: '0.0.0.0',
       open: true,
