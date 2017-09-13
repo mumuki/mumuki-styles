@@ -4,5 +4,11 @@ main {
   }
 }
 
+.mu-hide-sd {
+  @media (max-width: $mu-max-sd) {
+    display: none;
+  }
+}
+
 @import 'book';
 @import 'chapter';
