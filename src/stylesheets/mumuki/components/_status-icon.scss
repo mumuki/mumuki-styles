@@ -1,0 +1,27 @@
+.mu-status-icon {
+  @extend .fa;
+  @extend .fa-fw;
+  @extend .text-muted;
+  @extend .fa-circle;
+
+  &.passed {
+    @extend .text-success;
+    @extend .fa-check-circle;
+  }
+
+  &.passed-with-warnings {
+    @extend .text-warning;
+    @extend .fa-exclamation-circle;
+  }
+
+  &.failed,
+  &.errored {
+    @extend .text-danger;
+    @extend .fa-times-circle;
+  }
+
+  &.pending {
+    @extend .text-muted;
+    @extend .fa-circle;
+  }
+}
