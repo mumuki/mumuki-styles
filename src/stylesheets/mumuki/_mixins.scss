@@ -5,3 +5,9 @@
   flex-direction:   $orientation;
   justify-content:  $orientation-align;
 }
+
+@mixin columns($count) {
+  -webkit-columns: 0 $count;
+     -moz-columns: 0 $count;
+          columns: 0 $count;
+}

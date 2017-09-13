@@ -1,0 +1,58 @@
+.mu-chapter {
+
+  .header {
+    @include flexbox(column, flex-start, flex-start);
+
+    width: 100%;
+
+    img {
+      max-height: 75px;
+      max-width: 100%;
+    }
+    h2 {
+      margin-bottom: 0;
+      text-align: center;
+    }
+    h3 {
+      margin-top: 0;
+      text-align: center;
+    }
+    .description {
+      p {
+        text-align: justify;
+      }
+    }
+  }
+
+  .content {
+    ul.mu-lessons {
+      @include flexbox(column, flex-start, flex-start);
+      width: 100%;
+
+      li.item {
+        width: 100%;
+
+        ul.mu-exercises {
+          @media (min-width: $mu-min-hd) { @include columns(3) }
+          @media (max-width: $mu-max-sd) { @include columns(2) }
+          @media (max-width: $mu-max-xd) { @include columns(1) }
+
+          width: 100%;
+          padding-left: $mu-gap-x3;
+
+          li {
+            width: 100%;
+            float: none;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+
+  .appendix {
+    margin-top: $mu-gap-x2;
+  }
+}
