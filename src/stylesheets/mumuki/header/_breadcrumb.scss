@@ -5,13 +5,11 @@ ul.mu-breadcrumb {
   padding: 0;
 
   height: auto;
-  list-style-type: none;
 
   white-space: nowrap;
   overflow: hidden;
 
   li {
-    float: left;
     &.brand {
       font-size: 44.25px;
       padding: 0;

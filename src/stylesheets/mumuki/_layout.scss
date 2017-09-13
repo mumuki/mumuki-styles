@@ -34,4 +34,15 @@ footer {
     margin: 0 auto;
     max-width: calc(#{$mu-min-ud} - #{$mu-gap-x2});
   }
+  &.with-offset {
+    @media (max-width: $mu-max-sd) {
+      margin: 0 $mu-gap;
+      width: calc(100% - #{$mu-gap-x2});
+    }
+    @media (min-width: $mu-min-hd) {
+      margin: 0 auto;
+      max-width: calc(#{$mu-min-hd} - #{$mu-gap-x2});
+    }
+  }
 }
+

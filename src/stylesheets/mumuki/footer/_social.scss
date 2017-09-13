@@ -5,10 +5,7 @@ ul.mu-social {
   padding: 0;
   width: auto;
 
-  list-style-type: none;
-
   li {
-    float: left;
     &:not(:first-child) {
       margin-left: $mu-gap-d2;
     }

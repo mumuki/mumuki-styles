@@ -36,11 +36,14 @@ header {
         }
         transition: max-height $transition linear;
         overflow: hidden;
-        min-width: calc(100vw - #{$mu-gap-x2});
+        min-width: 100vw;
         max-height: 100vh;
         background-color: $mu-color-background;
         border-bottom: 1px solid $mu-color-separator;
         z-index: 5000;
+        margin: 0;
+        padding: 0 $mu-gap;
+
         ul {
           li {
             padding: 5px;
@@ -76,7 +79,6 @@ header {
         .mu-profile {
           width: 100%;
           padding-top: $mu-gap;
-          border-top: 1px solid $mu-color-separator;
           li {
             margin-left: 0;
             &.notifications {

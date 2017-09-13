@@ -1,0 +1,39 @@
+.mu-book {
+
+  .header {
+    @include flexbox(column, flex-start, center);
+
+    width: 100%;
+
+    img {
+      max-height: 75px;
+      max-width: 100%;
+    }
+    h2 {
+      margin-bottom: 0;
+      text-align: center;
+    }
+    h3 {
+      margin-top: 0;
+      text-align: center;
+    }
+    .description {
+      p {
+        text-align: justify;
+      }
+    }
+  }
+
+  .content {
+    ul.mu-chapters {
+      @include flexbox(column, flex-start, flex-start);
+
+      li.item {
+        p {
+          text-align: justify;
+        }
+      }
+    }
+  }
+}
+
