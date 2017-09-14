@@ -1,0 +1,58 @@
+.mu-lesson {
+
+  .header {
+    @include flexbox(column, flex-start, flex-start);
+
+    width: 100%;
+
+    h1 {
+      @include flexbox(row, space-between, center);
+
+      width: 100%;
+      margin-bottom: $mu-gap;
+
+      span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      i {
+        margin-left: $mu-gap;
+      }
+    }
+    .description {
+      width: 100%;
+      p {
+        text-align: justify;
+      }
+    }
+    a {
+      align-self: center;
+    }
+
+    padding-bottom: $mu-gap;
+  }
+
+  .content {
+    ul.mu-exercises {
+      @media (min-width: $mu-min-hd) { @include columns(3) }
+      @media (max-width: $mu-max-sd) { @include columns(2) }
+      @media (max-width: $mu-max-xd) { @include columns(1) }
+
+      width: 100%;
+      padding-left: $mu-gap-x3;
+
+      li {
+        width: 100%;
+        float: none;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  .appendix {
+    margin-top: $mu-gap-x2;
+  }
+}
