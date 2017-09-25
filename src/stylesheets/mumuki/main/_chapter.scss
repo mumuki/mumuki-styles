@@ -5,6 +5,13 @@
 
     width: 100%;
 
+    h1 {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
     img {
       max-height: 75px;
       max-width: 100%;
@@ -17,6 +24,7 @@
   }
 
   .content {
+
     ul.mu-lessons {
       @include flexbox(column, flex-start, flex-start);
       width: 100%;

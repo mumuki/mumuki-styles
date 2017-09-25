@@ -3,6 +3,16 @@ $avatar-size-hamburguer: 30px;
 
 $transition: 0.25s;
 
+
+body.mu-hamburguer-open {
+  @media (max-width: $mu-max-sd) {
+    overflow: hidden;
+    main, footer {
+      display: none;
+    }
+  }
+}
+
 header {
 
   nav.mu-nav {
@@ -11,7 +21,7 @@ header {
       cursor: pointer;
     }
 
-    @media (max-width: $mu-max-xd) {
+    @media (max-width: $mu-max-sd) {
       .mu-hamburguer {
         @include flexbox(row, flex-start, center);
         height: $mu-header-height-hd;
@@ -103,7 +113,7 @@ header {
         }
       }
     }
-    @media (min-width: $mu-min-sd) {
+    @media (min-width: $mu-min-hd) {
       @include flexbox(row, space-between, center);
 
       .mu-hamburguer {
