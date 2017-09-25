@@ -46,3 +46,10 @@ footer {
   }
 }
 
+
+body.mu-hamburguer-open {
+  overflow: hidden;
+  main, footer {
+    display: none;
+  }
+}
