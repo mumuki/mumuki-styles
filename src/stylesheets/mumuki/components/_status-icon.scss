@@ -14,10 +14,15 @@
     @extend .fa-exclamation-circle;
   }
 
-  &.failed,
-  &.errored {
+  &.failed {
     @extend .text-danger;
     @extend .fa-times-circle;
+  }
+
+  &.errored {
+    @extend .text-danger;
+    @extend .fa-minus-circle;
+    color: $mu-color-broken
   }
 
   &.pending {
