@@ -1,0 +1,58 @@
+.mu-exercise {
+
+  .header {
+    @include flexbox(column, flex-start, flex-start);
+
+    width: 100%;
+
+    h1 {
+      @include flexbox(row, space-between, center);
+
+      width: 100%;
+      margin-bottom: $mu-gap;
+
+      span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      i {
+        margin-left: $mu-gap;
+      }
+    }
+
+    .mu-exercises {
+      @include flexbox(row, space-between, center);
+      width: 100%;
+      position: relative;
+      margin-bottom: $mu-gap;
+
+      a.mu-exercise-status {
+        &.passed { background-color: $mu-color-success }
+        &.passed-with-warnings { background-color: $mu-color-warning }
+        &.failed { background-color: $mu-color-danger }
+        &.errored { background-color: $mu-color-broken }
+        &.pending { background-color: $mu-color-disabled }
+        width: 100%;
+        height: 8px;
+        margin: 1px;
+        &:hover {
+          position: relative;
+          height: 10px;
+          margin: 0px;
+          &:before {
+            @include flexbox(row, center, center);
+            position: absolute;
+            content: '•';
+            color: $mu-color-link;
+            top: $mu-gap-d3;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+

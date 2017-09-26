@@ -1,0 +1,43 @@
+extends ../../index
+
+block breadcrumb
+  ul.mu-breadcrumb
+    li.brand: a(href='/')
+      i.da.da-mumuki-circle
+      span mumuki
+    li.item: a(href='/chapters/Fundamentos.html') Fundamentos
+    li.item: a(href='/lessons/Expresiones.html') 8. Expresiones
+    li.item: a(href='/exercises/Bolitas.html') 3. Bolitas
+
+
+block content
+  section.mu-container
+
+    .mu-exercise
+
+      .header
+
+        h1
+          span #[span.mu-hide-sd Ejercicio 3:] Bolitas
+          i.da.da-gobstones
+
+        div.mu-exercises
+          a(href='/exercises/Bolitas.html').mu-exercise-status.passed
+          a(href='/exercises/Bolitas.html').mu-exercise-status.passed-with-warnings
+          a(href='/exercises/Bolitas.html').mu-exercise-status.failed
+          a(href='/exercises/Bolitas.html').mu-exercise-status.errored
+          a(href='/exercises/Bolitas.html').mu-exercise-status.pending
+          a(href='/exercises/Bolitas.html').mu-exercise-status.passed
+          a(href='/exercises/Bolitas.html').mu-exercise-status.passed-with-warnings
+          a(href='/exercises/Bolitas.html').mu-exercise-status.failed
+          a(href='/exercises/Bolitas.html').mu-exercise-status.errored
+          a(href='/exercises/Bolitas.html').mu-exercise-status.pending
+          a(href='/exercises/Bolitas.html').mu-exercise-status.passed
+          a(href='/exercises/Bolitas.html').mu-exercise-status.passed
+          a(href='/exercises/Bolitas.html').mu-exercise-status.passed
+
+        a.btn.btn-success(href='/chapters/Fundamentos.html', role='button') ¡Comenzá esta lección!
+
+      .content
+
+        h3 Contenido
