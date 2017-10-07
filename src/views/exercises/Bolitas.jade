@@ -36,8 +36,38 @@ block content
           a(href='/exercises/Bolitas.html').mu-exercise-status.passed
           a(href='/exercises/Bolitas.html').mu-exercise-status.passed
 
-        a.btn.btn-success(href='/chapters/Fundamentos.html', role='button') ¡Comenzá esta lección!
-
       .content
 
-        h3 Contenido
+        .input-right
+          .exercise-content
+            .description
+                p Genial, ya entendiste cómo mover el cabezal del tablero usando la operación #[code Mover] y las direcciones (#[code Sur], #[code Oeste], etc). Vayamos un paso más allá: las #[strong bolitas].
+
+                p En cualquier celda de nuestro tablero podemos poner #[code bolitas]. Las hay de distintos colores:
+
+                ul
+                  li Rojas (#[code Rojo])
+                  li Azules (#[code Azul])
+                  li Negras (#[code Negro])
+                  li Verdes (#[code Verde])
+
+                p Por ejemplo, este es un tablero con una bolita roja y una negra:
+
+                p
+                  img(src='https://raw.githubusercontent.com/sagrado-corazon-alcal/mumuki-fundamentos-gobstones-guia-1-primeros-programas/master/2x2r10n11.png', alt='2x2r10n11')
+
+                p Además de moverse, el cabezal también puede poner bolitas en la #[strong celda actual]. Para eso contamos con la operación #[code Poner], que le dice al cabezal que deposite una bolita del color dado:
+
+                pre.highlight.gobstones: code #[span.kr program]#[span.w]{#[span.w]#[span.w]#[span.w]#[span.nf Poner](#[span.l Rojo])#[span.w]}
+
+                blockquote
+                  p ¡Probá este programa! Escribí el código en el editor, envialo y verás lo que pasa al ejecutarlo sobre este tablero:
+
+                p
+                  img(src='https://raw.githubusercontent.com/sagrado-corazon-alcal/mumuki-fundamentos-gobstones-guia-1-primeros-programas/master/3x3h.png', alt='3x3h')
+
+            .hint
+
+          .exercise-solution
+
+        .corollary

@@ -34,11 +34,14 @@
   }
 
   .content {
+
     ul.mu-exercises {
       @media (min-width: $mu-min-hd) { @include columns(3) }
       @media (max-width: $mu-max-sd) { @include columns(2) }
       @media (max-width: $mu-max-xd) { @include columns(1) }
 
+      list-style-type: none;
+      padding: 0;
       width: 100%;
       padding-left: $mu-gap-x3;
 

@@ -4,8 +4,11 @@ ul.mu-social {
   margin: 0;
   padding: 0;
   width: auto;
+  list-style-type: none;
+  padding: 0;
 
   li {
+    float: left;
     &:not(:first-child) {
       margin-left: $mu-gap-d2;
     }

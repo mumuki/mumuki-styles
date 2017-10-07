@@ -25,10 +25,15 @@
   }
 
   .content {
+
     ul.mu-chapters {
       @include flexbox(column, flex-start, flex-start);
 
+      list-style-type: none;
+      padding: 0;
+
       li.item {
+        float: left;
         p {
           text-align: justify;
         }

@@ -5,8 +5,10 @@ ul.mu-profile {
   padding: 0;
 
   white-space: nowrap;
+  list-style-type: none;
 
   li {
+    float: left;
     margin: 0;
     padding: 0;
     margin-left: $mu-gap;
