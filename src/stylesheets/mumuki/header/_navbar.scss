@@ -33,13 +33,13 @@ header {
     @media (max-width: $mu-sm-max) {
       .mu-hamburguer {
         @include flexbox(row, flex-start, center);
-        height: $mu-header-height-hd;
+        height: $mu-header-height-md;
         width: 100%;
         border-bottom: 1px solid $mu-color-separator;
       }
 
       &:not(.mu-hamburguer-open) {
-        max-height: $mu-header-height-hd;
+        max-height: $mu-header-height-md;
         .mu-profile,
         .mu-breadcrumb {
           display: none;
