@@ -40,7 +40,7 @@ block content
 
         .input-right
           .exercise-content
-            .description
+            .description.markdown
                 p Genial, ya entendiste cómo mover el cabezal del tablero usando la operación #[code Mover] y las direcciones (#[code Sur], #[code Oeste], etc). Vayamos un paso más allá: las #[strong bolitas].
 
                 p En cualquier celda de nuestro tablero podemos poner #[code bolitas]. Las hay de distintos colores:
@@ -58,10 +58,13 @@ block content
 
                 p Además de moverse, el cabezal también puede poner bolitas en la #[strong celda actual]. Para eso contamos con la operación #[code Poner], que le dice al cabezal que deposite una bolita del color dado:
 
-                pre.highlight.gobstones: code #[span.kr program]#[span.w]{#[span.w]#[span.w]#[span.w]#[span.nf Poner](#[span.l Rojo])#[span.w]}
+                pre.highlight.gobstones
+                  code #[span.kr program]#[span.w  ]{#[br]#[span.w  ]#[span.w  ]#[span.nf Poner](#[span.l Rojo])#[br]}
 
                 blockquote
                   p ¡Probá este programa! Escribí el código en el editor, envialo y verás lo que pasa al ejecutarlo sobre este tablero:
+                  pre.highlight.gobstones
+                    code #[span.kr program]#[span.w  ]{#[br]#[span.w  ]#[span.w  ]#[span.nf Poner](#[span.l Rojo])#[br]}
 
                 p
                   img(src='https://raw.githubusercontent.com/sagrado-corazon-alcal/mumuki-fundamentos-gobstones-guia-1-primeros-programas/master/3x3h.png', alt='3x3h')
