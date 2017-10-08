@@ -1,53 +1,55 @@
-$brand-info: #3498DB;
-$brand-primary: #0B465D;
+$brand-primary:       #0B465D;
 $brand-complementary: #FF5B81;
 
-$brand-danger: #d9534f;
-$brand-success: #5cb85c;
+$brand-info:         #3498DB;
+$brand-info-light:   lighten($brand-info, 35%);
+$brand-info-lighter: #F4F6FB;
+
+$brand-success: #5CB85C;
 $brand-warning: #F39C12;
-$brand-broken: #651621;
+$brand-danger:  #D9534F;
+$brand-broken:  #651621;
 
-$brand-info-light: lighten($brand-info, 35%);
-$brand-info-lighter: #f4f6fb;
-
-$brand-danger-light: lighten($brand-danger, 35%);
 $brand-success-light: lighten($brand-success, 35%);
 $brand-warning-light: lighten($brand-warning, 35%);
+$brand-danger-light:  lighten($brand-danger, 35%);
+$brand-broken-light:  lighten($brand-broken, 35%);
 
-$link-color: $brand-info;
-
-$code-color: $brand-info;
-$code-bg: $brand-info-lighter;
+$link-color:  $brand-info;
+$code-color:  $brand-info;
+$code-bg:     $brand-info-lighter;
 
 $btn-success-bg: $brand-complementary;
 
-$navbar-inverse-bg: $brand-info;
+$navbar-inverse-bg:               $brand-info;
 $navbar-inverse-link-hover-color: $brand-primary;
 $navbar-default-link-hover-color: $brand-info-light;
 
-$mu-color-info: $brand-info;
-$mu-color-primary: $brand-primary;
+$mu-color-primary:       $brand-primary;
 $mu-color-complementary: $brand-complementary;
 
-$mu-color-danger: $brand-danger;
+$mu-color-info:         $brand-info;
+$mu-color-info-light:   lighten($brand-info, 35%);
+$mu-color-info-lighter: #F4F6FB;
+
 $mu-color-success: $brand-success;
 $mu-color-warning: $brand-warning;
-$mu-color-broken: $brand-broken;
+$mu-color-danger:  $brand-danger;
+$mu-color-broken:  $brand-broken;
 
-$mu-color-disabled: #AAAAAA;
-$mu-color-info-light: lighten($brand-info, 35%);
-$mu-color-info-lighter: #f4f6fb;
-
-$mu-color-danger-light: lighten($mu-color-danger, 35%);
 $mu-color-success-light: lighten($mu-color-success, 35%);
 $mu-color-warning-light: lighten($mu-color-warning, 35%);
-$mu-color-broken-light: lighten($mu-color-broken, 35%);
+$mu-color-danger-light:  lighten($mu-color-danger, 35%);
+$mu-color-broken-light:  lighten($mu-color-broken, 35%);
 
-$mu-color-link: $brand-info;
-$mu-color-code: $brand-info;
+$mu-color-link:    $brand-info;
+$mu-color-code:    $brand-info;
 $mu-color-code-bg: $brand-info-lighter;
 
-$mu-color-separator: #ecf0f1;
+$mu-color-disabled:   #AAAAAA;
+$mu-color-separator:  #ECF0F1;
+$mu-color-background: #FAFAFA;
+
 $mu-color-content-editable: $mu-color-separator;
 
 $mu-color-dark-separator: darken($mu-color-separator, 10%);
