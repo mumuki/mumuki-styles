@@ -36,9 +36,9 @@
         float: left;
 
         ul.mu-exercises {
-          @media (min-width: $mu-min-hd) { @include columns(3) }
-          @media (max-width: $mu-max-sd) { @include columns(2) }
-          @media (max-width: $mu-max-xd) { @include columns(1) }
+          @media (min-width: $mu-md-min) { @include columns(3) }
+          @media (max-width: $mu-sm-max) { @include columns(2) }
+          @media (max-width: $mu-xs-max) { @include columns(1) }
 
           width: 100%;
           padding-left: $mu-gap-x3;

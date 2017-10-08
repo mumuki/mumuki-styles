@@ -7,41 +7,41 @@ header {
 }
 
 main {
-  @media (min-width: $mu-min-hd) {
+  @media (min-width: $mu-md-min) {
     min-height: calc(100% - #{$mu-header-height-hd} - #{$mu-footer-height-hd});
   }
-  @media (max-width: $mu-max-sd) {
+  @media (max-width: $mu-sm-max) {
     min-height: calc(100% - #{$mu-header-height-hd} - #{$mu-footer-height-sd});
   }
 }
 
 footer {
-  @media (max-width: $mu-max-sd) {
+  @media (max-width: $mu-sm-max) {
     height: $mu-footer-height-sd;
   }
-  @media (min-width: $mu-min-hd) {
+  @media (min-width: $mu-md-min) {
     height: $mu-footer-height-hd;
   }
 }
 
 .mu-container {
   height: 100%;
-  @media (max-width: $mu-max-fd) {
+  @media (max-width: $mu-lg-max) {
     margin: 0 $mu-gap;
     width: calc(100% - #{$mu-gap-x2});
   }
-  @media (min-width: $mu-min-ud) {
+  @media (min-width: $mu-xl-min) {
     margin: 0 auto;
-    max-width: calc(#{$mu-min-ud} - #{$mu-gap-x2});
+    max-width: calc(#{$mu-xl-min} - #{$mu-gap-x2});
   }
   &.with-offset {
-    @media (max-width: $mu-max-sd) {
+    @media (max-width: $mu-sm-max) {
       margin: 0 $mu-gap;
       width: calc(100% - #{$mu-gap-x2});
     }
-    @media (min-width: $mu-min-hd) {
+    @media (min-width: $mu-md-min) {
       margin: 0 auto;
-      max-width: calc(#{$mu-min-hd} - #{$mu-gap-x2});
+      max-width: calc(#{$mu-md-min} - #{$mu-gap-x2});
     }
   }
 }

@@ -1,9 +1,9 @@
 footer {
   nav.mu-nav {
-    @media (max-width: $mu-max-sd) {
+    @media (max-width: $mu-sm-max) {
       @include flexbox(column, space-around, center);
     }
-    @media (min-width: $mu-min-hd) {
+    @media (min-width: $mu-md-min) {
       @include flexbox(row, space-between, center);
     }
 

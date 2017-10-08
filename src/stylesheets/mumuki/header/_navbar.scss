@@ -5,7 +5,7 @@ $transition: 0.25s;
 
 
 body.mu-hamburguer-open {
-  @media (max-width: $mu-max-sd) {
+  @media (max-width: $mu-sm-max) {
     overflow: hidden;
     main, footer {
       display: none;
@@ -30,7 +30,7 @@ header {
       }
     }
 
-    @media (max-width: $mu-max-sd) {
+    @media (max-width: $mu-sm-max) {
       .mu-hamburguer {
         @include flexbox(row, flex-start, center);
         height: $mu-header-height-hd;
@@ -122,7 +122,7 @@ header {
         }
       }
     }
-    @media (min-width: $mu-min-hd) {
+    @media (min-width: $mu-md-min) {
       @include flexbox(row, space-between, center);
 
       .mu-hamburguer {

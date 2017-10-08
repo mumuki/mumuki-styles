@@ -5,7 +5,7 @@ main {
 }
 
 .mu-hide-sd {
-  @media (max-width: $mu-max-sd) {
+  @media (max-width: $mu-sm-max) {
     display: none;
   }
 }
