@@ -1,10 +1,13 @@
-$mu-gap:     15px;
-$mu-gap-x1:  15px;
-$mu-gap-x2:  30px;
-$mu-gap-x3:  45px;
-$mu-gap-x4:  60px;
-$mu-gap-x5:  75px;
-$mu-gap-x6:  90px;
+$mu-gap:     12px;
 
-$mu-gap-d2: 7.5px;
-$mu-gap-d3:   5px;
+$mu-gap-x6: $mu-gap * 6;
+$mu-gap-x5: $mu-gap * 5;
+$mu-gap-x4: $mu-gap * 4;
+$mu-gap-x3: $mu-gap * 3;
+$mu-gap-x2: $mu-gap * 2;
+
+$mu-gap-d6: $mu-gap / 6;
+$mu-gap-d5: $mu-gap / 5;
+$mu-gap-d4: $mu-gap / 4;
+$mu-gap-d3: $mu-gap / 3;
+$mu-gap-d2: $mu-gap / 2;
