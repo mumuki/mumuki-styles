@@ -1,9 +1,18 @@
-$font-size-base: 17px;
-$line-height-base: 1.8;
-$mu-fonts: (ahahamojimoji, mu-font);
+$font-family: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', 'Sans-Serif';
+$font-family-base: $font-family;
+
+$font-size: 17px;
+$font-size-base: $font-size;
+
+$line-height: 1.8;
+$line-height-base: $line-height;
+
+$mu-font-size:   $font-size;
+$mu-font-family: $font-family;
+$mu-line-height: $line-height;
 
 body {
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
+  font-size:   $mu-font-size;
+  font-family: $mu-font-family;
+  line-height: $mu-line-height;
 }
