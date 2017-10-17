@@ -1,12 +1,12 @@
 
 @font-face {
   font-family:"dev-awesome";
-  src:url("../fonts/dev-awesome.eot?44ee561dffd34651e60385fcb2ffcfc0");
+  src:url("../fonts/dev-awesome.eot?6685de95b0a2a9e7b8e51aef7a1fe8f0");
   src:url("../fonts/dev-awesome.eot?#iefix") format("embedded-opentype"),
-		url("../fonts/dev-awesome.woff2?44ee561dffd34651e60385fcb2ffcfc0") format("woff2"),
-		url("../fonts/dev-awesome.woff?44ee561dffd34651e60385fcb2ffcfc0") format("woff"),
-		url("../fonts/dev-awesome.ttf?44ee561dffd34651e60385fcb2ffcfc0") format("truetype"),
-		url("../fonts/dev-awesome.svg?44ee561dffd34651e60385fcb2ffcfc0#dev-awesome") format("svg");
+		url("../fonts/dev-awesome.woff2?6685de95b0a2a9e7b8e51aef7a1fe8f0") format("woff2"),
+		url("../fonts/dev-awesome.woff?6685de95b0a2a9e7b8e51aef7a1fe8f0") format("woff"),
+		url("../fonts/dev-awesome.ttf?6685de95b0a2a9e7b8e51aef7a1fe8f0") format("truetype"),
+		url("../fonts/dev-awesome.svg?6685de95b0a2a9e7b8e51aef7a1fe8f0#dev-awesome") format("svg");
   font-weight:normal;
   font-style:normal;
 }
@@ -30,101 +30,211 @@
 // Icons
 
 
+.da-bash:before {
+  content:"\f115";
+}
+.da-bash-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/bash.svg");
+}
+
+
 .da-c:before {
   content:"\f101";
+}
+.da-c-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/c.svg");
 }
 
 
 .da-code:before {
   content:"\f114";
 }
+.da-code-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/code.svg");
+}
 
 
 .da-cpp:before {
   content:"\f102";
+}
+.da-cpp-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/cpp.svg");
 }
 
 
 .da-css:before {
   content:"\f103";
 }
+.da-css-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/css.svg");
+}
 
 
 .da-elixir:before {
   content:"\f104";
+}
+.da-elixir-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/elixir.svg");
 }
 
 
 .da-gobstones:before {
   content:"\f105";
 }
+.da-gobstones-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/gobstones.svg");
+}
 
 
 .da-haskell:before {
   content:"\f106";
+}
+.da-haskell-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/haskell.svg");
 }
 
 
 .da-html:before {
   content:"\f107";
 }
+.da-html-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/html.svg");
+}
 
 
 .da-java:before {
   content:"\f108";
+}
+.da-java-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/java.svg");
 }
 
 
 .da-javascript:before {
   content:"\f109";
 }
+.da-javascript-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/javascript.svg");
+}
 
 
 .da-mongodb:before {
   content:"\f10a";
+}
+.da-mongodb-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/mongodb.svg");
 }
 
 
 .da-mumuki-circle:before {
   content:"\f10b";
 }
+.da-mumuki-circle-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/mumuki-circle.svg");
+}
 
 
 .da-mumuki:before {
   content:"\f10c";
+}
+.da-mumuki-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/mumuki.svg");
 }
 
 
 .da-prolog:before {
   content:"\f10d";
 }
+.da-prolog-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/prolog.svg");
+}
 
 
 .da-python:before {
   content:"\f10e";
+}
+.da-python-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/python.svg");
 }
 
 
 .da-qsim:before {
   content:"\f10f";
 }
+.da-qsim-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/qsim.svg");
+}
 
 
 .da-ruby:before {
   content:"\f110";
+}
+.da-ruby-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/ruby.svg");
 }
 
 
 .da-sql:before {
   content:"\f113";
 }
+.da-sql-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/sql.svg");
+}
 
 
 .da-text:before {
   content:"\f111";
 }
+.da-text-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/text.svg");
+}
 
 
 .da-wollok:before {
   content:"\f112";
+}
+.da-wollok-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/wollok.svg");
 }
