@@ -54,6 +54,40 @@
   @import "bower_compoments/mumuki-styles/dist/scss/mumuki-styles.scss"
   ```
 
+### Using mu-file-browser
+
+```html
+  <div
+    class="mu-file-browser"
+    data-can-browse="true"
+    data-on-file-open="console.log"
+    data-file='{
+      "foo": {
+        "saraza": {
+          "sultano.rb": "sultano"
+        },
+        "sultano.rb": "sultano",
+        "mengano.js": "mengano"
+      },
+      "bar": {
+        "archivo con un nombre largo.doc": "un doc"
+      },
+      "baz": {
+        "mengano.js": "mengano"
+      },
+      "saraza.txt": "saraza",
+      "sultano.rb": "sultano",
+      "mengano.js": "mengano",
+      "archivo con un nombre largo.doc": "un doc"
+    }'>
+  </div>
+```
+
+#### mu-file-browser attributes
+* `data-can-browse`: (Boolean) user can enter into a folder (default `false`).
+* `data-on-file-open`: (Function) receives 2 params, file name and file content. If no function given user can't open files.
+* `data-file`: (Object) object `keys` are the names of the resources and object `values` are theirs contents (sub-object for a folder and a string for a file).
+
 ## License
 
 This project is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

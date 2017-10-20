@@ -48,4 +48,7 @@ $mu-color-code: $brand-info;
 $mu-color-code-bg: $brand-info-lighter;
 
 $mu-color-separator: #ecf0f1;
-$mu-color-content-editable: $mu-color-separator
+$mu-color-content-editable: $mu-color-separator;
+
+$mu-color-dark-separator: darken($mu-color-separator, 10%);
+$mu-color-darken-separator: darken($mu-color-dark-separator, 10%);
