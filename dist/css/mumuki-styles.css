@@ -6021,7 +6021,7 @@ input {
   font-weight: normal;
   font-style: normal; }
 
-.fa {
+.fa, .mu-file-browser header i, .mu-file-browser main ul li i {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -6047,7 +6047,7 @@ input {
 .fa-5x {
   font-size: 5em; }
 
-.fa-fw {
+.fa-fw, .mu-file-browser header i, .mu-file-browser main ul li i {
   width: 1.28571em;
   text-align: center; }
 
@@ -6078,10 +6078,10 @@ input {
 .fa-pull-right {
   float: right; }
 
-.fa.fa-pull-left {
+.fa.fa-pull-left, .mu-file-browser header i.fa-pull-left, .mu-file-browser main ul li i.fa-pull-left {
   margin-right: .3em; }
 
-.fa.fa-pull-right {
+.fa.fa-pull-right, .mu-file-browser header i.fa-pull-right, .mu-file-browser main ul li i.fa-pull-right {
   margin-left: .3em; }
 
 /* Deprecated as of 4.4.0 */
@@ -6091,10 +6091,10 @@ input {
 .pull-left {
   float: left; }
 
-.fa.pull-left {
+.fa.pull-left, .mu-file-browser header i.pull-left, .mu-file-browser main ul li i.pull-left {
   margin-right: .3em; }
 
-.fa.pull-right {
+.fa.pull-right, .mu-file-browser header i.pull-right, .mu-file-browser main ul li i.pull-right {
   margin-left: .3em; }
 
 .fa-spin {
@@ -6249,7 +6249,7 @@ input {
 .fa-home:before {
   content: ""; }
 
-.fa-file-o:before {
+.fa-file-o:before, .mu-file-browser main ul li i.file:before {
   content: ""; }
 
 .fa-clock-o:before {
@@ -6541,7 +6541,7 @@ input {
 .fa-shopping-cart:before {
   content: ""; }
 
-.fa-folder:before {
+.fa-folder:before, .mu-file-browser main ul li i.folder:before {
   content: ""; }
 
 .fa-folder-open:before {
@@ -6671,7 +6671,7 @@ input {
 .fa-hand-o-down:before {
   content: ""; }
 
-.fa-arrow-circle-left:before {
+.fa-arrow-circle-left:before, .mu-file-browser header i:before {
   content: ""; }
 
 .fa-arrow-circle-right:before {
@@ -9309,7 +9309,7 @@ pre code {
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-start; }
-    .mu-navbar .mu-navbar-avatar .notifications-box .fa {
+    .mu-navbar .mu-navbar-avatar .notifications-box .fa, .mu-navbar .mu-navbar-avatar .notifications-box .mu-file-browser header i, .mu-file-browser header .mu-navbar .mu-navbar-avatar .notifications-box i, .mu-navbar .mu-navbar-avatar .notifications-box .mu-file-browser main ul li i, .mu-file-browser main ul li .mu-navbar .mu-navbar-avatar .notifications-box i {
       color: #0B465D; }
     .mu-navbar .mu-navbar-avatar .notifications-box .badge-notifications {
       position: absolute;
@@ -9377,3 +9377,85 @@ pre code {
   .mu-browser > * {
     display: block;
     margin: 2em; }
+
+.mu-file-browser {
+  width: 100%;
+  position: relative; }
+  .mu-file-browser header {
+    margin: 15px;
+    margin-bottom: 0;
+    padding: 15px;
+    border: 2px solid #cfd9db;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #ecf0f1;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start; }
+    .mu-file-browser header i {
+      cursor: pointer;
+      font-size: 25px;
+      margin-right: 10px; }
+    .mu-file-browser header input {
+      border: 1px solid #cfd9db;
+      padding: 0 10px;
+      height: 30px;
+      border-radius: 10px;
+      width: 100%; }
+      .mu-file-browser header input:focus {
+        outline: none; }
+  .mu-file-browser main {
+    border: 2px solid #cfd9db;
+    border-top: none;
+    margin: 15px;
+    margin-top: 0; }
+    .mu-file-browser main ul {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      align-content: flex-start;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      left: 0;
+      right: 0;
+      min-height: 208px; }
+      .mu-file-browser main ul li {
+        display: flex;
+        flex-flow: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        align-content: flex-start;
+        margin: 5px;
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        position: relative; }
+        .mu-file-browser main ul li:not(:hover) span {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
+        .mu-file-browser main ul li i {
+          color: #b1c2c6;
+          padding: 6px 0;
+          width: 70px;
+          height: 70px;
+          font-size: 64px;
+          margin: auto; }
+        .mu-file-browser main ul li span {
+          width: 100%;
+          text-align: center; }
+        .mu-file-browser main ul li:hover {
+          z-index: 10;
+          color: white; }
+          .mu-file-browser main ul li:hover i, .mu-file-browser main ul li:hover span {
+            position: absolute;
+            background-color: rgba(16, 104, 139, 0.75);
+            width: 100%; }
+          .mu-file-browser main ul li:hover i {
+            color: white; }
+          .mu-file-browser main ul li:hover span {
+            top: 70px;
+            height: auto; }
