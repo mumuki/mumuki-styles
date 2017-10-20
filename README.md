@@ -88,6 +88,8 @@
 * `data-on-file-open`: (Function) receives 2 params, file name and file content. If no function given user can't open files.
 * `data-file`: (Object) object `keys` are the names of the resources and object `values` are theirs contents (sub-object for a folder and a string for a file).
 
+With jQuery you can use function `$('.mu-file-browser').renderFileBrowser()`;
+
 ## License
 
 This project is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

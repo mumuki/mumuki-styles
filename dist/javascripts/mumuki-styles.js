@@ -14811,37 +14811,43 @@ if (typeof jQuery === 'undefined') {
       )
     }
 
-    var fileBrowsers = $('.mu-file-browser');
+    $.fn.renderFileBrowser = function () {
+      var self = this;
+      self.empty();
+      self.each(function (i) {
+        var $explorer = $(self[i]);
+        var files = $explorer.data('file');
+        var canBrowse = $explorer.data('can-browse');
+        var onFileOpen = $explorer.data('on-file-open');
 
-    fileBrowsers.each(function (i) {
-      var $explorer = $(fileBrowsers[i]);
-      var files = $explorer.data('file');
-      var canBrowse = $explorer.data('can-browse');
-      var onFileOpen = $explorer.data('on-file-open');
+        var $header = getExplorerHeader(canBrowse);
+        var $main = $('<main></main>');
 
-      var $header = getExplorerHeader(canBrowse);
-      var $main = $('<main></main>');
+        var ROOT_FOLDER_NAME = '/home/mumuki';
 
-      var ROOT_FOLDER_NAME = '/home/mumuki';
 
-      if (files instanceof Object) {
-        var state = {
-          container: $main,
-          header: $header,
-          canBrowse: !!canBrowse,
-          onFileOpen: onFileOpen,
-          breadcrumb: [{name: ROOT_FOLDER_NAME, files: files}]
-        };
+        if (files instanceof Object) {
+          var state = {
+            container: $main,
+            header: $header,
+            canBrowse: !!canBrowse,
+            onFileOpen: onFileOpen,
+            breadcrumb: [{name: ROOT_FOLDER_NAME, files: files}]
+          };
 
-        $explorer.append($header);
-        $explorer.append($main);
+          $explorer.append($header);
+          $explorer.append($main);
 
-        $header.find('i').click(() => back(state));
+          $header.find('i').click(() => back(state));
 
-        createExplorerFrom(state, files);
+          createExplorerFrom(state, files);
 
-      }
-    });
+        }
+      });
+      return self;
+    }
+
+    $('.mu-file-browser').renderFileBrowser();
 
   });
 
