@@ -9421,7 +9421,8 @@ pre code {
       margin: 0;
       left: 0;
       right: 0;
-      min-height: 208px; }
+      min-height: 208px;
+      overflow: hidden; }
       .mu-file-browser main ul li {
         display: flex;
         flex-flow: column;

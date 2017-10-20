@@ -43,6 +43,7 @@ $mu-file-browser-border: 2px solid $mu-color-dark-separator;
       left: 0;
       right: 0;
       min-height: 208px;
+      overflow: hidden;
       li {
         @include display-flex(column, flex-start, flex-start)
         align-content: flex-start;
