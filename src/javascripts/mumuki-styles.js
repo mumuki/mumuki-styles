@@ -65,17 +65,19 @@
       }
     }
 
-    function sortedFilesKeys(files = {}) {
-      return Object.keys(files).sort((a, b) => sortByTypeAndName(files, a, b));
+    function sortedFilesKeys(files) {
+      return Object.keys(files || {}).sort(function (a, b) {
+        return sortByTypeAndName(files, a, b);
+      });
     }
 
     function getListItem(files, key, state) {
-      return $(`
-        <li>
-          <i class="${fileBrowserClassType(files[key])}"></i>
-          <span>${key}</span>
-        </li>`
-      ).click(function () {
+      return $([
+        '<li>',
+        '  <i class="' + fileBrowserClassType(files[key]) + '"></i>',
+        '  <span>' + key + '</span>',
+        '</li>'].join(''))
+      .click(function () {
         descriptorType[fileBrowserClassType(files[key])].open(state, key);
       });
     }
@@ -85,7 +87,9 @@
     }
 
     function appendFiles($ul, files, state) {
-      sortedFilesKeys(files).forEach((key) => $ul.append(getListItem(files, key, state)));
+      sortedFilesKeys(files).forEach(function (key) {
+        $ul.append(getListItem(files, key, state));
+      });
     }
 
     function createExplorerFrom(state, files) {
@@ -97,12 +101,12 @@
     }
 
     function getExplorerHeader(canBrowse) {
-      return $(`
-        <header>
-          ${canBrowse ? '<i class="fa fa-fw fa-arrow-left"></i>' : ''}
-          <input class="mu-file-browser-path" type="text" readonly>
-        </header>`
-      )
+      return $([
+        '<header>',
+           canBrowse ? '<i class="fa fa-fw fa-arrow-left"></i>' : '',
+        '  <input class="mu-file-browser-path" type="text" readonly>',
+        '</header>'
+      ].join(''))
     }
 
     $.fn.renderFileBrowser = function () {
@@ -132,7 +136,9 @@
           $explorer.append($header);
           $explorer.append($main);
 
-          $header.find('i').click(() => back(state));
+          $header.find('i').click(function () {
+            back(state)
+          });
 
           createExplorerFrom(state, files);
 
