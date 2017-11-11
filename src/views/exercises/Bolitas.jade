@@ -70,6 +70,9 @@ block content
             .hint
 
           .exercise-solution
-            textarea(placeholder='Solución')
+            textarea.code-editor(placeholder='Solución')
+            div.code-editor-wrapper
+              div.code-editor-gutter
+              div.code-editor-text(contenteditable='true')
 
         .corollary

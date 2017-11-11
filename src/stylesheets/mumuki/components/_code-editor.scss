@@ -1,0 +1,14 @@
+.code-editor,
+.code-editor-text {
+  font-family: 'Menlo', 'Monaco', 'Consolas', "Courier New", 'Monospace';
+  font-size: 15px;
+  line-height: 1.5;
+  width: 100%;
+  resize: none;
+  min-height: 400px;
+  border: 1px solid $mu-color-disabled;
+  background-color: #F0F0F5;
+  padding: $mu-gap;
+  color: black;
+  outline: none;
+}
