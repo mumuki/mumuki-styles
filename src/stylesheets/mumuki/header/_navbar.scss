@@ -1,9 +1,6 @@
 $avatar-size: 50px;
 $avatar-size-hamburguer: 30px;
 
-$transition: 0.25s;
-
-
 body.mu-hamburguer-open {
   @media (max-width: $mu-sm-max) {
     overflow: hidden;
@@ -14,129 +11,137 @@ body.mu-hamburguer-open {
 }
 
 header {
-
   nav.mu-nav {
 
-    .mu-hamburguer{
-      cursor: pointer;
-    }
+    border-bottom: 1px solid $mu-color-separator;
 
-    ul {
-      list-style-type: none;
-      padding: 0;
-
-      li {
-        float: left;
+    .mu-hamburguer {
+      i {
+        cursor: pointer;
       }
     }
 
-    @media (max-width: $mu-sm-max) {
-      .mu-hamburguer {
-        @include flexbox(row, flex-start, center);
-        height: $mu-header-height-md;
-        width: 100%;
-        border-bottom: 1px solid $mu-color-separator;
-      }
-
-      &:not(.mu-hamburguer-open) {
-        max-height: $mu-header-height-md;
-        .mu-profile,
-        .mu-breadcrumb {
-          display: none;
-        }
-      }
-
-      &.mu-hamburguer-open {
-        position: fixed;
-        .mu-hamburguer {
-          i.fa:before {
-            content: $fa-var-arrow-left;
-          }
-        }
-        transition: max-height $transition linear;
-        overflow: hidden;
-        min-width: 100vw;
-        max-height: 100vh;
-        background-color: $mu-color-background;
-        border-bottom: 1px solid $mu-color-separator;
-        z-index: 5000;
-        margin: 0;
-        padding: 0 $mu-gap;
-
-        ul {
-          li {
-            padding: 5px;
-            span {
-              margin-left: $mu-gap-d2;
-            }
-          }
-        }
-        .mu-profile,
-        .mu-breadcrumb {
-          @include flexbox(column, flex-start, flex-start);
-        }
-        .mu-breadcrumb {
-          width: 100%;
-          padding-bottom: $mu-gap;
-          .brand {
-            font-size: 30px;
-            a {
-              position: relative;
-              span {
-                position: absolute;
-                margin-top: -3px;
-              }
-            }
-          }
-          .item {
-            &:before {
-              content:  '-';
-              margin: 0 20px 0 10px;
-            }
-          }
-        }
-        .mu-profile {
-          width: 100%;
-          padding-top: $mu-gap;
-          li {
-            margin-left: 0;
-            &.notifications {
-              i {
-                width: $avatar-size-hamburguer;
-                padding-left: $mu-gap-d3;
-                &:before {
-                  margin: auto;
-                }
-              }
-            }
-            &.avatar {
-              height: $avatar-size-hamburguer;
-              img {
-                object-fit: cover;
-                border-radius: 50%;
-                width: $avatar-size-hamburguer;
-                height: $avatar-size-hamburguer;
-              }
-            }
-          }
-        }
-      }
-    }
     @media (min-width: $mu-md-min) {
-      @include flexbox(row, space-between, center);
-
+      @include flexbox(row, flex-start, center);
       .mu-hamburguer {
         display: none;
       }
-      .brand,
-      .avatar,
-      .notifications {
-        span {
+      .mu-navigation-drawer {
+        @include flexbox(row, space-between, center);
+        width: 100%;
+        .text {
           display: none;
         }
       }
     }
 
-    border-bottom: 1px solid $mu-color-separator;
+    &:not(.mu-hamburguer-open) {
+
+      @media (max-width: $mu-sm-max) {
+        @include flexbox(row, flex-start, center);
+        .mu-navigation-drawer {
+          display: none;
+        }
+      }
+
+    }
+
+    &.mu-hamburguer-open {
+
+      @media (max-width: $mu-sm-max) {
+        @include flexbox(column, center, flex-start);
+        position: relative;
+
+        .mu-hamburguer {
+          @include flexbox(column, center, flex-start);
+          position: absolute;
+          top: 0;
+          height: $mu-header-height-md;
+        }
+
+        .mu-navigation-drawer {
+          @include flexbox(column, flex-start, flex-start);
+          position: absolute;
+          top: $mu-header-height-md;
+          height: 100vw;
+          width: 100%;
+
+          ul {
+            width: 100%;
+            li {
+              @include flexbox(row, flex-start, center);
+              width: 100%;
+              &:not(.brand) {
+                height: 55px;
+              }
+              &:hover {
+                background-color: $mu-color-primary;
+                * {
+                  filter: brightness(100);
+                }
+              }
+              a {
+                width: 100%;
+              }
+            }
+          }
+
+          i, img {
+            margin: auto $mu-gap-d3;
+          }
+
+          .mu-breadcrumb,
+          .mu-profile {
+            @include flexbox(column, flex-start, flex-start);
+            width: 100%;
+          }
+          .mu-breadcrumb {
+            padding-top: $mu-gap-d2;
+            padding-bottom: $mu-gap-d2;
+            margin-bottom: $mu-gap-d2;
+            border-bottom: 1px solid $mu-color-separator;
+            .brand {
+              font-size: 30px;
+              a {
+                position: relative;
+                span {
+                  font-size: 28px;
+                  position: absolute;
+                }
+              }
+            }
+            .item {
+              &:before {
+                content:  '-';
+                margin: 0 20px 0 (10px + $mu-gap-d2);
+              }
+            }
+          }
+          .mu-profile {
+            li {
+              margin-left: 0;
+              &.notifications {
+                i {
+                  width: $avatar-size-hamburguer;
+                  padding-left: $mu-gap-d3;
+                  &:before {
+                    margin: auto;
+                  }
+                }
+              }
+              &.avatar {
+                img {
+                  object-fit: cover;
+                  border-radius: 50%;
+                  width: $avatar-size-hamburguer;
+                  height: $avatar-size-hamburguer;
+                }
+              }
+            }
+          }
+        }
+      }
+
+    }
   }
 }

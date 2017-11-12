@@ -10,16 +10,19 @@ html
 
     header.mu-header
       nav.mu-nav.mu-container
-        span.mu-hamburguer: i.fa.fa-fw.fa-bars.fa-lg
-        block breadcrumb
-          ul.mu-breadcrumb
-        ul.mu-profile
-          li.notifications: a(href='')
-            i.fa.fa-bell
-            span Notificaciones
-          li.avatar: a(href='')
-            img(src='//goo.gl/8ydqkL')
-            span Juan Pérez
+        div.mu-hamburguer
+          i.fa.fa-fw.fa-bars.fa-lg
+        div.mu-navigation-drawer
+          block breadcrumb
+            ul.mu-breadcrumb
+          block profile
+            ul.mu-profile
+              li.notifications: a(href='')
+                span.icon: i.fa.fa-bell
+                span.text Notificaciones
+              li.avatar: a(href='')
+                span.icon: img(src='//goo.gl/8ydqkL')
+                span.text Juan Pérez
 
     main
       block content
