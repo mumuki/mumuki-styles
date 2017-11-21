@@ -11,7 +11,7 @@ $mu-file-browser-border: 2px solid $mu-color-dark-separator;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-color: $mu-color-separator;
-    @include display-flex(row nowrap, flex-start, center);
+    @include flexbox(row, flex-start, center);
     i {
       cursor: pointer;
       font-size: 25px;
@@ -35,7 +35,8 @@ $mu-file-browser-border: 2px solid $mu-color-dark-separator;
     margin: 15px;
     margin-top: 0;
     ul {
-      @include display-flex(row wrap, flex-start, flex-start)
+      @include flexbox(row, flex-start, flex-start)
+      flex-wrap: wrap;
       align-content: flex-start;
       list-style: none;
       padding: 0;
@@ -45,7 +46,7 @@ $mu-file-browser-border: 2px solid $mu-color-dark-separator;
       min-height: 208px;
       overflow: hidden;
       li {
-        @include display-flex(column, flex-start, flex-start)
+        @include flexbox(column, flex-start, flex-start)
         align-content: flex-start;
         margin: 5px;
         width: 100px;

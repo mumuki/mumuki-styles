@@ -67,12 +67,34 @@ block content
                 p
                   img(src='https://raw.githubusercontent.com/sagrado-corazon-alcal/mumuki-fundamentos-gobstones-guia-1-primeros-programas/master/3x3h.png', alt='3x3h')
 
+                div.mu-file-browser(
+                    data-can-browse="true",
+                    data-on-file-open="console.log",
+                    data-file='{                                        \
+                      "foo": {                                          \
+                        "saraza": {                                     \
+                          "sultano.rb": "sultano"                       \
+                        },                                              \
+                        "sultano.rb": "sultano",                        \
+                        "mengano.js": "mengano"                         \
+                      },                                                \
+                      "bar": {                                          \
+                        "archivo con un nombre largo.doc": "un doc"     \
+                      },                                                \
+                      "baz": {                                          \
+                        "mengano.js": "mengano"                         \
+                      },                                                \
+                      "saraza.txt": "saraza",                           \
+                      "sultano.rb": "sultano",                          \
+                      "mengano.js": "mengano",                          \
+                      "archivo con un nombre largo.doc": "un doc",      \
+                      "zz archivo con un nombre largo.doc": "un doc"    \
+                    }'
+                )
+
             .hint
 
           .exercise-solution
             textarea.code-editor(placeholder='Solución')
-            div.code-editor-wrapper
-              div.code-editor-gutter
-              div.code-editor-text(contenteditable='true')
 
         .corollary
