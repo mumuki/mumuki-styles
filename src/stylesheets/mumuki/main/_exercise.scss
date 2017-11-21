@@ -58,6 +58,22 @@
 
     .exercise-content {
       text-align: justify;
+
+      .hint {
+        details {
+          summary {
+            padding-bottom: $mu-gap;
+            &:focus,
+            &:active {
+              outline: none;
+              border: none;
+            }
+            &::-webkit-details-marker {
+              display: none;
+            }
+          }
+        }
+      }
     }
 
     .exercise-solution {

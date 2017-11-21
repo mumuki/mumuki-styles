@@ -58,7 +58,7 @@ block content
 
                 p Además de moverse, el cabezal también puede poner bolitas en la #[strong celda actual]. Para eso contamos con la operación #[code Poner], que le dice al cabezal que deposite una bolita del color dado:
 
-                pre.highlight.gobstones
+                pre.high.gobstone
                   code #[span.kr program]#[span.w  ]{#[br]#[span.w  ]#[span.w  ]#[span.nf Poner](#[span.l Rojo])#[br]}
 
                 blockquote
@@ -67,32 +67,36 @@ block content
                 p
                   img(src='https://raw.githubusercontent.com/sagrado-corazon-alcal/mumuki-fundamentos-gobstones-guia-1-primeros-programas/master/3x3h.png', alt='3x3h')
 
-                div.mu-file-browser(
-                    data-can-browse="true",
-                    data-on-file-open="console.log",
-                    data-file='{                                        \
-                      "foo": {                                          \
-                        "saraza": {                                     \
-                          "sultano.rb": "sultano"                       \
-                        },                                              \
-                        "sultano.rb": "sultano",                        \
-                        "mengano.js": "mengano"                         \
-                      },                                                \
-                      "bar": {                                          \
-                        "archivo con un nombre largo.doc": "un doc"     \
-                      },                                                \
-                      "baz": {                                          \
-                        "mengano.js": "mengano"                         \
-                      },                                                \
-                      "saraza.txt": "saraza",                           \
-                      "sultano.rb": "sultano",                          \
-                      "mengano.js": "mengano",                          \
-                      "archivo con un nombre largo.doc": "un doc",      \
-                      "zz archivo con un nombre largo.doc": "un doc"    \
-                    }'
-                )
-
             .hint
+
+              details
+                summary: a #[i.fa.fa-fw.fa-lightbulb-o]¡Dame una pista!
+
+                div.markdown
+
+                  div.mu-file-browser(
+                      data-can-browse="true",
+                      data-on-file-open="console.log",
+                      data-file='{                                        \
+                        "foo": {                                          \
+                          "saraza": {                                     \
+                            "sultano.rb": "sultano"                       \
+                          },                                              \
+                          "sultano.rb": "sultano",                        \
+                          "mengano.js": "mengano"                         \
+                        },                                                \
+                        "bar": {                                          \
+                          "archivo con un nombre largo.doc": "un doc"     \
+                        },                                                \
+                        "baz": {                                          \
+                          "mengano.js": "mengano"                         \
+                        },                                                \
+                        "saraza.txt": "saraza",                           \
+                        "sultano.rb": "sultano",                          \
+                        "mengano.js": "mengano",                          \
+                        "archivo con un nombre largo.doc": "un doc",      \
+                        "zz archivo con un nombre largo.doc": "un doc"    \
+                      }')
 
           .exercise-solution
             textarea.code-editor(placeholder='Solución')
