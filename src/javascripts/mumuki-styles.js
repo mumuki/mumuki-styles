@@ -5,9 +5,23 @@
 
   window.mumuki = {};
 
+  var hasTurbolinksGreaterOrEqualThanVersion5 = function () {
+    return Turbolinks && !Turbolinks.EVENTS;
+  }
+
+  var hasTurbolinksLowerThanVersion5 = function () {
+    return Turbolinks && Turbolinks.EVENTS && Turbolinks.EVENTS.LOAD;
+  }
+
   mumuki.load = function (callback) {
-    $(document).on('page:load', callback);
-    $(document).ready(callback);
+    if (hasTurbolinksLowerThanVersion5()) {
+      $(document).on('page:load', callback);
+      $(document).ready(callback);
+    } else if (hasTurbolinksGreaterOrEqualThanVersion5()) {
+      $(document).on('turbolinks:load', callback);
+    } else {
+      $(document).ready(callback);
+    }
   }
 
   mumuki.load(function () {
