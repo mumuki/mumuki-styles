@@ -31,7 +31,11 @@ gulp.task('scss:vendor', () => {
 });
 
 gulp.task('js', () => {
-  return gulp.src(wiredep({devDependencies: true}).js.concat(['src/javascripts/**/*.js']))
+  const wiredepOptions = {
+    devDependencies: true,
+    exclude: [/bootstrap-sass-official/]
+  }
+  return gulp.src(wiredep(wiredepOptions).js.concat(['src/javascripts/**/*.js']))
     .pipe($.concat('mumuki-styles.js'))
     .pipe(gulp.dest('dist/javascripts'));
 });
