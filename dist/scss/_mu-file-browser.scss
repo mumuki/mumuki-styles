@@ -35,7 +35,7 @@ $mu-file-browser-border: 2px solid $mu-color-dark-separator;
     margin: 15px;
     margin-top: 0;
     ul {
-      @include display-flex(row wrap, flex-start, flex-start)
+      @include display-flex(row wrap, flex-start, flex-start);
       align-content: flex-start;
       list-style: none;
       padding: 0;
@@ -45,7 +45,7 @@ $mu-file-browser-border: 2px solid $mu-color-dark-separator;
       min-height: 208px;
       overflow: hidden;
       li {
-        @include display-flex(column, flex-start, flex-start)
+        @include display-flex(column, flex-start, flex-start);
         align-content: flex-start;
         margin: 5px;
         width: 100px;

@@ -1,46 +1,41 @@
-// Darkly 3.2.0
+// Flatly 3.3.7
 // Bootswatch
 // -----------------------------------------------------
 
-@import url($web-font);
+$web-font-path: "https://fonts.googleapis.com/css?family=Lato:400,700,400italic" !default;
+@import url($web-font-path);
 
 // Navbar =====================================================================
 
 .navbar {
   border-width: 0;
-}
 
-.navbar-default {
+  &-default {
 
-  .badge {
-    background-color: #fff;
-    color: $navbar-default-bg;
-  }
-}
-
-.navbar-inverse {
-
-  .badge {
-    background-color: #fff;
-    color: $navbar-inverse-bg;
-  }
-}
-
-.navbar-brand {
-  padding: 18.5px 15px 20.5px;
-}
-
-.navbar-form {
-  .form-control {
-    background-color: white;
-
-    &:focus {
-      border-color: white;
+    .badge {
+      background-color: #fff;
+      color: $navbar-default-bg;
     }
+  }
+
+  &-inverse {
+
+    .badge {
+      background-color: #fff;
+      color: $navbar-inverse-bg;
+    }
+  }
+
+  &-brand {
+    line-height: 1;
   }
 }
 
 // Buttons ====================================================================
+
+.btn {
+  border-width: 2px;
+}
 
 .btn:active {
   @include box-shadow(none);
@@ -54,7 +49,7 @@
 
 .text-primary,
 .text-primary:hover {
-  color: lighten($brand-primary, 10%);
+  color: $brand-primary;
 }
 
 .text-success,
@@ -82,8 +77,12 @@
 table,
 .table {
 
-  a {
+  a:not(.btn) {
     text-decoration: underline;
+  }
+
+  .dropdown-menu a {
+    text-decoration: none;
   }
 
   .success,
@@ -92,7 +91,9 @@ table,
   .info {
     color: #fff;
 
-    a {
+    > th > a,
+    > td > a,
+    > a {
       color: #fff;
     }
   }
@@ -105,28 +106,22 @@ table,
   > tfoot > tr > td {
     border: none;
   }
-}
 
-.table-bordered > thead > tr > th,
-.table-bordered > tbody > tr > th,
-.table-bordered > tfoot > tr > th,
-.table-bordered > thead > tr > td,
-.table-bordered > tbody > tr > td,
-.table-bordered > tfoot > tr > td {
-  border: 1px solid $table-border-color;
+  &-bordered > thead > tr > th,
+  &-bordered > tbody > tr > th,
+  &-bordered > tfoot > tr > th,
+  &-bordered > thead > tr > td,
+  &-bordered > tbody > tr > td,
+  &-bordered > tfoot > tr > td {
+    border: 1px solid $table-border-color;
+  }
 }
 
 // Forms ======================================================================
 
-input,
-textarea {
-  color: $input-color;
-}
-
 .form-control,
-input,
-textarea {
-  border: none;
+input {
+  border-width: 2px;
   @include box-shadow(none);
 
   &:focus {
@@ -141,13 +136,17 @@ textarea {
   .checkbox,
   .radio-inline,
   .checkbox-inline,
+  &.radio label,
+  &.checkbox label,
+  &.radio-inline label,
+  &.checkbox-inline label,
   .form-control-feedback {
     color: $brand-warning;
   }
 
   .form-control,
   .form-control:focus {
-    @include box-shadow(none);
+    border: 2px solid $brand-warning;
   }
 
   .input-group-addon {
@@ -162,13 +161,17 @@ textarea {
   .checkbox,
   .radio-inline,
   .checkbox-inline,
+  &.radio label,
+  &.checkbox label,
+  &.radio-inline label,
+  &.checkbox-inline label,
   .form-control-feedback {
     color: $brand-danger;
   }
 
   .form-control,
   .form-control:focus {
-    @include box-shadow(none);
+    border: 2px solid $brand-danger;
   }
 
   .input-group-addon {
@@ -183,22 +186,22 @@ textarea {
   .checkbox,
   .radio-inline,
   .checkbox-inline,
+  &.radio label,
+  &.checkbox label,
+  &.radio-inline label,
+  &.checkbox-inline label,
   .form-control-feedback {
     color: $brand-success;
   }
 
   .form-control,
   .form-control:focus {
-    @include box-shadow(none);
+    border: 2px solid $brand-success;
   }
 
   .input-group-addon {
     border-color: $brand-success;
   }
-}
-
-.input-group-addon {
-  color: $text-color;
 }
 
 // Navs =======================================================================
@@ -207,13 +210,8 @@ textarea {
   .open > a,
   .open > a:hover,
   .open > a:focus {
-    border-color: $nav-tabs-border-color;
+    border-color: transparent;
   }
-}
-
-.nav-tabs > li > a,
-.nav-pills > li > a {
-  color: #fff;
 }
 
 .pager {
@@ -232,22 +230,25 @@ textarea {
   }
 }
 
-.breadcrumb a {
-  color: #fff;
-}
-
 // Indicators =================================================================
+
+.close {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.4;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    opacity: 1;
+  }
+}
 
 .alert {
 
-  a,
   .alert-link {
     color: #fff;
     text-decoration: underline;
-  }
-
-  .close {
-    text-decoration: none;
   }
 }
 
@@ -268,11 +269,62 @@ textarea {
   @include box-shadow(none);
 }
 
-.popover,
-.modal {
-  color: $text-color;
+a.list-group-item {
+
+  &.active,
+  &.active:hover,
+  &.active:focus {
+    border-color: $list-group-border;
+  }
+
+  &-success {
+    &.active {
+      background-color: $state-success-bg;
+    }
+
+    &.active:hover,
+    &.active:focus {
+      background-color: darken($state-success-bg, 5%);
+    }
+  }
+
+  &-warning {
+    &.active {
+      background-color: $state-warning-bg;
+    }
+
+    &.active:hover,
+    &.active:focus {
+      background-color: darken($state-warning-bg, 5%);
+    }
+  }
+
+  &-danger {
+    &.active {
+      background-color: $state-danger-bg;
+    }
+
+    &.active:hover,
+    &.active:focus {
+      background-color: darken($state-danger-bg, 5%);
+    }
+  }
 }
 
-.panel-default > .panel-heading {
-  background-color: $panel-footer-bg;
+.panel {
+  &-default {
+    .close {
+      color: $text-color;
+    }
+  }
+}
+
+.modal {
+  .close {
+    color: $text-color;
+  }
+}
+
+.popover {
+  color: $text-color;
 }

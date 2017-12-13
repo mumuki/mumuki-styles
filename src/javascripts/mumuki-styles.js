@@ -1,4 +1,3 @@
-//= require bootstrap-sass
 
 (function (window, document) {
   'use strict';
@@ -6,11 +5,11 @@
   window.mumuki = {};
 
   var hasTurbolinksGreaterOrEqualThanVersion5 = function () {
-    return Turbolinks && !Turbolinks.EVENTS;
+    return window.Turbolinks && !window.Turbolinks.EVENTS;
   }
 
   var hasTurbolinksLowerThanVersion5 = function () {
-    return Turbolinks && Turbolinks.EVENTS && Turbolinks.EVENTS.LOAD;
+    return window.Turbolinks && window.Turbolinks.EVENTS && window.Turbolinks.EVENTS.LOAD;
   }
 
   mumuki.load = function (callback) {
