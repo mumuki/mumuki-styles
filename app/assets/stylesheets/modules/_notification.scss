@@ -1,0 +1,15 @@
+.notifications-box-empty {
+  display: none;
+}
+
+.badge-notifications {
+  position: absolute;
+  right: 57px;
+  font-size: 0.55em;
+  width: inherit;
+  padding: 2px 4px;
+  text-align: right;
+  top: 6px;
+  background-color: $brand-complementary;
+  border: 1px solid white;
+}
