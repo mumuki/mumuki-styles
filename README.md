@@ -90,6 +90,28 @@
 
 With jQuery you can use function `$('.mu-file-browser').renderFileBrowser()`;
 
+
+## Installing
+
+You usually add `mumuki-styles` to an empty project. First you need to add it to your Gemfile:
+
+```ruby
+gem 'mumuki-styles'
+```
+
+or, if you want latest version:
+
+```ruby
+gem 'mumuki-styles', github: 'mumuki/mumuki-styles', branch: 'master'
+```
+
+And then bundle install
+
+## Ruby Version
+
+`mumuki-styles` works with Ruby 2.3.1
+
+
 ## License
 
 This project is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
