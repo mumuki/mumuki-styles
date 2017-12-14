@@ -23,9 +23,10 @@ mv bower.json.new                    bower.json
 mv lib/mumuki/styles/version.rb.new  lib/mumuki/styles/version.rb
 
 node_modules/.bin/gulp dist
-git tag "v${NEW_VERSION}"
 git add .
 git commit -m "Welcome v${NEW_VERSION}"
+
+git tag "v${NEW_VERSION}"
 git push origin --tags
 
 rake release
