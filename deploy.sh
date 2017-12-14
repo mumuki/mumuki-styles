@@ -22,7 +22,7 @@ mv package.json.new                  package.json
 mv bower.json.new                    bower.json
 mv lib/mumuki/styles/version.rb.new  lib/mumuki/styles/version.rb
 
-gulp dist
+node_modules/.bin/gulp dist
 git tag "v${NEW_VERSION}"
 git add .
 git commit -m "Welcome v${NEW_VERSION}"
