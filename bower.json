@@ -25,7 +25,7 @@
   "devDependencies": {
     "jquery": "3.1.1",
     "bootstrap-sass": "3.3.7",
-    "dev-awesome": "0.5.1",
+    "dev-awesome": "0.6.2",
     "font-awesome": "4.7.0",
     "awesome-bootstrap-checkbox": "0.3.7"
   }
