@@ -27,6 +27,6 @@ git add .
 git commit -m "Welcome v${NEW_VERSION}"
 
 git tag "v${NEW_VERSION}"
-git push origin --tags
+git push origin HEAD --tags
 
 rake release
