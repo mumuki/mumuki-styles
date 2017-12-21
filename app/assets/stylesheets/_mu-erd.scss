@@ -33,10 +33,24 @@ $mu-erd-border: 2px solid $mu-color-dark-separator;
   margin: 0;
   .mu-erd-entity-column {
     display: flex;
+    padding: 5px 0;
     flex-flow: row;
     justify-content: space-between;
+    border-bottom: 1px dashed $mu-color-dark-separator;
+    &:last-child {
+      border-bottom: none;
+    }
     .mu-erd-entity-column-name {
       text-align: left;
+      span {
+        margin-left: 5px;
+      }
+      .mu-erd-pk { color: rgb(196, 173, 44) }
+      .mu-erd-fk { color: rgb(184, 184, 184) }
+      .mu-erd-pk,
+      .mu-erd-fk {
+        font-size: 75%;
+      };
     }
     .mu-erd-entity-column-type {
       text-align: right;

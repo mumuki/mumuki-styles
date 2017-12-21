@@ -167,12 +167,29 @@
 
   mumuki.load(function () {
 
-    function generateEntityColumns(columns) {
+    function entityID(entity) {
+      return 'mu-erd-' + entity.name.toLowerCase().replace(/[_]/g, '-');
+    }
+
+    function columnID(entity, column) {
+      return entityID(entity) + '-' + column.name.toLowerCase().replace(/[_]/g, '-');
+    }
+
+    function keyIconFor(column, field) {
+      return !!column[field] ? '<i class="fa fa-fw fa-key mu-erd-' + field + '"></i>' : ''
+    }
+
+    function generateEntityColumns(entity) {
+      var columns = entity.columns || [];
       var html = '';
       columns.forEach(function (column) {
         html += [
-          '<li class="mu-erd-entity-column">',
-          '  <span class="mu-erd-entity-column-name">', column.name, '</span>',
+          '<li id="', columnID(entity, column), '" class="mu-erd-entity-column">',
+          '  <span class="mu-erd-entity-column-name">',
+               keyIconFor(column, 'pk'),
+               keyIconFor(column, 'fk'),
+               '<span>', column.name, '</span>',
+          '  </span>',
           '  <span class="mu-erd-entity-column-type">', column.type, '</span>',
           '</li>'
         ].join('');
@@ -182,14 +199,13 @@
 
     function appendEntities($diagram, entities) {
       entities.forEach(function (entity) {
-        entity.columns = entity.columns || [];
         var $entity = $([
-          '<div class="mu-erd-entity">',
+          '<div id="', entityID(entity), '" class="mu-erd-entity">',
           '  <div class="mu-erd-entity-name">',
                entity.name,
           '  </div>',
           '  <ul class="mu-erd-entity-columns">',
-               generateEntityColumns(entity.columns),
+               generateEntityColumns(entity),
           '  </ul>',
           '</div>',
         ].join(''));

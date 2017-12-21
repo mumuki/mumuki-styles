@@ -39,8 +39,39 @@
   <div
     class='mu-erd'
     data-entities='[
-      { "name": "Entity_1", "columns": [{"name": "ent1_id", "type": "Integer"}] },
-      { "name": "Entity_2", "columns": [{"name": "ent2_id", "type": "Integer"}] }
+      {
+        "name": "Entity_1",
+        "columns": [
+          {
+            "name": "ent1_id",
+            "type": "Integer",
+            "pk": true
+          },
+          {
+            "name": "ent2_id",
+            "type": "Integer",
+            "fk": {
+              "to": "Entity_1::ent2_id",
+              "through": "ent2_id"
+            }
+          },
+          {
+            "name": "ent1_description",
+            "type": "Varchar"
+          }
+        ]
+      },
+      {
+        "name": "Entity_2",
+        "columns": [
+          {
+            "name": "ent2_id",
+            "type": "Integer",
+            "pk": true,
+            "fk": true
+          }
+        ]
+      }
     ]'>
   </div>
 </body>
