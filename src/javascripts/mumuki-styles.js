@@ -225,7 +225,7 @@
     }
 
     function getSVGFor(entity) {
-      return ['<svg>', drawConnectorLines(entity), '</svg>'].join('');
+      return ['<svg id="', entityID(entity.name), '-svg">', drawConnectorLines(entity), '</svg>'].join('');
     }
 
     function appendConnectors($diagram, entities) {
@@ -350,6 +350,10 @@
         ].join('')
       }
     }
+
+    window.addEventListener('resize', function () {
+      $('.mu-erd').empty().renderERD();
+    });
 
     $('.mu-erd').renderERD();
 
