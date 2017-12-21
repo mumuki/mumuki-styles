@@ -164,5 +164,53 @@
 
   });
 
+
+  mumuki.load(function () {
+
+    function generateEntityColumns(columns) {
+      var html = '';
+      columns.forEach(function (column) {
+        html += [
+          '<li class="mu-erd-entity-column">',
+          '  <span class="mu-erd-entity-column-name">', column.name, '</span>',
+          '  <span class="mu-erd-entity-column-type">', column.type, '</span>',
+          '</li>'
+        ].join('');
+      })
+      return html;
+    }
+
+    function appendEntities($diagram, entities) {
+      entities.forEach(function (entity) {
+        entity.columns = entity.columns || [];
+        var $entity = $([
+          '<div class="mu-erd-entity">',
+          '  <div class="mu-erd-entity-name">',
+               entity.name,
+          '  </div>',
+          '  <ul class="mu-erd-entity-columns">',
+               generateEntityColumns(entity.columns),
+          '  </ul>',
+          '</div>',
+        ].join(''));
+        $diagram.append($entity);
+      });
+    }
+
+    $.fn.renderERD = function () {
+      var self = this;
+      self.each(function (i) {
+        var $diagram = $(self[i]);
+        var entities = $diagram.data('entities');
+        appendEntities($diagram, entities);
+      });
+      return self;
+    }
+
+    $('.mu-erd').renderERD();
+
+  });
+
+
 })(window, document);
 

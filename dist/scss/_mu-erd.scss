@@ -1,0 +1,45 @@
+$mu-erd-border: 2px solid $mu-color-dark-separator;
+
+.mu-erd {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mu-erd-entity {
+  margin: 0;
+  width: 250px;
+  border: $mu-erd-border;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.mu-erd-entity-name {
+  padding: 5px 10px;
+  list-style: none;
+  text-align: center;
+  border-bottom: $mu-erd-border;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: $mu-color-separator;
+  margin: 0;
+}
+
+.mu-erd-entity-columns {
+  list-style: none;
+  padding: 5px 10px;
+  margin: 0;
+  .mu-erd-entity-column {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    .mu-erd-entity-column-name {
+      text-align: left;
+    }
+    .mu-erd-entity-column-type {
+      text-align: right;
+    }
+  }
+}

@@ -5,7 +5,8 @@
 
   <link rel="stylesheet" type="text/css" href="dist/css/mumuki-styles.css">
 
-  <script type="text/javascript" src="dist/javascripts/mumuki-styles.js"></script>
+  <script type="text/javascript" src="src/bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="src/javascripts/mumuki-styles.js"></script>
 </head>
 <body>
 
@@ -16,24 +17,31 @@
     data-file='{
       "foo": {
         "saraza": {
-          "sultano.rb": "sultano"
+          "sultano.rb": "Contenido de sultano"
         },
-        "sultano.rb": "sultano",
-        "mengano.js": "mengano"
+        "sultano.rb": "Contenido de sultano",
+        "mengano.js": "Contenido de mengano"
       },
       "bar": {
-        "archivo con un nombre largo.doc": "un doc"
+        "archivo con un nombre largo.doc": "Contenido de un doc"
       },
       "baz": {
-        "mengano.js": "mengano"
+        "mengano.js": "Contenido de mengano"
       },
-      "saraza.txt": "saraza",
-      "sultano.rb": "sultano",
-      "mengano.js": "mengano",
-      "archivo con un nombre largo.doc": "un doc",
-      "zz archivo con un nombre largo.doc": "un doc"
+      "saraza.txt": "Contenido de saraza",
+      "sultano.rb": "Contenido de sultano",
+      "mengano.js": "Contenido de mengano",
+      "archivo con un nombre largo.doc": "Contenido de un doc",
+      "zz archivo con un nombre largo.doc": "Contenido de un doc"
     }'>
   </div>
 
+  <div
+    class='mu-erd'
+    data-entities='[
+      { "name": "Entity_1", "columns": [{"name": "ent1_id", "type": "Integer"}] },
+      { "name": "Entity_2", "columns": [{"name": "ent2_id", "type": "Integer"}] }
+    ]'>
+  </div>
 </body>
 </html>

@@ -9442,6 +9442,43 @@ pre code {
     display: block;
     margin: 2em; }
 
+.mu-erd {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: center; }
+
+.mu-erd-entity {
+  margin: 0;
+  width: 250px;
+  border: 2px solid #cfd9db;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px; }
+
+.mu-erd-entity-name {
+  padding: 5px 10px;
+  list-style: none;
+  text-align: center;
+  border-bottom: 2px solid #cfd9db;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: #ecf0f1;
+  margin: 0; }
+
+.mu-erd-entity-columns {
+  list-style: none;
+  padding: 5px 10px;
+  margin: 0; }
+  .mu-erd-entity-columns .mu-erd-entity-column {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between; }
+    .mu-erd-entity-columns .mu-erd-entity-column .mu-erd-entity-column-name {
+      text-align: left; }
+    .mu-erd-entity-columns .mu-erd-entity-column .mu-erd-entity-column-type {
+      text-align: right; }
+
 .mu-file-browser {
   width: 100%;
   position: relative; }
