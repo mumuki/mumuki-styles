@@ -9443,13 +9443,20 @@ pre code {
     margin: 2em; }
 
 .mu-erd {
+  position: relative;
   width: 100%;
   display: flex;
   flex-flow: row;
   justify-content: space-around;
   align-items: center; }
+  .mu-erd svg {
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute; }
 
 .mu-erd-entity {
+  z-index: 1;
   margin: 0;
   width: 250px;
   border: 2px solid #cfd9db;
@@ -9469,7 +9476,8 @@ pre code {
 .mu-erd-entity-columns {
   list-style: none;
   padding: 5px 10px;
-  margin: 0; }
+  margin: 0;
+  background-color: white; }
   .mu-erd-entity-columns .mu-erd-entity-column {
     display: flex;
     padding: 5px 0;
@@ -9484,10 +9492,10 @@ pre code {
         margin-left: 5px; }
       .mu-erd-entity-columns .mu-erd-entity-column .mu-erd-entity-column-name .mu-erd-pk {
         color: #c4ad2c; }
-      .mu-erd-entity-columns .mu-erd-entity-column .mu-erd-entity-column-name .mu-erd-fk {
+      .mu-erd-entity-columns .mu-erd-entity-column .mu-erd-entity-column-name .mu-erd-fks {
         color: #b8b8b8; }
       .mu-erd-entity-columns .mu-erd-entity-column .mu-erd-entity-column-name .mu-erd-pk,
-      .mu-erd-entity-columns .mu-erd-entity-column .mu-erd-entity-column-name .mu-erd-fk {
+      .mu-erd-entity-columns .mu-erd-entity-column .mu-erd-entity-column-name .mu-erd-fks {
         font-size: 75%; }
     .mu-erd-entity-columns .mu-erd-entity-column .mu-erd-entity-column-type {
       text-align: right; }

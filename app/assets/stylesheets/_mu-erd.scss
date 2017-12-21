@@ -1,14 +1,22 @@
 $mu-erd-border: 2px solid $mu-color-dark-separator;
 
 .mu-erd {
+  position: relative;
   width: 100%;
   display: flex;
   flex-flow: row;
   justify-content: space-around;
   align-items: center;
+  svg {
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
 }
 
 .mu-erd-entity {
+  z-index: 1;
   margin: 0;
   width: 250px;
   border: $mu-erd-border;
@@ -31,6 +39,7 @@ $mu-erd-border: 2px solid $mu-color-dark-separator;
   list-style: none;
   padding: 5px 10px;
   margin: 0;
+  background-color: white;
   .mu-erd-entity-column {
     display: flex;
     padding: 5px 0;
@@ -46,9 +55,9 @@ $mu-erd-border: 2px solid $mu-color-dark-separator;
         margin-left: 5px;
       }
       .mu-erd-pk { color: rgb(196, 173, 44) }
-      .mu-erd-fk { color: rgb(184, 184, 184) }
+      .mu-erd-fks { color: rgb(184, 184, 184) }
       .mu-erd-pk,
-      .mu-erd-fk {
+      .mu-erd-fks {
         font-size: 75%;
       };
     }
