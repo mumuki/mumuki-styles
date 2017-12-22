@@ -97,13 +97,13 @@ mumuki.load(function () {
       var middle = (fromX + toX) / 2;
 
       return [
-        '<line x1="', fromX, '" x2="', middle, '" y1="', fromY, '" y2="', fromY, '" stroke="black" stroke-width="1"/>',
-        '<line x1="', middle, '" x2="', middle, '" y1="', fromY, '" y2="', toY, '" stroke="black" stroke-width="1"/>',
-        '<line x1="', middle, '" x2="', toX, '" y1="', toY, '" y2="', toY, '" stroke="black" stroke-width="1"/>',
+        svgLine(fromX, middle, fromY, fromY),
+        svgLine(middle, middle, fromY, toY),
+        svgLine(middle, toX, toY, toY),
 
-        '<line x1="', fromX + 10, '" x2="', fromX + 10, '" y1="', fromY - 10, '" y2="', fromY + 10, '" stroke="black" stroke-width="1"/>',
+        svgLine(fromX + 10, fromX + 10, fromY - 10, fromY + 10),
 
-        '<line x1="', toX - 10, '" x2="', toX - 10, '" y1="', toY - 10, '" y2="', toY + 10, '" stroke="black" stroke-width="1"/>',
+        svgLine(toX - 10, toX - 10, toY - 10, toY + 10),
 
       ].join('');
     },
@@ -116,15 +116,15 @@ mumuki.load(function () {
       var middle = (fromX + toX) / 2;
 
       return [
-        '<line x1="', fromX, '" x2="', middle, '" y1="', fromY, '" y2="', fromY, '" stroke="black" stroke-width="1"/>',
-        '<line x1="', middle, '" x2="', middle, '" y1="', fromY, '" y2="', toY, '" stroke="black" stroke-width="1"/>',
-        '<line x1="', middle, '" x2="', toX, '" y1="', toY, '" y2="', toY, '" stroke="black" stroke-width="1"/>',
+        svgLine(fromX, middle, fromY, fromY),
+        svgLine(middle, middle, fromY, toY),
+        svgLine(middle, toX, toY, toY),
 
-        '<line x1="', fromX, '" x2="', fromX + 10, '" y1="', fromY - 10, '" y2="', fromY, '" stroke="black" stroke-width="1"/>',
-        '<line x1="', fromX, '" x2="', fromX + 10, '" y1="', fromY + 10, '" y2="', fromY, '" stroke="black" stroke-width="1"/>',
+        svgLine(fromX, fromX + 10, fromY - 10, fromY),
+        svgLine(fromX, fromX + 10, fromY + 10, fromY),
 
-        '<line x1="', toX - 10, '" x2="', toX - 10, '" y1="', toY - 10, '" y2="', toY + 10, '" stroke="black" stroke-width="1"/>',
-        '<line x1="', toX - 10, '" x2="', toX - 10, '" y1="', toY - 10, '" y2="', toY + 10, '" stroke="black" stroke-width="1"/>',
+        svgLine(toX - 10, toX - 10, toY - 10, toY + 10),
+        svgLine(toX - 10, toX - 10, toY - 10, toY + 10),
 
       ].join('');
     },
@@ -137,15 +137,15 @@ mumuki.load(function () {
       var middle = (fromX + toX) / 2;
 
       return [
-        '<line x1="', fromX, '" x2="', middle, '" y1="', fromY, '" y2="', fromY, '" stroke="black" stroke-width="1"/>',
-        '<line x1="', middle, '" x2="', middle, '" y1="', fromY, '" y2="', toY, '" stroke="black" stroke-width="1"/>',
-        '<line x1="', middle, '" x2="', toX, '" y1="', toY, '" y2="', toY, '" stroke="black" stroke-width="1"/>',
+        svgLine(fromX, middle, fromY, fromY),
+        svgLine(middle, middle, fromY, toY),
+        svgLine(middle, toX, toY, toY),
 
-        '<line x1="', fromX + 10, '" x2="', fromX + 10, '" y1="', fromY - 10, '" y2="', fromY + 10, '" stroke="black" stroke-width="1"/>',
-        '<line x1="', fromX + 10, '" x2="', fromX + 10, '" y1="', fromY - 10, '" y2="', fromY + 10, '" stroke="black" stroke-width="1"/>',
+        svgLine(fromX + 10, fromX + 10, fromY - 10, fromY + 10),
+        svgLine(fromX + 10, fromX + 10, fromY - 10, fromY + 10),
 
-        '<line x1="', toX, '" x2="', toX - 10, '" y1="', toY - 10, '" y2="', toY, '" stroke="black" stroke-width="1"/>',
-        '<line x1="', toX, '" x2="', toX - 10, '" y1="', toY + 10, '" y2="', toY, '" stroke="black" stroke-width="1"/>',
+        svgLine(toX, toX - 10, toY - 10, toY),
+        svgLine(toX, toX - 10, toY + 10, toY),
 
       ].join('');
     },
@@ -158,18 +158,22 @@ mumuki.load(function () {
       var middle = (fromX + toX) / 2;
 
       return [
-        '<line x1="', fromX, '" x2="', middle, '" y1="', fromY, '" y2="', fromY, '" stroke="black" stroke-width="1"/>',
-        '<line x1="', middle, '" x2="', middle, '" y1="', fromY, '" y2="', toY, '" stroke="black" stroke-width="1"/>',
-        '<line x1="', middle, '" x2="', toX, '" y1="', toY, '" y2="', toY, '" stroke="black" stroke-width="1"/>',
+        svgLine(fromX, middle, fromY, fromY),
+        svgLine(middle, middle, fromY, toY),
+        svgLine(middle, toX, toY, toY),
 
-        '<line x1="', fromX, '" x2="', fromX + 10, '" y1="', fromY - 10, '" y2="', fromY, '" stroke="black" stroke-width="1"/>',
-        '<line x1="', fromX, '" x2="', fromX + 10, '" y1="', fromY + 10, '" y2="', fromY, '" stroke="black" stroke-width="1"/>',
+        svgLine(fromX, fromX + 10, fromY - 10, fromY),
+        svgLine(fromX, fromX + 10, fromY + 10, fromY),
 
-        '<line x1="', toX, '" x2="', toX - 10, '" y1="', toY - 10, '" y2="', toY, '" stroke="black" stroke-width="1"/>',
-        '<line x1="', toX, '" x2="', toX - 10, '" y1="', toY + 10, '" y2="', toY, '" stroke="black" stroke-width="1"/>',
+        svgLine(toX, toX - 10, toY - 10, toY),
+        svgLine(toX, toX - 10, toY + 10, toY),
 
       ].join('');
     }
+  }
+
+  function svgLine(x1, x2, y1 , y2) {
+    return ['<line x1="', x1, '" x2="', x2, '" y1="', y1, '" y2="', y2, '" stroke="black" stroke-width="1"/>'].join('');
   }
 
   window.addEventListener('resize', function () {
