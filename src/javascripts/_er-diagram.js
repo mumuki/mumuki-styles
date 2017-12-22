@@ -1,97 +1,78 @@
 mumuki.load(function () {
 
+  var C = 10;
+  var BORDER = 4;
+
   var availableDirections = {
-    up: function () {},
-    down: function () {},
-    left: function () {},
-    right: function () {},
-    up_left: function () {},
-    up_right: function () {},
-    down_left: function () {},
-    down_right: function () {},
+    up: function ($entity, $column) {
+      var x1 = $entity.from.position().left + $entity.from.width() + BORDER;
+      var y1 = $column.from.position().top + $column.from.height() / 2;
+      var x2 = $entity.to.position().left + $entity.to.width() + BORDER;
+      var y2 = $column.to.position().top + $column.to.height() / 2;
+      return { x1: x1, x2: x2, y1: y1, y2: y2, mi: Math.max(x1, x2) + C * 2, dx1: C, dx2: C };
+    },
+    down: function ($entity, $column) {
+      var x1 = $entity.from.position().left + $entity.from.width() + BORDER;
+      var y1 = $column.from.position().top + $column.from.height() / 2;
+      var x2 = $entity.to.position().left + $entity.to.width() + BORDER;
+      var y2 = $column.to.position().top + $column.to.height() / 2;
+      return { x1: x1, x2: x2, y1: y1, y2: y2, mi: Math.max(x1, x2) + C * 2, dx1: C, dx2: C };
+    },
+    left: function ($entity, $column) {
+      var x1 = $entity.from.position().left;
+      var y1 = $column.from.position().top + $column.from.height() / 2;
+      var x2 = $entity.to.position().left + $entity.to.width() + BORDER;
+      var y2 = $column.to.position().top + $column.to.height() / 2;
+      return { x1: x1, x2: x2, y1: y1, y2: y2, mi: (x1 + x2) / 2, dx1: -C, dx2: C };
+    },
+    right: function ($entity, $column) {
+      var x1 = $entity.from.position().left + $entity.from.width() + BORDER;
+      var y1 = $column.from.position().top + $column.from.height() / 2;
+      var x2 = $entity.to.position().left;
+      var y2 = $column.to.position().top + $column.to.height() / 2;
+      return { x1: x1, x2: x2, y1: y1, y2: y2, mi: (x1 + x2) / 2, dx1: C, dx2: -C };
+    },
+    up_left: function ($entity, $column) {
+      return;
+    },
+    up_right: function ($entity, $column) {
+      return;
+    },
+    down_left: function ($entity, $column) {
+      return;
+    },
+    down_right: function ($entity, $column) {
+      return;
+    },
   }
 
   var connectors = {
-    one_to_one: function($entityFrom, $columnFrom, $entityTo, $columnTo, fk, direction) {
-      var fromX = $entityFrom.position().left + $entityFrom.width() + ($entityFrom.css('border-width')[0] * 2);
-      var fromY = $columnFrom.position().top + $columnFrom.height() / 2;
-      var toX = $entityTo.position().left;
-      var toY = $columnTo.position().top + $columnTo.height() / 2;
-
-      var middle = (fromX + toX) / 2;
-
+    one_to_one: function (points) {
       return [
-        svgLine(fromX, middle, fromY, fromY),
-        svgLine(middle, middle, fromY, toY),
-        svgLine(middle, toX, toY, toY),
-
-        svgLine(fromX + 10, fromX + 10, fromY - 10, fromY + 10),
-
-        svgLine(toX - 10, toX - 10, toY - 10, toY + 10),
-
+        svgLine(points.x1 + points.dx1, points.x1 + points.dx1, points.y1 - C, points.y1 + C), // | from
+        svgLine(points.x2 + points.dx2, points.x2 + points.dx2, points.y2 - C, points.y2 + C), // | to
       ].join('');
     },
-    many_to_one: function($entityFrom, $columnFrom, $entityTo, $columnTo, fk, direction) {
-      var fromX = $entityFrom.position().left + $entityFrom.width() + ($entityFrom.css('border-width')[0] * 2);
-      var fromY = $columnFrom.position().top + $columnFrom.height() / 2;
-      var toX = $entityTo.position().left;
-      var toY = $columnTo.position().top + $columnTo.height() / 2;
-
-      var middle = (fromX + toX) / 2;
-
+    many_to_one: function (points) {
       return [
-        svgLine(fromX, middle, fromY, fromY),
-        svgLine(middle, middle, fromY, toY),
-        svgLine(middle, toX, toY, toY),
-
-        svgLine(fromX, fromX + 10, fromY - 10, fromY),
-        svgLine(fromX, fromX + 10, fromY + 10, fromY),
-
-        svgLine(toX - 10, toX - 10, toY - 10, toY + 10),
-        svgLine(toX - 10, toX - 10, toY - 10, toY + 10),
-
+        svgLine(points.x1, points.x1 + points.dx1, points.y1 - C, points.y1),  //                 \ from  many
+        svgLine(points.x1, points.x1 + points.dx1, points.y1 + C, points.y1),  //                 / from  many
+        svgLine(points.x2 + points.dx2, points.x2 + points.dx2, points.y2 - C, points.y2 + C), // | to one
       ].join('');
     },
-    one_to_many: function($entityFrom, $columnFrom, $entityTo, $columnTo, fk, direction) {
-      var fromX = $entityFrom.position().left + $entityFrom.width() +  + ($entityFrom.css('border-width')[0] * 2);
-      var fromY = $columnFrom.position().top + $columnFrom.height() / 2;
-      var toX = $entityTo.position().left;
-      var toY = $columnTo.position().top + $columnTo.height() / 2;
-
-      var middle = (fromX + toX) / 2;
-
+    one_to_many: function (points) {
       return [
-        svgLine(fromX, middle, fromY, fromY),
-        svgLine(middle, middle, fromY, toY),
-        svgLine(middle, toX, toY, toY),
-
-        svgLine(fromX + 10, fromX + 10, fromY - 10, fromY + 10),
-        svgLine(fromX + 10, fromX + 10, fromY - 10, fromY + 10),
-
-        svgLine(toX, toX - 10, toY - 10, toY),
-        svgLine(toX, toX - 10, toY + 10, toY),
-
+        svgLine(points.x1 + points.dx1, points.x1 + points.dx1, points.y1 - C, points.y1 + C),  // | from one
+        svgLine(points.x2, points.x2 + points.dx2, points.y2 - C, points.y2),  //                  \ to  many
+        svgLine(points.x2, points.x2 + points.dx2, points.y2 + C, points.y2),  //                  / to  many
       ].join('');
     },
-    many_to_many: function($entityFrom, $columnFrom, $entityTo, $columnTo, fk, direction) {
-      var fromX = $entityFrom.position().left + $entityFrom.width() + ($entityFrom.css('border-width')[0] * 2);
-      var fromY = $columnFrom.position().top + $columnFrom.height() / 2;
-      var toX = $entityTo.position().left;
-      var toY = $columnTo.position().top + $columnTo.height() / 2;
-
-      var middle = (fromX + toX) / 2;
-
+    many_to_many: function (points) {
       return [
-        svgLine(fromX, middle, fromY, fromY),
-        svgLine(middle, middle, fromY, toY),
-        svgLine(middle, toX, toY, toY),
-
-        svgLine(fromX, fromX + 10, fromY - 10, fromY),
-        svgLine(fromX, fromX + 10, fromY + 10, fromY),
-
-        svgLine(toX, toX - 10, toY - 10, toY),
-        svgLine(toX, toX - 10, toY + 10, toY),
-
+        svgLine(points.x1, points.x1 + points.dx1, points.y1 - C, points.y1),  //                  \ from  many
+        svgLine(points.x1, points.x1 + points.dx1, points.y1 + C, points.y1),  //                  / from  many
+        svgLine(points.x2, points.x2 + points.dx2, points.y2 - C, points.y2),  //                  \ to  many
+        svgLine(points.x2, points.x2 + points.dx2, points.y2 + C, points.y2),  //                  / to  many
       ].join('');
     }
   }
@@ -150,11 +131,11 @@ mumuki.load(function () {
 
   function getDirection($entityFrom, $entityTo) {
     var direction = ''
-    direction += $entityFrom.position().top > ($entityTo.position().top + $entityTo.height()) ? 'up' : '';
-    direction += $entityTo.position().top > ($entityFrom.position().top + $entityFrom.height()) ? 'down' : '';
+    direction += $entityFrom.position().top > ($entityTo.position().top + $entityTo.height()) ? 'down' : '';
+    direction += $entityTo.position().top > ($entityFrom.position().top + $entityFrom.height()) ? 'up' : '';
     direction += ' ';
-    direction += $entityFrom.position().left > ($entityTo.position().left + $entityTo.width()) ? 'right' : '';
-    direction += $entityTo.position().left > ($entityFrom.position().left + $entityFrom.width()) ? 'left' : '';
+    direction += $entityFrom.position().left > ($entityTo.position().left + $entityTo.width()) ? 'left' : '';
+    direction += $entityTo.position().left > ($entityFrom.position().left + $entityFrom.width()) ? 'right' : '';
     direction = direction.trim();
     return direction.replace(' ', '_');
   }
@@ -169,12 +150,17 @@ mumuki.load(function () {
       to: $('#' + columnID(fk.to.entity, fk.to.column))
     }
     var direction = getDirection($entity.from, $entity.to);
-    var points = getPointsFrom(direction, $entity, $column, fk);
-    return connectors[fk.type]($entity.from, $column.from, $entity.to, $column.to, fk, direction);
+    var points = getPointsFrom(direction, $entity, $column);
+    console.log(direction, points);
+    return [
+      svgLine(points.x1, points.mi, points.y1, points.y1),
+      svgLine(points.mi, points.mi, points.y1, points.y2),
+      svgLine(points.mi, points.x2, points.y2, points.y2),
+    ].join('') + connectors[fk.type](points);
   }
 
-  function getPointsFrom(direction, $entity, $column, fk) {
-    return availableDirections[direction]($entity, $column, fk);
+  function getPointsFrom(direction, $entity, $column) {
+    return availableDirections[direction]($entity, $column);
   }
 
   function drawConnectorLines(entity) {
