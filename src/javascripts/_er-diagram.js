@@ -66,7 +66,7 @@ mumuki.load(function () {
   }
 
   function getSVGFor(entity) {
-    return ['<svg id="', entityID(entity.name), '-svg">', drawConnectorLines(entity), '</svg>'].join('');
+    return ['<svg>', drawConnectorLines(entity), '</svg>'].join('');
   }
 
   function appendConnectors($diagram, entities) {
