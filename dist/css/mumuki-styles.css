@@ -9495,10 +9495,10 @@ pre code {
         margin-left: 5px; }
       .mu-erd-entity-columns .mu-erd-entity-column .mu-erd-entity-column-name .mu-erd-pk {
         color: #c4ad2c; }
-      .mu-erd-entity-columns .mu-erd-entity-column .mu-erd-entity-column-name .mu-erd-fks {
+      .mu-erd-entity-columns .mu-erd-entity-column .mu-erd-entity-column-name .mu-erd-fk {
         color: #b8b8b8; }
       .mu-erd-entity-columns .mu-erd-entity-column .mu-erd-entity-column-name .mu-erd-pk,
-      .mu-erd-entity-columns .mu-erd-entity-column .mu-erd-entity-column-name .mu-erd-fks {
+      .mu-erd-entity-columns .mu-erd-entity-column .mu-erd-entity-column-name .mu-erd-fk {
         font-size: 75%; }
     .mu-erd-entity-columns .mu-erd-entity-column .mu-erd-entity-column-type {
       text-align: right; }

@@ -50,10 +50,10 @@
             "name": "ent2_id",
             "type": "Integer",
             "pk": true,
-            "fks": [{
+            "fk": {
               "to": { "entity": "Entity_2", "column": "ent2_id" },
               "type": "one_to_one"
-            }]
+            }
           },
           {
             "name": "ent1_description",
@@ -83,10 +83,10 @@
             "name": "ent2_id",
             "type": "Integer",
             "pk": true,
-            "fks": [{
+            "fk": {
               "to": { "entity": "Entity_2", "column": "ent2_id" },
               "type": "many_to_one"
-            }]
+            }
           },
           {
             "name": "ent1_description",

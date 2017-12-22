@@ -58,9 +58,9 @@ $mu-erd-border: 2px solid $mu-color-dark-separator;
         margin-left: 5px;
       }
       .mu-erd-pk { color: rgb(196, 173, 44) }
-      .mu-erd-fks { color: rgb(184, 184, 184) }
+      .mu-erd-fk { color: rgb(184, 184, 184) }
       .mu-erd-pk,
-      .mu-erd-fks {
+      .mu-erd-fk {
         font-size: 75%;
       };
     }

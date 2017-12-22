@@ -12857,8 +12857,7 @@ mumuki.load(function () {
   }
 
   function keyIconFor(column, field) {
-    var bool = (column[field] instanceof Array && column[field].length > 0) || (!!column[field]);
-    return bool ? '<i class="fa fa-fw fa-key mu-erd-' + field + '"></i>' : '';
+    return !!column[field] ? '<i class="fa fa-fw fa-key mu-erd-' + field + '"></i>' : '';
   }
 
   function generateEntityColumns(entity) {
@@ -12869,7 +12868,7 @@ mumuki.load(function () {
         '<li id="', columnID(entity.name, column.name), '" class="mu-erd-entity-column">',
         '  <span class="mu-erd-entity-column-name">',
               keyIconFor(column, 'pk'),
-              keyIconFor(column, 'fks'),
+              keyIconFor(column, 'fk'),
               '<span>', column.name, '</span>',
         '  </span>',
         '  <span class="mu-erd-entity-column-type">', column.type, '</span>',
@@ -12896,8 +12895,7 @@ mumuki.load(function () {
   }
 
   function drawColumnFK(entity, column) {
-    var fks = column.fks || [];
-    return fks.map(drawFK.bind(this, entity, column)).join('');
+    return drawFK(entity, column, column.fk);
   }
 
   function getDirection($entityFrom, $entityTo) {
@@ -12912,6 +12910,7 @@ mumuki.load(function () {
   }
 
   function drawFK(entity, column, fk) {
+    if (!fk) return '';
     var $entity = {
       from: $('#' + entityID(entity.name)),
       to: $('#' + entityID(fk.to.entity))
@@ -12922,7 +12921,6 @@ mumuki.load(function () {
     }
     var direction = getDirection($entity.from, $entity.to);
     var points = getPointsFrom(direction, $entity, $column);
-    console.log(direction, points);
     return [
       svgLine(points.x1, points.mi, points.y1, points.y1),
       svgLine(points.mi, points.mi, points.y1, points.y2),
