@@ -3,8 +3,10 @@ $mu-erd-border: 2px solid $mu-color-dark-separator;
 .mu-erd {
   position: relative;
   width: 100%;
+  padding: 15px;
   display: flex;
   flex-flow: row;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   svg {
@@ -17,8 +19,9 @@ $mu-erd-border: 2px solid $mu-color-dark-separator;
 
 .mu-erd-entity {
   z-index: 1;
-  margin: 0;
+  margin: 20px 0;
   width: 250px;
+  min-width: 250px;
   border: $mu-erd-border;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
