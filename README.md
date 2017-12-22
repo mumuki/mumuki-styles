@@ -90,6 +90,83 @@
 
 With jQuery you can use function `$('.mu-file-browser').renderFileBrowser()`;
 
+```html
+<div
+  class='mu-erd'
+  data-entities='[
+    {
+      "name": "Entity_1",
+      "columns": [
+        {
+          "name": "ent1_id",
+          "type": "Integer",
+          "pk": true
+        },
+        {
+          "name": "ent2_id",
+          "type": "Integer",
+          "pk": true,
+          "fk": {
+            "to": { "entity": "Entity_2", "column": "ent2_id" },
+            "type": "one_to_one"
+          }
+        },
+        {
+          "name": "ent1_description",
+          "type": "Varchar"
+        }
+      ]
+    },
+    {
+      "name": "Entity_2",
+      "columns": [
+        {
+          "name": "ent2_id",
+          "type": "Integer",
+          "pk": true
+        }
+      ]
+    },
+    {
+      "name": "Entity_3",
+      "columns": [
+        {
+          "name": "ent3_id",
+          "type": "Integer",
+          "pk": true
+        },
+        {
+          "name": "ent2_id",
+          "type": "Integer",
+          "pk": true,
+          "fk": {
+            "to": { "entity": "Entity_2", "column": "ent2_id" },
+            "type": "many_to_one"
+          }
+        },
+        {
+          "name": "ent1_description",
+          "type": "Varchar"
+        }
+      ]
+    }
+  ]'>
+</div>
+```
+
+#### mu-erd attributes
+* `data-entities`: (`Array<Object>`) Every entity object of the array should have:
+  * `name`: (`String`) Entity name.
+  * `columns`: (`Array<Object>`) Every column object of the array should have:
+    * `name`: (`String`) Column field,
+    * `type`: (`String`) Column type (Char, Number, Integer, Varchar),
+    * `pk`: (`Boolean` - Optional) True if column es PK or part of one,
+    * `fk`: (`Object` - Optional) with properties:
+      * `to`: (`Object`) { entity: (Foreign entity), column: (Foreign column name) }
+      * `type`: (`String`) one\_to\_one | one\_to\_many | many\_to\_one | many\_to\_many
+
+With jQuery you can use function `$('.mu-erd').renderERD()`;
+
 
 ## Installing
 

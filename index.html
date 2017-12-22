@@ -16,24 +16,85 @@
     data-file='{
       "foo": {
         "saraza": {
-          "sultano.rb": "sultano"
+          "sultano.rb": "Contenido de sultano"
         },
-        "sultano.rb": "sultano",
-        "mengano.js": "mengano"
+        "sultano.rb": "Contenido de sultano",
+        "mengano.js": "Contenido de mengano"
       },
       "bar": {
-        "archivo con un nombre largo.doc": "un doc"
+        "archivo con un nombre largo.doc": "Contenido de un doc"
       },
       "baz": {
-        "mengano.js": "mengano"
+        "mengano.js": "Contenido de mengano"
       },
-      "saraza.txt": "saraza",
-      "sultano.rb": "sultano",
-      "mengano.js": "mengano",
-      "archivo con un nombre largo.doc": "un doc",
-      "zz archivo con un nombre largo.doc": "un doc"
+      "saraza.txt": "Contenido de saraza",
+      "sultano.rb": "Contenido de sultano",
+      "mengano.js": "Contenido de mengano",
+      "archivo con un nombre largo.doc": "Contenido de un doc",
+      "zz archivo con un nombre largo.doc": "Contenido de un doc"
     }'>
   </div>
 
+  <div
+    class='mu-erd'
+    data-entities='[
+      {
+        "name": "Entity_1",
+        "columns": [
+          {
+            "name": "ent1_id",
+            "type": "Integer",
+            "pk": true
+          },
+          {
+            "name": "ent2_id",
+            "type": "Integer",
+            "pk": true,
+            "fk": {
+              "to": { "entity": "Entity_2", "column": "ent2_id" },
+              "type": "one_to_one"
+            }
+          },
+          {
+            "name": "ent1_description",
+            "type": "Varchar"
+          }
+        ]
+      },
+      {
+        "name": "Entity_2",
+        "columns": [
+          {
+            "name": "ent2_id",
+            "type": "Integer",
+            "pk": true
+          }
+        ]
+      },
+      {
+        "name": "Entity_3",
+        "columns": [
+          {
+            "name": "ent3_id",
+            "type": "Integer",
+            "pk": true
+          },
+          {
+            "name": "ent2_id",
+            "type": "Integer",
+            "pk": true,
+            "fk": {
+              "to": { "entity": "Entity_2", "column": "ent2_id" },
+              "type": "many_to_one"
+            }
+          },
+          {
+            "name": "ent1_description",
+            "type": "Varchar"
+          }
+        ]
+      }
+    ]'>
+  </div>
 </body>
 </html>
