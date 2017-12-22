@@ -34,7 +34,7 @@ gulp.task('scss:vendor', () => {
   });
 
 gulp.task('js', () => {
-  return gulp.src(wiredep({ devDependencies: true }).js.concat(['src/javascripts/**/*.js']))
+  return gulp.src(wiredep({ devDependencies: true }).js.concat(require('./src/javascripts')))
     .pipe($.concat('mumuki-styles.js'))
     .pipe(gulp.dest('dist/javascripts'))
     .pipe(gulp.dest('app/assets/javascripts'));
