@@ -47,14 +47,22 @@ mumuki.load(function () {
     });
   }
 
+  function drawColumnFK(entity, column) {
+    var fks = column.fks || [];
+    return fks.map(drawFK.bind(this, entity, column)).join('');
+  }
+
+  function drawFK(entity, column, fk) {
+    var $entityFrom = $('#' + entityID(entity.name));
+    var $columnFrom = $('#' + columnID(entity.name, column.name));
+    var $entityTo = $('#' + entityID(fk.to.entity));
+    var $columnTo = $('#' + columnID(fk.to.entity, fk.to.column));
+    return connectors[fk.type]($entityFrom, $columnFrom, $entityTo, $columnTo, fk);
+  }
+
   function drawConnectorLines(entity) {
     var columns = entity.columns || [];
-    return columns.map(function (column) {
-      var fks = column.fks || [];
-      return fks.map(function (fk) {
-        return connectors[fk.type](entity, column, fk);
-      }).join('');
-    }).join('');
+    return columns.map(drawColumnFK.bind(this, entity)).join('');
   }
 
   function getSVGFor(entity) {
@@ -80,12 +88,7 @@ mumuki.load(function () {
   }
 
   var connectors = {
-    one_to_one: function(entity, column, fk) {
-      var $entityFrom = $('#' + entityID(entity.name));
-      var $columnFrom = $('#' + columnID(entity.name, column.name));
-      var $entityTo = $('#' + entityID(fk.to.entity));
-      var $columnTo = $('#' + columnID(fk.to.entity, fk.to.column));
-
+    one_to_one: function($entityFrom, $columnFrom, $entityTo, $columnTo, fk) {
       var fromX = $entityFrom.position().left + $entityFrom.width() + ($entityFrom.css('border-width')[0] * 2);
       var fromY = $columnFrom.position().top + $columnFrom.height() / 2;
       var toX = $entityTo.position().left;
@@ -104,12 +107,7 @@ mumuki.load(function () {
 
       ].join('');
     },
-    many_to_one: function(entity, column, fk) {
-      var $entityFrom = $('#' + entityID(entity.name));
-      var $columnFrom = $('#' + columnID(entity.name, column.name));
-      var $entityTo = $('#' + entityID(fk.to.entity));
-      var $columnTo = $('#' + columnID(fk.to.entity, fk.to.column));
-
+    many_to_one: function($entityFrom, $columnFrom, $entityTo, $columnTo, fk) {
       var fromX = $entityFrom.position().left + $entityFrom.width() + ($entityFrom.css('border-width')[0] * 2);
       var fromY = $columnFrom.position().top + $columnFrom.height() / 2;
       var toX = $entityTo.position().left;
@@ -130,12 +128,7 @@ mumuki.load(function () {
 
       ].join('');
     },
-    one_to_many: function(entity, column, fk) {
-      var $entityFrom = $('#' + entityID(entity.name));
-      var $columnFrom = $('#' + columnID(entity.name, column.name));
-      var $entityTo = $('#' + entityID(fk.to.entity));
-      var $columnTo = $('#' + columnID(fk.to.entity, fk.to.column));
-
+    one_to_many: function($entityFrom, $columnFrom, $entityTo, $columnTo, fk) {
       var fromX = $entityFrom.position().left + $entityFrom.width() +  + ($entityFrom.css('border-width')[0] * 2);
       var fromY = $columnFrom.position().top + $columnFrom.height() / 2;
       var toX = $entityTo.position().left;
@@ -156,12 +149,7 @@ mumuki.load(function () {
 
       ].join('');
     },
-    many_to_many: function(entity, column, fk) {
-      var $entityFrom = $('#' + entityID(entity.name));
-      var $columnFrom = $('#' + columnID(entity.name, column.name));
-      var $entityTo = $('#' + entityID(fk.to.entity));
-      var $columnTo = $('#' + columnID(fk.to.entity, fk.to.column));
-
+    many_to_many: function($entityFrom, $columnFrom, $entityTo, $columnTo, fk) {
       var fromX = $entityFrom.position().left + $entityFrom.width() + ($entityFrom.css('border-width')[0] * 2);
       var fromY = $columnFrom.position().top + $columnFrom.height() / 2;
       var toX = $entityTo.position().left;
