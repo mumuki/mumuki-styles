@@ -84,6 +84,7 @@
 ```
 
 #### mu-file-browser attributes
+
 * `data-can-browse`: (Boolean) user can enter into a folder (default `false`).
 * `data-on-file-open`: (Function) receives 2 params, file name and file content. If no function given user can't open files.
 * `data-file`: (Object) object `keys` are the names of the resources and object `values` are theirs contents (sub-object for a folder and a string for a file).
@@ -155,6 +156,7 @@ With jQuery you can use function `$('.mu-file-browser').renderFileBrowser()`;
 ```
 
 #### mu-erd attributes
+
 * `data-entities`: (`Array<Object>`) Every entity object of the array should have:
   * `name`: (`String`) Entity name.
   * `columns`: (`Array<Object>`) Every column object of the array should have:

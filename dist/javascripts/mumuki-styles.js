@@ -12999,10 +12999,9 @@ mumuki.load(function () {
   }
 
   function getBrowserMain($browser) {
-    console.log($browser.html());
     return $([
       '<main>',
-        $browser.html(),
+      '  <iframe srcdoc="', $browser.data('srcdoc'), '" frameborder="0"></iframe>',
       '</main>'
     ].join(''));
   }
@@ -13015,8 +13014,6 @@ mumuki.load(function () {
 
       var $header = getBrowserHeader($browser);
       var $main = getBrowserMain($browser);
-
-      $browser.empty();
 
       $browser.append($header);
       $browser.append($main);

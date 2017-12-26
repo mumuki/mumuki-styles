@@ -26,10 +26,9 @@ mumuki.load(function () {
   }
 
   function getBrowserMain($browser) {
-    console.log($browser.html());
     return $([
       '<main>',
-        $browser.html(),
+      '  <iframe srcdoc="', $browser.data('srcdoc'), '" frameborder="0"></iframe>',
       '</main>'
     ].join(''));
   }
@@ -47,8 +46,8 @@ mumuki.load(function () {
 
       $browser.append($header);
       $browser.append($main);
-
     });
+
     return self;
   }
 

@@ -9448,7 +9448,12 @@ pre code {
           margin-bottom: -2px;
           border-bottom: none;
           border-top-left-radius: 10px;
-          border-top-right-radius: 10px; }
+          border-top-right-radius: 10px;
+          width: 250px; }
+          .mu-browser header .mu-browser-tabs .mu-browser-tab.active span {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis; }
         .mu-browser header .mu-browser-tabs .mu-browser-tab.mu-browser-new-tab {
           height: 36px;
           width: 36px;
@@ -9456,7 +9461,7 @@ pre code {
           font-size: 75%;
           border-top-left-radius: 10px;
           border-top-right-radius: 10px;
-          background-color: #cfd9db; }
+          background-color: #d6dfe1; }
     .mu-browser header .mu-browser-bar {
       width: 100%;
       padding: 15px;
@@ -9479,6 +9484,7 @@ pre code {
         .mu-browser header .mu-browser-bar input:focus {
           outline: none; }
   .mu-browser main {
+    position: relative;
     border: 2px solid #cfd9db;
     border-top: none;
     margin: 15px;
@@ -9488,7 +9494,8 @@ pre code {
     .mu-browser main iframe {
       width: 100%;
       height: 100%;
-      border: none; }
+      border: none;
+      overflow: auto; }
 
 .mu-erd {
   position: relative;
