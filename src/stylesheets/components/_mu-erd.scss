@@ -1,4 +1,3 @@
-$mu-erd-border: 2px solid $mu-color-dark-separator;
 $mu-erd-margin: 20px;
 
 .mu-erd {
@@ -24,7 +23,7 @@ $mu-erd-margin: 20px;
   margin: $mu-erd-margin;
   width: 250px;
   min-width: 250px;
-  border: $mu-erd-border;
+  border: $mu-component-border;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
@@ -33,10 +32,10 @@ $mu-erd-margin: 20px;
   padding: 5px 10px;
   list-style: none;
   text-align: center;
-  border-bottom: $mu-erd-border;
+  border-bottom: $mu-component-border;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  background-color: $mu-color-separator;
+  background-color: $mu-color-component-title-background;
   margin: 0;
 }
 
@@ -50,7 +49,7 @@ $mu-erd-margin: 20px;
     padding: 5px 0;
     flex-flow: row;
     justify-content: space-between;
-    border-bottom: 1px dashed $mu-color-dark-separator;
+    border-bottom: 1px dashed $mu-color-component-border;
     &:last-child {
       border-bottom: none;
     }

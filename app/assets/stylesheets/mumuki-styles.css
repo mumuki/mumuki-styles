@@ -9441,7 +9441,6 @@ pre code {
           height: 16px;
           width: 16px;
           object-fit: cover;
-          object-position: 50% 50%;
           margin-right: 5px; }
         .mu-browser header .mu-browser-tabs .mu-browser-tab.active {
           z-index: 2;

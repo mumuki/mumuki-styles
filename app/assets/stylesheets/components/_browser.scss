@@ -1,6 +1,5 @@
-$mu-web-browser-border: 2px solid $mu-color-dark-separator;
 $mu-web-browser-tab-border-radius: 10px;
-$mu-color-browser-inactive-tabs: darken($mu-color-separator, 5%);
+$mu-color-browser-inactive-tabs: darken($mu-color-component-title-background, 5%);
 
 .mu-browser {
   width: 100%;
@@ -14,7 +13,7 @@ $mu-color-browser-inactive-tabs: darken($mu-color-separator, 5%);
       list-style: none;
       margin-bottom: 0;
       padding-left: 0;
-      border: $mu-web-browser-border;
+      border: $mu-component-border;
       border-bottom: none;
       background-color: $mu-color-browser-inactive-tabs;
       border-top-left-radius: $mu-web-browser-tab-border-radius;
@@ -24,13 +23,12 @@ $mu-color-browser-inactive-tabs: darken($mu-color-separator, 5%);
         @include display-flex(row nowrap, flex-start, center);
         margin-left: -2px;
         padding: 2px 10px;
-        border: $mu-web-browser-border;
-        background-color: $mu-color-separator;
+        border: $mu-component-border;
+        background-color: $mu-color-component-title-background;
         img {
           height: 16px;
           width: 16px;
           object-fit: cover;
-          object-position: 50% 50%;
           margin-right: 5px;
         }
         &.active {
@@ -60,8 +58,8 @@ $mu-color-browser-inactive-tabs: darken($mu-color-separator, 5%);
     .mu-browser-bar {
       width: 100%;
       padding: 15px;
-      border: $mu-web-browser-border;
-      background-color: $mu-color-separator;
+      border: $mu-component-border;
+      background-color: $mu-color-component-title-background;
       @include display-flex(row nowrap, flex-start, center);
       i {
         cursor: pointer;
@@ -80,7 +78,7 @@ $mu-color-browser-inactive-tabs: darken($mu-color-separator, 5%);
         }
       }
       input {
-        border: 1px solid $mu-color-dark-separator;
+        border: 1px solid $mu-color-component-border;
         padding: 0 10px;
         height: 30px;
         border-radius: 10px;
@@ -91,7 +89,7 @@ $mu-color-browser-inactive-tabs: darken($mu-color-separator, 5%);
   }
   main {
     position: relative;
-    border: $mu-web-browser-border;
+    border: $mu-component-border;
     border-top: none;
     margin: 15px;
     margin-top: 0;

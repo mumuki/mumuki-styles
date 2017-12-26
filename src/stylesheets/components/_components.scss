@@ -1,0 +1,9 @@
+$mu-color-component-title-background: $mu-color-separator;
+$mu-color-component-border: darken($mu-color-component-title-background, 10%);
+
+$mu-component-border: 2px solid $mu-color-component-border;
+$mu-component-border-radius: 15px;
+
+@import 'browser';
+@import 'mu-erd';
+@import 'mu-file-browser';

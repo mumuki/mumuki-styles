@@ -13015,10 +13015,12 @@ mumuki.load(function () {
       var $header = getBrowserHeader($browser);
       var $main = getBrowserMain($browser);
 
+      $browser.empty();
+
       $browser.append($header);
       $browser.append($main);
-
     });
+
     return self;
   }
 
