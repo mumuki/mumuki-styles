@@ -6085,7 +6085,7 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
   font-weight: normal;
   font-style: normal; }
 
-.fa, .mu-browser header i, .mu-file-browser header i, .mu-file-browser main ul li i {
+.fa, .mu-browser header .mu-browser-bar i, .mu-file-browser header i, .mu-file-browser main ul li i {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -6111,7 +6111,7 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 .fa-5x {
   font-size: 5em; }
 
-.fa-fw, .mu-browser header i, .mu-file-browser header i, .mu-file-browser main ul li i {
+.fa-fw, .mu-browser header .mu-browser-bar i, .mu-file-browser header i, .mu-file-browser main ul li i {
   width: 1.28571em;
   text-align: center; }
 
@@ -6142,10 +6142,10 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 .fa-pull-right {
   float: right; }
 
-.fa.fa-pull-left, .mu-browser header i.fa-pull-left, .mu-file-browser header i.fa-pull-left, .mu-file-browser main ul li i.fa-pull-left {
+.fa.fa-pull-left, .mu-browser header .mu-browser-bar i.fa-pull-left, .mu-file-browser header i.fa-pull-left, .mu-file-browser main ul li i.fa-pull-left {
   margin-right: .3em; }
 
-.fa.fa-pull-right, .mu-browser header i.fa-pull-right, .mu-file-browser header i.fa-pull-right, .mu-file-browser main ul li i.fa-pull-right {
+.fa.fa-pull-right, .mu-browser header .mu-browser-bar i.fa-pull-right, .mu-file-browser header i.fa-pull-right, .mu-file-browser main ul li i.fa-pull-right {
   margin-left: .3em; }
 
 /* Deprecated as of 4.4.0 */
@@ -6155,10 +6155,10 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 .pull-left {
   float: left; }
 
-.fa.pull-left, .mu-browser header i.pull-left, .mu-file-browser header i.pull-left, .mu-file-browser main ul li i.pull-left {
+.fa.pull-left, .mu-browser header .mu-browser-bar i.pull-left, .mu-file-browser header i.pull-left, .mu-file-browser main ul li i.pull-left {
   margin-right: .3em; }
 
-.fa.pull-right, .mu-browser header i.pull-right, .mu-file-browser header i.pull-right, .mu-file-browser main ul li i.pull-right {
+.fa.pull-right, .mu-browser header .mu-browser-bar i.pull-right, .mu-file-browser header i.pull-right, .mu-file-browser main ul li i.pull-right {
   margin-left: .3em; }
 
 .fa-spin {
@@ -6341,7 +6341,7 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 .fa-repeat:before {
   content: ""; }
 
-.fa-refresh:before {
+.fa-refresh:before, .mu-browser header .mu-browser-bar i.mu-refresh:before {
   content: ""; }
 
 .fa-list-alt:before {
@@ -6735,10 +6735,10 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 .fa-hand-o-down:before {
   content: ""; }
 
-.fa-arrow-circle-left:before, .mu-browser header i:before, .mu-file-browser header i:before {
+.fa-arrow-circle-left:before, .mu-browser header .mu-browser-bar i.mu-arrow-left:before, .mu-file-browser header i:before {
   content: ""; }
 
-.fa-arrow-circle-right:before {
+.fa-arrow-circle-right:before, .mu-browser header .mu-browser-bar i.mu-arrow-right:before {
   content: ""; }
 
 .fa-arrow-circle-up:before {
@@ -9373,7 +9373,7 @@ pre code {
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-start; }
-    .mu-navbar .mu-navbar-avatar .notifications-box .fa, .mu-navbar .mu-navbar-avatar .notifications-box .mu-browser header i, .mu-browser header .mu-navbar .mu-navbar-avatar .notifications-box i, .mu-navbar .mu-navbar-avatar .notifications-box .mu-file-browser header i, .mu-file-browser header .mu-navbar .mu-navbar-avatar .notifications-box i, .mu-navbar .mu-navbar-avatar .notifications-box .mu-file-browser main ul li i, .mu-file-browser main ul li .mu-navbar .mu-navbar-avatar .notifications-box i {
+    .mu-navbar .mu-navbar-avatar .notifications-box .fa, .mu-navbar .mu-navbar-avatar .notifications-box .mu-browser header .mu-browser-bar i, .mu-browser header .mu-browser-bar .mu-navbar .mu-navbar-avatar .notifications-box i, .mu-navbar .mu-navbar-avatar .notifications-box .mu-file-browser header i, .mu-file-browser header .mu-navbar .mu-navbar-avatar .notifications-box i, .mu-navbar .mu-navbar-avatar .notifications-box .mu-file-browser main ul li i, .mu-file-browser main ul li .mu-navbar .mu-navbar-avatar .notifications-box i {
       color: #0B465D; }
     .mu-navbar .mu-navbar-avatar .notifications-box .badge-notifications {
       position: absolute;
@@ -9410,35 +9410,84 @@ pre code {
   .mu-browser header {
     margin: 15px;
     margin-bottom: 0;
-    padding: 15px;
-    border: 2px solid #cfd9db;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background-color: #ecf0f1;
     display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
+    flex-flow: column nowrap;
+    align-items: flex-start;
     justify-content: flex-start; }
-    .mu-browser header i {
-      cursor: pointer;
-      font-size: 25px;
-      margin-right: 10px; }
-    .mu-browser header input {
-      border: 1px solid #cfd9db;
-      padding: 0 10px;
-      height: 30px;
-      border-radius: 10px;
-      width: 100%; }
-      .mu-browser header input:focus {
-        outline: none; }
+    .mu-browser header .mu-browser-tabs {
+      width: 100%;
+      list-style: none;
+      margin-bottom: 0;
+      padding-left: 0;
+      border: 2px solid #cfd9db;
+      border-bottom: none;
+      background-color: #dde4e6;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-start; }
+      .mu-browser header .mu-browser-tabs .mu-browser-tab {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        margin-left: -2px;
+        padding: 2px 10px;
+        border: 2px solid #cfd9db;
+        background-color: #ecf0f1; }
+        .mu-browser header .mu-browser-tabs .mu-browser-tab img {
+          height: 16px;
+          width: 16px;
+          object-fit: cover;
+          object-position: 50% 50%;
+          margin-right: 5px; }
+        .mu-browser header .mu-browser-tabs .mu-browser-tab.active {
+          z-index: 2;
+          margin-bottom: -2px;
+          border-bottom: none;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px; }
+        .mu-browser header .mu-browser-tabs .mu-browser-tab.mu-browser-new-tab {
+          height: 36px;
+          width: 36px;
+          margin: 0 0 -2px 2px;
+          font-size: 75%;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+          background-color: #cfd9db; }
+    .mu-browser header .mu-browser-bar {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #cfd9db;
+      background-color: #ecf0f1;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-start; }
+      .mu-browser header .mu-browser-bar i {
+        cursor: pointer;
+        font-size: 25px;
+        margin-right: 10px; }
+      .mu-browser header .mu-browser-bar input {
+        border: 1px solid #cfd9db;
+        padding: 0 10px;
+        height: 30px;
+        border-radius: 10px;
+        width: 100%; }
+        .mu-browser header .mu-browser-bar input:focus {
+          outline: none; }
   .mu-browser main {
     border: 2px solid #cfd9db;
     border-top: none;
     margin: 15px;
-    margin-top: 0; }
+    margin-top: 0;
+    height: 500px;
+    min-height: 500px; }
     .mu-browser main iframe {
-      height: 500px;
-      min-height: 500px;
+      width: 100%;
+      height: 100%;
       border: none; }
 
 .mu-erd {
