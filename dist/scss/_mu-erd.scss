@@ -1,4 +1,5 @@
 $mu-erd-border: 2px solid $mu-color-dark-separator;
+$mu-erd-margin: 20px;
 
 .mu-erd {
   position: relative;
@@ -11,15 +12,16 @@ $mu-erd-border: 2px solid $mu-color-dark-separator;
   align-items: center;
   svg {
     z-index: 0;
-    width: 100%;
+    width: calc(100% - #{$mu-erd-margin});
     height: 100%;
     position: absolute;
+    margin-left: $mu-erd-margin / 2;
   }
 }
 
 .mu-erd-entity {
   z-index: 1;
-  margin: 20px 0;
+  margin: $mu-erd-margin;
   width: 250px;
   min-width: 250px;
   border: $mu-erd-border;

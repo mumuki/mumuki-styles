@@ -1,45 +1,43 @@
+$mu-file-browser-border: 2px solid $mu-color-dark-separator;
+
 .mu-browser {
-  iframe {
-    margin: 0;
-    width: 100%;
-    border: none;
-  }
-  border-top: 2em solid rgba(230, 230, 230, 0.7);
-  box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, 0.4);
+  width: 100%;
   position: relative;
-  border-radius: 3px 3px 0 0;
-  padding: 5px;
-
-  &:before {
-    display: block;
-    position: absolute;
-    content: '';
-    top: -1.25em;
-    left: 0.5em;
-    width: 0.5em;
-    height: 0.5em;
-    border-radius: 50%;
-    background-color: #9b3;
-    box-shadow: 0 0 0 2px #9b3;
+  header {
+    margin: 15px;
+    margin-bottom: 0;
+    padding: 15px;
+    border: $mu-file-browser-border;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: $mu-color-separator;
+    @include display-flex(row nowrap, flex-start, center);
+    i {
+      cursor: pointer;
+      font-size: 25px;
+      margin-right: 10px;
+      @extend .fa ;
+      @extend .fa-fw;
+      @extend .fa-arrow-circle-left;
+    }
+    input {
+      border: 1px solid $mu-color-dark-separator;
+      padding: 0 10px;
+      height: 30px;
+      border-radius: 10px;
+      width: 100%;
+      &:focus { outline: none }
+    }
   }
-
-  &:after {
-    display: block;
-    position: absolute;
-    font-family: 'DejaVu Sans', 'Liberation Sans', sans-serif;
-    content: 'http://mi-sitio.com';
-    top: -1.8em;
-    left: 1.5em;
-    padding: 0 0.2em 1.4em;
-    width: calc(100% - 2.2em);
-    height: 1.2em;
-    border-radius: 2px;
-    background-color: white;
-    font-size: 0.9em;
-  }
-
-  & > * {
-    display: block;
-    margin: 2em;
+  main {
+    border: $mu-file-browser-border;
+    border-top: none;
+    margin: 15px;
+    margin-top: 0;
+    iframe {
+      height: 500px;
+      min-height: 500px;
+      border: none;
+    }
   }
 }
