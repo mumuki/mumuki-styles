@@ -1,5 +1,3 @@
-$mu-file-browser-border: 2px solid $mu-color-dark-separator;
-
 .mu-file-browser {
   width: 100%;
   position: relative;
@@ -7,10 +5,10 @@ $mu-file-browser-border: 2px solid $mu-color-dark-separator;
     margin: 15px;
     margin-bottom: 0;
     padding: 15px;
-    border: $mu-file-browser-border;
+    border: $mu-component-border;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    background-color: $mu-color-separator;
+    background-color: $mu-color-component-title-background;
     @include display-flex(row nowrap, flex-start, center);
     i {
       cursor: pointer;
@@ -21,7 +19,7 @@ $mu-file-browser-border: 2px solid $mu-color-dark-separator;
       @extend .fa-arrow-circle-left;
     }
     input {
-      border: 1px solid $mu-color-dark-separator;
+      border: 1px solid $mu-color-component-border;
       padding: 0 10px;
       height: 30px;
       border-radius: 10px;
@@ -30,7 +28,7 @@ $mu-file-browser-border: 2px solid $mu-color-dark-separator;
     }
   }
   main {
-    border: $mu-file-browser-border;
+    border: $mu-component-border;
     border-top: none;
     margin: 15px;
     margin-top: 0;
