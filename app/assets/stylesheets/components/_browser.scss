@@ -5,7 +5,6 @@ $mu-color-browser-inactive-tabs: darken($mu-color-component-title-background, 5%
   width: 100%;
   position: relative;
   header {
-    margin: 15px;
     margin-bottom: 0;
     @include display-flex(column nowrap, flex-start, flex-start);
     .mu-browser-tabs {
@@ -91,7 +90,6 @@ $mu-color-browser-inactive-tabs: darken($mu-color-component-title-background, 5%
     position: relative;
     border: $mu-component-border;
     border-top: none;
-    margin: 15px;
     margin-top: 0;
     height: 500px;
     min-height: 500px;

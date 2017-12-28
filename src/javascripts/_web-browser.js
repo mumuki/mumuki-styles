@@ -1,9 +1,9 @@
 mumuki.load(function () {
 
   function getBrowserHeader($browser) {
-    var title = $browser.data('title') || 'Mumuki';
-    var favicon = $browser.data('favicon') || 'https://mumuki.io/logo-alt-png';
     var url = $browser.data('url') || 'https://mumuki.io';
+    var title = $browser.data('title') || 'Mumuki';
+    var favicon = $browser.data('favicon') || 'https://mumuki.io/logo-alt.png';
     return $([
       '<header>',
       '  <ul class="mu-browser-tabs">',
@@ -25,10 +25,24 @@ mumuki.load(function () {
     ].join(''))
   }
 
+  var _htmlEscapes = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }
+
+  function escapeHTML(html) {
+    return html.replace(/[&<>"']/g, function (chr) {
+      return _htmlEscapes[chr];
+    })
+  }
+
   function getBrowserMain($browser) {
     return $([
       '<main>',
-      '  <iframe srcdoc="', $browser.data('srcdoc'), '" frameborder="0"></iframe>',
+      '  <iframe srcdoc="', escapeHTML($browser.data('srcdoc')), '" frameborder="0"></iframe>',
       '</main>'
     ].join(''));
   }
@@ -46,6 +60,10 @@ mumuki.load(function () {
 
       $browser.append($header);
       $browser.append($main);
+
+      var mainHeight = parseInt($browser.width() / (16/9), 10) - $header.height();
+
+      $main.css({ 'height': mainHeight, 'min-height': mainHeight });
     });
 
     return self;

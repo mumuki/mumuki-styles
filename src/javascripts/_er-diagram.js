@@ -187,6 +187,7 @@ mumuki.load(function () {
 
   $.fn.renderERD = function () {
     var self = this;
+    self.empty();
     self.each(function (i) {
       var $diagram = $(self[i]);
       var entities = $diagram.data('entities');
@@ -197,7 +198,7 @@ mumuki.load(function () {
   }
 
   window.addEventListener('resize', function () {
-    $('.mu-erd').empty().renderERD();
+    $('.mu-erd').renderERD();
   });
 
   $('.mu-erd').renderERD();

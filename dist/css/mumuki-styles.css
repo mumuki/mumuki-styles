@@ -9408,7 +9408,6 @@ pre code {
   width: 100%;
   position: relative; }
   .mu-browser header {
-    margin: 15px;
     margin-bottom: 0;
     display: flex;
     flex-flow: column nowrap;
@@ -9486,7 +9485,6 @@ pre code {
     position: relative;
     border: 2px solid #cfd9db;
     border-top: none;
-    margin: 15px;
     margin-top: 0;
     height: 500px;
     min-height: 500px; }
