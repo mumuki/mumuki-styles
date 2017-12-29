@@ -87,87 +87,92 @@
 
 * `data-can-browse`: (Boolean) user can enter into a folder (default `false`).
 * `data-on-file-open`: (Function) receives 2 params, file name and file content. If no function given user can't open files.
-* `data-file`: (Object) object `keys` are the names of the resources and object `values` are theirs contents (sub-object for a folder and a string for a file).
+* `data-file`: (Hash) hash `keys` are the names of the resources and hash `values` are theirs contents (sub-hash for a folder and a string for a file).
 
 With jQuery you can use function `$('.mu-file-browser').renderFileBrowser()`;
 
 ```html
 <div
   class='mu-erd'
-  data-entities='[
-    {
-      "name": "Entity_1",
-      "columns": [
-        {
-          "name": "ent1_id",
-          "type": "Integer",
-          "pk": true
-        },
-        {
-          "name": "ent2_id",
-          "type": "Integer",
-          "pk": true,
-          "fk": {
-            "to": { "entity": "Entity_2", "column": "ent2_id" },
-            "type": "one_to_one"
-          }
-        },
-        {
-          "name": "ent1_description",
-          "type": "Varchar"
+  data-entities='{
+    "Entity_1": {
+      "ent1_id": {
+        "type": "Integer",
+        "pk": true
+      },
+      "ent2_id": {
+        "type": "Integer",
+        "pk": true,
+        "fk": {
+          "to": { "entity": "Entity_2", "column": "ent2_id" },
+          "type": "one_to_one"
         }
-      ]
+      },
+      "ent1_description": {
+        "type": "Varchar"
+      }
     },
-    {
-      "name": "Entity_2",
-      "columns": [
-        {
-          "name": "ent2_id",
-          "type": "Integer",
-          "pk": true
-        }
-      ]
+    "Entity_2": {
+      "ent2_id": {
+        "type": "Integer",
+        "pk": true
+      }
     },
-    {
-      "name": "Entity_3",
-      "columns": [
-        {
-          "name": "ent3_id",
-          "type": "Integer",
-          "pk": true
-        },
-        {
-          "name": "ent2_id",
-          "type": "Integer",
-          "pk": true,
-          "fk": {
-            "to": { "entity": "Entity_2", "column": "ent2_id" },
-            "type": "many_to_one"
-          }
-        },
-        {
-          "name": "ent1_description",
-          "type": "Varchar"
+    "Entity_3": {
+      "ent3_id": {
+        "type": "Integer",
+        "pk": true
+      },
+      "ent2_id": {
+        "type": "Integer",
+        "pk": true,
+        "fk": {
+          "to": { "entity": "Entity_2", "column": "ent2_id" },
+          "type": "many_to_one"
         }
-      ]
+      },
+      "ent1_description": {
+        "type": "Varchar"
+      }
     }
-  ]'>
+  }'>
 </div>
 ```
 
 #### mu-erd attributes
 
-* `data-entities`: (`Array<Object>`) Every entity object of the array should have:
-  * `name`: (`String`) Entity name.
-  * `columns`: (`Array<Object>`) Every column object of the array should have:
-    * `name`: (`String`) Column field,
-    * `type`: (`String`) Column type (Char, Number, Integer, Varchar),
-    * `pk`: (`Boolean` - Optional) True if column es PK or part of one,
-    * `fk`: (`Object` - Optional) with properties:
-      * `to`: (`Object`) { entity: (Foreign entity), column: (Foreign column name) }
-      * `type`: (`String`) one\_to\_one | one\_to\_many | many\_to\_one | many\_to\_many
+* `data-entities`: (`Hash<EntityName, EntityColumns>`)
+  * `EntityName`: (`String`).
+  * `EntityColumns`: (`Hash<ColumnName, ColumnMetadata>`)
+    * `ColumnName`: (`String`)
+    * `ColumnMetadata`: (`Hash`)
+      * `type`: (`String`) Column type (Char, Number, Integer, Varchar, etc),
+      * `pk`: (`Boolean` - Optional) True if column es PK or part of one,
+      * `fk`: (`Hash` - Optional) with properties:
+        * `to`: (`Object`) { entity: (Foreign entity), column: (Foreign column name) }
+        * `type`: (`String`) one\_to\_one | one\_to\_many | many\_to\_one | many\_to\_many
 
 With jQuery you can use function `$('.mu-erd').renderERD()`;
+
+
+```html
+  <div
+    class='mu-browser'
+    data-url='https://mi-sitio.mumuki.io'
+    data-title='Mumuki - Aprender a programar'
+    data-favicon='https://mumuki.io/logo-alt.png'
+    data-srcdoc='<p>Hello Mumuki Browser</p>'>
+  </div>
+```
+
+#### mu-browser attributes
+
+* `data-srcdoc`: HTML of the page to show
+* `data-url`: (Optional) URL of the page (default: `https://mumuki.io`)
+* `data-title`: (Optional) Title of the browser's tab (default: `Mumuki`)
+* `data-favicon`: (Optional) Favicon of the brower's tab (default: `https://mumuki.io/logo-alt.png`)
+
+With jQuery you can use function `$('.mu-erd').renderWebBrowser()`;
 
 
 ## Installing

@@ -38,64 +38,48 @@
 
   <div
     class='mu-erd'
-    data-entities='[
-      {
-        "name": "Entity_1",
-        "columns": [
-          {
-            "name": "ent1_id",
-            "type": "Integer",
-            "pk": true
-          },
-          {
-            "name": "ent2_id",
-            "type": "Integer",
-            "pk": true,
-            "fk": {
-              "to": { "entity": "Entity_2", "column": "ent2_id" },
-              "type": "one_to_one"
-            }
-          },
-          {
-            "name": "ent1_description",
-            "type": "Varchar"
+    data-entities='{
+      "Entity_1": {
+        "ent1_id": {
+          "type": "Integer",
+          "pk": true
+        },
+        "ent2_id": {
+          "type": "Integer",
+          "pk": true,
+          "fk": {
+            "to": { "entity": "Entity_2", "column": "ent2_id" },
+            "type": "one_to_one"
           }
-        ]
+        },
+        "ent1_description": {
+          "type": "Varchar"
+        }
       },
-      {
-        "name": "Entity_2",
-        "columns": [
-          {
-            "name": "ent2_id",
-            "type": "Integer",
-            "pk": true
-          }
-        ]
+      "Entity_2": {
+        "ent2_id": {
+          "type": "Integer",
+          "pk": true
+        }
       },
-      {
-        "name": "Entity_3",
-        "columns": [
-          {
-            "name": "ent3_id",
-            "type": "Integer",
-            "pk": true
-          },
-          {
-            "name": "ent2_id",
-            "type": "Integer",
-            "pk": true,
-            "fk": {
-              "to": { "entity": "Entity_2", "column": "ent2_id" },
-              "type": "many_to_one"
-            }
-          },
-          {
-            "name": "ent1_description",
-            "type": "Varchar"
+      "Entity_3": {
+        "ent3_id": {
+          "type": "Integer",
+          "pk": true
+        },
+        "ent2_id": {
+          "type": "Integer",
+          "pk": true,
+          "fk": {
+            "to": { "entity": "Entity_2", "column": "ent2_id" },
+            "type": "many_to_one"
           }
-        ]
+        },
+        "ent1_description": {
+          "type": "Varchar"
+        }
       }
-    ]'>
+    }'>
   </div>
 
   <div
@@ -103,7 +87,7 @@
     data-url='https://mi-sitio.mumuki.io'
     data-title='Mumuki - Aprender a programar'
     data-favicon='https://mumuki.io/logo-alt.png'
-    data-srcdoc='<p>Hello Mumuki Browser</p>'>
+    data-srcdoc='<p style="color: red">Hello Mumuki Browser</p>'>
   </div>
 </body>
 </html>

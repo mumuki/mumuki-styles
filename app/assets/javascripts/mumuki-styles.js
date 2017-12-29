@@ -12952,12 +12952,33 @@ mumuki.load(function () {
     return ['<line x1="', x1, '" x2="', x2, '" y1="', y1, '" y2="', y2, '" stroke="black" stroke-width="1"/>'].join('');
   }
 
+  function mapEntityColumns(columnsObject) {
+    var columns = [];
+    for (var key in columnsObject) {
+      var column = columnsObject[key];
+      column.name = key;
+      columns.push(column);
+    }
+    return columns;
+  }
+
+  function mapEntities(entitiesObject) {
+    var entities = [];
+    for (var key in entitiesObject) {
+      var entity = {};
+      entity.name = key;
+      entity.columns = mapEntityColumns(entitiesObject[key]);
+      entities.push(entity);
+    }
+    return entities;
+  }
+
   $.fn.renderERD = function () {
     var self = this;
     self.empty();
     self.each(function (i) {
       var $diagram = $(self[i]);
-      var entities = $diagram.data('entities');
+      var entities = mapEntities($diagram.data('entities'));
       appendEntities($diagram, entities);
       appendConnectors($diagram, entities);
     });
