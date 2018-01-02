@@ -83,6 +83,52 @@
   </div>
 
   <div
+    class='mu-erd'
+    data-entities='{
+      "Entity_1": {
+        "ent1_id": {
+          "type": "Integer",
+          "pk": true
+        },
+        "ent2_id": {
+          "type": "Integer",
+          "pk": true,
+          "fk": {
+            "to": { "entity": "Entity_2", "column": "ent2_id" },
+            "type": "one_to_one"
+          }
+        },
+        "ent1_description": {
+          "type": "Varchar"
+        }
+      },
+      "Entity_2": {
+        "ent2_id": {
+          "type": "Integer",
+          "pk": true
+        }
+      },
+      "Entity_3": {
+        "ent3_id": {
+          "type": "Integer",
+          "pk": true
+        },
+        "ent2_id": {
+          "type": "Integer",
+          "pk": true,
+          "fk": {
+            "to": { "entity": "Entity_2", "column": "ent2_id" },
+            "type": "many_to_one"
+          }
+        },
+        "ent1_description": {
+          "type": "Varchar"
+        }
+      }
+    }'>
+  </div>
+
+  <div
     class='mu-browser'
     data-url='https://mi-sitio.mumuki.io'
     data-title='Mumuki - Aprender a programar'

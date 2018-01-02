@@ -12868,24 +12868,24 @@ mumuki.load(function () {
     }
   }
 
-  function entityID(entity) {
-    return 'mu-erd-' + entity.toLowerCase().replace(/[_]/g, '-');
+  function entityID(entity, index) {
+    return 'mu-erd-' + index + '-' + entity.toLowerCase().replace(/[_]/g, '-');
   }
 
-  function columnID(entity, column) {
-    return entityID(entity) + '-' + column.toLowerCase().replace(/[_]/g, '-');
+  function columnID(entity, column, index) {
+    return entityID(entity, index) + '-' + column.toLowerCase().replace(/[_]/g, '-');
   }
 
   function keyIconFor(column, field) {
     return !!column[field] ? '<i class="fa fa-fw fa-key mu-erd-' + field + '"></i>' : '';
   }
 
-  function generateEntityColumns(entity) {
+  function generateEntityColumns(entity, index) {
     var columns = entity.columns || [];
     var html = '';
     columns.forEach(function (column) {
       html += [
-        '<li id="', columnID(entity.name, column.name), '" class="mu-erd-entity-column">',
+        '<li id="', columnID(entity.name, column.name, index), '" class="mu-erd-entity-column">',
         '  <span class="mu-erd-entity-column-name">',
               keyIconFor(column, 'pk'),
               keyIconFor(column, 'fk'),
@@ -12898,15 +12898,15 @@ mumuki.load(function () {
     return html;
   }
 
-  function appendEntities($diagram, entities) {
+  function appendEntities($diagram, entities, index) {
     entities.forEach(function (entity) {
       var $entity = $([
-        '<div id="', entityID(entity.name), '" class="mu-erd-entity">',
+        '<div id="', entityID(entity.name, index), '" class="mu-erd-entity">',
         '  <div class="mu-erd-entity-name">',
               entity.name,
         '  </div>',
         '  <ul class="mu-erd-entity-columns">',
-              generateEntityColumns(entity),
+              generateEntityColumns(entity, index),
         '  </ul>',
         '</div>',
       ].join(''));
@@ -12914,8 +12914,8 @@ mumuki.load(function () {
     });
   }
 
-  function drawColumnFK(entity, column) {
-    return drawFK(entity, column, column.fk);
+  function drawColumnFK(entity, index, column) {
+    return drawFK(entity, column, column.fk, index);
   }
 
   function getDirection($entityFrom, $entityTo) {
@@ -12929,15 +12929,15 @@ mumuki.load(function () {
     return direction.replace(' ', '_');
   }
 
-  function drawFK(entity, column, fk) {
+  function drawFK(entity, column, fk, index) {
     if (!fk) return '';
     var $entity = {
-      from: $('#' + entityID(entity.name)),
-      to: $('#' + entityID(fk.to.entity))
+      from: $('#' + entityID(entity.name, index)),
+      to: $('#' + entityID(fk.to.entity, index))
     }
     var $column = {
-      from: $('#' + columnID(entity.name, column.name)),
-      to: $('#' + columnID(fk.to.entity, fk.to.column))
+      from: $('#' + columnID(entity.name, column.name, index)),
+      to: $('#' + columnID(fk.to.entity, fk.to.column, index))
     }
     var direction = getDirection($entity.from, $entity.to);
     var points = getPointsFrom(direction, $entity, $column);
@@ -12952,18 +12952,18 @@ mumuki.load(function () {
     return availableDirections[direction]($entity, $column);
   }
 
-  function drawConnectorLines(entity) {
+  function drawConnectorLines(entity, index) {
     var columns = entity.columns || [];
-    return columns.map(drawColumnFK.bind(this, entity)).join('');
+    return columns.map(drawColumnFK.bind(this, entity, index)).join('');
   }
 
-  function getSVGFor(entity) {
-    return ['<svg>', drawConnectorLines(entity), '</svg>'].join('');
+  function getSVGFor(entity, index) {
+    return ['<svg>', drawConnectorLines(entity, index), '</svg>'].join('');
   }
 
-  function appendConnectors($diagram, entities) {
+  function appendConnectors($diagram, entities, index) {
     entities.forEach(function (entity) {
-      var $svg = $(getSVGFor(entity));
+      var $svg = $(getSVGFor(entity, index));
       $diagram.append($svg);
     });
   }
@@ -12999,8 +12999,8 @@ mumuki.load(function () {
     self.each(function (i) {
       var $diagram = $(self[i]);
       var entities = mapEntities($diagram.data('entities'));
-      appendEntities($diagram, entities);
-      appendConnectors($diagram, entities);
+      appendEntities($diagram, entities, i);
+      appendConnectors($diagram, entities, i);
     });
     return self;
   }
