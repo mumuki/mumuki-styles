@@ -9560,7 +9560,6 @@ pre code {
   width: 100%;
   position: relative; }
   .mu-file-browser header {
-    margin: 15px;
     margin-bottom: 0;
     padding: 15px;
     border: 2px solid #cfd9db;
@@ -9586,7 +9585,6 @@ pre code {
   .mu-file-browser main {
     border: 2px solid #cfd9db;
     border-top: none;
-    margin: 15px;
     margin-top: 0; }
     .mu-file-browser main ul {
       display: flex;

@@ -2,7 +2,6 @@
   width: 100%;
   position: relative;
   header {
-    margin: 15px;
     margin-bottom: 0;
     padding: 15px;
     border: $mu-component-border;
@@ -30,7 +29,6 @@
   main {
     border: $mu-component-border;
     border-top: none;
-    margin: 15px;
     margin-top: 0;
     ul {
       @include display-flex(row wrap, flex-start, flex-start);

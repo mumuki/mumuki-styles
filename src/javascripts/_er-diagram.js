@@ -40,13 +40,25 @@ mumuki.load(function () {
       return { x1: x1, x2: x2, y1: y1, y2: y2, mi: (x1 + x2) / 2, dx1: -C, dx2: C };
     },
     up_right: function ($entity, $column) {
-      return;
+      var x1 = $entity.from.position().left + $entity.from.width() + BORDER;
+      var y1 = $column.from.position().top + $column.from.height() / 2 + 5;
+      var x2 = $entity.to.position().left;
+      var y2 = $column.to.position().top + $column.to.height() / 2 + 5;
+      return { x1: x1, x2: x2, y1: y1, y2: y2, mi: (x1 + x2) / 2, dx1: C, dx2: -C };
     },
     down_left: function ($entity, $column) {
-      return;
+      var x1 = $entity.from.position().left;
+      var y1 = $column.from.position().top + $column.from.height() / 2 + 5;
+      var x2 = $entity.to.position().left + $entity.to.width() + BORDER;
+      var y2 = $column.to.position().top + $column.to.height() / 2 + 5;
+      return { x1: x1, x2: x2, y1: y1, y2: y2, mi: (x1 + x2) / 2, dx1: -C, dx2: C };
     },
     down_right: function ($entity, $column) {
-      return;
+      var x1 = $entity.from.position().left + $entity.from.width() + BORDER;
+      var y1 = $column.from.position().top + $column.from.height() / 2 + 5;
+      var x2 = $entity.to.position().left;
+      var y2 = $column.to.position().top + $column.to.height() / 2 + 5;
+      return { x1: x1, x2: x2, y1: y1, y2: y2, mi: (x1 + x2) / 2, dx1: C, dx2: -C };
     },
   }
 
@@ -218,10 +230,8 @@ mumuki.load(function () {
     return self;
   }
 
-  window.addEventListener('resize', function () {
+  mumuki.resize(function () {
     $('.mu-erd').renderERD();
   });
-
-  $('.mu-erd').renderERD();
 
 });

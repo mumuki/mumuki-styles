@@ -22,5 +22,11 @@
     }
   }
 
+  mumuki.resize = function (callback) {
+    window.addEventListener('resize', callback);
+    setTimeout(callback, 500);
+    callback();
+  }
+
 })(window, document);
 

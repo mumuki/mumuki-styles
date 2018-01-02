@@ -135,6 +135,8 @@ mumuki.load(function () {
     return self;
   }
 
-  $('.mu-file-browser').renderFileBrowser();
+  mumuki.resize(function () {
+    $('.mu-file-browser').renderFileBrowser();
+  });
 
 });
