@@ -147,18 +147,8 @@ And then bundle install
 
 1. Add the following code into `Gemfile`
 
- ```ruby
- source 'https://rails-assets.org' do
-   gem 'rails-assets-mumuki-styles'
- end
- ```
-
-  or use a specific version
-
   ```ruby
-  source 'https://rails-assets.org' do
-    gem 'rails-assets-mumuki-styles', '1.3.0'
-  end
+  gem 'mumuki-styles'
   ```
 
 1. Install it running
@@ -171,7 +161,6 @@ And then bundle install
 
   ```js
   //= require mumuki-styles
-  //= require bootstrap-sass
   ```
 
 1. Add the following code into `app/assets/stylesheets/application.scss`
