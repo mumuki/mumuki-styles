@@ -6,6 +6,7 @@
 /pkg/
 /spec/reports/
 /tmp/
+/build/
 node_modules/
 src/bower_components/
 .idea/
