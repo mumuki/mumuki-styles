@@ -1,10 +1,80 @@
 mumuki.load(function () {
 
+/*
+  <div
+    class='mu-sql-table'
+    data-name='Personas'
+    data-columns='[{"id_persona": {pk: true}}, "Nombre", "Apellido", {"Pareja": {fk: true}}]'
+    data-rows='[
+      [1, "Homero", "Simpson", 2],
+      [2, "Marge", "Bouvier", 1],
+      [3, "Moe", "Szyslak", null]
+    ]'>
+  </div>
+*/
+
+  function getHeader(name) {
+    return '<header>' + name + '</header>';
+  }
+
+  function getMain(columns, rows) {
+    return [
+      '<table>',
+      '  <thead>', getTableHead(columns), '</thead>',
+      '  <tbody>', getTableBody(rows), '</tbody>',
+      '</table>',
+    ].join('');
+  }
+
+  function getTableHead(columns) {
+    var cols = '';
+    cols += '<tr>';
+    columns.forEach(function (col) {
+      cols += '<th>' + getColumnName(col) + '</th>';
+    });
+    cols += '<tr>';
+    return cols;
+  }
+
+  function getTableBody(rows) {
+    var rowstr = '';
+    rowstr += '<tr>';
+    rows.forEach(function (row) {
+      row.forEach(function (data) {
+        rowstr += '<td>' + (data === null ? 'NULL' : data) + '</td>';
+      });
+    });
+    rowstr += '<tr>';
+    return rowstr;
+  }
+
+  function getColumnName(column) {
+    var obj = typeof column === 'string' ? {name: column} : column;
+    return [
+      keyIconFor(obj, 'pk'),
+      keyIconFor(obj, 'fk'),
+      '<span>', obj.name, '</span>',
+    ].join('');
+  }
+
+  function keyIconFor(column, field) {
+    return !!column[field] ? '<i class="fa fa-fw fa-key mu-sql-table-' + field + '"></i>' : '';
+  }
+
   $.fn.renderSqlTable = function () {
     var self = this;
     self.empty();
     self.each(function (i) {
       var $table = $(self[i]);
+      var name = $table.data('name');
+      var rows = $table.data('rows');
+      var columns = $table.data('columns');
+
+      var $header = getHeader(name);
+      var $main = getMain(columns, rows);
+
+      $table.append($header);
+      $table.append($main);
     });
     return self;
   }

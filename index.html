@@ -80,49 +80,14 @@
     }'>
   </div>
 
-  <div class='mu-erd'
-    data-entities='{
-      "Entity_1": {
-        "ent1_id": {
-          "type": "Integer",
-          "pk": true
-        },
-        "ent2_id": {
-          "type": "Integer",
-          "pk": true,
-          "fk": {
-            "to": { "entity": "Entity_2", "column": "ent2_id" },
-            "type": "one_to_one"
-          }
-        },
-        "ent1_description": {
-          "type": "Varchar"
-        }
-      },
-      "Entity_2": {
-        "ent2_id": {
-          "type": "Integer",
-          "pk": true
-        }
-      },
-      "Entity_3": {
-        "ent3_id": {
-          "type": "Integer",
-          "pk": true
-        },
-        "ent2_id": {
-          "type": "Integer",
-          "pk": true,
-          "fk": {
-            "to": { "entity": "Entity_2", "column": "ent2_id" },
-            "type": "many_to_one"
-          }
-        },
-        "ent1_description": {
-          "type": "Varchar"
-        }
-      }
-    }'>
+  <div class='mu-sql-table'
+    data-name='Personas'
+    data-columns='[{"name": "id_persona", "pk": true}, "Nombre", "Apellido", {"name": "Pareja", "fk": true}]'
+    data-rows='[
+      [1, "Homero", "Simpson", 2],
+      [2, "Marge", "Bouvier", 1],
+      [3, "Moe", "Szyslak", null]
+    ]'>
   </div>
 
   <div class='mu-browser'
