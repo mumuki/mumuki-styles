@@ -30,21 +30,21 @@ mumuki.load(function () {
     var cols = '';
     cols += '<tr>';
     columns.forEach(function (col) {
-      cols += '<th>' + getColumnName(col) + '</th>';
+      cols += '<th style="width: calc(100% / ' + columns.length + ')">' + getColumnName(col) + '</th>';
     });
-    cols += '<tr>';
+    cols += '</tr>';
     return cols;
   }
 
   function getTableBody(rows) {
     var rowstr = '';
-    rowstr += '<tr>';
     rows.forEach(function (row) {
+      rowstr += '<tr>';
       row.forEach(function (data) {
-        rowstr += '<td>' + (data === null ? 'NULL' : data) + '</td>';
+        rowstr += '<td style="width: calc(100% / ' + row.length + ')">' + (data === null ? 'NULL' : data) + '</td>';
       });
+      rowstr += '</tr>';
     });
-    rowstr += '<tr>';
     return rowstr;
   }
 
