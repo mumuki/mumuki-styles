@@ -1,18 +1,5 @@
 mumuki.load(function () {
 
-/*
-  <div
-    class='mu-sql-table'
-    data-name='Personas'
-    data-columns='[{"id_persona": {pk: true}}, "Nombre", "Apellido", {"Pareja": {fk: true}}]'
-    data-rows='[
-      [1, "Homero", "Simpson", 2],
-      [2, "Marge", "Bouvier", 1],
-      [3, "Moe", "Szyslak", null]
-    ]'>
-  </div>
-*/
-
   function getHeader(name) {
     return '<header>' + name + '</header>';
   }
