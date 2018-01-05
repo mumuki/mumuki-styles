@@ -8,8 +8,8 @@ const $ = glps();
 
 gulp.task('dist', (done) => runs('clear', ['css', 'scss', 'js', 'fonts'], done));
 
-gulp.task('dev', (done) => runs('clear:dev', ['css:dev', 'scss:dev', 'js:dev', 'fonts:dev'], 'serve', done));
-
+gulp.task('build:dev', ['css:dev', 'scss:dev', 'js:dev', 'fonts:dev']);
+gulp.task('dev', (done) => runs('clear:dev', 'build:dev', 'watch', 'serve', done));
 
 
 gulp.task('clear:dev', () => {
@@ -61,6 +61,9 @@ gulp.task('serve', () => {
     }));
 });
 
+gulp.task('watch', () => {
+  gulp.watch('src/**/*', ['build:dev']);
+})
 
 
 gulp.task('clear', () => {

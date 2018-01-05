@@ -4,6 +4,7 @@ module.exports = [
   'file-browser.js',
   'er-diagram.js',
   'web-browser.js',
+  'sql-table.js',
   'render.js'
 
 ].map((file) => `src/javascripts/_${file}`);

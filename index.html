@@ -10,6 +10,11 @@
 </head>
 <body style="margin: 15px">
 
+  <style>
+    body { margin: 15px }
+    body > div { margin-top: 15px }
+  </style>
+
   <div class="mu-file-browser"
     data-can-browse="true"
     data-on-file-open="console.log"
@@ -80,49 +85,48 @@
     }'>
   </div>
 
-  <div class='mu-erd'
-    data-entities='{
-      "Entity_1": {
-        "ent1_id": {
-          "type": "Integer",
-          "pk": true
-        },
-        "ent2_id": {
-          "type": "Integer",
-          "pk": true,
-          "fk": {
-            "to": { "entity": "Entity_2", "column": "ent2_id" },
-            "type": "one_to_one"
-          }
-        },
-        "ent1_description": {
-          "type": "Varchar"
-        }
-      },
-      "Entity_2": {
-        "ent2_id": {
-          "type": "Integer",
-          "pk": true
-        }
-      },
-      "Entity_3": {
-        "ent3_id": {
-          "type": "Integer",
-          "pk": true
-        },
-        "ent2_id": {
-          "type": "Integer",
-          "pk": true,
-          "fk": {
-            "to": { "entity": "Entity_2", "column": "ent2_id" },
-            "type": "many_to_one"
-          }
-        },
-        "ent1_description": {
-          "type": "Varchar"
-        }
-      }
-    }'>
+  <div class='mu-sql-table'
+    data-name='Personas'
+    data-columns='[{"name": "id_persona", "pk": true}, "Nombre", "Apellido", {"name": "Pareja", "fk": true}]'
+    data-rows='[
+      [1, "Homero", "Simpson", 2],
+      [2, "Marge", "Bouvier", 1],
+      [3, "Moe", "Szyslak", null]
+    ]'>
+  </div>
+
+  <div class="mu-sql-table-rendered">
+    <header>Personas</header>
+    <table>
+      <thead>
+        <tr>
+          <th class="mu-sql-table-pk">id_persona</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th class="mu-sql-table-fk">Pareja</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Homero</td>
+          <td>Simpson</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Marge</td>
+          <td>Bouvier</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Moe</td>
+          <td>Szyslak</td>
+          <td>NULL</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <div class='mu-browser'
