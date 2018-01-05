@@ -1,0 +1,74 @@
+$mu-color-sql-table-title: darken($mu-color-component-title-background, 5%);
+
+.mu-sql-table,
+.mu-sql-table-rendered {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+  z-index: 1;
+  border: $mu-component-border;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+
+  header {
+    padding: 5px 10px;
+    width: 100%;
+    text-align: center;
+    border-bottom: $mu-component-border;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: $mu-color-sql-table-title;
+    margin: 0;
+  }
+
+  table {
+    width: 100%;
+    thead,
+    tbody {
+      width: 100%;
+      display: flex;
+      flex-flow: column;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0;
+      tr {
+        width: 100%;
+        padding: 5px 10px;
+        margin: 0;
+        background-color: white;
+        display: flex;
+        flex-flow: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px dashed $mu-color-component-border;
+        &:last-child { border-bottom: none }
+        td,
+        th {
+          text-align: center;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          span { margin-left: 5px }
+          .mu-sql-table-pk,
+          .mu-sql-table-fk { font-size: 75% };
+          .mu-sql-table-pk { color: rgb(196, 173, 44) }
+          .mu-sql-table-fk { color: rgb(184, 184, 184) }
+          border-right: 1px dashed $mu-color-component-border;
+          &:last-child { border-right: none }
+        }
+      }
+    }
+    thead {
+      border-bottom: $mu-component-border;
+      tr {
+        background-color: $mu-color-component-title-background;
+      }
+    }
+  }
+}

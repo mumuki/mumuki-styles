@@ -9556,6 +9556,134 @@ pre code {
     .mu-erd-entity-columns .mu-erd-entity-column .mu-erd-entity-column-type {
       text-align: right; }
 
+.mu-sql-table,
+.mu-sql-table-rendered {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1;
+  border: 2px solid #cfd9db;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px; }
+  .mu-sql-table header,
+  .mu-sql-table-rendered header {
+    padding: 5px 10px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid #cfd9db;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #dde4e6;
+    margin: 0; }
+  .mu-sql-table table,
+  .mu-sql-table-rendered table {
+    width: 100%; }
+    .mu-sql-table table thead,
+    .mu-sql-table table tbody,
+    .mu-sql-table-rendered table thead,
+    .mu-sql-table-rendered table tbody {
+      width: 100%;
+      display: flex;
+      flex-flow: column;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0; }
+      .mu-sql-table table thead tr,
+      .mu-sql-table table tbody tr,
+      .mu-sql-table-rendered table thead tr,
+      .mu-sql-table-rendered table tbody tr {
+        width: 100%;
+        padding: 5px 10px;
+        margin: 0;
+        background-color: white;
+        display: flex;
+        flex-flow: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px dashed #cfd9db; }
+        .mu-sql-table table thead tr:last-child,
+        .mu-sql-table table tbody tr:last-child,
+        .mu-sql-table-rendered table thead tr:last-child,
+        .mu-sql-table-rendered table tbody tr:last-child {
+          border-bottom: none; }
+        .mu-sql-table table thead tr td,
+        .mu-sql-table table thead tr th,
+        .mu-sql-table table tbody tr td,
+        .mu-sql-table table tbody tr th,
+        .mu-sql-table-rendered table thead tr td,
+        .mu-sql-table-rendered table thead tr th,
+        .mu-sql-table-rendered table tbody tr td,
+        .mu-sql-table-rendered table tbody tr th {
+          text-align: center;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          border-right: 1px dashed #cfd9db; }
+          .mu-sql-table table thead tr td span,
+          .mu-sql-table table thead tr th span,
+          .mu-sql-table table tbody tr td span,
+          .mu-sql-table table tbody tr th span,
+          .mu-sql-table-rendered table thead tr td span,
+          .mu-sql-table-rendered table thead tr th span,
+          .mu-sql-table-rendered table tbody tr td span,
+          .mu-sql-table-rendered table tbody tr th span {
+            margin-left: 5px; }
+          .mu-sql-table table thead tr td .mu-sql-table-pk,
+          .mu-sql-table table thead tr td .mu-sql-table-fk,
+          .mu-sql-table table thead tr th .mu-sql-table-pk,
+          .mu-sql-table table thead tr th .mu-sql-table-fk,
+          .mu-sql-table table tbody tr td .mu-sql-table-pk,
+          .mu-sql-table table tbody tr td .mu-sql-table-fk,
+          .mu-sql-table table tbody tr th .mu-sql-table-pk,
+          .mu-sql-table table tbody tr th .mu-sql-table-fk,
+          .mu-sql-table-rendered table thead tr td .mu-sql-table-pk,
+          .mu-sql-table-rendered table thead tr td .mu-sql-table-fk,
+          .mu-sql-table-rendered table thead tr th .mu-sql-table-pk,
+          .mu-sql-table-rendered table thead tr th .mu-sql-table-fk,
+          .mu-sql-table-rendered table tbody tr td .mu-sql-table-pk,
+          .mu-sql-table-rendered table tbody tr td .mu-sql-table-fk,
+          .mu-sql-table-rendered table tbody tr th .mu-sql-table-pk,
+          .mu-sql-table-rendered table tbody tr th .mu-sql-table-fk {
+            font-size: 75%; }
+          .mu-sql-table table thead tr td .mu-sql-table-pk,
+          .mu-sql-table table thead tr th .mu-sql-table-pk,
+          .mu-sql-table table tbody tr td .mu-sql-table-pk,
+          .mu-sql-table table tbody tr th .mu-sql-table-pk,
+          .mu-sql-table-rendered table thead tr td .mu-sql-table-pk,
+          .mu-sql-table-rendered table thead tr th .mu-sql-table-pk,
+          .mu-sql-table-rendered table tbody tr td .mu-sql-table-pk,
+          .mu-sql-table-rendered table tbody tr th .mu-sql-table-pk {
+            color: #c4ad2c; }
+          .mu-sql-table table thead tr td .mu-sql-table-fk,
+          .mu-sql-table table thead tr th .mu-sql-table-fk,
+          .mu-sql-table table tbody tr td .mu-sql-table-fk,
+          .mu-sql-table table tbody tr th .mu-sql-table-fk,
+          .mu-sql-table-rendered table thead tr td .mu-sql-table-fk,
+          .mu-sql-table-rendered table thead tr th .mu-sql-table-fk,
+          .mu-sql-table-rendered table tbody tr td .mu-sql-table-fk,
+          .mu-sql-table-rendered table tbody tr th .mu-sql-table-fk {
+            color: #b8b8b8; }
+          .mu-sql-table table thead tr td:last-child,
+          .mu-sql-table table thead tr th:last-child,
+          .mu-sql-table table tbody tr td:last-child,
+          .mu-sql-table table tbody tr th:last-child,
+          .mu-sql-table-rendered table thead tr td:last-child,
+          .mu-sql-table-rendered table thead tr th:last-child,
+          .mu-sql-table-rendered table tbody tr td:last-child,
+          .mu-sql-table-rendered table tbody tr th:last-child {
+            border-right: none; }
+    .mu-sql-table table thead,
+    .mu-sql-table-rendered table thead {
+      border-bottom: 2px solid #cfd9db; }
+      .mu-sql-table table thead tr,
+      .mu-sql-table-rendered table thead tr {
+        background-color: #ecf0f1; }
+
 .mu-file-browser {
   width: 100%;
   position: relative; }
