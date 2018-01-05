@@ -38,7 +38,7 @@
 * `data-on-file-open`: (Function) receives 2 params, file name and file content. If no function given user can't open files.
 * `data-file`: (Hash) hash `keys` are the names of the resources and hash `values` are theirs contents (sub-hash for a folder and a string for a file).
 
-With jQuery you can use function `$('.mu-file-browser').renderFileBrowser()`;
+With jQuery you can manually render this component using `$('.mu-file-browser').renderFileBrowser()`;
 
 
 ### mu-erd
@@ -105,7 +105,7 @@ With jQuery you can use function `$('.mu-file-browser').renderFileBrowser()`;
         * `to`: (`Object`) { entity: (Foreign entity), column: (Foreign column name) }
         * `type`: (`String`) one\_to\_one | one\_to\_many | many\_to\_one | many\_to\_many
 
-With jQuery you can use function `$('.mu-erd').renderERD()`;
+With jQuery you can manually render this component using `$('.mu-erd').renderERD()`;
 
 ### mu-browser
 
@@ -127,7 +127,7 @@ With jQuery you can use function `$('.mu-erd').renderERD()`;
 * `data-title`: (Optional) Title of the browser's tab (default: `Mumuki`)
 * `data-favicon`: (Optional) Favicon of the brower's tab (default: `https://mumuki.io/logo-alt.png`)
 
-With jQuery you can use function `$('.mu-erd').renderWebBrowser()`;
+With jQuery you can manually render this component using `$('.mu-browser').renderWebBrowser()`;
 
 
 ### mu-sql-table
@@ -157,7 +157,7 @@ With jQuery you can use function `$('.mu-erd').renderWebBrowser()`;
     * `fk`: (Bool) if column is FK or part of one
 * `data-rows`: (Array<Array<Value>>)
 
-With jQuery you can use function `$('.mu-sql-table').renderSqlTable()`;
+With jQuery you can manually render this component using `$('.mu-sql-table').renderSqlTable()`;
 
 ### mu-sql-table-rendered
 
@@ -201,9 +201,9 @@ With jQuery you can use function `$('.mu-sql-table').renderSqlTable()`;
 
 #### mu-sql-table-rendered attributes
 
-You no need any data attribute. You must follow the convention:
+You don't need any data attribute - just follow this convention:
 
-* `div`
+* `div` (with `mu-sql-table-rendered` class)
   * `div > header`
   * `div > table`
     * `div > table > thead`
@@ -211,7 +211,7 @@ You no need any data attribute. You must follow the convention:
     * `div > table > tbody`
       * `div > table > tbody > tr > td`
 
-With jQuery you can use function `$('.mu-sql-table-rendered').renderPrerenderedSqlTable()`;
+With jQuery you can manually render this component using `$('.mu-sql-table-rendered').renderPrerenderedSqlTable()`;
 
 
 ## Installing
