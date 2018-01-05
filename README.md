@@ -4,9 +4,10 @@
 
 ### mu-file-browser
 
+![image](https://user-images.githubusercontent.com/1039278/34626522-c15fc584-f23b-11e7-81a4-dd5403a2e6f0.png)
+
 ```html
-  <div
-    class="mu-file-browser"
+  <div class="mu-file-browser"
     data-can-browse="true"
     data-on-file-open="console.log"
     data-file='{
@@ -42,9 +43,10 @@ With jQuery you can use function `$('.mu-file-browser').renderFileBrowser()`;
 
 ### mu-erd
 
+![image](https://user-images.githubusercontent.com/1039278/34626539-df245f30-f23b-11e7-9b21-1456c63105c9.png)
+
 ```html
-<div
-  class='mu-erd'
+<div class='mu-erd'
   data-entities='{
     "Entity_1": {
       "ent1_id": {
@@ -107,9 +109,10 @@ With jQuery you can use function `$('.mu-erd').renderERD()`;
 
 ### mu-browser
 
+![image](https://user-images.githubusercontent.com/1039278/34626588-1829fbb4-f23c-11e7-89ec-540a23a41240.png)
+
 ```html
-  <div
-    class='mu-browser'
+  <div class='mu-browser'
     data-url='https://mi-sitio.mumuki.io'
     data-title='Mumuki - Aprender a programar'
     data-favicon='https://mumuki.io/logo-alt.png'
@@ -125,6 +128,90 @@ With jQuery you can use function `$('.mu-erd').renderERD()`;
 * `data-favicon`: (Optional) Favicon of the brower's tab (default: `https://mumuki.io/logo-alt.png`)
 
 With jQuery you can use function `$('.mu-erd').renderWebBrowser()`;
+
+
+### mu-sql-table
+
+![image](https://user-images.githubusercontent.com/1039278/34626563-f531ec3e-f23b-11e7-8534-fd6855fea0b1.png)
+
+```html
+  <div class='mu-sql-table'
+    data-name='Personas'
+    data-columns='[{"name": "id_persona", "pk": true}, "Nombre", "Apellido", {"name": "Pareja", "fk": true}]'
+    data-rows='[
+      [1, "Homero", "Simpson", 2],
+      [2, "Marge", "Bouvier", 1],
+      [3, "Moe", "Szyslak", null]
+    ]'>
+  </div>
+```
+
+#### mu-sql-table attributes
+
+* `data-name`: (String) Entity name
+* `data-columns`: (String|Hash):
+  * if `String`: Column name
+  * if `Hash`: you need the next keys
+    * `name`: (String) Column name
+    * `pk`: (Bool) if column is PK or part of one
+    * `fk`: (Bool) if column is FK or part of one
+* `data-rows`: (Array<Array<Value>>)
+
+With jQuery you can use function `$('.mu-sql-table').renderSqlTable()`;
+
+### mu-sql-table-rendered
+
+![image](https://user-images.githubusercontent.com/1039278/34626563-f531ec3e-f23b-11e7-8534-fd6855fea0b1.png)
+
+```html
+  <div class="mu-sql-table-rendered">
+    <header>Personas</header>
+    <table>
+      <thead>
+        <tr>
+          <th class="mu-sql-table-pk">id_persona</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th class="mu-sql-table-fk">Pareja</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Homero</td>
+          <td>Simpson</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Marge</td>
+          <td>Bouvier</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Moe</td>
+          <td>Szyslak</td>
+          <td>NULL</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+```
+
+#### mu-sql-table-rendered attributes
+
+You no need any data attribute. You must follow the convention:
+
+* `div`
+  * `div > header`
+  * `div > table`
+    * `div > table > thead`
+      * `div > table > thead > tr > th` (th tag can have `mu-sql-table-pk` and/or `mu-sql-table-fk`)
+    * `div > table > tbody`
+      * `div > table > tbody > tr > td`
+
+With jQuery you can use function `$('.mu-sql-table-rendered').renderPrerenderedSqlTable()`;
 
 
 ## Installing
