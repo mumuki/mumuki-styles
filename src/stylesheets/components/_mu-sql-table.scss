@@ -1,6 +1,7 @@
 $mu-color-sql-table-title: darken($mu-color-component-title-background, 5%);
 
-.mu-sql-table {
+.mu-sql-table,
+.mu-sql-table-rendered {
   position: relative;
   width: 100%;
   display: flex;

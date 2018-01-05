@@ -66,8 +66,33 @@ mumuki.load(function () {
     return self;
   }
 
+  function generatePKsAndFKs($trs) {
+    var $ths = $trs.find('[class^="mu-sql-table-"]');
+    $ths.each(function (i) {
+      var $th = $($ths[i]);
+      var text = $th.text();
+      $th.empty();
+      if ($th.children('i').length == 0) {
+        $th.prepend('<i class="fa fa-fw fa-key ' + $th.attr('class') + '"></i>');
+      }
+      $th.append('<span>' + text + '</span>');
+    });
+  }
+
+  $.fn.renderPrerenderedSqlTable = function () {
+    var self = this;
+    self.each(function (i) {
+      var $table = $(self[i]).find('table');
+      var $trs = $table.find('thead > tr');
+      $table.find('td, th').css({ width: (100 / $trs.children('th').length) + '%' })
+      generatePKsAndFKs($trs);
+    });
+    return self;
+  }
+
   mumuki.resize(function () {
     $('.mu-sql-table').renderSqlTable();
+    $('.mu-sql-table-rendered').renderPrerenderedSqlTable();
   });
 
 });
