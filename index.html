@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mumuki File Browser</title>
+  <title>Mumuki Styles</title>
   <meta charset="utf-8">
 
   <link rel="stylesheet" type="text/css" href="build/css/mumuki-styles.css">
@@ -86,6 +86,18 @@
   </div>
 
   <div class='mu-sql-table'
+    data-name='series_peliculas'
+    data-columns='["titulo", "descripcion muy larga", "creador", "personajes", "temporadas", "puntuacion"]'
+    data-rows='[
+      ["Los simuladores (Argentina)", "Cuatro socios que se dedican al negocio de la simulación, resuelven los problemas y necesidades de sus clientes mediante lo que ellos denominan operativos de simulacro.", "Damián Szifron", "Mario Santos, Pablo Lamponne, Emilio Ravenna, Gabriel Medina", 2, 10 ],
+      ["Los simuladores (México)"   , "Cuatro socios que se dedican al negocio de la simulación, resuelven los problemas y necesidades de sus clientes mediante lo que ellos denominan operativos de simulacro.", "Damián Szifron", "Mario Santos, Pablo López, Emilio Vargas, Gabriel Medina"    , 2, 9.7],
+      ["Los simuladores (Chile)"    , "Cuatro socios que se dedican al negocio de la simulación, resuelven los problemas y necesidades de sus clientes mediante lo que ellos denominan operativos de simulacro.", ""            , "Ernesto Santos, Gabriel Medina, Emilio Ravenna, Pablo Lorca" , 2, 9.3],
+      ["Los simuladores (España)"   , "Cuatro socios que se dedican al negocio de la simulación, resuelven los problemas y necesidades de sus clientes mediante lo que ellos denominan operativos de simulacro.", ""            , "Santos, Medina, León, Jota"                                  , 2, 9.8],
+      ["The Simulators (USA)", "Four partners", null , "S, R, L, M" , 2, 9.8]
+    ]'>
+  </div>
+
+  <div class='mu-sql-table'
     data-name='Personas'
     data-columns='[{"name": "id_persona", "pk": true}, "Nombre", "Apellido", {"name": "Pareja", "fk": true}]'
     data-rows='[
@@ -108,22 +120,22 @@
       </thead>
       <tbody>
         <tr>
-          <td>1</td>
-          <td>Homero</td>
-          <td>Simpson</td>
-          <td>2</td>
+          <td><span>1</span></td>
+          <td><span>Homero</span></td>
+          <td><span>Simpson</span></td>
+          <td><span>2</span></td>
         </tr>
         <tr>
-          <td>2</td>
-          <td>Marge</td>
-          <td>Bouvier</td>
-          <td>1</td>
+          <td><span>2</span></td>
+          <td><span>Marge</span></td>
+          <td><span>Bouvier</span></td>
+          <td><span>1</span></td>
         </tr>
         <tr>
-          <td>3</td>
-          <td>Moe</td>
-          <td>Szyslak</td>
-          <td>NULL</td>
+          <td><span>3</span></td>
+          <td><span>Moe</span></td>
+          <td><span>Szyslak</span></td>
+          <td><span>NULL</span></td>
         </tr>
       </tbody>
     </table>

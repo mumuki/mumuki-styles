@@ -17,7 +17,7 @@ mumuki.load(function () {
     var cols = '';
     cols += '<tr>';
     columns.forEach(function (col) {
-      cols += '<th style="width: calc(100% / ' + columns.length + ')">' + getColumnName(col) + '</th>';
+      cols += '<th>' + getColumnName(col) + '</th>';
     });
     cols += '</tr>';
     return cols;
@@ -28,7 +28,7 @@ mumuki.load(function () {
     rows.forEach(function (row) {
       rowstr += '<tr>';
       row.forEach(function (data) {
-        rowstr += '<td style="width: calc(100% / ' + row.length + ')">' + (data === null ? 'NULL' : data) + '</td>';
+        rowstr += '<td><span>' + (data === null ? 'NULL' : data) + '</span></td>';
       });
       rowstr += '</tr>';
     });
