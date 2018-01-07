@@ -1,4 +1,5 @@
 $mu-color-sql-table-title: darken($mu-color-component-title-background, 5%);
+$mu-sql-table-max-lines: 3;
 
 .mu-sql-table,
 .mu-sql-table-rendered {
@@ -28,32 +29,21 @@ $mu-color-sql-table-title: darken($mu-color-component-title-background, 5%);
 
   table {
     width: 100%;
+    table-layout: fixed;
     thead,
     tbody {
       width: 100%;
-      display: flex;
-      flex-flow: column;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
       margin: 0;
       tr {
         width: 100%;
-        padding: 5px 10px;
         margin: 0;
         background-color: white;
-        display: flex;
-        flex-flow: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
         border-bottom: 1px dashed $mu-color-component-border;
         &:last-child { border-bottom: none }
         td,
         th {
           text-align: center;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          padding: 5px 10px;
           span { margin-left: 5px }
           .mu-sql-table-pk,
           .mu-sql-table-fk { font-size: 75% };
@@ -61,6 +51,25 @@ $mu-color-sql-table-title: darken($mu-color-component-title-background, 5%);
           .mu-sql-table-fk { color: rgb(184, 184, 184) }
           border-right: 1px dashed $mu-color-component-border;
           &:last-child { border-right: none }
+        }
+        th {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+        td {
+          span {
+            display: block;
+            display: -webkit-box;
+            max-width: 400px;
+            max-height: $font-size-base * $line-height-base * $mu-sql-table-max-lines;
+            font-size: $font-size-base;
+            line-height: $line-height-base;
+            -webkit-line-clamp: $mu-sql-table-max-lines;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
         }
       }
     }

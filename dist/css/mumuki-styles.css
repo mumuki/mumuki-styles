@@ -9581,31 +9581,21 @@ pre code {
     margin: 0; }
   .mu-sql-table table,
   .mu-sql-table-rendered table {
-    width: 100%; }
+    width: 100%;
+    table-layout: fixed; }
     .mu-sql-table table thead,
     .mu-sql-table table tbody,
     .mu-sql-table-rendered table thead,
     .mu-sql-table-rendered table tbody {
       width: 100%;
-      display: flex;
-      flex-flow: column;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
       margin: 0; }
       .mu-sql-table table thead tr,
       .mu-sql-table table tbody tr,
       .mu-sql-table-rendered table thead tr,
       .mu-sql-table-rendered table tbody tr {
         width: 100%;
-        padding: 5px 10px;
         margin: 0;
         background-color: white;
-        display: flex;
-        flex-flow: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
         border-bottom: 1px dashed #cfd9db; }
         .mu-sql-table table thead tr:last-child,
         .mu-sql-table table tbody tr:last-child,
@@ -9621,8 +9611,7 @@ pre code {
         .mu-sql-table-rendered table tbody tr td,
         .mu-sql-table-rendered table tbody tr th {
           text-align: center;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          padding: 5px 10px;
           border-right: 1px dashed #cfd9db; }
           .mu-sql-table table thead tr td span,
           .mu-sql-table table thead tr th span,
@@ -9677,6 +9666,27 @@ pre code {
           .mu-sql-table-rendered table tbody tr td:last-child,
           .mu-sql-table-rendered table tbody tr th:last-child {
             border-right: none; }
+        .mu-sql-table table thead tr th,
+        .mu-sql-table table tbody tr th,
+        .mu-sql-table-rendered table thead tr th,
+        .mu-sql-table-rendered table tbody tr th {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis; }
+        .mu-sql-table table thead tr td span,
+        .mu-sql-table table tbody tr td span,
+        .mu-sql-table-rendered table thead tr td span,
+        .mu-sql-table-rendered table tbody tr td span {
+          display: block;
+          display: -webkit-box;
+          max-width: 400px;
+          max-height: 91.8px;
+          font-size: 17px;
+          line-height: 1.8;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis; }
     .mu-sql-table table thead,
     .mu-sql-table-rendered table thead {
       border-bottom: 2px solid #cfd9db; }
