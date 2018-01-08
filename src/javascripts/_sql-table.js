@@ -79,13 +79,21 @@ mumuki.load(function () {
     });
   }
 
+  function generateSpans($tds) {
+    $tds.each(function (i) {
+      var $td = $($tds[i]);
+      var text = $td.text();
+      $td.empty();
+      $td.append('<span>' + text + '</span>');
+    });
+  }
+
   $.fn.renderPrerenderedSqlTable = function () {
     var self = this;
     self.each(function (i) {
       var $table = $(self[i]).find('table');
-      var $trs = $table.find('thead > tr');
-      $table.find('td, th').css({ width: (100 / $trs.children('th').length) + '%' })
-      generatePKsAndFKs($trs);
+      generatePKsAndFKs($table.find('thead > tr'));
+      generateSpans($table.find('tbody > tr > td'));
     });
     return self;
   }
