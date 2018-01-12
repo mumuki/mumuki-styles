@@ -5,6 +5,7 @@ install:
 - rake --version
 script:
 - gulp dist
+- cd gem && rake wrapper:wrap
 deploy:
   provider: rubygems
   skip_cleanup: true
