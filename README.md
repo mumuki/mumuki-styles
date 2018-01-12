@@ -1,5 +1,7 @@
 # mumuki-styles
 
+[![Build Status](https://travis-ci.org/mumuki/mumuki-styles.svg?branch=master)](https://travis-ci.org/mumuki/mumuki-styles)
+
 ## Components
 
 ### mu-file-browser
