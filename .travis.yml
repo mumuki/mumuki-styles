@@ -5,7 +5,7 @@ node_js:
 install:
 - rake --version
 script:
-- node_modules/.bin/gulp dist
+- npm install && node_modules/.bin/gulp dist
 - cd gem && rake wrapper:wrap && bundle install && bundle exec rspec
 deploy:
   provider: rubygems
