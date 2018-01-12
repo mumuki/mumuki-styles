@@ -9,5 +9,5 @@
 /build/
 node_modules/
 src/bower_components/
-app/**
+app/assets/**
 .idea/
