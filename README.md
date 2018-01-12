@@ -278,7 +278,7 @@ And then bundle install
 
 ### Installing
 
-```
+```bash
 npm install
 gulp dist
 ```
@@ -288,7 +288,7 @@ gulp dist
 
 This module can also be deployed a a ruby gem. `mumuki-styles` works with Ruby 2.3.1
 
-```
+```bash
 cd gem
 rake wrapper:wrap
 bundle install
@@ -297,7 +297,7 @@ bundle exec rspec
 
 ### Tagging and releasing
 
-```
+```bash
 ./tag.sh
 ```
 
