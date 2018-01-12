@@ -276,6 +276,12 @@ And then bundle install
   ```
 
 
+### Installing
+
+```
+npm install
+```
+
 ## Ruby Version
 
 `mumuki-styles` works with Ruby 2.3.1

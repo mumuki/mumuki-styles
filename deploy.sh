@@ -11,20 +11,13 @@ if [[ ! $NEW_VERSION =~ $FULL_VERSION_REGEXP ]]; then
   exit 1
 fi
 
-sed -r "s/\"version\": \"v${VERSION_REGEXP}/\"version\": \"v${NEW_VERSION}/" package.json > package.json.new
-sed -r "s/\"version\": \"v${VERSION_REGEXP}/\"version\": \"v${NEW_VERSION}/" bower.json > bower.json.new
-
-sed -r "s/VERSION = \"${VERSION_REGEXP}/VERSION = \"${NEW_VERSION}/" lib/mumuki/styles/version.rb > lib/mumuki/styles/version.rb.new
-
-rm package.json bower.json lib/mumuki/styles/version.rb
-
-mv package.json.new                  package.json
-mv bower.json.new                    bower.json
-mv lib/mumuki/styles/version.rb.new  lib/mumuki/styles/version.rb
+sed -i -r "s/\"version\": \"v${VERSION_REGEXP}/\"version\": \"v${NEW_VERSION}/" package.json
+sed -i -r "s/\"version\": \"v${VERSION_REGEXP}/\"version\": \"v${NEW_VERSION}/" bower.json
+sed -i -r "s/VERSION = \"${VERSION_REGEXP}/VERSION = \"${NEW_VERSION}/" lib/mumuki/styles/version.rb
 
 node_modules/.bin/gulp dist
-git add .
-git commit -m "Welcome v${NEW_VERSION}"
+
+git commit dist package.json bower.json lib/mumuki/styles/version.rb -m "Welcome v${NEW_VERSION}"
 
 git tag "v${NEW_VERSION}"
 git push origin HEAD --tags
