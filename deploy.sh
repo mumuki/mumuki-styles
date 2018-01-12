@@ -16,7 +16,6 @@ sed -i -r "s/\"version\": \"v${VERSION_REGEXP}/\"version\": \"v${NEW_VERSION}/" 
 sed -i -r "s/VERSION = \"${VERSION_REGEXP}/VERSION = \"${NEW_VERSION}/" lib/mumuki/styles/version.rb
 
 node_modules/.bin/gulp dist
-touch app/assets/.gitkeep
 
 git commit dist package.json bower.json lib/mumuki/styles/version.rb -m "Welcome v${NEW_VERSION}"
 
