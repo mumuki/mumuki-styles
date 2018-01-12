@@ -21,5 +21,3 @@ git commit dist package.json bower.json lib/mumuki/styles/version.rb -m "Welcome
 
 git tag "v${NEW_VERSION}"
 git push origin HEAD --tags
-
-rake release
