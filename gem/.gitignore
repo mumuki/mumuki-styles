@@ -1,12 +1,15 @@
 /.bundle/
 /.yardoc
+/Gemfile.lock
 /_yardoc/
 /coverage/
 /doc/
 /pkg/
 /spec/reports/
 /tmp/
-/build/
-node_modules/
-src/bower_components/
-.idea/
+
+# styles
+app/**
+
+# rspec failure tracking
+.rspec_status
