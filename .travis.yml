@@ -6,7 +6,7 @@ install:
 - rake --version
 script:
 - npm install && node_modules/.bin/gulp dist
-- cd gem && bundle exec rake wrapper:wrap && bundle install && bundle exec rake
+- cd gem && bundle install && bundle exec rake wrapper:wrap && bundle exec rake
 deploy:
   provider: rubygems
   skip_cleanup: true
