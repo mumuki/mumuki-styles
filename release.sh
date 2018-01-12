@@ -11,13 +11,19 @@ if [[ ! $NEW_VERSION =~ $FULL_VERSION_REGEXP ]]; then
   exit 1
 fi
 
+echo "[Mumuki::Styles] Updating version..."
 sed -i -r "s/\"version\": \"v${VERSION_REGEXP}/\"version\": \"v${NEW_VERSION}/" package.json
 sed -i -r "s/\"version\": \"v${VERSION_REGEXP}/\"version\": \"v${NEW_VERSION}/" bower.json
 sed -i -r "s/VERSION = \"${VERSION_REGEXP}/VERSION = \"${NEW_VERSION}/" lib/mumuki/styles/version.rb
 
+echo "[Mumuki::Styles] Generating dist..."
 node_modules/.bin/gulp dist
 
+echo "[Mumuki::Styles] Commiting files..."
 git commit dist package.json bower.json lib/mumuki/styles/version.rb -m "Welcome v${NEW_VERSION}!"
 
+echo "[Mumuki::Styles] Tagging v$NEW_VERSION..."
 git tag "v${NEW_VERSION}"
+
+echo "[Mumuki::Styles] Pushing..."
 git push origin HEAD --tags
