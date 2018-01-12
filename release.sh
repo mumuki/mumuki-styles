@@ -17,7 +17,7 @@ sed -i -r "s/VERSION = \"${VERSION_REGEXP}/VERSION = \"${NEW_VERSION}/" lib/mumu
 
 node_modules/.bin/gulp dist
 
-git commit dist package.json bower.json lib/mumuki/styles/version.rb -m "Welcome v${NEW_VERSION}"
+git commit dist package.json bower.json lib/mumuki/styles/version.rb -m "Welcome v${NEW_VERSION}!"
 
 git tag "v${NEW_VERSION}"
 git push origin HEAD --tags
