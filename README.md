@@ -280,12 +280,26 @@ And then bundle install
 
 ```
 npm install
+gulp dist
 ```
 
-## Ruby Version
 
-`mumuki-styles` works with Ruby 2.3.1
+### Gem wrapper
 
+This module can also be deployed a a ruby gem. `mumuki-styles` works with Ruby 2.3.1
+
+```
+cd gem
+rake wrapper:wrap
+bundle install
+bundle exec rspec
+```
+
+### Tagging and releasing
+
+```
+./tag.sh
+```
 
 ## License
 

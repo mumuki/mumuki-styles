@@ -27,3 +27,5 @@ git tag "v${NEW_VERSION}"
 
 echo "[Mumuki::Styles] Pushing..."
 git push origin HEAD --tags
+
+echo "[Mumuki::Styles] Pushed. Travis will do the rest"
