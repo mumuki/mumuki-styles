@@ -1,5 +1,16 @@
+sudo: false
 language: node_js
 node_js:
 - 4.2.4
 script:
-- gulp dist
+- npm install && node_modules/.bin/gulp dist
+- cd gem && ./bin/setup && bundle exec rake
+deploy:
+  provider: rubygems
+  skip_cleanup: true
+  api_key:
+    secure: lwXromjfm0fXjAZlmuXbtrOCM8856ryLU9Jg/FOREgGR+pFTnwQusp1a1JR6q4RKifo47ojKiP/vicuQ8uX4li7S6SRzxyRPqBycxCzrGXjvd7fS89LsY5xtS/l4A4EinI9gxjpYZ1k25SHZOAOTWShLmteNRU5hqTbFHjhExufw6nWoLw5xE50CqdIvZWQED1M2VssI4QdXV7yKdKI1TNerKiuqKoeHGed5BzUcmPkB4zoNxRY+7C+2gmY7IP23c2pFpgrO8haQHbEoVYKb3PTk7XR34y9661OlEetrToYAF/+luJSiMteiKZaUGzmc3W/wUATZWlxStbE5m4uSSLgFzz3B3ozbLtxDtbYCxq3ubCq0YNQlDjXdNQEonuQS2WgNvQQM4q2NwcShPy+QVxx2vlipB9WjArsJOVHy6GHBcsSOQXDzhOm1a0+8nhyyBV/A/AqeHIg9FmbZCvN0EiC4ycPcISy9uoplHzWKlZ0W59gAng9AKSXY/UsSTk28Q+qNrFqmvhdRmCwqL/UfdLQ9hNyHIaW/HguJMRe03xc/dYN6tVpXcaTs0/P1LAUPo/rooFwZtK54BwoLhBk/nfkpl7hfDJl39JChMFklyd4QACU3S3E4whXAhoG13YJf21TqFVoIFL0LCOxE9quZmqvlbpRK56nUMvlxbPH4LHU=
+  gem: mumuki-styles
+  on:
+    tags: true
+    repo: mumuki/mumuki-styles

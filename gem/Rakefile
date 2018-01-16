@@ -1,0 +1,24 @@
+require "bundler/gem_tasks"
+require "rspec/core/rake_task"
+
+RSpec::Core::RakeTask.new(:spec)
+
+task :default => :spec
+
+namespace :wrapper do
+  desc 'Wrap styles assets into this gem'
+  task wrap: :clean do
+    cp_r '../dist/css', 'app/assets/stylesheets'
+    cp_r '../dist/scss', 'app/assets/stylesheets'
+    mv 'app/assets/stylesheets/scss/vendor', 'app/assets/stylesheets'
+    cp_r '../dist/javascripts', 'app/assets'
+    cp_r '../dist/fonts', 'app/assets'
+  end
+
+  task :clean do
+    rm_rf 'app'
+    mkdir_p 'app/assets/stylesheets'
+    mkdir_p 'app/assets/javascripts'
+    mkdir_p 'app/assets/fonts'
+  end
+end
