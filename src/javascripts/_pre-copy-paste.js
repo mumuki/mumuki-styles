@@ -16,7 +16,7 @@ mumuki.load(function () {
   }
 
   function getCopiedText() {
-    var lang = (mumuki && mumuki.locale) || (navigator.language || navigator.userLanguage).split('-')[0] || 'en';
+    var lang = (mumuki.locale || navigator.language || navigator.userLanguage || 'en').split('-')[0];
     return language[lang];
   }
 
