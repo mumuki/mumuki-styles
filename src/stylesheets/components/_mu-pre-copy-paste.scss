@@ -30,7 +30,6 @@ pre {
       background-color: darken($mu-clipboard-background-color, 10%);
     }
     &.clicked {
-      color: $mu-color-complementary;
       font-weight: bold;
     }
   }
