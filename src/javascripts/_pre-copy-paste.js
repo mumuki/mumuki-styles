@@ -30,10 +30,11 @@ mumuki.load(function () {
 
   function pasteInEditor(text) {
     var $editor = $('.mu-paste-target');
-    var cursorPos = $editor.prop('selectionStart');
+    var cursorPosStart = $editor.prop('selectionStart');
+    var cursorPosEnd = $editor.prop('selectionEnd');
     var v = $editor.val() || '';
-    var textBefore = v.substring(0,  cursorPos);
-    var textAfter  = v.substring(cursorPos, v.length);
+    var textBefore = v.substring(0,  cursorPosStart);
+    var textAfter  = v.substring(cursorPosEnd, v.length);
     $editor.val(textBefore + text + textAfter);
   }
 
