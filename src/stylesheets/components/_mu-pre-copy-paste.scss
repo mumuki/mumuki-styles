@@ -4,6 +4,7 @@ pre {
 
   position: relative;
   border: $mu-component-border;
+  border-width: 1px;
 
   .mu-clipboard {
     font-size: 85%;
@@ -15,7 +16,9 @@ pre {
     z-index: 1;
     border-bottom-left-radius: 10px;
     border-left: $mu-component-border;
+    border-left-width: 1px;
     border-bottom: $mu-component-border;
+    border-bottom-width: 1px;
     height: 2em;
     width: 8em;
     color: $mu-color-primary;
