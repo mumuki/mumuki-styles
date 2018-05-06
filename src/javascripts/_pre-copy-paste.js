@@ -28,7 +28,21 @@ mumuki.load(function () {
     $temp.remove();
   }
 
-  function pasteInEditor(text) {
+  function getEditor() {
+    return mumuki.page && mumuki.page.editors && mumuki.page.editors[0] && mumuki.page.editors[0]
+  }
+
+  function hasCodeMirrorEditor() {
+    return getEditor() instanceof window.CodeMirror;
+  }
+
+  function pasteInCodeMirror(text) {
+    var doc = getEditor().getDoc();
+    var cursor = doc.getCursor();
+    doc.replaceRange(text, cursor);
+  }
+
+  function pasteInTextArea(text) {
     var $editor = $('.mu-paste-target');
     var cursorPosStart = $editor.prop('selectionStart');
     var cursorPosEnd = $editor.prop('selectionEnd');
@@ -36,6 +50,14 @@ mumuki.load(function () {
     var textBefore = v.substring(0,  cursorPosStart);
     var textAfter  = v.substring(cursorPosEnd, v.length);
     $editor.val(textBefore + text + textAfter);
+  }
+
+  function pasteInEditor(text) {
+    if (hasCodeMirrorEditor()) {
+      pasteInCodeMirror(text);
+    } else {
+      pasteInTextArea(text);
+    }
   }
 
   function changeTextAndColor($clipboard) {
