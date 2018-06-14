@@ -29,7 +29,7 @@ mumuki.load(function () {
   }
 
   function getEditor() {
-    return mumuki.page && mumuki.page.editors && mumuki.page.editors[0] && mumuki.page.editors[0]
+    return mumuki.page && mumuki.page.editors && mumuki.page.editors[0];
   }
 
   function hasCodeMirrorEditor() {
