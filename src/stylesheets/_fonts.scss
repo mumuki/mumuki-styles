@@ -1,9 +1,10 @@
 $font-size-base: 17px;
 $line-height-base: 1.8;
 $mu-fonts: (ahahamojimoji, mu-font);
+$mu-font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 body {
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $mu-font-family;
   font-size: $font-size-base;
   line-height: $line-height-base;
 }
