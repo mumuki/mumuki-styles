@@ -9774,3 +9774,34 @@ pre code {
           .mu-file-browser main ul li:hover span {
             top: 70px;
             height: auto; }
+
+pre {
+  position: relative;
+  border: 2px solid #cfd9db;
+  border-width: 1px; }
+  pre .mu-clipboard {
+    font-size: 85%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    border-bottom-left-radius: 10px;
+    border-left: 2px solid #cfd9db;
+    border-left-width: 1px;
+    border-bottom: 2px solid #cfd9db;
+    border-bottom-width: 1px;
+    height: 2em;
+    width: 8em;
+    color: #0B465D;
+    top: 0;
+    right: 0;
+    background-color: #cfd9db; }
+    pre .mu-clipboard span {
+      margin-left: 0.25em;
+      font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    pre .mu-clipboard:hover {
+      background-color: #b1c2c6; }
+    pre .mu-clipboard.clicked {
+      font-weight: bold; }
