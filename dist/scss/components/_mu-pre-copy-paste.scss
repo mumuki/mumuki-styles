@@ -1,0 +1,39 @@
+$mu-clipboard-background-color: darken($mu-color-component-title-background, 10%);
+
+pre {
+
+  position: relative;
+  border: $mu-component-border;
+  border-width: 1px;
+
+  .mu-clipboard {
+    font-size: 85%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    border-bottom-left-radius: 10px;
+    border-left: $mu-component-border;
+    border-left-width: 1px;
+    border-bottom: $mu-component-border;
+    border-bottom-width: 1px;
+    height: 2em;
+    width: 8em;
+    color: $mu-color-primary;
+    top: 0;
+    right: 0;
+    background-color: $mu-clipboard-background-color;
+    span {
+      margin-left: 0.25em;
+      font-family: $mu-font-family;
+    }
+    &:hover {
+      background-color: darken($mu-clipboard-background-color, 10%);
+    }
+    &.clicked {
+      font-weight: bold;
+    }
+  }
+}
