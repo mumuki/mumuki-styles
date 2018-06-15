@@ -20,7 +20,8 @@ echo "[Mumuki::Styles] Generating dist..."
 node_modules/.bin/gulp dist
 
 echo "[Mumuki::Styles] Commiting files..."
-git commit dist package.json bower.json gem/lib/mumuki/styles/version.rb -m "Welcome v${NEW_VERSION}!"
+git add dist package.json bower.json gem/lib/mumuki/styles/version.rb
+git commit -m "Welcome v${NEW_VERSION}!"
 
 echo "[Mumuki::Styles] Tagging v$NEW_VERSION..."
 git tag "v${NEW_VERSION}"
