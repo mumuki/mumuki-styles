@@ -1,7 +1,7 @@
 sudo: false
 language: node_js
 node_js:
-- 4.2.4
+- 4.9.1
 script:
 - npm install && node_modules/.bin/gulp dist
 - cd gem && ./bin/setup && bundle exec rake
