@@ -3,7 +3,7 @@ language: node_js
 node_js:
 - 4.9.1
 script:
-- npm install && node_modules/.bin/gulp dist
+- yarn && node_modules/.bin/gulp dist
 - cd gem && ./bin/setup && bundle exec rake
 deploy:
   provider: rubygems
