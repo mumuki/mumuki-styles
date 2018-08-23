@@ -5,11 +5,11 @@
 
   var hasTurbolinksGreaterOrEqualThanVersion5 = function () {
     return window.Turbolinks && !window.Turbolinks.EVENTS;
-  }
+  };
 
   var hasTurbolinksLowerThanVersion5 = function () {
     return window.Turbolinks && window.Turbolinks.EVENTS && window.Turbolinks.EVENTS.LOAD;
-  }
+  };
 
   mumuki.load = function (callback) {
     if (hasTurbolinksLowerThanVersion5()) {
@@ -20,7 +20,7 @@
     } else {
       $(document).ready(callback);
     }
-  }
+  };
 
   mumuki.resize = function (callback) {
     window.addEventListener('resize', callback);

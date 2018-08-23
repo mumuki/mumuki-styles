@@ -279,7 +279,7 @@ And then bundle install
 ### Installing
 
 ```bash
-npm install
+yarn
 gulp dist
 ```
 
