@@ -1,9 +1,9 @@
 sudo: false
 language: node_js
 node_js:
-- 4.9.1
+- 8.11.4
 script:
-- yarn && node_modules/.bin/gulp dist
+- yarn && yarn build
 - cd gem && ./bin/setup && bundle exec rake
 deploy:
   provider: rubygems
