@@ -10,9 +10,9 @@
   version "3.3.7"
   resolved "https://codeload.github.com/twbs/bootstrap-sass/tar.gz/5d6b2ebba0c2a5885ce2f0e01e9218db3d3b5e47"
 
-"@bower_components/dev-awesome@mumuki/dev-awesome#0.6.2":
+"@bower_components/dev-awesome@mumuki/dev-awesome#0.7.0":
   version "0.4.2"
-  resolved "https://codeload.github.com/mumuki/dev-awesome/tar.gz/09a3ac937a6db839aedc6c0075adfe7cff5cbd57"
+  resolved "https://codeload.github.com/mumuki/dev-awesome/tar.gz/9870ae4f8bc8af71c6fd974bc105c35c927d1744"
   dependencies:
     bower "1.7.9"
     grunt "1.0.1"

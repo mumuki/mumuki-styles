@@ -33,7 +33,7 @@ mumuki.load(function () {
   }
 
   function hasCodeMirrorEditor() {
-    let editor = getEditor();
+    var editor = getEditor();
     return editor && editor instanceof window.CodeMirror;
   }
 
