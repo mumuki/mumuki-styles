@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "yarn",
-    "build": "node_modules/.bin/gulp dist"
+    "build": "node_modules/.bin/gulp dist && node_modules/.bin/sass-shake -p dist/scss -f dist/scss/mumuki-styles.scss -t -d"
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,8 @@
     "gulp-replace": "0.5.4",
     "gulp-sass": "3.1.0",
     "gulp-webserver": "0.9.1",
-    "run-sequence": "1.2.2"
+    "run-sequence": "1.2.2",
+    "sass-shake": "https://github.com/Javi/sass-shake"
   },
   "engines": {
     "yarn": ">= 1.0.0"
