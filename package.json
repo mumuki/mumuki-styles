@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node_modules/.bin/bower install",
-    "prebuild": "npm install",
-    "build": "node_modules/.bin/gulp dist"
+    "prebuild": "yarn",
+    "build": "node_modules/.bin/gulp dist && node_modules/.bin/sass-shake -p dist/scss -f dist/scss/mumuki-styles.scss -t -d"
   },
   "repository": {
     "type": "git",
@@ -23,7 +22,11 @@
   },
   "homepage": "https://github.com/mumuki/mumuki-styles#readme",
   "dependencies": {
-    "bower": "1.8.0",
+    "@bower_components/awesome-bootstrap-checkbox": "flatlogic/awesome-bootstrap-checkbox#0.3.7",
+    "@bower_components/bootstrap-sass": "twbs/bootstrap-sass#3.3.7",
+    "@bower_components/dev-awesome": "mumuki/dev-awesome#0.6.2",
+    "@bower_components/font-awesome": "FortAwesome/Font-Awesome#4.7.0",
+    "@bower_components/jquery": "jquery/jquery-dist#3.1.1",
     "del": "2.2.2",
     "gulp": "3.9.1",
     "gulp-concat": "2.6.1",
@@ -32,6 +35,9 @@
     "gulp-sass": "3.1.0",
     "gulp-webserver": "0.9.1",
     "run-sequence": "1.2.2",
-    "wiredep": "4.0.0"
+    "sass-shake": "https://github.com/Javi/sass-shake"
+  },
+  "engines": {
+    "yarn": ">= 1.0.0"
   }
 }

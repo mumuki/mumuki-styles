@@ -2,7 +2,6 @@ const del = require('del');
 const gulp = require('gulp');
 const glps = require('gulp-load-plugins');
 const runs = require('run-sequence');
-const wiredep = require('wiredep');
 
 const $ = glps();
 
@@ -25,26 +24,26 @@ gulp.task('css:dev', () => {
 
 gulp.task('scss:dev', ['scss:vendor:dev'], () => {
   return gulp.src('src/stylesheets/**/*.scss')
-    .pipe($.replace('@import "../bower_components/', '@import "vendor/'))
+    .pipe($.replace('@import "../../node_modules/@bower_components/', '@import "vendor/'))
     .pipe(gulp.dest('build/scss'));
 });
 
 gulp.task('scss:vendor:dev', () => {
-  return gulp.src('src/bower_components/**/*.scss')
+  return gulp.src('node_modules/@bower_components/**/*.scss')
     .pipe(gulp.dest('build/scss/vendor'));
 });
 
 gulp.task('js:dev', () => {
-  return gulp.src(wiredep({ devDependencies: true }).js.concat(require('./src/javascripts')))
+  return gulp.src(require('./src/assets.js').concat(require('./src/javascripts')))
     .pipe($.concat('mumuki-styles.js'))
     .pipe(gulp.dest('build/javascripts'));
 });
 
 gulp.task('fonts:dev', () => {
   const fonts = [
-    'src/bower_components/bootstrap-sass/assets/fonts/**/*',
-    'src/bower_components/font-awesome/fonts/**/*',
-    'src/bower_components/dev-awesome/dist/fonts/**/*',
+    'node_modules/@bower_components/bootstrap-sass/assets/fonts/**/*',
+    'node_modules/@bower_components/font-awesome/fonts/**/*',
+    'node_modules/@bower_components/dev-awesome/dist/fonts/**/*',
   ];
   return gulp.src(fonts)
     .pipe(gulp.dest('build/fonts'));
@@ -63,7 +62,7 @@ gulp.task('serve', () => {
 
 gulp.task('watch', () => {
   gulp.watch('src/**/*', ['build:dev']);
-})
+});
 
 
 gulp.task('clear', () => {
@@ -75,30 +74,30 @@ gulp.task('css', () => {
     .pipe($.sass())
     .pipe($.concat('mumuki-styles.css'))
     .pipe(gulp.dest('dist/css'));
-  });
+});
 
 gulp.task('scss', ['scss:vendor'], () => {
   return gulp.src('src/stylesheets/**/*.scss')
-    .pipe($.replace('@import "../bower_components/', '@import "vendor/'))
+    .pipe($.replace('@import "../../node_modules/@bower_components/', '@import "vendor/'))
     .pipe(gulp.dest('dist/scss'));
-  });
+});
 
 gulp.task('scss:vendor', () => {
-  return gulp.src('src/bower_components/**/*.scss')
+  return gulp.src('node_modules/@bower_components/**/*.scss')
     .pipe(gulp.dest('dist/scss/vendor'));
-  });
+});
 
 gulp.task('js', () => {
-  return gulp.src(wiredep({ devDependencies: true }).js.concat(require('./src/javascripts')))
+  return gulp.src(require('./src/assets.js').concat(require('./src/javascripts')))
     .pipe($.concat('mumuki-styles.js'))
     .pipe(gulp.dest('dist/javascripts'));
-  });
+});
 
 gulp.task('fonts', () => {
   const fonts = [
-    'src/bower_components/bootstrap-sass/assets/fonts/**/*',
-    'src/bower_components/font-awesome/fonts/**/*',
-    'src/bower_components/dev-awesome/dist/fonts/**/*',
+    'node_modules/@bower_components/bootstrap-sass/assets/fonts/**/*',
+    'node_modules/@bower_components/font-awesome/fonts/**/*',
+    'node_modules/@bower_components/dev-awesome/dist/fonts/**/*',
   ];
   return gulp.src(fonts)
     .pipe(gulp.dest('dist/fonts'));
