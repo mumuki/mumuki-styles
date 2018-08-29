@@ -17,7 +17,7 @@ sed -i -r "s/\"version\": \"v${VERSION_REGEXP}/\"version\": \"v${NEW_VERSION}/" 
 sed -i -r "s/VERSION = \"${VERSION_REGEXP}/VERSION = \"${NEW_VERSION}/" gem/lib/mumuki/styles/version.rb
 
 echo "[Mumuki::Styles] Generating dist..."
-node_modules/.bin/gulp dist
+yarn build
 
 echo "[Mumuki::Styles] Commiting files..."
 git add dist package.json bower.json gem/lib/mumuki/styles/version.rb
