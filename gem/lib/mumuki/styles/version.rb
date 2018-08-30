@@ -1,5 +1,5 @@
 module Mumuki
   module Styles
-    VERSION = "1.17.2"
+    VERSION = "1.18.1"
   end
 end
