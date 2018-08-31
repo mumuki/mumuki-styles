@@ -278,6 +278,8 @@ And then bundle install
 
 ### Installing
 
+Building `mumuki-styles` requires your node installation version to be 8 or greater.
+
 ```bash
 yarn
 gulp dist
