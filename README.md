@@ -278,7 +278,7 @@ And then bundle install
 
 ### Installing
 
-Building `mumuki-styles` requires your node installation version to be 8 or greater.
+ **Note:** Building `mumuki-styles` requires your `node` installation version to be 8 or greater and `yarn` to be 1 or greater.
 
 ```bash
 yarn
