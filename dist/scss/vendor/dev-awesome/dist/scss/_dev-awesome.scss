@@ -3,12 +3,12 @@ $da-font-path: "../fonts" !default;
 
 @font-face {
   font-family:"dev-awesome";
-  src:url("#{$da-font-path}/dev-awesome.eot?a117e1776323fb312913690ebd1177fb");
+  src:url("#{$da-font-path}/dev-awesome.eot?b4ca87577b4af9d4183878da0f4556d1");
   src:url("#{$da-font-path}/dev-awesome.eot?#iefix") format("embedded-opentype"),
-		url("#{$da-font-path}/dev-awesome.woff2?a117e1776323fb312913690ebd1177fb") format("woff2"),
-		url("#{$da-font-path}/dev-awesome.woff?a117e1776323fb312913690ebd1177fb") format("woff"),
-		url("#{$da-font-path}/dev-awesome.ttf?a117e1776323fb312913690ebd1177fb") format("truetype"),
-		url("#{$da-font-path}/dev-awesome.svg?a117e1776323fb312913690ebd1177fb#dev-awesome") format("svg");
+		url("#{$da-font-path}/dev-awesome.woff2?b4ca87577b4af9d4183878da0f4556d1") format("woff2"),
+		url("#{$da-font-path}/dev-awesome.woff?b4ca87577b4af9d4183878da0f4556d1") format("woff"),
+		url("#{$da-font-path}/dev-awesome.ttf?b4ca87577b4af9d4183878da0f4556d1") format("truetype"),
+		url("#{$da-font-path}/dev-awesome.svg?b4ca87577b4af9d4183878da0f4556d1#dev-awesome") format("svg");
   font-weight:normal;
   font-style:normal;
 }
@@ -169,16 +169,6 @@ $da-font-path: "../fonts" !default;
   content: "\2001";
   background-size: 100% 100%;
   background-image: url("#{$da-font-path}/dev-awesome/svg/colored/mumuki.svg");
-}
-
-
-.da-php:before {
-  content:"\f116";
-}
-.da-php-c:before {
-  content: "\2001";
-  background-size: 100% 100%;
-  background-image: url("#{$da-font-path}/dev-awesome/svg/colored/php.svg");
 }
 
 
