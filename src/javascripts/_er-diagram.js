@@ -142,7 +142,7 @@ mumuki.load(function () {
   function drawColumnFK(entity, index, column) {
     try {
       return drawFK(entity, column, column.fk, index);
-    }catch (e) {
+    } catch (e) {
       console.warn("An error occurred when drawing foreign keys for entity", entity, column, column.fk)
     }
   }
