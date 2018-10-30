@@ -9776,7 +9776,8 @@ pre code {
 pre {
   position: relative;
   border: 2px solid #cfd9db;
-  border-width: 1px; }
+  border-width: 1px;
+  padding-top: 32px; }
   pre .mu-clipboard {
     font-size: 85%;
     cursor: pointer;
