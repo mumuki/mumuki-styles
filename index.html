@@ -10,15 +10,20 @@
 </head>
 <body style="margin: 15px">
 
-  <style>
-    body { margin: 15px }
-    body > div { margin-top: 15px }
-  </style>
+<style>
+  body {
+    margin: 15px
+  }
 
-  <div class="mu-file-browser"
-    data-can-browse="true"
-    data-on-file-open="console.log"
-    data-file='{
+  body > div {
+    margin-top: 15px
+  }
+</style>
+
+<div class="mu-file-browser"
+     data-can-browse="true"
+     data-on-file-open="console.log"
+     data-file='{
       "foo": {
         "saraza": {
           "sultano.rb": "Contenido de sultano"
@@ -38,10 +43,10 @@
       "archivo con un nombre largo.doc": "Contenido de un doc",
       "zz archivo con un nombre largo.doc": "Contenido de un doc"
     }'>
-  </div>
+</div>
 
-  <div class='mu-erd'
-    data-entities='{
+<div class='mu-erd'
+     data-entities='{
       "Entity_1": {
         "ent1_id": {
           "type": "Integer",
@@ -83,84 +88,83 @@
         }
       }
     }'>
-  </div>
+</div>
 
-  <div class='mu-sql-table'
-    data-name='series_peliculas'
-    data-columns='["titulo", "descripcion muy larga", "creador", "personajes", "temporadas", "puntuacion"]'
-    data-rows='[
+<div class='mu-sql-table'
+     data-name='series_peliculas'
+     data-columns='["titulo", "descripcion muy larga", "creador", "personajes", "temporadas", "puntuacion"]'
+     data-rows='[
       ["Los simuladores (Argentina)", "Cuatro socios que se dedican al negocio de la simulación, resuelven los problemas y necesidades de sus clientes mediante lo que ellos denominan operativos de simulacro.", "Damián Szifron", "Mario Santos, Pablo Lamponne, Emilio Ravenna, Gabriel Medina", 2, 10 ],
       ["Los simuladores (México)"   , "Cuatro socios que se dedican al negocio de la simulación, resuelven los problemas y necesidades de sus clientes mediante lo que ellos denominan operativos de simulacro.", "Damián Szifron", "Mario Santos, Pablo López, Emilio Vargas, Gabriel Medina"    , 2, 9.7],
       ["Los simuladores (Chile)"    , "Cuatro socios que se dedican al negocio de la simulación, resuelven los problemas y necesidades de sus clientes mediante lo que ellos denominan operativos de simulacro.", ""            , "Ernesto Santos, Gabriel Medina, Emilio Ravenna, Pablo Lorca" , 2, 9.3],
       ["Los simuladores (España)"   , "Cuatro socios que se dedican al negocio de la simulación, resuelven los problemas y necesidades de sus clientes mediante lo que ellos denominan operativos de simulacro.", ""            , "Santos, Medina, León, Jota"                                  , 2, 9.8],
       ["The Simulators (USA)", "Four partners", null , "S, R, L, M" , 2, 9.8]
     ]'>
-  </div>
+</div>
 
-  <div class='mu-sql-table'
-    data-name='Personas'
-    data-columns='[{"name": "id_persona", "pk": true}, "Nombre", "Apellido", {"name": "Pareja", "fk": true}]'
-    data-rows='[
+<div class='mu-sql-table'
+     data-name='Personas'
+     data-columns='[{"name": "id_persona", "pk": true}, "Nombre", "Apellido", {"name": "Pareja", "fk": true}]'
+     data-rows='[
       [1, "Homero", "Simpson", 2],
       [2, "Marge", "Bouvier", 1],
       [3, "Moe", "Szyslak", null]
     ]'>
-  </div>
+</div>
 
-  <div class="mu-sql-table-rendered">
-    <header>Personas</header>
-    <table>
-      <thead>
-        <tr>
-          <th class="mu-sql-table-pk">id_persona</th>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th class="mu-sql-table-fk">Pareja</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Homero</td>
-          <td>Simpson</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Marge</td>
-          <td>Bouvier</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Moe</td>
-          <td>Szyslak</td>
-          <td>NULL</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="mu-sql-table-rendered">
+  <header>Personas</header>
+  <table>
+    <thead>
+    <tr>
+      <th class="mu-sql-table-pk">id_persona</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th class="mu-sql-table-fk">Pareja</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>1</td>
+      <td>Homero</td>
+      <td>Simpson</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Marge</td>
+      <td>Bouvier</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Moe</td>
+      <td>Szyslak</td>
+      <td>NULL</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 
-  <div class='mu-browser'
-    data-url='https://mi-sitio.mumuki.io'
-    data-title='Mumuki - Aprender a programar'
-    data-favicon='https://mumuki.io/logo-alt.png'
-    data-srcdoc='<p style="color: red">Hello Mumuki Browser</p>'>
-  </div>
+<div class='mu-browser'
+     data-url='https://mi-sitio.mumuki.io'
+     data-title='Mumuki - Aprender a programar'
+     data-favicon='https://mumuki.io/logo-alt.png'
+     data-srcdoc='<p style="color: red">Hello Mumuki Browser</p>'>
+</div>
+
+<br>
+
+<div>
+  <textarea class="mu-paste-target" style="width: 100%; height: 250px"></textarea>
 
   <br>
 
-  <div>
-    <textarea class="mu-paste-target" style="width: 100%; height: 250px"></textarea>
-
-    <br>
-
-    <pre><code>program {
+  <pre><code>program {
   Mover(Norte)
 }</code></pre>
 
-  </div>
-
+</div>
 
 
 </body>

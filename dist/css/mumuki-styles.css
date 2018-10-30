@@ -8401,8 +8401,8 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 
 @font-face {
   font-family: "dev-awesome";
-  src: url("../fonts/dev-awesome.eot?b4ca87577b4af9d4183878da0f4556d1");
-  src: url("../fonts/dev-awesome.eot?#iefix") format("embedded-opentype"), url("../fonts/dev-awesome.woff2?b4ca87577b4af9d4183878da0f4556d1") format("woff2"), url("../fonts/dev-awesome.woff?b4ca87577b4af9d4183878da0f4556d1") format("woff"), url("../fonts/dev-awesome.ttf?b4ca87577b4af9d4183878da0f4556d1") format("truetype"), url("../fonts/dev-awesome.svg?b4ca87577b4af9d4183878da0f4556d1#dev-awesome") format("svg");
+  src: url("../fonts/dev-awesome.eot?a117e1776323fb312913690ebd1177fb");
+  src: url("../fonts/dev-awesome.eot?#iefix") format("embedded-opentype"), url("../fonts/dev-awesome.woff2?a117e1776323fb312913690ebd1177fb") format("woff2"), url("../fonts/dev-awesome.woff?a117e1776323fb312913690ebd1177fb") format("woff"), url("../fonts/dev-awesome.ttf?a117e1776323fb312913690ebd1177fb") format("truetype"), url("../fonts/dev-awesome.svg?a117e1776323fb312913690ebd1177fb#dev-awesome") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -8529,6 +8529,14 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
   content: "\2001";
   background-size: 100% 100%;
   background-image: url("../fonts/dev-awesome/svg/colored/mumuki.svg"); }
+
+.da-php:before {
+  content: "\f116"; }
+
+.da-php-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+  background-image: url("../fonts/dev-awesome/svg/colored/php.svg"); }
 
 .da-prolog:before {
   content: "\f10d"; }
@@ -9776,7 +9784,8 @@ pre code {
 pre {
   position: relative;
   border: 2px solid #cfd9db;
-  border-width: 1px; }
+  border-width: 1px;
+  padding-top: 32px; }
   pre .mu-clipboard {
     font-size: 85%;
     cursor: pointer;

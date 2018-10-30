@@ -13,7 +13,7 @@ mumuki.load(function () {
       copy: 'Copiar',
       copied: 'Copiado'
     },
-  }
+  };
 
   function getCopiedText() {
     var lang = (mumuki.locale || navigator.language || navigator.userLanguage || 'en').split('-')[0];
@@ -92,7 +92,7 @@ mumuki.load(function () {
     });
 
     return self;
-  }
+  };
 
   mumuki.resize(function () {
     $('pre').renderCopyPaste();
