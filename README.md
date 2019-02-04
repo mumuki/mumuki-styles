@@ -282,7 +282,7 @@ And then bundle install
 
 ```bash
 yarn
-gulp dist
+yarn build
 ```
 
 
