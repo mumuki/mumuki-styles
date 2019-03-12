@@ -9332,6 +9332,7 @@ pre code {
     position: relative;
     flex-grow: 9;
     min-height: 90%;
+    height: 100%;
     overflow: hidden; }
     .mu-multiple-scenarios .mu-scenarios a.mu-scenario-control {
       position: absolute;
