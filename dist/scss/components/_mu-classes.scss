@@ -1,0 +1,72 @@
+$mu-classes-margin: 20px;
+
+.mu-classes {
+  position: relative;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  svg {
+    z-index: 0;
+    width: calc(100% - #{$mu-classes-margin});
+    height: 100%;
+    position: absolute;
+    margin-left: $mu-classes-margin / 2;
+  }
+}
+
+.mu-classes-entity {
+  z-index: 1;
+  margin: $mu-classes-margin;
+  width: 250px;
+  min-width: 250px;
+  border: $mu-component-border;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.mu-classes-entity-name {
+  padding: 5px 10px;
+  list-style: none;
+  text-align: center;
+  border-bottom: $mu-component-border;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: $mu-color-component-title-background;
+  margin: 0;
+}
+
+.mu-classes-entity-columns {
+  list-style: none;
+  padding: 5px 10px;
+  margin: 0;
+  background-color: white;
+  .mu-classes-entity-column {
+    display: flex;
+    padding: 5px 0;
+    flex-flow: row;
+    justify-content: space-between;
+    border-bottom: 1px dashed $mu-color-component-border;
+    &:last-child {
+      border-bottom: none;
+    }
+    .mu-classes-entity-column-name {
+      text-align: left;
+      span {
+        margin-left: 5px;
+      }
+      .mu-classes-pk { color: rgb(196, 173, 44) }
+      .mu-classes-fk { color: rgb(184, 184, 184) }
+      .mu-classes-pk,
+      .mu-classes-fk {
+        font-size: 75%;
+      };
+    }
+    .mu-classes-entity-column-type {
+      text-align: right;
+    }
+  }
+}

@@ -90,6 +90,22 @@
     }'>
 </div>
 
+<div class='mu-classes'
+     data-code='
+        class Golondrina {
+          var energia:double
+          var ciudadActual : Ciudad
+          def comer!(unosGramos:int):void
+          def energia() : Double
+        }
+
+        class Bar extends Golondrina {
+          var bar:String
+          def multipleParams(p1:String, p2:Int, unaGol:Golondrina):Bar
+        }
+     '>
+</div>
+
 <div class='mu-sql-table'
      data-name='series_peliculas'
      data-columns='["titulo", "descripcion muy larga", "creador", "personajes", "temporadas", "puntuacion"]'
