@@ -111,6 +111,7 @@ mumuki.load(function () {
       const $entity = $([
         '<div id="', entityID(entity.name, index), '" class="mu-classes-entity">',
         '  <div class="mu-classes-entity-name">',
+        '  <span class="mu-classes-kind ', entity.type, '">', entity.type[0].toUpperCase(), '</span>',
         '  ', entity.name,
         '  </div>',
         entity.variables.length? '  <ul class="mu-classes-entity-attributes">' : '',

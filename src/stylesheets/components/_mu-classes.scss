@@ -26,13 +26,21 @@ $mu-classes-margin: 20px;
       display: none;
     }
   }
+  &[data-show-var-types="false"] {
+    .mu-classes-kind {
+      display: none;
+    }
+  }
 }
 
 .mu-classes-entity {
   z-index: 1;
   margin: $mu-classes-margin;
-  width: 300px;
-  min-width: 300px;
+  width: auto;
+  max-width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   border: $mu-component-border;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -54,7 +62,23 @@ $mu-classes-margin: 20px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background-color: $mu-color-component-title-background;
+  position: relative;
   margin: 0;
+  .mu-classes-kind {
+    position: absolute;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    background: $mu-color-fk;
+    padding: 2px 9px 0px;
+    border-radius: 50%;
+    margin-right: 5px;
+    left: 6px;
+    top: 5px;
+    line-height: 1.4;
+    transform: scale(0.75);
+  }
 }
 
 .mu-classes-entity-attributes {
@@ -97,6 +121,9 @@ $mu-classes-margin: 20px;
     flex-flow: row;
     justify-content: space-between;
     .mu-classes-entity-message-name {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
       text-align: left;
     }
   }
