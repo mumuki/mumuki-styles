@@ -16,16 +16,34 @@ $mu-classes-margin: 20px;
     position: absolute;
     margin-left: $mu-classes-margin / 2;
   }
+  &[data-show-var-types="false"] {
+    .mu-classes-type {
+      display: none;
+    }
+  }
+  &[data-show-return="false"] {
+    .mu-classes-return {
+      display: none;
+    }
+  }
 }
 
 .mu-classes-entity {
   z-index: 1;
   margin: $mu-classes-margin;
-  width: 250px;
-  min-width: 250px;
+  width: 300px;
+  min-width: 300px;
   border: $mu-component-border;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  .mu-classes-type,
+  .mu-classes-return {
+    color: $mu-color-fk;
+    font-weight: bold;
+  }
+  .mu-classes-param {
+    color: $mu-color-primary;
+  }
 }
 
 .mu-classes-entity-name {
@@ -40,24 +58,46 @@ $mu-classes-margin: 20px;
 }
 
 .mu-classes-entity-attributes {
+  font-size: 1em;
   list-style: none;
-  padding: 5px 10px;
+  padding: 0;
   margin: 0;
+  width: 100%;
   background-color: white;
   .mu-classes-entity-attribute {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     display: flex;
-    padding: 5px 0;
+    padding: 4px 8px;
     flex-flow: row;
     justify-content: space-between;
-    border-bottom: 1px dashed $mu-color-component-border;
     &:last-child {
-      border-bottom: none;
+      border-bottom:  1px dashed $mu-color-component-border;
     }
     .mu-classes-entity-attribute-name {
       text-align: left;
-      span {
-        margin-left: 5px;
-      }
+    }
+  }
+}
+
+.mu-classes-entity-messages {
+  font-size: 1em;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background-color: white;
+  .mu-classes-entity-message {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: flex;
+    padding: 4px 8px;
+    flex-flow: row;
+    justify-content: space-between;
+    .mu-classes-entity-message-name {
+      text-align: left;
     }
   }
 }

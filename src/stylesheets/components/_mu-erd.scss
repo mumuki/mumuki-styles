@@ -1,4 +1,6 @@
 $mu-erd-margin: 20px;
+$mu-color-pk: rgb(196, 173, 44);
+$mu-color-fk: rgb(184, 184, 184);
 
 .mu-erd {
   position: relative;
@@ -58,8 +60,8 @@ $mu-erd-margin: 20px;
       span {
         margin-left: 5px;
       }
-      .mu-erd-pk { color: rgb(196, 173, 44) }
-      .mu-erd-fk { color: rgb(184, 184, 184) }
+      .mu-erd-pk { color: $mu-color-pk }
+      .mu-erd-fk { color: $mu-color-fk }
       .mu-erd-pk,
       .mu-erd-fk {
         font-size: 75%;
