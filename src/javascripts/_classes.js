@@ -9,15 +9,14 @@ mumuki.load(function () {
 
   function mapEntities(code) {
     entities = [];
-    regexMatchAll(/class\s+([A-Z][a-zA-Z0-9_!?$]+).*?\{([\s\S]*?)\}/, code, function (classMatch) {
-      const classBody = classMatch[2];
+    regexMatchAll(/(abstract\s+class|class|interface)\s+([A-Z][a-zA-Z0-9_!?$]+).*?\{([\s\S]*?)\}/, code, function (classMatch) {
+      const classBody = classMatch[3];
       const aClass = {
-        type: 'class',
-        name: '',
+        type: classMatch[1].split(/\s+/)[0],
+        name: classMatch[2],
         methods: [] ,
         variables: [],
       }
-      aClass.name = classMatch[1];
       regexMatchAll(/var\s+([a-z][a-zA-Z0-9_!?$]+)\s*:\s*([a-zA-Z0-9_!?$]+)/, classBody, function (variableMatch) {
         aClass.variables.push({
           name: variableMatch[1],

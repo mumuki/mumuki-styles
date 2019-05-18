@@ -26,7 +26,7 @@ $mu-classes-margin: 20px;
       display: none;
     }
   }
-  &[data-show-var-types="false"] {
+  &[data-show-entity-kind="false"] {
     .mu-classes-kind {
       display: none;
     }
@@ -38,6 +38,7 @@ $mu-classes-margin: 20px;
   margin: $mu-classes-margin;
   width: auto;
   max-width: 300px;
+  min-width: 225px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

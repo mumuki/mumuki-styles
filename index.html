@@ -95,17 +95,25 @@
     data-show-return='true'
     data-show-entity-kind='true'
     data-code='
-        class Golondrina {
-          var energia:double
-          var ciudadActual : Ciudad
-          def comer!(unosGramos:int):void
-          def energia() : Double
-        }
+      class Golondrina extends Ave{
+        var energia:double
+        var ciudadActual : Ciudad
+        def comer!(unosGramos:int):void
+        def energia() : Double
+      }
 
-        class Bar extends Golondrina {
-          var bar:String
-          def multipleParams(p1:String, p2:Int, unaGol:Golondrina):Bar
-        }
+      class Bar implements Foo {
+        var bar:String
+        def multipleParams(p1:String, p2:Int, unaGol:Golondrina):Bar
+      }
+
+      interface Foo {
+        def multipleParams(unaGol:Golondrina):Bar
+      }
+
+      abstract class Ave {
+        def multipleParams(unaGol:Golondrina):Bar
+      }
     '>
 </div>
 
