@@ -1,44 +1,83 @@
 mumuki.load(function () {
 
-  function regexMatchAll(regex, string, callback) {
+  function regexMatchAll(regex, string='', callback) {
     const matches = string.match(RegExp(regex, 'g')) || [];
     matches.forEach(function (match) {
-      callback(match.match(regex));
+      callback(match.match(regex).groups);
+    });
+  }
+
+  function mapClasses(entities, code) {
+    regexMatchAll(/(?<kind>(abstract\s+)?class)\s+(?<name>[A-Z][a-zA-Z0-9_!?$]+)\s*(?:extends)?\s*(?<parent>[A-Z][a-zA-Z0-9_!?$]+)?\s*(?:implements)?\s*(?<parents>.*)?\s*\{(?<body>[\s\S]*?)\}/, code, function (classGroups) {
+      const aClass = {
+        type: classGroups.kind.split(/\s+/)[0],
+        name: classGroups.name,
+        parent: classGroups.parent || 'Object',
+        parents: [],
+        methods: [] ,
+        variables: [],
+      }
+      parseParents(aClass, classGroups.parents);
+      parseVariables(aClass, classGroups.body)
+      parseMethods(aClass, classGroups.body);
+      entities.push(aClass);
+    });
+  }
+
+  function mapInterfaces(entities, code) {
+    regexMatchAll(/interface\s+(?<name>[A-Z][a-zA-Z0-9_!?$]+)\s*(?:extends)?\s*(?<parents>.*)?\s*\{(?<body>[\s\S]*?)\}/, code, function (interfaceGroups) {
+      const anInterface = {
+        type: 'interface',
+        name: interfaceGroups.name,
+        parent: 'Object',
+        parents: [],
+        methods: [] ,
+        variables: [],
+      };
+      parseParents(anInterface, interfaceGroups.parents);
+      parseMethods(anInterface, interfaceGroups.body);
+      entities.push(anInterface);
+    });
+  }
+
+  function parseParents(obj, parents) {
+    regexMatchAll(/(?<name>[A-Z][a-zA-Z0-9_?!$]*?)(?:,\s*|\s*|$)/, parents, function (parentsGroup) {
+      obj.parents.push(parentsGroup.name)
+    });
+  }
+
+
+  function parseVariables(obj, body) {
+    regexMatchAll(/var\s+(?<name>[a-z][a-zA-Z0-9_!?$]+)\s*:\s*(?<type>[a-zA-Z0-9_!?$]+)/, body, function (varGroups) {
+      obj.variables.push({
+        name: varGroups.name,
+        type: varGroups.type,
+      })
+    });
+  }
+
+
+  function parseMethods(obj, body) {
+    regexMatchAll(/def\s+(?<name>[a-z][a-zA-Z0-9_!?$]+)\((?<params>.*?)\)\s*:\s*(?<return>.*)/, body, function (methodGroup) {
+      const method = {
+        name: methodGroup.name,
+        return: methodGroup.return,
+        params: [],
+      }
+      regexMatchAll(/(?<name>[a-zA-Z0-9_?!$]*?)\s*:\s*(?<type>[a-zA-Z0-9_?!$]*?\b)(?:,|\s|$)/, methodGroup.params, function (paramsGroup) {
+        method.params.push({
+          name: paramsGroup.name,
+          type: paramsGroup.type,
+        })
+      });
+      obj.methods.push(method);
     });
   }
 
   function mapEntities(code) {
     entities = [];
-    regexMatchAll(/(abstract\s+class|class|interface)\s+([A-Z][a-zA-Z0-9_!?$]+).*?\{([\s\S]*?)\}/, code, function (classMatch) {
-      const classBody = classMatch[3];
-      const aClass = {
-        type: classMatch[1].split(/\s+/)[0],
-        name: classMatch[2],
-        methods: [] ,
-        variables: [],
-      }
-      regexMatchAll(/var\s+([a-z][a-zA-Z0-9_!?$]+)\s*:\s*([a-zA-Z0-9_!?$]+)/, classBody, function (variableMatch) {
-        aClass.variables.push({
-          name: variableMatch[1],
-          type: variableMatch[2],
-        })
-      });
-      regexMatchAll(/def\s+([a-z][a-zA-Z0-9_!?$]+)\((.*?)\)\s*:\s*(.*)/, classBody, function (methodMatch) {
-        const method = {
-          name: methodMatch[1],
-          return: methodMatch[3],
-          params: [],
-        }
-        regexMatchAll(/([a-zA-Z0-9_?!$]*?)\s*:\s*([a-zA-Z0-9_?!$]*?\b)(,|\s|$)/, methodMatch[2], function (methodParamMatch) {
-          method.params.push({
-            name: methodParamMatch[1],
-            type: methodParamMatch[2],
-          })
-        });
-        aClass.methods.push(method);
-      });
-      entities.push(aClass);
-    });
+    mapClasses(entities, code);
+    mapInterfaces(entities, code);
     return entities;
   }
 
@@ -113,16 +152,31 @@ mumuki.load(function () {
         '  <span class="mu-classes-kind ', entity.type, '">', entity.type[0].toUpperCase(), '</span>',
         '  ', entity.name,
         '  </div>',
-        entity.variables.length? '  <ul class="mu-classes-entity-attributes">' : '',
-        entity.variables.length?      generateEntityAttributes(entity, index) : '',
-        entity.variables.length? '  </ul>' : '',
-        entity.methods.length?   '  <ul class="mu-classes-entity-messages">' : '',
-        entity.methods.length?        generateEntityMessages(entity, index) : '',
-        entity.methods.length?   '  </ul>' : '',
+        entity.variables.length ? '  <ul class="mu-classes-entity-attributes">' : '',
+        entity.variables.length ?      generateEntityAttributes(entity, index) : '',
+        entity.variables.length ? '  </ul>' : '',
+        entity.methods.length ?   '  <ul class="mu-classes-entity-messages">' : '',
+        entity.methods.length ?        generateEntityMessages(entity, index) : '',
+        entity.methods.length ?   '  </ul>' : '',
         '</div>',
       ].join(''));
       $diagram.append(entity.$element);
     });
+  }
+
+  function generateTreeLevel(parent, entities, grouped) {
+    grouped[parent] = {};
+    entities.filter((ent) => parent === ent.parent).forEach((subclass) => {
+      grouped[parent][subclass.name] = subclass;
+      generateTreeLevel(subclass.name, entities, grouped[subclass.parent]);
+    });
+  }
+
+  function groupEntities(entities) {
+    const grouped = {};
+    generateTreeLevel('Object', entities, grouped);
+    console.log('GROUPED:', grouped);
+    return grouped;
   }
 
   function arrangeEntities($diagram, entities, index) {
@@ -134,6 +188,9 @@ mumuki.load(function () {
     const cellWidth = $diagram.width() / colsCount;
     const cellHeigth = $diagram.height() / rowsCount;
     $diagram.height(($highter.height() + ENTITIES_GAP) * rowsCount);
+
+    groupEntities(entities);
+
     let a = 0;
     for(let row = 0; row < rowsCount; row++ ) {
       for(let col = 0; col < colsCount; col++ ) {
