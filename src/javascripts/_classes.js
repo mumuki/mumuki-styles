@@ -107,7 +107,7 @@ mumuki.load(function () {
 
   function appendEntities($diagram, entities, index) {
     entities.forEach(function (entity) {
-      const $entity = $([
+      entity.$element = $([
         '<div id="', entityID(entity.name, index), '" class="mu-classes-entity">',
         '  <div class="mu-classes-entity-name">',
         '  <span class="mu-classes-kind ', entity.type, '">', entity.type[0].toUpperCase(), '</span>',
@@ -121,8 +121,28 @@ mumuki.load(function () {
         entity.methods.length?   '  </ul>' : '',
         '</div>',
       ].join(''));
-      $diagram.append($entity);
+      $diagram.append(entity.$element);
     });
+  }
+
+  function arrangeEntities($diagram, entities, index) {
+    const ENTITIES_GAP = 60;
+    const $entities = entities.map((it) => it.$element);
+    const $highter = $entities.reduce(($he, $en) => $he.height() >= $en.height() ? $he : $en);
+    const colsCount = Math.min(Math.max(parseInt($diagram.width() / ($highter.width() + ENTITIES_GAP)), 1), entities.length);
+    const rowsCount = Math.ceil(entities.length / colsCount);
+    const cellWidth = $diagram.width() / colsCount;
+    const cellHeigth = $diagram.height() / rowsCount;
+    $diagram.height(($highter.height() + ENTITIES_GAP) * rowsCount);
+    let a = 0;
+    for(let row = 0; row < rowsCount; row++ ) {
+      for(let col = 0; col < colsCount; col++ ) {
+        const $el = $entities[a++];
+        if (!$el) break;
+        $el.css('top',  (cellHeigth * row + cellHeigth / 2 - $el.height() / 2).toString() + 'px');
+        $el.css('left', (cellWidth  * col + cellWidth  / 2 - $el.width()  / 2).toString() + 'px');
+      }
+    }
   }
 
   $.fn.renderClasses = function () {
@@ -137,7 +157,8 @@ mumuki.load(function () {
       const entities = mapEntities($diagram.data('code'));
 
       appendEntities($diagram, entities, i);
-      // appendConnectors($diagram, entities, i);
+      arrangeEntities($diagram, entities, i);
+
     });
     return self;
   };

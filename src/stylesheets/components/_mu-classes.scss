@@ -36,9 +36,8 @@ $mu-classes-margin: 20px;
 .mu-classes-entity {
   z-index: 1;
   margin: $mu-classes-margin;
-  width: auto;
-  max-width: 300px;
-  min-width: 225px;
+  position: absolute;
+  width: 300px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
