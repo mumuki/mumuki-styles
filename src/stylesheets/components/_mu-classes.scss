@@ -82,7 +82,6 @@ $mu-classes-margin: 20px;
 }
 
 .mu-classes-entity-attributes {
-  font-size: 1em;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -97,7 +96,7 @@ $mu-classes-margin: 20px;
     flex-flow: row;
     justify-content: space-between;
     &:last-child {
-      border-bottom:  1px dashed $mu-color-component-border;
+      border-bottom:  $mu-component-border;
     }
     .mu-classes-entity-attribute-name {
       text-align: left;
@@ -106,7 +105,6 @@ $mu-classes-margin: 20px;
 }
 
 .mu-classes-entity-messages {
-  font-size: 1em;
   list-style: none;
   padding: 0;
   margin: 0;

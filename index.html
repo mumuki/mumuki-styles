@@ -95,6 +95,13 @@
     data-show-return='true'
     data-show-entity-kind='true'
     data-code='
+      class Ornitologo {
+        var aves : List<Ave>
+        def entrenar!():void
+        def mejorAve():void
+        def bueno?():boolean
+      }
+
       abstract class Ave {
         var energia:double
         def energia() : Double
@@ -105,19 +112,8 @@
         def comer!(unosGramos:int):void
       }
 
-      class Picaflor extends Ave implements Volador {
+      class Picaflor extends Ave implements Volador, Comestible {
         var ciudadActual : Ciudad
-        def volar!(unosKilometros:double):void
-      }
-
-      class Ornitologo {
-        var aves : List<Ave>
-        def entrenar!():void
-        def mejorAve():void
-        def bueno?():boolean
-      }
-
-      interface Volador {
         def volar!(unosKilometros:double):void
       }
     '>

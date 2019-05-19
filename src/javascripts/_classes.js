@@ -1,5 +1,12 @@
 mumuki.load(function () {
 
+  Array.prototype.sum = function (callback) {
+    return this.map(callback).reduce((a, e) => a + e, 0);
+  }
+
+  OBJECT = 'Object';
+  const ENTITIES_GAP = 60;
+
   function regexMatchAll(regex, string='', callback) {
     const matches = string.match(RegExp(regex, 'g')) || [];
     matches.forEach(function (match) {
@@ -12,7 +19,7 @@ mumuki.load(function () {
       const aClass = {
         type: classGroups.kind.split(/\s+/)[0],
         name: classGroups.name,
-        parent: classGroups.parent || 'Object',
+        parent: classGroups.parent || OBJECT,
         parents: [],
         methods: [] ,
         variables: [],
@@ -29,7 +36,7 @@ mumuki.load(function () {
       const anInterface = {
         type: 'interface',
         name: interfaceGroups.name,
-        parent: 'Object',
+        parent: OBJECT,
         parents: [],
         methods: [] ,
         variables: [],
@@ -164,23 +171,54 @@ mumuki.load(function () {
     });
   }
 
-  function generateTreeLevel(parent, entities, grouped) {
-    grouped[parent] = {};
-    entities.filter((ent) => parent === ent.parent).forEach((subclass) => {
-      grouped[parent][subclass.name] = subclass;
-      generateTreeLevel(subclass.name, entities, grouped[subclass.parent]);
+  function generateHierarchyTree(parent, entities, grouped = {}) {
+    grouped[parent] = grouped[parent] || {};
+    grouped[parent].subclasses = {};
+    entities.filter((ent) => parent === ent.parent && /abstract|class|interface/.test(ent.type) ).forEach((subclass) => {
+      grouped[parent].subclasses[subclass.name] = subclass;
+      generateHierarchyTree(subclass.name, entities, grouped[subclass.parent].subclasses);
     });
-  }
-
-  function groupEntities(entities) {
-    const grouped = {};
-    generateTreeLevel('Object', entities, grouped);
-    console.log('GROUPED:', grouped);
     return grouped;
   }
 
   function arrangeEntities($diagram, entities, index) {
-    const ENTITIES_GAP = 60;
+    const hierarchy = generateHierarchyTree(OBJECT, entities);
+    $diagram.height(0);
+    $diagram.css('transform',  'scale(1)');
+    const totalWidth = (entities[0].$element.width() + ENTITIES_GAP) * leafCount(hierarchy[OBJECT]);
+    arrangeHierarchy($diagram, hierarchy[OBJECT], 0, $diagram.offset().left + $diagram.width() / 2 - totalWidth / 2);
+    if ($diagram.width() < totalWidth) {
+      $diagram.css('transform',  `scale(${$diagram.width() / totalWidth})`);
+    }
+  }
+
+  function arrangeHierarchy(container, object, rowIndex, leftStart) {
+    const subclasses = Object.values(object.subclasses);
+    if (subclasses.length == 0) return;
+    const heighter = subclasses.reduce((a, e) => e.$element.height() > a.$element.height() ? e : a);
+    const rowHeight = heighter.$element.height();
+    const colWidth = heighter.$element.width() + ENTITIES_GAP;
+    const oldContainerHeight = container.height();
+    container.height(container.height() + rowHeight + ENTITIES_GAP);
+    let accumulatedLeft = leftStart;
+    subclasses.forEach((ent) => {
+      const leafsSize = leafCount(ent);
+      const width = colWidth * leafsSize;
+      if (!ent.$element) return;
+      const $el = ent.$element;
+      $el.css('top',  `${ oldContainerHeight + rowHeight / 2 - $el.height() / 2 }px`);
+      $el.css('left', `${ accumulatedLeft + width / 2 - $el.width()  / 2 }px`);
+      arrangeHierarchy(container, ent, rowIndex + 1, accumulatedLeft);
+      accumulatedLeft = accumulatedLeft + width;
+    });
+  }
+
+  function leafCount(ent) {
+    const subclasses = Object.values(ent.subclasses);
+    return subclasses.length == 0 ? 1 : subclasses.sum((ent) => leafCount(ent));
+  }
+
+  function a() {
     const $entities = entities.map((it) => it.$element);
     const $highter = $entities.reduce(($he, $en) => $he.height() >= $en.height() ? $he : $en);
     const colsCount = Math.min(Math.max(parseInt($diagram.width() / ($highter.width() + ENTITIES_GAP)), 1), entities.length);
@@ -188,8 +226,6 @@ mumuki.load(function () {
     const cellWidth = $diagram.width() / colsCount;
     const cellHeigth = $diagram.height() / rowsCount;
     $diagram.height(($highter.height() + ENTITIES_GAP) * rowsCount);
-
-    groupEntities(entities);
 
     let a = 0;
     for(let row = 0; row < rowsCount; row++ ) {
