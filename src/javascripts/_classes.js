@@ -4,8 +4,10 @@ mumuki.load(function () {
     return this.map(callback).reduce((a, e) => a + e, 0);
   }
 
-  OBJECT = 'Object';
+  const OBJECT = 'Object';
   const ENTITIES_GAP = 60;
+  const OFFSET = 26;
+  const BORDER = 2;
 
   function regexMatchAll(regex, string='', callback) {
     const matches = string.match(RegExp(regex, 'g')) || [];
@@ -182,11 +184,12 @@ mumuki.load(function () {
   }
 
   function arrangeEntities($diagram, entities, index) {
+    $diagram.css('transform',  'scale(1)');
     const hierarchy = generateHierarchyTree(OBJECT, entities);
     $diagram.height(0);
-    $diagram.css('transform',  'scale(1)');
     const totalWidth = (entities[0].$element.width() + ENTITIES_GAP) * leafCount(hierarchy[OBJECT]);
     arrangeHierarchy($diagram, hierarchy[OBJECT], 0, $diagram.offset().left + $diagram.width() / 2 - totalWidth / 2);
+    addConnectors($diagram, entities, index);
     if ($diagram.width() < totalWidth) {
       $diagram.css('transform',  `scale(${$diagram.width() / totalWidth})`);
     }
@@ -213,29 +216,44 @@ mumuki.load(function () {
     });
   }
 
+  function addConnectors($diagram, entities, index) {
+    entities.forEach((entity) => {
+      const $svg = $(getSVGFor($diagram, entities, entity, index));
+      $diagram.append($svg);
+    });
+  }
+
+  function svgLine(x1, x2, y1, y2) {
+    return ['<line x1="', x1, '" x2="', x2, '" y1="', y1, '" y2="', y2, '" stroke="black" stroke-width="1"/>'].join('');
+  }
+
+  function drawHierarchyConnector($diagram, child, entity) {
+    const margin = OFFSET + BORDER * 2;
+    const pa = {
+      x: entity.$element.offset().left + entity.$element.width() / 2 - $diagram.offset().left - margin / 2,
+      y: entity.$element.offset().top + entity.$element.height() - $diagram.offset().top + margin,
+    }
+    const ch = {
+      x: child.$element.offset().left + child.$element.width() / 2 - $diagram.offset().left - margin / 2,
+      y: child.$element.offset().top - $diagram.offset().top,
+    }
+    return [
+      `<polygon points="${pa.x},${pa.y - OFFSET} ${pa.x - OFFSET},${pa.y} ${pa.x + OFFSET},${pa.y}" style="fill:white;stroke:black;stroke-width:1.33"></polygon>`,
+      svgLine(pa.x, pa.x, pa.y, (pa.y + ch.y) / 2),
+      svgLine(pa.x, ch.x, (pa.y + ch.y) / 2, (pa.y + ch.y) / 2),
+      svgLine(ch.x, ch.x, (pa.y + ch.y) / 2, ch.y),
+    ].join('\n');
+  }
+
+  function getSVGFor($diagram, entities, entity, index) {
+    return entities.filter((ent) => ent.parent == entity.name).map((child) => {
+      return ['<svg>', drawHierarchyConnector($diagram, child, entity, index), '</svg>'].join('\n');
+    }).join('\n');
+  }
+
   function leafCount(ent) {
     const subclasses = Object.values(ent.subclasses);
     return subclasses.length == 0 ? 1 : subclasses.sum((ent) => leafCount(ent));
-  }
-
-  function a() {
-    const $entities = entities.map((it) => it.$element);
-    const $highter = $entities.reduce(($he, $en) => $he.height() >= $en.height() ? $he : $en);
-    const colsCount = Math.min(Math.max(parseInt($diagram.width() / ($highter.width() + ENTITIES_GAP)), 1), entities.length);
-    const rowsCount = Math.ceil(entities.length / colsCount);
-    const cellWidth = $diagram.width() / colsCount;
-    const cellHeigth = $diagram.height() / rowsCount;
-    $diagram.height(($highter.height() + ENTITIES_GAP) * rowsCount);
-
-    let a = 0;
-    for(let row = 0; row < rowsCount; row++ ) {
-      for(let col = 0; col < colsCount; col++ ) {
-        const $el = $entities[a++];
-        if (!$el) break;
-        $el.css('top',  (cellHeigth * row + cellHeigth / 2 - $el.height() / 2).toString() + 'px');
-        $el.css('left', (cellWidth  * col + cellWidth  / 2 - $el.width()  / 2).toString() + 'px');
-      }
-    }
   }
 
   $.fn.renderClasses = function () {
