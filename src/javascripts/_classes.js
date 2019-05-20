@@ -224,7 +224,7 @@ mumuki.load(function () {
   }
 
   function svgLine(x1, x2, y1, y2) {
-    return ['<line x1="', x1, '" x2="', x2, '" y1="', y1, '" y2="', y2, '" stroke="black" stroke-width="1"/>'].join('');
+    return ['<line x1="', x1, '" x2="', x2, '" y1="', y1, '" y2="', y2, '"/>'].join('');
   }
 
   function drawHierarchyConnector($diagram, child, entity) {
@@ -238,7 +238,7 @@ mumuki.load(function () {
       y: child.$element.offset().top - $diagram.offset().top,
     }
     return [
-      `<polygon points="${pa.x},${pa.y - OFFSET} ${pa.x - OFFSET},${pa.y} ${pa.x + OFFSET},${pa.y}" style="fill:white;stroke:black;stroke-width:1.33"></polygon>`,
+      `<polygon points="${pa.x},${pa.y - OFFSET} ${pa.x - OFFSET},${pa.y} ${pa.x + OFFSET},${pa.y}"></polygon>`,
       svgLine(pa.x, pa.x, pa.y, (pa.y + ch.y) / 2),
       svgLine(pa.x, ch.x, (pa.y + ch.y) / 2, (pa.y + ch.y) / 2),
       svgLine(ch.x, ch.x, (pa.y + ch.y) / 2, ch.y),

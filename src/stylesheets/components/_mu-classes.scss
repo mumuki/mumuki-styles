@@ -15,6 +15,13 @@ $mu-classes-margin: 20px;
     height: 100%;
     position: absolute;
     margin-left: $mu-classes-margin / 2;
+    polygon, line {
+      stroke: $mu-color-component-border;
+      stroke-width: 2.5;
+    }
+    polygon {
+      fill: white;
+    }
   }
   &[data-show-var-types="false"] {
     .mu-classes-type {
@@ -70,7 +77,7 @@ $mu-classes-margin: 20px;
     font-size: 1.2em;
     font-weight: bold;
     color: white;
-    background: $mu-color-fk;
+    background: $mu-color-complementary;
     padding: 2px 9px 0px;
     border-radius: 50%;
     margin-right: 5px;
