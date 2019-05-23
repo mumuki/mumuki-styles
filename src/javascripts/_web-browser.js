@@ -42,7 +42,7 @@ mumuki.load(function () {
   function getBrowserMain($browser) {
     return $([
       '<main>',
-      '  <iframe srcdoc="', escapeHTML($browser.data('srcdoc')), '" frameborder="0"></iframe>',
+      '  <iframe sandbox="allow-scripts allow-modals" srcdoc="', escapeHTML($browser.data('srcdoc')), '" frameborder="0"></iframe>',
       '</main>'
     ].join(''));
   }
