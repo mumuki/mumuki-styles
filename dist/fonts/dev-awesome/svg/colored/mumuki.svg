@@ -1,78 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="32"
-   height="32"
-   id="svg4166"
-   version="1.1"
-   inkscape:version="0.91 r13725"
-   viewBox="0 0 32 32"
-   sodipodi:docname="mumuki.svg">
-  <defs
-     id="defs4168">
-    <linearGradient
-       id="linearGradient6722-5-7-9-8-3-3-8-7"
-       gradientTransform="matrix(110.25023,0,0,110.25023,94020.438,14788.778)">
-      <stop
-         offset="0"
-         style="stop-color:#04242f;stop-opacity:1;"
-         id="stop4007-9" />
-      <stop
-         offset="1"
-         style="stop-color:#09485f;stop-opacity:1;"
-         id="stop4005-5" />
-    </linearGradient>
-  </defs>
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="11.197802"
-     inkscape:cx="5.7548774"
-     inkscape:cy="22.438525"
-     inkscape:current-layer="text4136"
-     showgrid="true"
-     inkscape:grid-bbox="true"
-     inkscape:document-units="px"
-     inkscape:window-width="1920"
-     inkscape:window-height="1027"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1" />
-  <metadata
-     id="metadata4171">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     id="layer1"
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer">
-    <g
-       style="font-style:normal;font-weight:normal;font-size:37.52394104px;line-height:125%;font-family:sans-serif;letter-spacing:11.1446104px;word-spacing:0px;fill:#0b465d;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       id="text4136">
-      <path
-         d="m 22.091386,20.75186 1.876198,-0.150095 q 0.300191,0 0.187619,-0.450288 -0.150096,-0.675431 -0.600383,-2.251436 -0.450287,-1.576006 -0.600383,-2.401532 0,-0.150096 -0.112572,-0.637907 -0.07505,-0.487812 -0.112572,-0.712955 0,-0.262668 0,-0.637907 0.03752,-0.37524 0.150096,-0.675431 0.450288,-1.088194 1.500958,-1.23829 1.088194,-0.150096 1.913721,0.600383 1.313338,1.163242 2.251436,4.127633 0.487812,1.538482 0.788003,3.189535 0.300192,1.651054 0.150096,3.677347 -0.150096,1.988769 -1.088194,3.039439 -0.525336,0.637907 -1.125719,0.412763 -0.600383,-0.262667 -1.05067,-0.750479 -0.450287,-0.487811 -0.712955,-1.05067 -0.150096,-0.337715 -0.375239,-1.088194 -0.150096,-0.300192 -0.450288,-0.225144 l -2.326484,0.225144 Q 15.562221,24.391683 7.119334,25.89264 6.8191424,25.930164 6.6315227,26.455499 5.3181848,29.945226 4.4926581,31.145992 4.1924666,31.558755 3.7421793,31.633803 3.291892,31.746375 2.8416047,31.40866 2.4663653,31.070944 2.4663653,29.607511 2.5038892,25.817592 4.0048469,20.038906 5.5058045,14.222695 8.2450522,8.5941036 10.9843,2.9279885 13.948691,0.75159988 15.149457,-0.11145076 16.350223,0.82664777 17.588514,1.7272224 17.17575,3.1156082 16.725463,4.6540898 14.811742,8.0687684 11.809827,13.584788 8.2825761,22.515486 8.2450522,22.740629 8.4326719,22.740629 15.337077,21.164624 22.091386,20.75186 Z"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:AhahaMojimoji;-inkscape-font-specification:AhahaMojimoji;fill:#0b465d;fill-opacity:1"
-         id="path4139" />
-    </g>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="64.124px" height="65.207px" viewBox="0 0 64.124 65.207" enable-background="new 0 0 64.124 65.207" xml:space="preserve">
+<g>
+	<g>
+		<path fill="#1D95A4" d="M45.17,49.385L39.299,38.46c-0.333-0.619-1.093-0.866-1.729-0.563l-15.262,7.291
+			c-0.252,0.121-0.46,0.317-0.593,0.565L12.33,63.215c-0.02,0.037-0.038,0.072-0.054,0.109c-0.08,0.172-0.126,0.361-0.126,0.564
+			c0,0.729,0.59,1.316,1.318,1.316h1.359c0.196,0,0.389-0.045,0.566-0.129l29.184-13.878c0.325-0.154,0.573-0.437,0.687-0.779
+			C45.375,50.076,45.341,49.703,45.17,49.385"/>
+		<path fill="#17697E" d="M63.966,49.031l-6.703-12.465c-0.23-0.428-0.676-0.693-1.16-0.693H42.082
+			c-0.464,0-0.893,0.244-1.132,0.641c-0.237,0.4-0.249,0.896-0.029,1.303l13.709,25.506c0.23,0.428,0.677,0.691,1.161,0.691h1.953
+			c0.544,0,1.032-0.334,1.229-0.84l5.062-13.043C64.173,49.773,64.149,49.371,63.966,49.031"/>
+		<path fill="#17697E" d="M31.285,0.693C31.056,0.266,30.609,0,30.124,0H28.17c-0.486,0-0.931,0.267-1.161,0.693L0.158,50.637
+			c-0.189,0.354-0.209,0.771-0.053,1.141l5.348,12.627c0.207,0.486,0.685,0.803,1.214,0.803h1.888c0.485,0,0.931-0.266,1.161-0.693
+			L37.32,13.168c0.209-0.391,0.209-0.857,0-1.248L31.285,0.693z"/>
+	</g>
+</g>
 </svg>

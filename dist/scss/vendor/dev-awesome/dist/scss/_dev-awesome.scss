@@ -3,12 +3,12 @@ $da-font-path: "../fonts" !default;
 
 @font-face {
   font-family:"dev-awesome";
-  src:url("#{$da-font-path}/dev-awesome.eot?a117e1776323fb312913690ebd1177fb");
-  src:url("#{$da-font-path}/dev-awesome.eot?#iefix") format("embedded-opentype"),
-		url("#{$da-font-path}/dev-awesome.woff2?a117e1776323fb312913690ebd1177fb") format("woff2"),
-		url("#{$da-font-path}/dev-awesome.woff?a117e1776323fb312913690ebd1177fb") format("woff"),
-		url("#{$da-font-path}/dev-awesome.ttf?a117e1776323fb312913690ebd1177fb") format("truetype"),
-		url("#{$da-font-path}/dev-awesome.svg?a117e1776323fb312913690ebd1177fb#dev-awesome") format("svg");
+  src:url("#{$da-font-path}/dev-awesome.eot?2f97cbfe09d6840c0f0a90490ad91963");
+  src:url("#{$da-font-path}/dev-awesome.eot?2f97cbfe09d6840c0f0a90490ad91963#iefix") format("embedded-opentype"),
+		url("#{$da-font-path}/dev-awesome.woff2?2f97cbfe09d6840c0f0a90490ad91963") format("woff2"),
+		url("#{$da-font-path}/dev-awesome.woff?2f97cbfe09d6840c0f0a90490ad91963") format("woff"),
+		url("#{$da-font-path}/dev-awesome.ttf?2f97cbfe09d6840c0f0a90490ad91963") format("truetype"),
+		url("#{$da-font-path}/dev-awesome.svg?2f97cbfe09d6840c0f0a90490ad91963#dev-awesome") format("svg");
   font-weight:normal;
   font-style:normal;
 }

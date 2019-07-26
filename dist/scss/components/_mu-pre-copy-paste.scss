@@ -5,7 +5,6 @@ pre {
   position: relative;
   border: $mu-component-border;
   border-width: 1px;
-  padding-top: 32px;
 
   .mu-clipboard {
     font-size: 85%;
@@ -21,20 +20,44 @@ pre {
     border-bottom: $mu-component-border;
     border-bottom-width: 1px;
     height: 2em;
-    width: 8em;
+    width: 2em;
     color: $mu-color-primary;
     top: 0;
     right: 0;
     background-color: $mu-clipboard-background-color;
+    overflow: hidden;
     span {
       margin-left: 0.25em;
       font-family: $mu-font-family;
+      display: none;
     }
     &:hover {
       background-color: darken($mu-clipboard-background-color, 10%);
+      width: 8em;
+      animation-duration: 100ms;
+      animation-name: copySliderAnimation;
+      span {
+        display: block;
+      }
     }
     &.clicked {
       font-weight: bold;
     }
+  }
+}
+
+@mixin animation($name) {
+  @-webkit-keyframes #{$name} { @content; }
+  @-moz-keyframes #{$name} { @content; }
+  @-o-keyframes #{$name} { @content; }
+  @keyframes #{$name} { @content; }
+}
+
+@include animation(copySliderAnimation) {
+  from {
+    width: 2em;
+  }
+  to {
+    width: 8em;
   }
 }

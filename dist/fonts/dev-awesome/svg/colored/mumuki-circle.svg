@@ -1,132 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="32"
-   height="32"
-   id="svg4166"
-   version="1.1"
-   inkscape:version="0.91 r13725"
-   viewBox="0 0 32 32"
-   sodipodi:docname="atheneum.svg">
-  <defs
-     id="defs4168">
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient6722-5-7-9-8-3-3-8-7"
-       id="linearGradient3804-9"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.37857902,0,0,0.67388055,-1053.8358,77.746079)"
-       x1="478.49277"
-       y1="242.22983"
-       x2="613.14832"
-       y2="242.22983" />
-    <linearGradient
-       id="linearGradient6722-5-7-9-8-3-3-8-7"
-       gradientTransform="matrix(110.25023,0,0,110.25023,94020.438,14788.778)">
-      <stop
-         offset="0"
-         style="stop-color:#04242f;stop-opacity:1;"
-         id="stop4007-9" />
-      <stop
-         offset="1"
-         style="stop-color:#09485f;stop-opacity:1;"
-         id="stop4005-5" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient6722-5-7-9-8-3-3-8-7"
-       id="linearGradient3807-5"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.51018072,0,0,0.50005227,-1053.8358,77.746079)"
-       x1="381.63165"
-       y1="526.47839"
-       x2="448.1593"
-       y2="469.91574" />
-    <linearGradient
-       y2="727.84039"
-       x2="362.62219"
-       y1="727.84039"
-       x1="263.24222"
-       gradientTransform="matrix(0.77255237,0,0,0.33022622,-1053.8358,77.746079)"
-       gradientUnits="userSpaceOnUse"
-       id="linearGradient7150"
-       xlink:href="#linearGradient6722-5-7-9-8-3-3-8-7"
-       inkscape:collect="always" />
-  </defs>
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="11.197802"
-     inkscape:cx="10.539094"
-     inkscape:cy="12.131736"
-     inkscape:current-layer="layer1"
-     showgrid="true"
-     inkscape:grid-bbox="true"
-     inkscape:document-units="px"
-     inkscape:window-width="1366"
-     inkscape:window-height="717"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1" />
-  <metadata
-     id="metadata4171">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     id="layer1"
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer">
-    <g
-       id="g3799"
-       transform="matrix(0.27437263,0,0,0.27437263,240.34127,-65.200022)"
-       inkscape:export-filename="/home/franco/Desktop/atheneum2.png"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300">
-      <path
-         inkscape:export-ydpi="255"
-         inkscape:export-xdpi="255"
-         inkscape:export-filename="/home/franco/Desktop/atheneum.png"
-         d="m -821.71074,240.98005 c -28.48454,2.094 -50.97777,25.87989 -50.97777,54.89912 0,13.7019 5.06216,26.20964 13.34641,35.84264 0.71515,-7.2863 2.28082,-15.76395 4.81571,-25.52325 3.4428,-13.34095 8.37036,-26.50941 14.65353,-39.42002 5.83766,-12.07514 11.87865,-20.63298 18.16212,-25.79849 z"
-         id="path5588-1-6-7"
-         style="fill:url(#linearGradient3804-9);stroke:none"
-         inkscape:connector-curvature="0" />
-      <path
-         inkscape:export-ydpi="255"
-         inkscape:export-xdpi="255"
-         inkscape:export-filename="/home/franco/Desktop/atheneum.png"
-         d="m -810.63459,241.25524 c 1.74434,1.85242 2.21639,4.07749 1.4447,6.67321 -1.03286,3.52896 -3.72833,9.229 -8.11792,17.06139 -6.88568,12.65245 -14.40566,29.18586 -22.49625,49.67058 -0.0862,0.51648 0.11991,0.82558 0.55037,0.82555 15.83695,-3.61488 31.49481,-5.93282 46.9876,-6.87959 l 6.46682,-0.48153 c 0.68842,7e-5 0.87728,-0.5495 0.61915,-1.58234 -0.34439,-1.54925 -1.03113,-4.09013 -2.06388,-7.70515 -1.03293,-3.61486 -1.7197,-6.43065 -2.06388,-8.32424 -9e-5,-0.34425 -0.0855,-1.01371 -0.34397,-2.13272 -0.1719,-1.11879 -0.32685,-1.96017 -0.41277,-2.47665 -7e-5,-0.60238 -7e-5,-1.34072 0,-2.20147 0.0857,-0.86068 0.22342,-1.65039 0.48156,-2.33906 1.03279,-2.49595 2.74959,-3.92093 5.1597,-4.26534 2.49593,-0.34418 4.71073,0.34251 6.60441,2.06387 3.01236,2.66825 5.62206,7.44123 7.77393,14.24077 1.11883,3.52893 1.99436,7.15149 2.68305,10.93852 0.68494,3.76791 0.88757,7.96987 0.55037,12.58969 2.6946,-6.49298 4.19654,-13.58368 4.19654,-21.05156 0,-28.02269 -20.93148,-51.18273 -48.01953,-54.62393 z"
-         id="path5586-9-5-1"
-         style="fill:url(#linearGradient3807-5);fill-opacity:1;stroke:none"
-         inkscape:connector-curvature="0" />
-      <path
-         inkscape:export-ydpi="255"
-         inkscape:export-xdpi="255"
-         inkscape:export-filename="/home/franco/Desktop/atheneum.png"
-         d="m -782.84106,318.10022 c -0.15036,-0.0117 -0.37823,0.026 -0.55037,0.0688 l -7.98033,0.75675 c -15.57886,1.46315 -33.05661,3.9184 -52.42246,7.36117 -0.6886,0.0857 -1.22077,0.72131 -1.6511,1.92629 -1.88563,5.01036 -3.57489,8.8796 -5.02212,11.8329 9.16905,6.832 20.50214,10.86975 32.81566,10.86975 17.95718,0 33.9147,-8.57104 43.96059,-21.8771 -0.24584,-0.0279 -0.50524,-0.0431 -0.75677,-0.13771 -1.37725,-0.60248 -2.61347,-1.49529 -3.64617,-2.61424 -1.03296,-1.11889 -1.80546,-2.28637 -2.40787,-3.57739 -0.34437,-0.77464 -0.79084,-2.06236 -1.30711,-3.78375 -0.2583,-0.51643 -0.58011,-0.7933 -1.03195,-0.82555 z"
-         id="path3687-6-0-0-2-8"
-         style="fill:url(#linearGradient7150);stroke:none"
-         inkscape:connector-curvature="0" />
-    </g>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="64.124px" height="65.207px" viewBox="0 0 64.124 65.207" enable-background="new 0 0 64.124 65.207" xml:space="preserve">
+<g>
+	<g>
+		<path fill="#1D95A4" d="M45.17,49.385L39.299,38.46c-0.333-0.619-1.093-0.866-1.729-0.563l-15.262,7.291
+			c-0.252,0.121-0.46,0.317-0.593,0.565L12.33,63.215c-0.02,0.037-0.038,0.072-0.054,0.109c-0.08,0.172-0.126,0.361-0.126,0.564
+			c0,0.729,0.59,1.316,1.318,1.316h1.359c0.196,0,0.389-0.045,0.566-0.129l29.184-13.878c0.325-0.154,0.573-0.437,0.687-0.779
+			C45.375,50.076,45.341,49.703,45.17,49.385"/>
+		<path fill="#17697E" d="M63.966,49.031l-6.703-12.465c-0.23-0.428-0.676-0.693-1.16-0.693H42.082
+			c-0.464,0-0.893,0.244-1.132,0.641c-0.237,0.4-0.249,0.896-0.029,1.303l13.709,25.506c0.23,0.428,0.677,0.691,1.161,0.691h1.953
+			c0.544,0,1.032-0.334,1.229-0.84l5.062-13.043C64.173,49.773,64.149,49.371,63.966,49.031"/>
+		<path fill="#17697E" d="M31.285,0.693C31.056,0.266,30.609,0,30.124,0H28.17c-0.486,0-0.931,0.267-1.161,0.693L0.158,50.637
+			c-0.189,0.354-0.209,0.771-0.053,1.141l5.348,12.627c0.207,0.486,0.685,0.803,1.214,0.803h1.888c0.485,0,0.931-0.266,1.161-0.693
+			L37.32,13.168c0.209-0.391,0.209-0.857,0-1.248L31.285,0.693z"/>
+	</g>
+</g>
 </svg>
