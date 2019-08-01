@@ -25,7 +25,7 @@
   "dependencies": {
     "@bower_components/awesome-bootstrap-checkbox": "flatlogic/awesome-bootstrap-checkbox#0.3.7",
     "@bower_components/bootstrap-sass": "twbs/bootstrap-sass#3.3.7",
-    "@bower_components/dev-awesome": "mumuki/dev-awesome#0.8.0",
+    "@bower_components/dev-awesome": "mumuki/dev-awesome#0.9.0",
     "@bower_components/font-awesome": "FortAwesome/Font-Awesome#4.7.0",
     "@bower_components/jquery": "jquery/jquery-dist#3.1.1",
     "del": "2.2.2",
