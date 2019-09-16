@@ -9417,28 +9417,26 @@ pre code {
       flex-flow: row;
       align-items: center;
       justify-content: flex-start; }
-      .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item {
-        padding-top: 19px; }
-        .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item:before {
-          content: '/';
-          margin: 0 8px;
-          color: #AAAAAA; }
-        .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item.brand {
-          padding-top: 2px;
-          padding-left: 3px;
-          font-size: 38px; }
-          .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item.brand:before {
-            content: '';
-            margin: 0; }
-          .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item.brand a {
-            color: #0B465D; }
-            .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item.brand a:active {
-              color: #06242f; }
-            .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item.brand a:hover {
-              color: #083546;
-              text-decoration: none; }
-        .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item.last a {
-          color: #AAAAAA; }
+      .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item:before {
+        content: '/';
+        margin: 0 8px;
+        color: #AAAAAA; }
+      .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item.brand {
+        padding-top: 2px;
+        padding-left: 3px;
+        font-size: 38px; }
+        .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item.brand:before {
+          content: '';
+          margin: 0; }
+        .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item.brand a {
+          color: #0B465D; }
+          .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item.brand a:active {
+            color: #06242f; }
+          .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item.brand a:hover {
+            color: #083546;
+            text-decoration: none; }
+      .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item.last a {
+        color: #AAAAAA; }
   .mu-navbar .mu-navbar-avatar {
     display: flex;
     flex-flow: row nowrap;

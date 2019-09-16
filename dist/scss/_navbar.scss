@@ -33,7 +33,6 @@ $avatar-size: 40px;
       @include display-flex(row, flex-start, center);
 
       .mu-breadcrumb-list-item {
-        padding-top: 19px;
         &:before {
           content: '/';
           margin: 0 $breadcrumb-separator-gap;
