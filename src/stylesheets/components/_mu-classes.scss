@@ -61,6 +61,12 @@ $mu-classes-margin: 20px;
   }
 }
 
+.mu-classes-type,
+.mu-classes-return {
+  color: $mu-color-fk;
+  font-weight: bold;
+}
+
 .mu-classes-entity-name {
   padding: 5px 10px;
   list-style: none;

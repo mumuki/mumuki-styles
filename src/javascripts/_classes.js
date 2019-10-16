@@ -4,8 +4,8 @@ mumuki.load(function () {
 
   function regexMatchAll(regex, string='', callback) {
     const matches = string.match(RegExp(regex, 'g')) || [];
-    matches.forEach(function (match) {
-      callback(match.match(regex).groups);
+    return matches.map(function (match) {
+      return callback(match.match(regex).groups);
     });
   }
 
@@ -72,6 +72,10 @@ mumuki.load(function () {
           type: paramsGroup.type,
         })
       });
+      if (method.params.length > 0) {
+        method.params.forEach(param => param.last = ',')
+        method.params[method.params.length - 1].last = ')';
+      }
       obj.methods.push(method);
     });
   }
@@ -93,177 +97,122 @@ mumuki.load(function () {
       const $diagram = $(self[i]);
       $diagram.attr('id', id);
       $diagram.height(600);
-      init(mapEntities($diagram.data('code')), id);
+      renderClassDiagram($diagram, id);
 
     });
     return self;
   };
 
 
-  function init(entities, id) {
+  function renderClassDiagram($diagram, id) {
 
-    var $ = go.GraphObject.make;
+    var code = $diagram.data('code');
+    var showReturn = $diagram.data('show-return');
+    var showVarTypes = $diagram.data('show-var-types');
+    var showEntityKind = $diagram.data('show-entity-kind');
 
-    var myDiagram =
-      $(go.Diagram, id, {
-        layout: $(go.TreeLayout, { // this only lays out in trees nodes connected by "generalization" links
-          angle: 90,
-          path: go.TreeLayout.PathSource,  // links go from child to parent
-          setsPortSpot: false,  // keep Spot.AllSides for link connection spot
-          setsChildPortSpot: false,  // keep Spot.AllSides
-          // nodes not connected by "generalization" links are laid out horizontally
-          arrangement: go.TreeLayout.ArrangementHorizontal
-        })
-      });
-    // show visibility or access as a single character at the beginning of each property or method
-    function convertVisibility(v) {
-      switch (v) {
-        case "public": return "+";
-        case "private": return "-";
-        case "protected": return "#";
-        case "package": return "~";
-        default: return v;
-      }
-    }
-    // the item template for properties
-    var propertyTemplate =
-      $(go.Panel, "Horizontal",
-        // property visibility/access
-        $(go.TextBlock,
-          { isMultiline: false, editable: false, width: 12 },
-          new go.Binding("text", "visibility", convertVisibility)),
-        // property name, underlined if scope=="class" to indicate static property
-        $(go.TextBlock,
-          { isMultiline: false, editable: true },
-          new go.Binding("text", "name").makeTwoWay(),
-          new go.Binding("isUnderline", "scope", function(s) { return s[0] === 'c' })),
-        // property type, if known
-        $(go.TextBlock, "",
-          new go.Binding("text", "type", function(t) { return (t ? ": " : ""); })),
-        $(go.TextBlock,
-          { isMultiline: false, editable: true },
-          new go.Binding("text", "type").makeTwoWay()),
-        // property default value, if any
-        $(go.TextBlock,
-          { isMultiline: false, editable: false },
-          new go.Binding("text", "default", function(s) { return s ? " = " + s : ""; }))
-      );
-    // the item template for methods
-    var methodTemplate =
-      $(go.Panel, "Horizontal",
-        // method visibility/access
-        $(go.TextBlock,
-          { isMultiline: false, editable: false, width: 12 },
-          new go.Binding("text", "visibility", convertVisibility)),
-        // method name, underlined if scope=="class" to indicate static method
-        $(go.TextBlock,
-          { isMultiline: false, editable: true },
-          new go.Binding("text", "name").makeTwoWay(),
-          new go.Binding("isUnderline", "scope", function(s) { return s[0] === 'c' })),
-        // method parameters
-        $(go.TextBlock, "()",
-          // this does not permit adding/editing/removing of parameters via inplace edits
-          new go.Binding("text", "parameters", function(parr) {
-            var s = "(";
-            for (var i = 0; i < parr.length; i++) {
-              var param = parr[i];
-              if (i > 0) s += ", ";
-              s += param.name + ": " + param.type;
-            }
-            return s + ")";
-          })),
-        // method return type, if any
-        $(go.TextBlock, "",
-          new go.Binding("text", "type", function(t) { return (t ? ": " : ""); })),
-        $(go.TextBlock,
-          { isMultiline: false, editable: true },
-          new go.Binding("text", "type").makeTwoWay())
-      );
-    // this simple template does not have any buttons to permit adding or
-    // removing properties or methods, but it could!
-    myDiagram.nodeTemplate =
-      $(go.Node, "Auto",
-        {
-          locationSpot: go.Spot.Center,
-          fromSpot: go.Spot.AllSides,
-          toSpot: go.Spot.AllSides
-        },
-        $(go.Shape, { fill: "lightyellow" }),
-        $(go.Panel, "Table",
-          { defaultRowSeparatorStroke: "black" },
-          // header
-          $(go.TextBlock,
-            {
-              row: 0, columnSpan: 2, margin: 3, alignment: go.Spot.Center,
-              font: "bold 12pt sans-serif",
-              isMultiline: false, editable: true
-            },
-            new go.Binding("text", "name").makeTwoWay()),
-          // properties
-          $(go.TextBlock, "Properties",
-            { row: 1, font: "italic 10pt sans-serif" },
-            new go.Binding("visible", "visible", function(v) { return !v; }).ofObject("PROPERTIES")),
-          $(go.Panel, "Vertical", { name: "PROPERTIES" },
-            new go.Binding("itemArray", "properties"),
-            {
-              row: 1, margin: 3, stretch: go.GraphObject.Fill,
-              defaultAlignment: go.Spot.Left, background: "lightyellow",
-              itemTemplate: propertyTemplate
-            }
-          ),
-          $("PanelExpanderButton", "PROPERTIES",
-            { row: 1, column: 1, alignment: go.Spot.TopRight, visible: false },
-            new go.Binding("visible", "properties", function(arr) { return arr.length > 0; })),
-          // methods
-          $(go.TextBlock, "Methods",
-            { row: 2, font: "italic 10pt sans-serif" },
-            new go.Binding("visible", "visible", function(v) { return !v; }).ofObject("METHODS")),
-          $(go.Panel, "Vertical", { name: "METHODS" },
-            new go.Binding("itemArray", "methods"),
-            {
-              row: 2, margin: 3, stretch: go.GraphObject.Fill,
-              defaultAlignment: go.Spot.Left, background: "lightyellow",
-              itemTemplate: methodTemplate
-            }
-          ),
-          $("PanelExpanderButton", "METHODS",
-            { row: 2, column: 1, alignment: go.Spot.TopRight, visible: false },
-            new go.Binding("visible", "methods", function(arr) { return arr.length > 0; }))
+    var entities = mapEntities(code);
+    var toRemove;
+
+    var borderColor = colorFromCssProperty('mu-classes-entity', 'border-color');
+    var borderWidth = pxFromCssProperty('mu-classes-entity', 'border-width');
+    var bgColor = colorFromCssProperty('mu-classes-entity-attributes', 'background-color');
+    var nameBgColor = colorFromCssProperty('mu-classes-entity-name', 'background-color');
+    var typeFontColor = colorFromCssProperty('mu-classes-type', 'color');
+    var margin = pxFromCssProperty('mu-classes-entity', 'margin') / 2 - 2;
+    var font = getFromCssProperty('mu-classes-entity', 'font-size') + ' ' + getFromCssProperty('mu-classes-entity', 'font-family');
+    var textColor = colorFromCssProperty('mu-classes-entity', 'color');
+
+    var $$ = go.GraphObject.make;
+
+    var classDiagram = $$(go.Diagram, id, {
+      layout: $$(go.TreeLayout, { // this only lays out in trees nodes connected by 'generalization' links
+        angle: 90,
+        path: go.TreeLayout.PathSource,  // links go from child to parent
+        setsPortSpot: false,  // keep Spot.AllSides for link connection spot
+        setsChildPortSpot: false,  // keep Spot.AllSides
+        // nodes not connected by 'generalization' links are laid out horizontally
+        arrangement: go.TreeLayout.ArrangementHorizontal
+      })
+    });
+
+    var propertyTemplate = $$(go.Panel, 'Horizontal', { margin: margin }, ...[
+      showVarTypes && $$(go.TextBlock, textOptions({ stroke: typeFontColor, font: `bold ${font}` }), new go.Binding('text', 'type')),
+      showVarTypes && $$(go.TextBlock, { width: 5 }),
+      $$(go.TextBlock, textOptions(), new go.Binding('text', 'name')),
+    ].filter(e => e));
+
+    var parameterTemplate = $$(go.Panel, 'Horizontal', ...[
+      showVarTypes && $$(go.TextBlock, textOptions({ stroke: typeFontColor, font: `bold ${font}` }), new go.Binding('text', 'type')),
+      showVarTypes && $$(go.TextBlock, { width: 5 }),
+      $$(go.TextBlock, textOptions(), new go.Binding('text', 'name')),
+      $$(go.TextBlock, textOptions(), new go.Binding('text', 'last')),
+    ].filter(e => e));
+
+    var methodTemplate = $$(go.Panel, 'Horizontal', { margin: margin }, ...[
+      showReturn && $$(go.TextBlock, textOptions({ stroke: typeFontColor, font: `bold ${font}` }), new go.Binding('text', 'return')),
+      showReturn && $$(go.TextBlock, { width: 5 }),
+      $$(go.TextBlock, textOptions(), new go.Binding('text', 'name')),
+      $$(go.TextBlock, textOptions(), '('),
+      $$(go.Panel, 'Horizontal', { name: 'PARAMETERS' }, new go.Binding('itemArray', 'parameters'), {
+        stretch: go.GraphObject.Fill,
+        defaultAlignment: go.Spot.Left,
+        background: bgColor,
+        itemTemplate: parameterTemplate,
+      }),
+    ]);
+
+    classDiagram.nodeTemplate = $$(go.Node, 'Auto', { locationSpot: go.Spot.Center, fromSpot: go.Spot.AllSides, toSpot: go.Spot.AllSides, }, ...[
+      $$(go.Shape, 'RoundedRectangle', { fill: nameBgColor, stroke: borderColor, strokeWidth: borderWidth }),
+      $$(go.Panel, 'Table', { defaultRowSeparatorStroke: borderColor, defaultRowSeparatorStrokeWidth: borderWidth }, ...[
+        $$(go.TextBlock, textOptions({ name: 'HEADER', row: 0, margin: margin, alignment: go.Spot.Center }), new go.Binding('text', 'name')),
+        $$(go.Panel, 'Vertical', { name: 'PROPERTIES' }, new go.Binding('itemArray', 'properties'), {
+          row: 1,
+          stretch: go.GraphObject.Fill,
+          defaultAlignment: go.Spot.Left,
+          background: bgColor,
+          itemTemplate: propertyTemplate
+        }),
+        $$(go.Panel, 'Vertical', { name: 'METHODS' }, new go.Binding('itemArray', 'methods'), {
+            row: 2,
+            stretch: go.GraphObject.Fill,
+            defaultAlignment: go.Spot.Left,
+            background: bgColor,
+            itemTemplate: methodTemplate
+          }
         )
-      );
+      ])
+    ]);
+
+
     function convertIsTreeLink(r) {
-      return r === "generalization";
+      return r === 'generalization';
     }
     function convertFromArrow(r) {
       switch (r) {
-        case "generalization": return "";
-        default: return "";
+        case 'generalization': return '';
+        default: return '';
       }
     }
     function convertToArrow(r) {
       switch (r) {
-        case "generalization": return "Triangle";
-        case "knowledge": return "OpenTriangle";
-        default: return "";
+        case 'generalization': return 'Triangle';
+        case 'knowledge': return 'OpenTriangle';
+        default: return '';
       }
     }
-    myDiagram.linkTemplate =
-      $(go.Link,
-        { routing: go.Link.Orthogonal },
-        new go.Binding("isLayoutPositioned", "relationship", convertIsTreeLink),
-        $(go.Shape),
-        $(go.Shape, { scale: 1.3, fill: "white" },
-          new go.Binding("fromArrow", "relationship", convertFromArrow)),
-        $(go.Shape, { scale: 1.3, fill: "white" },
-          new go.Binding("toArrow", "relationship", convertToArrow))
+    classDiagram.linkTemplate =
+      $$(go.Link, { routing: go.Link.Orthogonal }, new go.Binding('isLayoutPositioned', 'relationship', convertIsTreeLink),
+        $$(go.Shape),
+        $$(go.Shape, { scale: 1.5, fill: 'white' }, new go.Binding('fromArrow', 'relationship', convertFromArrow)),
+        $$(go.Shape, { scale: 1.5, fill: 'white' }, new go.Binding('toArrow', 'relationship', convertToArrow))
       );
-    // setup a few example class nodes and relationships
 
     var nodedata = entities.map((entity, i) => {
       return {
         key: i,
         name: entity.name,
-        properties: entity.variables.map(toProperty),
+        properties: entity.variables,
         methods: entity.methods.map(toMethod)
       }
     });
@@ -283,8 +232,6 @@ mumuki.load(function () {
       linkdata = linkdata.concat(!parent ? [] : { from: i, to: parent.key, relationship: 'generalization' });
     });
 
-    console.log('enti:', entities);
-    console.log('node:', nodedata);
     var options = {
       copiesArrays: true,
       copiesArrayObjects: true,
@@ -292,24 +239,43 @@ mumuki.load(function () {
       linkDataArray: linkdata
     }
 
-    myDiagram.model = $(go.GraphLinksModel, options);
+    classDiagram.model = $$(go.GraphLinksModel, options);
 
     function toMethod(method) {
       return {
         name: method.name,
+        return: method.return,
         parameters: method.params,
-        visibility: "public"
       }
     }
 
-    function toProperty(property) {
-      return {
-        name: property.name,
-        type: property.type,
-        visibility: "public"
-      }
+    function getFromCssProperty(cssClass, property, callback=((a) => a)) {
+      toRemove = $('<div>', { class: cssClass });
+      $('body').append(toRemove);
+      var _prop = callback(toRemove.css(property));
+      toRemove.remove();
+      return _prop;
     }
 
+    function textOptions(hash = {}) {
+      return Object.assign({}, { isMultiline: false, editable: false, font: font, stroke: textColor }, hash);
+    }
+
+    function pxFromCssProperty(cssClass, property) {
+      return getFromCssProperty(cssClass, property, (p) => parseInt(p, 10));
+    }
+
+    function colorFromCssProperty(cssClass, property) {
+      return getFromCssProperty(cssClass, property, color);
+    }
+
+    function color(string) {
+      return string.startsWith('rgb')? rgbToHex(string) : string;
+    }
+
+    function rgbToHex(string) {
+      return `#${regexMatchAll(/(?<digit>\d+)/, string, (match) => ['0'].concat(parseInt(match.digit, 10).toString(16).split('')).slice(-2).join('')).join('')}`;
+    }
   }
 
   $('.mu-classes').renderClasses();

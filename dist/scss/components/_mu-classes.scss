@@ -16,6 +16,15 @@ $mu-classes-margin: 20px;
     position: absolute;
     margin-left: $mu-classes-margin / 2;
   }
+  canvas {
+    pointer-events: none;
+    outline: none;
+    &:hover,
+    &:focus,
+    &:active {
+      outline: none !important;
+    }
+  }
 }
 
 .mu-classes-entity {
