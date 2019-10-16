@@ -1423,6 +1423,11 @@ glogg@^1.0.0:
   dependencies:
     sparkles "^1.0.0"
 
+gojs@^2.0.17:
+  version "2.0.17"
+  resolved "https://registry.yarnpkg.com/gojs/-/gojs-2.0.17.tgz#05dc244e2bee06e3a8a1e22ffc8d1ba01e956f44"
+  integrity sha512-HibOecpvxV/E/ldIRaVf0pFSFL+4NLvoYAvo4tlSSRKGr50Mn7/+pye/kHJclJwSSP78rEuMzi7nJ9gijqfJ/Q==
+
 graceful-fs@^3.0.0:
   version "3.0.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-3.0.11.tgz#7613c778a1afea62f25c630a086d7f3acbbdd818"

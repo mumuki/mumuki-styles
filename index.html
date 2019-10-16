@@ -103,20 +103,25 @@
       }
 
       abstract class Ave {
+        var ciudadActual : Ciudad
         var energia:double
         def energia() : Double
       }
 
       class Golondrina extends Ave {
-        var ciudadActual : Ciudad
         def comer!(unosGramos:int):void
       }
 
       class Picaflor extends Ave implements Volador, Comestible {
-        var ciudadActual : Ciudad
         def volar!(unosKilometros:double):void
       }
-    '>
+
+      class Ciudad {
+        var km : int
+        def distanciaA(otraCiudad:Ciudad):int
+      }
+
+      '>
 </div>
 
 <div class='mu-sql-table'

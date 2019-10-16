@@ -1,13 +1,6 @@
 mumuki.load(function () {
 
-  Array.prototype.sum = function (callback) {
-    return this.map(callback).reduce((a, e) => a + e, 0);
-  }
-
   const OBJECT = 'Object';
-  const ENTITIES_GAP = 60;
-  const OFFSET = 26;
-  const BORDER = 2;
 
   function regexMatchAll(regex, string='', callback) {
     const matches = string.match(RegExp(regex, 'g')) || [];
@@ -57,7 +50,7 @@ mumuki.load(function () {
 
 
   function parseVariables(obj, body) {
-    regexMatchAll(/var\s+(?<name>[a-z][a-zA-Z0-9_!?$]+)\s*:\s*(?<type>[a-zA-Z0-9_!?$]+)/, body, function (varGroups) {
+    regexMatchAll(/var\s+(?<name>[a-z][a-zA-Z0-9_!?$]+)\s*:\s*(?<type>[a-zA-Z0-9_!?$<>]+)/, body, function (varGroups) {
       obj.variables.push({
         name: varGroups.name,
         type: varGroups.type,
@@ -73,7 +66,7 @@ mumuki.load(function () {
         return: methodGroup.return,
         params: [],
       }
-      regexMatchAll(/(?<name>[a-zA-Z0-9_?!$]*?)\s*:\s*(?<type>[a-zA-Z0-9_?!$]*?\b)(?:,|\s|$)/, methodGroup.params, function (paramsGroup) {
+      regexMatchAll(/(?<name>[a-zA-Z0-9_?!$]*?)\s*:\s*(?<type>[a-zA-Z0-9_?!$<>]*?\b)(?:,|\s|$)/, methodGroup.params, function (paramsGroup) {
         method.params.push({
           name: paramsGroup.name,
           type: paramsGroup.type,
@@ -90,192 +83,235 @@ mumuki.load(function () {
     return entities;
   }
 
-  function lowercased(string) {
-    return string.toLowerCase().replace(/[_]/g, '-')
-  }
-
-  function entityID(entity, index) {
-    return 'mu-classes-' + index + '-' + lowercased(entity);
-  }
-
-  function variableID(entity, variable, index) {
-    return entityID(entity, index) + '-' + lowercased(variable);
-  }
-
-  function messageID(entity, message, index) {
-    return entityID(entity, index) + '-' + lowercased(message);
-  }
-
-  function paramID(entity, message, param, index, i) {
-    return messageID (entity, message, index) + '-' + i + '-' + lowercased(param);
-  }
-
-  function generateEntityAttributes(entity, index) {
-    let html = '';
-    entity.variables.forEach(function (variable) {
-      html += [
-        '<li id="', variableID(entity.name, variable.name, index), '" class="mu-classes-entity-attribute">',
-        '  <span class="mu-classes-entity-attribute-name">',
-        '    <span class="mu-classes-type">', variable.type, '</span>',
-        '    <span>', variable.name, '</span>',
-        '  </span>',
-        '</li>'
-      ].join('');
-    });
-    return html;
-  }
-
-  function generateParams(entity, message, index) {
-    return message.params.map(function (param, i) {
-      return [
-        '<span id="', paramID(entity.name, message.name, param.name, index, i), '" class="mu-classes-entity-message-param">',
-        '  <span class="mu-classes-type">', param.type, '</span>',
-        '  <span class="mu-classes-param">', param.name, '</span>',
-        '</span>'
-      ].join('');
-    }).join(',');
-  }
-
-  function generateEntityMessages(entity, index) {
-    let html = '';
-    entity.methods.forEach(function (method) {
-      html += [
-        '<li id="', messageID(entity.name, method.name, index), '" class="mu-classes-entity-message">',
-        '  <span class="mu-classes-entity-message-name">',
-        '    <span class="mu-classes-return">', method.return, '</span>',
-        '    <span>',
-               method.name, '(', generateParams(entity, method, index), ')',
-        '    </span>',
-        '  </span>',
-        '</li>'
-      ].join('');
-    });
-    return html;
-  }
-
-  function appendEntities($diagram, entities, index) {
-    entities.forEach(function (entity) {
-      entity.$element = $([
-        '<div id="', entityID(entity.name, index), '" class="mu-classes-entity">',
-        '  <div class="mu-classes-entity-name">',
-        '  <span class="mu-classes-kind ', entity.type, '">', entity.type[0].toUpperCase(), '</span>',
-        '  ', entity.name,
-        '  </div>',
-        entity.variables.length ? '  <ul class="mu-classes-entity-attributes">' : '',
-        entity.variables.length ?      generateEntityAttributes(entity, index) : '',
-        entity.variables.length ? '  </ul>' : '',
-        entity.methods.length ?   '  <ul class="mu-classes-entity-messages">' : '',
-        entity.methods.length ?        generateEntityMessages(entity, index) : '',
-        entity.methods.length ?   '  </ul>' : '',
-        '</div>',
-      ].join(''));
-      $diagram.append(entity.$element);
-    });
-  }
-
-  function generateHierarchyTree(parent, entities, grouped = {}) {
-    grouped[parent] = grouped[parent] || {};
-    grouped[parent].subclasses = {};
-    entities.filter((ent) => parent === ent.parent && /abstract|class|interface/.test(ent.type) ).forEach((subclass) => {
-      grouped[parent].subclasses[subclass.name] = subclass;
-      generateHierarchyTree(subclass.name, entities, grouped[subclass.parent].subclasses);
-    });
-    return grouped;
-  }
-
-  function arrangeEntities($diagram, entities, index) {
-    $diagram.css('transform',  'scale(1)');
-    const hierarchy = generateHierarchyTree(OBJECT, entities);
-    $diagram.height(0);
-    const totalWidth = (entities[0].$element.width() + ENTITIES_GAP) * leafCount(hierarchy[OBJECT]);
-    arrangeHierarchy($diagram, hierarchy[OBJECT], 0, $diagram.offset().left + $diagram.width() / 2 - totalWidth / 2);
-    addConnectors($diagram, entities, index);
-    if ($diagram.width() < totalWidth) {
-      $diagram.css('transform',  `scale(${$diagram.width() / totalWidth})`);
-    }
-  }
-
-  function arrangeHierarchy(container, object, rowIndex, leftStart) {
-    const subclasses = Object.values(object.subclasses);
-    if (subclasses.length == 0) return;
-    const heighter = subclasses.reduce((a, e) => e.$element.height() > a.$element.height() ? e : a);
-    const rowHeight = heighter.$element.height();
-    const colWidth = heighter.$element.width() + ENTITIES_GAP;
-    const oldContainerHeight = container.height();
-    container.height(container.height() + rowHeight + ENTITIES_GAP);
-    let accumulatedLeft = leftStart;
-    subclasses.forEach((ent) => {
-      const leafsSize = leafCount(ent);
-      const width = colWidth * leafsSize;
-      if (!ent.$element) return;
-      const $el = ent.$element;
-      $el.css('top',  `${ oldContainerHeight + rowHeight / 2 - $el.height() / 2 }px`);
-      $el.css('left', `${ accumulatedLeft + width / 2 - $el.width()  / 2 }px`);
-      arrangeHierarchy(container, ent, rowIndex + 1, accumulatedLeft);
-      accumulatedLeft = accumulatedLeft + width;
-    });
-  }
-
-  function addConnectors($diagram, entities, index) {
-    entities.forEach((entity) => {
-      const $svg = $(getSVGFor($diagram, entities, entity, index));
-      $diagram.append($svg);
-    });
-  }
-
-  function svgLine(x1, x2, y1, y2) {
-    return ['<line x1="', x1, '" x2="', x2, '" y1="', y1, '" y2="', y2, '"/>'].join('');
-  }
-
-  function drawHierarchyConnector($diagram, child, entity) {
-    const margin = OFFSET + BORDER * 2;
-    const pa = {
-      x: entity.$element.offset().left + entity.$element.width() / 2 - $diagram.offset().left - margin / 2,
-      y: entity.$element.offset().top + entity.$element.height() - $diagram.offset().top + margin,
-    }
-    const ch = {
-      x: child.$element.offset().left + child.$element.width() / 2 - $diagram.offset().left - margin / 2,
-      y: child.$element.offset().top - $diagram.offset().top,
-    }
-    return [
-      `<polygon points="${pa.x},${pa.y - OFFSET} ${pa.x - OFFSET},${pa.y} ${pa.x + OFFSET},${pa.y}"></polygon>`,
-      svgLine(pa.x, pa.x, pa.y, (pa.y + ch.y) / 2),
-      svgLine(pa.x, ch.x, (pa.y + ch.y) / 2, (pa.y + ch.y) / 2),
-      svgLine(ch.x, ch.x, (pa.y + ch.y) / 2, ch.y),
-    ].join('\n');
-  }
-
-  function getSVGFor($diagram, entities, entity, index) {
-    return entities.filter((ent) => ent.parent == entity.name).map((child) => {
-      return ['<svg>', drawHierarchyConnector($diagram, child, entity, index), '</svg>'].join('\n');
-    }).join('\n');
-  }
-
-  function leafCount(ent) {
-    const subclasses = Object.values(ent.subclasses);
-    return subclasses.length == 0 ? 1 : subclasses.sum((ent) => leafCount(ent));
-  }
-
   $.fn.renderClasses = function () {
     const self = this;
     self.empty();
     self.each(function (i) {
       //Don't draw if hidden
       if ((self[i].offsetParent === null)) return;
-
+      var id = `mu-classes-diagram-${i}`
       const $diagram = $(self[i]);
-
-      const entities = mapEntities($diagram.data('code'));
-
-      appendEntities($diagram, entities, i);
-      arrangeEntities($diagram, entities, i);
+      $diagram.attr('id', id);
+      $diagram.height(600);
+      init(mapEntities($diagram.data('code')), id);
 
     });
     return self;
   };
 
-  mumuki.resize(function () {
-    $('.mu-classes').renderClasses();
-  });
+
+  function init(entities, id) {
+
+    var $ = go.GraphObject.make;
+
+    var myDiagram =
+      $(go.Diagram, id, {
+        layout: $(go.TreeLayout, { // this only lays out in trees nodes connected by "generalization" links
+          angle: 90,
+          path: go.TreeLayout.PathSource,  // links go from child to parent
+          setsPortSpot: false,  // keep Spot.AllSides for link connection spot
+          setsChildPortSpot: false,  // keep Spot.AllSides
+          // nodes not connected by "generalization" links are laid out horizontally
+          arrangement: go.TreeLayout.ArrangementHorizontal
+        })
+      });
+    // show visibility or access as a single character at the beginning of each property or method
+    function convertVisibility(v) {
+      switch (v) {
+        case "public": return "+";
+        case "private": return "-";
+        case "protected": return "#";
+        case "package": return "~";
+        default: return v;
+      }
+    }
+    // the item template for properties
+    var propertyTemplate =
+      $(go.Panel, "Horizontal",
+        // property visibility/access
+        $(go.TextBlock,
+          { isMultiline: false, editable: false, width: 12 },
+          new go.Binding("text", "visibility", convertVisibility)),
+        // property name, underlined if scope=="class" to indicate static property
+        $(go.TextBlock,
+          { isMultiline: false, editable: true },
+          new go.Binding("text", "name").makeTwoWay(),
+          new go.Binding("isUnderline", "scope", function(s) { return s[0] === 'c' })),
+        // property type, if known
+        $(go.TextBlock, "",
+          new go.Binding("text", "type", function(t) { return (t ? ": " : ""); })),
+        $(go.TextBlock,
+          { isMultiline: false, editable: true },
+          new go.Binding("text", "type").makeTwoWay()),
+        // property default value, if any
+        $(go.TextBlock,
+          { isMultiline: false, editable: false },
+          new go.Binding("text", "default", function(s) { return s ? " = " + s : ""; }))
+      );
+    // the item template for methods
+    var methodTemplate =
+      $(go.Panel, "Horizontal",
+        // method visibility/access
+        $(go.TextBlock,
+          { isMultiline: false, editable: false, width: 12 },
+          new go.Binding("text", "visibility", convertVisibility)),
+        // method name, underlined if scope=="class" to indicate static method
+        $(go.TextBlock,
+          { isMultiline: false, editable: true },
+          new go.Binding("text", "name").makeTwoWay(),
+          new go.Binding("isUnderline", "scope", function(s) { return s[0] === 'c' })),
+        // method parameters
+        $(go.TextBlock, "()",
+          // this does not permit adding/editing/removing of parameters via inplace edits
+          new go.Binding("text", "parameters", function(parr) {
+            var s = "(";
+            for (var i = 0; i < parr.length; i++) {
+              var param = parr[i];
+              if (i > 0) s += ", ";
+              s += param.name + ": " + param.type;
+            }
+            return s + ")";
+          })),
+        // method return type, if any
+        $(go.TextBlock, "",
+          new go.Binding("text", "type", function(t) { return (t ? ": " : ""); })),
+        $(go.TextBlock,
+          { isMultiline: false, editable: true },
+          new go.Binding("text", "type").makeTwoWay())
+      );
+    // this simple template does not have any buttons to permit adding or
+    // removing properties or methods, but it could!
+    myDiagram.nodeTemplate =
+      $(go.Node, "Auto",
+        {
+          locationSpot: go.Spot.Center,
+          fromSpot: go.Spot.AllSides,
+          toSpot: go.Spot.AllSides
+        },
+        $(go.Shape, { fill: "lightyellow" }),
+        $(go.Panel, "Table",
+          { defaultRowSeparatorStroke: "black" },
+          // header
+          $(go.TextBlock,
+            {
+              row: 0, columnSpan: 2, margin: 3, alignment: go.Spot.Center,
+              font: "bold 12pt sans-serif",
+              isMultiline: false, editable: true
+            },
+            new go.Binding("text", "name").makeTwoWay()),
+          // properties
+          $(go.TextBlock, "Properties",
+            { row: 1, font: "italic 10pt sans-serif" },
+            new go.Binding("visible", "visible", function(v) { return !v; }).ofObject("PROPERTIES")),
+          $(go.Panel, "Vertical", { name: "PROPERTIES" },
+            new go.Binding("itemArray", "properties"),
+            {
+              row: 1, margin: 3, stretch: go.GraphObject.Fill,
+              defaultAlignment: go.Spot.Left, background: "lightyellow",
+              itemTemplate: propertyTemplate
+            }
+          ),
+          $("PanelExpanderButton", "PROPERTIES",
+            { row: 1, column: 1, alignment: go.Spot.TopRight, visible: false },
+            new go.Binding("visible", "properties", function(arr) { return arr.length > 0; })),
+          // methods
+          $(go.TextBlock, "Methods",
+            { row: 2, font: "italic 10pt sans-serif" },
+            new go.Binding("visible", "visible", function(v) { return !v; }).ofObject("METHODS")),
+          $(go.Panel, "Vertical", { name: "METHODS" },
+            new go.Binding("itemArray", "methods"),
+            {
+              row: 2, margin: 3, stretch: go.GraphObject.Fill,
+              defaultAlignment: go.Spot.Left, background: "lightyellow",
+              itemTemplate: methodTemplate
+            }
+          ),
+          $("PanelExpanderButton", "METHODS",
+            { row: 2, column: 1, alignment: go.Spot.TopRight, visible: false },
+            new go.Binding("visible", "methods", function(arr) { return arr.length > 0; }))
+        )
+      );
+    function convertIsTreeLink(r) {
+      return r === "generalization";
+    }
+    function convertFromArrow(r) {
+      switch (r) {
+        case "generalization": return "";
+        default: return "";
+      }
+    }
+    function convertToArrow(r) {
+      switch (r) {
+        case "generalization": return "Triangle";
+        case "knowledge": return "OpenTriangle";
+        default: return "";
+      }
+    }
+    myDiagram.linkTemplate =
+      $(go.Link,
+        { routing: go.Link.Orthogonal },
+        new go.Binding("isLayoutPositioned", "relationship", convertIsTreeLink),
+        $(go.Shape),
+        $(go.Shape, { scale: 1.3, fill: "white" },
+          new go.Binding("fromArrow", "relationship", convertFromArrow)),
+        $(go.Shape, { scale: 1.3, fill: "white" },
+          new go.Binding("toArrow", "relationship", convertToArrow))
+      );
+    // setup a few example class nodes and relationships
+
+    var nodedata = entities.map((entity, i) => {
+      return {
+        key: i,
+        name: entity.name,
+        properties: entity.variables.map(toProperty),
+        methods: entity.methods.map(toMethod)
+      }
+    });
+
+    var linkdata = []
+
+    entities.forEach((entity, i) => {
+      var knowledges = entity.variables.map((variable) => {
+        var type = nodedata.find((node) => variable.type.indexOf(node.name) >= 0);
+        return type && { from: i, to: type.key, relationship: 'knowledge' }
+      })
+      .filter((link) => {
+        return !!link;
+      })
+      linkdata = linkdata.concat(knowledges);
+      var parent = nodedata.find((node) => entity.parent.indexOf(node.name) >= 0);
+      linkdata = linkdata.concat(!parent ? [] : { from: i, to: parent.key, relationship: 'generalization' });
+    });
+
+    console.log('enti:', entities);
+    console.log('node:', nodedata);
+    var options = {
+      copiesArrays: true,
+      copiesArrayObjects: true,
+      nodeDataArray: nodedata,
+      linkDataArray: linkdata
+    }
+
+    myDiagram.model = $(go.GraphLinksModel, options);
+
+    function toMethod(method) {
+      return {
+        name: method.name,
+        parameters: method.params,
+        visibility: "public"
+      }
+    }
+
+    function toProperty(property) {
+      return {
+        name: property.name,
+        type: property.type,
+        visibility: "public"
+      }
+    }
+
+  }
+
+  $('.mu-classes').renderClasses();
 
 });
