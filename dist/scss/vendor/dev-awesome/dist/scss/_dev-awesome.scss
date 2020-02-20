@@ -2,9 +2,9 @@ $da-font-path: "../fonts" !default;
 
 @font-face {
 	font-family: "dev-awesome";
-	src: url("#{$da-font-path}/dev-awesome.eot?051add259336c2ad2d67c7767fdcabe9?#iefix") format("embedded-opentype"),
-url("#{$da-font-path}/dev-awesome.woff2?051add259336c2ad2d67c7767fdcabe9") format("woff2"),
-url("#{$da-font-path}/dev-awesome.woff?051add259336c2ad2d67c7767fdcabe9") format("woff");
+	src: url("#{$da-font-path}/dev-awesome.eot?4d1a37cc5bee9db791cbc6758399c608?#iefix") format("embedded-opentype"),
+url("#{$da-font-path}/dev-awesome.woff2?4d1a37cc5bee9db791cbc6758399c608") format("woff2"),
+url("#{$da-font-path}/dev-awesome.woff?4d1a37cc5bee9db791cbc6758399c608") format("woff");
   font-weight:normal;
   font-style:normal;
 }
@@ -21,17 +21,8 @@ url("#{$da-font-path}/dev-awesome.woff?051add259336c2ad2d67c7767fdcabe9") format
 	text-rendering: auto;
 }
 
-.da-bash:before {
-	content: "\f101";
-}
-
-.da-bash-c:before {
-  content: "\2001";
-  background-size: 100% 100%;
-	background-image: url("#{$da-font-path}/svg/colored/bash.svg");
-}
 .da-c:before {
-	content: "\f102";
+	content: "\f101";
 }
 
 .da-c-c:before {
@@ -39,17 +30,8 @@ url("#{$da-font-path}/dev-awesome.woff?051add259336c2ad2d67c7767fdcabe9") format
   background-size: 100% 100%;
 	background-image: url("#{$da-font-path}/svg/colored/c.svg");
 }
-.da-code:before {
-	content: "\f103";
-}
-
-.da-code-c:before {
-  content: "\2001";
-  background-size: 100% 100%;
-	background-image: url("#{$da-font-path}/svg/colored/code.svg");
-}
 .da-cpp:before {
-	content: "\f104";
+	content: "\f102";
 }
 
 .da-cpp-c:before {
@@ -58,7 +40,7 @@ url("#{$da-font-path}/dev-awesome.woff?051add259336c2ad2d67c7767fdcabe9") format
 	background-image: url("#{$da-font-path}/svg/colored/cpp.svg");
 }
 .da-css:before {
-	content: "\f105";
+	content: "\f103";
 }
 
 .da-css-c:before {
@@ -67,7 +49,7 @@ url("#{$da-font-path}/dev-awesome.woff?051add259336c2ad2d67c7767fdcabe9") format
 	background-image: url("#{$da-font-path}/svg/colored/css.svg");
 }
 .da-elixir:before {
-	content: "\f106";
+	content: "\f104";
 }
 
 .da-elixir-c:before {
@@ -76,7 +58,7 @@ url("#{$da-font-path}/dev-awesome.woff?051add259336c2ad2d67c7767fdcabe9") format
 	background-image: url("#{$da-font-path}/svg/colored/elixir.svg");
 }
 .da-gobstones:before {
-	content: "\f107";
+	content: "\f105";
 }
 
 .da-gobstones-c:before {
@@ -85,7 +67,7 @@ url("#{$da-font-path}/dev-awesome.woff?051add259336c2ad2d67c7767fdcabe9") format
 	background-image: url("#{$da-font-path}/svg/colored/gobstones.svg");
 }
 .da-haskell:before {
-	content: "\f108";
+	content: "\f106";
 }
 
 .da-haskell-c:before {
@@ -94,7 +76,7 @@ url("#{$da-font-path}/dev-awesome.woff?051add259336c2ad2d67c7767fdcabe9") format
 	background-image: url("#{$da-font-path}/svg/colored/haskell.svg");
 }
 .da-html:before {
-	content: "\f109";
+	content: "\f107";
 }
 
 .da-html-c:before {
@@ -103,7 +85,7 @@ url("#{$da-font-path}/dev-awesome.woff?051add259336c2ad2d67c7767fdcabe9") format
 	background-image: url("#{$da-font-path}/svg/colored/html.svg");
 }
 .da-java:before {
-	content: "\f10a";
+	content: "\f108";
 }
 
 .da-java-c:before {
@@ -112,7 +94,7 @@ url("#{$da-font-path}/dev-awesome.woff?051add259336c2ad2d67c7767fdcabe9") format
 	background-image: url("#{$da-font-path}/svg/colored/java.svg");
 }
 .da-javascript:before {
-	content: "\f10b";
+	content: "\f109";
 }
 
 .da-javascript-c:before {
@@ -121,7 +103,7 @@ url("#{$da-font-path}/dev-awesome.woff?051add259336c2ad2d67c7767fdcabe9") format
 	background-image: url("#{$da-font-path}/svg/colored/javascript.svg");
 }
 .da-mumuki-circle:before {
-	content: "\f10c";
+	content: "\f10b";
 }
 
 .da-mumuki-circle-c:before {
@@ -130,7 +112,7 @@ url("#{$da-font-path}/dev-awesome.woff?051add259336c2ad2d67c7767fdcabe9") format
 	background-image: url("#{$da-font-path}/svg/colored/mumuki-circle.svg");
 }
 .da-mumuki:before {
-	content: "\f10d";
+	content: "\f10c";
 }
 
 .da-mumuki-c:before {
@@ -138,17 +120,8 @@ url("#{$da-font-path}/dev-awesome.woff?051add259336c2ad2d67c7767fdcabe9") format
   background-size: 100% 100%;
 	background-image: url("#{$da-font-path}/svg/colored/mumuki.svg");
 }
-.da-php:before {
-	content: "\f10e";
-}
-
-.da-php-c:before {
-  content: "\2001";
-  background-size: 100% 100%;
-	background-image: url("#{$da-font-path}/svg/colored/php.svg");
-}
 .da-prolog:before {
-	content: "\f10f";
+	content: "\f10d";
 }
 
 .da-prolog-c:before {
@@ -157,7 +130,7 @@ url("#{$da-font-path}/dev-awesome.woff?051add259336c2ad2d67c7767fdcabe9") format
 	background-image: url("#{$da-font-path}/svg/colored/prolog.svg");
 }
 .da-python:before {
-	content: "\f110";
+	content: "\f10e";
 }
 
 .da-python-c:before {
@@ -166,7 +139,7 @@ url("#{$da-font-path}/dev-awesome.woff?051add259336c2ad2d67c7767fdcabe9") format
 	background-image: url("#{$da-font-path}/svg/colored/python.svg");
 }
 .da-qsim:before {
-	content: "\f111";
+	content: "\f10f";
 }
 
 .da-qsim-c:before {
@@ -175,13 +148,31 @@ url("#{$da-font-path}/dev-awesome.woff?051add259336c2ad2d67c7767fdcabe9") format
 	background-image: url("#{$da-font-path}/svg/colored/qsim.svg");
 }
 .da-ruby:before {
-	content: "\f112";
+	content: "\f110";
 }
 
 .da-ruby-c:before {
   content: "\2001";
   background-size: 100% 100%;
 	background-image: url("#{$da-font-path}/svg/colored/ruby.svg");
+}
+.da-text:before {
+	content: "\f111";
+}
+
+.da-text-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+	background-image: url("#{$da-font-path}/svg/colored/text.svg");
+}
+.da-wollok:before {
+	content: "\f112";
+}
+
+.da-wollok-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+	background-image: url("#{$da-font-path}/svg/colored/wollok.svg");
 }
 .da-sql:before {
 	content: "\f113";
@@ -192,21 +183,39 @@ url("#{$da-font-path}/dev-awesome.woff?051add259336c2ad2d67c7767fdcabe9") format
   background-size: 100% 100%;
 	background-image: url("#{$da-font-path}/svg/colored/sql.svg");
 }
-.da-text:before {
+.da-code:before {
 	content: "\f114";
 }
 
-.da-text-c:before {
+.da-code-c:before {
   content: "\2001";
   background-size: 100% 100%;
-	background-image: url("#{$da-font-path}/svg/colored/text.svg");
+	background-image: url("#{$da-font-path}/svg/colored/code.svg");
 }
-.da-wollok:before {
+.da-bash:before {
 	content: "\f115";
 }
 
-.da-wollok-c:before {
+.da-bash-c:before {
   content: "\2001";
   background-size: 100% 100%;
-	background-image: url("#{$da-font-path}/svg/colored/wollok.svg");
+	background-image: url("#{$da-font-path}/svg/colored/bash.svg");
+}
+.da-php:before {
+	content: "\f116";
+}
+
+.da-php-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+	background-image: url("#{$da-font-path}/svg/colored/php.svg");
+}
+.da-r:before {
+	content: "\f117";
+}
+
+.da-r-c:before {
+  content: "\2001";
+  background-size: 100% 100%;
+	background-image: url("#{$da-font-path}/svg/colored/r.svg");
 }
