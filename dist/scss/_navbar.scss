@@ -84,6 +84,19 @@ $avatar-size: 40px;
       }
     }
 
+    .profile-dropdown {
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.5;
+      }
+
+      &:focus {
+        outline: none;
+        opacity: 0.5;
+      }
+    }
+
     img {
       &.mu-profile-avatar {
         width: $avatar-size;

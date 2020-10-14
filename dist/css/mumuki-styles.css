@@ -9462,6 +9462,13 @@ pre code {
       top: 2px;
       background-color: #FF5B81;
       border: 1px solid #FFF; }
+    .mu-navbar .mu-navbar-avatar .profile-dropdown {
+      cursor: pointer; }
+      .mu-navbar .mu-navbar-avatar .profile-dropdown:hover {
+        opacity: 0.5; }
+      .mu-navbar .mu-navbar-avatar .profile-dropdown:focus {
+        outline: none;
+        opacity: 0.5; }
     .mu-navbar .mu-navbar-avatar img.mu-profile-avatar {
       width: 40px;
       height: 40px;
