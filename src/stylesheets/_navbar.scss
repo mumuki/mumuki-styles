@@ -118,6 +118,20 @@ $avatar-size: 40px;
   .navbar-icon {
     margin-left: 20px;
   }
+
+  .mu-level-number {
+    position: absolute;
+    margin-left: 20px;
+    width: 43px;
+
+    text-align: center;
+    font-size: 0.75em;
+    font-weight: bold;
+    color: white;
+
+    user-select: none;
+    pointer-events: none;
+  }
 }
 
 .da-mumuki {
