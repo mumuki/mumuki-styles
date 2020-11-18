@@ -71,6 +71,8 @@ $avatar-size: 40px;
   .mu-navbar-avatar {
     @include display-flex;
 
+    flex-shrink: 0;
+
     .notifications-box {
       .fa {
         color: $mu-color-primary;
