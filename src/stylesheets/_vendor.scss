@@ -2,6 +2,10 @@
 @import "../../node_modules/@bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins.scss";
 @import "../../node_modules/@bower_components/bootstrap-sass/assets/stylesheets/bootstrap.scss";
 @import "bootswatch/bootswatch";
-@import "../../node_modules/@bower_components/font-awesome/scss/font-awesome.scss";
 @import "../../node_modules/@bower_components/dev-awesome/dist/scss/dev-awesome.scss";
 @import "../../node_modules/@bower_components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/v4-shims.scss";
