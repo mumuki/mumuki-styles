@@ -9424,7 +9424,8 @@ pre code {
       display: flex;
       flex-flow: row;
       align-items: center;
-      justify-content: flex-start; }
+      justify-content: flex-start;
+      overflow: hidden; }
       .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item:before {
         content: '/';
         margin: 0 8px;
@@ -9443,13 +9444,17 @@ pre code {
           .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item.brand a:hover {
             color: #083546;
             text-decoration: none; }
-      .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item.last a {
-        color: #AAAAAA; }
+      .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item.last {
+        overflow: hidden;
+        text-overflow: ellipsis; }
+        .mu-navbar .mu-navbar-breadcrumb .mu-breadcrumb-list .mu-breadcrumb-list-item.last a {
+          color: #AAAAAA; }
   .mu-navbar .mu-navbar-avatar {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: flex-start; }
+    justify-content: flex-start;
+    flex-shrink: 0; }
     .mu-navbar .mu-navbar-avatar .notifications-box .fa, .mu-navbar .mu-navbar-avatar .notifications-box .mu-browser header .mu-browser-bar i, .mu-browser header .mu-browser-bar .mu-navbar .mu-navbar-avatar .notifications-box i, .mu-navbar .mu-navbar-avatar .notifications-box .mu-file-browser header i, .mu-file-browser header .mu-navbar .mu-navbar-avatar .notifications-box i, .mu-navbar .mu-navbar-avatar .notifications-box .mu-file-browser main ul li i, .mu-file-browser main ul li .mu-navbar .mu-navbar-avatar .notifications-box i {
       color: #0B465D; }
     .mu-navbar .mu-navbar-avatar .notifications-box .badge-notifications {

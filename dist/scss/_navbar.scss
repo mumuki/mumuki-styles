@@ -32,6 +32,8 @@ $avatar-size: 40px;
 
       @include display-flex(row, flex-start, center);
 
+      overflow: hidden;
+
       .mu-breadcrumb-list-item {
         &:before {
           content: '/';
@@ -58,6 +60,9 @@ $avatar-size: 40px;
         &.last {
           @extend .mu-disabled;
           a { color: $mu-color-disabled }
+
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
       }
     }
@@ -65,6 +70,8 @@ $avatar-size: 40px;
 
   .mu-navbar-avatar {
     @include display-flex;
+
+    flex-shrink: 0;
 
     .notifications-box {
       .fa {
