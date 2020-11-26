@@ -25,11 +25,16 @@ gulp.task('css:dev', () => {
 gulp.task('scss:dev', ['scss:vendor:dev'], () => {
   return gulp.src('src/stylesheets/**/*.scss')
     .pipe($.replace('@import "../../node_modules/@bower_components/', '@import "vendor/'))
+    .pipe($.replace('@import "../../node_modules/@fortawesome/', '@import "vendor/'))
     .pipe(gulp.dest('build/scss'));
 });
 
 gulp.task('scss:vendor:dev', () => {
-  return gulp.src('node_modules/@bower_components/**/*.scss')
+  const sources = [
+    'node_modules/@bower_components/**/*.scss',
+    'node_modules/@fortawesome/**/*.scss'
+  ];
+  return gulp.src(sources)
     .pipe(gulp.dest('build/scss/vendor'));
 });
 
@@ -42,7 +47,7 @@ gulp.task('js:dev', () => {
 gulp.task('fonts:dev', () => {
   const fonts = [
     'node_modules/@bower_components/bootstrap-sass/assets/fonts/**/*',
-    'node_modules/@bower_components/font-awesome/fonts/**/*',
+    'node_modules/@fortawesome/fontawesome-free/webfonts/*',
     'node_modules/@bower_components/dev-awesome/dist/fonts/**/*',
   ];
   return gulp.src(fonts)
@@ -79,11 +84,16 @@ gulp.task('css', () => {
 gulp.task('scss', ['scss:vendor'], () => {
   return gulp.src('src/stylesheets/**/*.scss')
     .pipe($.replace('@import "../../node_modules/@bower_components/', '@import "vendor/'))
+    .pipe($.replace('@import "../../node_modules/@fortawesome/', '@import "vendor/'))
     .pipe(gulp.dest('dist/scss'));
 });
 
 gulp.task('scss:vendor', () => {
-  return gulp.src('node_modules/@bower_components/**/*.scss')
+  const sources = [
+    'node_modules/@bower_components/**/*.scss',
+    'node_modules/@fortawesome/**/*.scss'
+  ];
+  return gulp.src(sources)
     .pipe(gulp.dest('dist/scss/vendor'));
 });
 
@@ -96,7 +106,7 @@ gulp.task('js', () => {
 gulp.task('fonts', () => {
   const fonts = [
     'node_modules/@bower_components/bootstrap-sass/assets/fonts/**/*',
-    'node_modules/@bower_components/font-awesome/fonts/**/*',
+    'node_modules/@fortawesome/fontawesome-free/webfonts/*',
     'node_modules/@bower_components/dev-awesome/dist/fonts/**/*',
   ];
   return gulp.src(fonts)

@@ -4,30 +4,27 @@
 
 "@bower_components/awesome-bootstrap-checkbox@flatlogic/awesome-bootstrap-checkbox#v0.3.7":
   version "0.3.7"
-  uid b9114537e94a36be2d1abe2c528f25be05d9282a
   resolved "https://codeload.github.com/flatlogic/awesome-bootstrap-checkbox/tar.gz/b9114537e94a36be2d1abe2c528f25be05d9282a"
 
 "@bower_components/bootstrap-sass@twbs/bootstrap-sass#v3.3.7":
   version "3.3.7"
-  uid "5d6b2ebba0c2a5885ce2f0e01e9218db3d3b5e47"
   resolved "https://codeload.github.com/twbs/bootstrap-sass/tar.gz/5d6b2ebba0c2a5885ce2f0e01e9218db3d3b5e47"
 
 "@bower_components/dev-awesome@mumuki/dev-awesome#v0.10.0":
   version "0.10.0"
-  uid "2ba88e96eb77e579395c28711f0906b762392753"
   resolved "https://codeload.github.com/mumuki/dev-awesome/tar.gz/2ba88e96eb77e579395c28711f0906b762392753"
   dependencies:
     del "^5.0.0"
     webfonts-generator "^0.4.0"
 
-"@bower_components/font-awesome@FortAwesome/Font-Awesome#v4.7.0":
-  version "4.7.0"
-  uid a8386aae19e200ddb0f6845b5feeee5eb7013687
-  resolved "https://codeload.github.com/FortAwesome/Font-Awesome/tar.gz/a8386aae19e200ddb0f6845b5feeee5eb7013687"
-
 "@bower_components/jquery@jquery/jquery-dist#3.1.1":
   version "3.1.1"
   resolved "https://codeload.github.com/jquery/jquery-dist/tar.gz/1b30f3ad466ebf2714d47eda34dbd7fdf6849fe3"
+
+"@fortawesome/fontawesome-free@~5.15.1":
+  version "5.15.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.15.1.tgz#ccfef6ddbe59f8fe8f694783e1d3eb88902dc5eb"
+  integrity sha512-OEdH7SyC1suTdhBGW91/zBfR6qaIhThbcN8PUXtXilY4GYnSBbVqOntdHbC1vXwsDnX0Qix2m2+DSU1J51ybOQ==
 
 "@nodelib/fs.scandir@2.1.1":
   version "2.1.1"
