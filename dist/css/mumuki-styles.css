@@ -6305,7 +6305,7 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
       outline-offset: -2px; }
     .checkbox input[type="checkbox"]:checked + label::after,
     .checkbox input[type="radio"]:checked + label::after {
-      font-family: "FontAwesome";
+      font-family: "Font Awesome 5 Free";
       content: ""; }
     .checkbox input[type="checkbox"]:indeterminate + label::after,
     .checkbox input[type="radio"]:indeterminate + label::after {
@@ -6524,7 +6524,7 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 
 input[type="checkbox"].styled:checked + label:after,
 input[type="radio"].styled:checked + label:after {
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 5 Free";
   content: ""; }
 
 input[type="checkbox"] .styled:checked + label::before,
@@ -6534,6 +6534,10 @@ input[type="radio"] .styled:checked + label::before {
 input[type="checkbox"] .styled:checked + label::after,
 input[type="radio"] .styled:checked + label::after {
   color: #fff; }
+
+.checkbox input[type="checkbox"]:checked + label::after,
+.checkbox input[type="radio"]:checked + label::after {
+  font-weight: 600; }
 
 /*!
  * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
