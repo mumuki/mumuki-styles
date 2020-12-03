@@ -130,6 +130,20 @@ $avatar-size: 40px;
     user-select: none;
     pointer-events: none;
   }
+
+  &.mu-inverted {
+    img {
+      box-shadow: 0 0 0 2px white;
+    }
+
+    .caret, .navbar-icon {
+      color: white;
+    }
+
+    .mu-level-number {
+      color: $mu-color-primary;
+    }
+  }
 }
 
 .da-mumuki {
