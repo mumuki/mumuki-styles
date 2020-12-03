@@ -111,9 +111,12 @@ $avatar-size: 40px;
     }
   }
 
+  .mu-navbar-element {
+    margin-left: 20px;
+  }
+
   .navbar-icon {
     color: $mu-color-primary;
-    margin-left: 20px;
     vertical-align: middle;
   }
 
