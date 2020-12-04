@@ -74,10 +74,6 @@ $avatar-size: 40px;
     flex-shrink: 0;
 
     .notifications-box {
-      .fa {
-        color: $mu-color-primary;
-      }
-
       .badge-notifications {
         position: absolute;
         right: 4px;
@@ -116,6 +112,7 @@ $avatar-size: 40px;
   }
 
   .navbar-icon {
+    color: $mu-color-primary;
     margin-left: 20px;
     vertical-align: middle;
   }
@@ -132,6 +129,20 @@ $avatar-size: 40px;
 
     user-select: none;
     pointer-events: none;
+  }
+
+  &.mu-inverted {
+    img {
+      box-shadow: 0 0 0 2px white;
+    }
+
+    .caret, .navbar-icon {
+      color: white;
+    }
+
+    .mu-level-number {
+      color: $mu-color-primary;
+    }
   }
 }
 
