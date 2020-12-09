@@ -111,15 +111,19 @@ $avatar-size: 40px;
     }
   }
 
-  .navbar-icon {
-    color: $mu-color-primary;
+  .mu-navbar-element {
     margin-left: 20px;
+  }
+
+  .mu-navbar-icon {
+    color: $mu-color-primary;
     vertical-align: middle;
   }
 
   .mu-level-number {
     position: absolute;
-    margin-left: 20px;
+    margin-left: -43px;
+    margin-top: 8px;
     width: 43px;
 
     text-align: center;
