@@ -10,9 +10,19 @@ footer {
   bottom: 0;
 
   .mu-footer {
-    padding-top: 30px;
     border-top: 1px solid $mu-color-separator;
     margin-bottom: 22px;
-  }
+    padding-top: 10px;
 
+    .mu-footer-row {
+
+      @media (min-width: 768px){
+        @include display-flex(row, space-between, center);
+      }
+
+      @media (max-width: 767px){
+        @include display-flex(column, space-between, center);
+      }
+    }
+  }
 }
