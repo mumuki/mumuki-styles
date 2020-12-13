@@ -1,0 +1,28 @@
+$breadcrumb-separator-gap: 8px;
+
+$avatar-size: 40px;
+
+footer {
+
+  position: absolute;
+  height: 110px;
+  width: 100%;
+  bottom: 0;
+
+  .mu-footer {
+    border-top: 1px solid $mu-color-separator;
+    margin-bottom: 22px;
+    padding-top: 10px;
+
+    .mu-footer-row {
+
+      @media (min-width: 768px){
+        @include display-flex(row, space-between, center);
+      }
+
+      @media (max-width: 767px){
+        @include display-flex(column, space-between, center);
+      }
+    }
+  }
+}

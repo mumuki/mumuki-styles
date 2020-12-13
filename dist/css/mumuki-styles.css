@@ -6072,7 +6072,7 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 
 @font-face {
   font-family: "dev-awesome";
-  src: url("../fonts/dev-awesome.eot?639ea5cdd2b9450902ed682044bde547?#iefix") format("embedded-opentype"), url("../fonts/dev-awesome.woff2?639ea5cdd2b9450902ed682044bde547") format("woff2"), url("../fonts/dev-awesome.woff?639ea5cdd2b9450902ed682044bde547") format("woff");
+  src: url("../fonts/dev-awesome.eot?4d1a37cc5bee9db791cbc6758399c608?#iefix") format("embedded-opentype"), url("../fonts/dev-awesome.woff2?4d1a37cc5bee9db791cbc6758399c608") format("woff2"), url("../fonts/dev-awesome.woff?4d1a37cc5bee9db791cbc6758399c608") format("woff");
   font-weight: normal;
   font-style: normal; }
 
@@ -13328,6 +13328,28 @@ readers do not read off random characters that represent icons */
 .fa.fa-cab:before, .mu-browser header .mu-browser-bar i.fa-cab:before, .mu-file-browser header i.fa-cab:before, .mu-file-browser main ul li i.fa-cab:before {
   content: "\f1ba"; }
 
+footer {
+  position: absolute;
+  height: 110px;
+  width: 100%;
+  bottom: 0; }
+  footer .mu-footer {
+    border-top: 1px solid #ecf0f1;
+    margin-bottom: 22px;
+    padding-top: 10px; }
+    @media (min-width: 768px) {
+      footer .mu-footer .mu-footer-row {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: space-between; } }
+    @media (max-width: 767px) {
+      footer .mu-footer .mu-footer-row {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: space-between; } }
+
 .progress-list-flex .broken {
   background-color: #651621; }
 
@@ -13919,8 +13941,6 @@ pre code {
     align-items: center;
     justify-content: flex-start;
     flex-shrink: 0; }
-    .mu-navbar .mu-navbar-avatar .notifications-box .fa, .mu-navbar .mu-navbar-avatar .notifications-box .mu-browser header .mu-browser-bar i, .mu-browser header .mu-browser-bar .mu-navbar .mu-navbar-avatar .notifications-box i, .mu-navbar .mu-navbar-avatar .notifications-box .mu-file-browser header i, .mu-file-browser header .mu-navbar .mu-navbar-avatar .notifications-box i, .mu-navbar .mu-navbar-avatar .notifications-box .mu-file-browser main ul li i, .mu-file-browser main ul li .mu-navbar .mu-navbar-avatar .notifications-box i {
-      color: #0B465D; }
     .mu-navbar .mu-navbar-avatar .notifications-box .badge-notifications {
       position: absolute;
       right: 4px;
@@ -13944,12 +13964,15 @@ pre code {
       border-radius: 50%;
       object-fit: cover;
       cursor: pointer; }
-  .mu-navbar .navbar-icon {
-    margin-left: 20px;
+  .mu-navbar .mu-navbar-element {
+    margin-left: 20px; }
+  .mu-navbar .mu-navbar-icon {
+    color: #0B465D;
     vertical-align: middle; }
   .mu-navbar .mu-level-number {
     position: absolute;
-    margin-left: 20px;
+    margin-left: -43px;
+    margin-top: 8px;
     width: 43px;
     text-align: center;
     font-size: 0.75em;
@@ -13957,6 +13980,12 @@ pre code {
     color: white;
     user-select: none;
     pointer-events: none; }
+  .mu-navbar.mu-inverted img {
+    box-shadow: 0 0 0 2px white; }
+  .mu-navbar.mu-inverted .caret, .mu-navbar.mu-inverted .navbar-icon {
+    color: white; }
+  .mu-navbar.mu-inverted .mu-level-number {
+    color: #0B465D; }
 
 .da-mumuki {
   text-decoration: none; }
