@@ -45,7 +45,7 @@ mumuki.load(function () {
   }
 
   function keyIconFor(column, field) {
-    return !!column[field] ? '<i class="fa fa-fw fa-key mu-sql-table-' + field + '"></i>' : '';
+    return !!column[field] ? '<i class="fas fa-fw fa-key mu-sql-table-' + field + '"></i>' : '';
   }
 
   $.fn.renderSqlTable = function () {
@@ -73,7 +73,7 @@ mumuki.load(function () {
       var text = $th.text();
       $th.empty();
       if ($th.children('i').length == 0) {
-        $th.prepend('<i class="fa fa-fw fa-key ' + $th.attr('class') + '"></i>');
+        $th.prepend('<i class="fas fa-fw fa-key ' + $th.attr('class') + '"></i>');
       }
       $th.append('<span>' + text + '</span>');
     });
