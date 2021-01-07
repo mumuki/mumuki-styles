@@ -102,7 +102,7 @@ mumuki.load(function () {
   }
 
   function keyIconFor(column, field) {
-    return !!column[field] ? '<i class="fa fa-fw fa-key mu-erd-' + field + '"></i>' : '';
+    return !!column[field] ? '<i class="fas fa-fw fa-key mu-erd-' + field + '"></i>' : '';
   }
 
   function generateEntityColumns(entity, index) {

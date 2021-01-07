@@ -13,7 +13,7 @@
       cursor: pointer;
       font-size: 25px;
       margin-right: 10px;
-      @extend .fa ;
+      @extend .fas;
       @extend .fa-fw;
       @extend .fa-arrow-circle-left;
     }
@@ -62,10 +62,15 @@
           height: 70px;
           font-size: 64px;
           margin: auto;
-          @extend .fa ;
           @extend .fa-fw;
-          &.file { @extend .fa-file-o; }
-          &.folder { @extend .fa-folder; }
+          &.file {
+            @extend .far;
+            @extend .fa-file;
+          }
+          &.folder {
+            @extend .fas;
+            @extend .fa-folder;
+          }
         }
         span {
           width: 100%;

@@ -91,7 +91,7 @@ mumuki.load(function () {
   function getExplorerHeader(canBrowse) {
     return $([
       '<header>',
-          canBrowse ? '<i class="fa fa-fw fa-arrow-left"></i>' : '',
+          canBrowse ? '<i class="fas fa-fw fa-arrow-left"></i>' : '',
       '  <input class="mu-file-browser-path" type="text" readonly>',
       '</header>'
     ].join(''))

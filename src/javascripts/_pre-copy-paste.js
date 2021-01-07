@@ -80,7 +80,7 @@ mumuki.load(function () {
         $pre.children('span').remove();
         var $clipboard = $('<span>', {
           class: 'mu-clipboard',
-          html: '<i class="fa fa-fw fa-clipboard"></i> <span>' + getCopiedText().copy + '</span>',
+          html: '<i class="far fa-fw fa-copy"></i> <span>' + getCopiedText().copy + '</span>',
           click: function () {
             copyToClipboard($code.text());
             pasteInEditor($code.text());

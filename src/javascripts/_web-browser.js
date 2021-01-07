@@ -12,7 +12,7 @@ mumuki.load(function () {
       '      <span>', title, '<span>',
       '    </li>',
       '    <li class="mu-browser-tab mu-browser-new-tab">',
-      '      <i class="fa fa-fw fa-plus"></i>',
+      '      <i class="fas fa-fw fa-plus"></i>',
       '    </li>',
       '  </ul>',
       '  <div class="mu-browser-bar">',
