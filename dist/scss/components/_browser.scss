@@ -64,7 +64,7 @@ $mu-color-browser-inactive-tabs: darken($mu-color-component-title-background, 5%
         cursor: pointer;
         font-size: 25px;
         margin-right: 10px;
-        @extend .fa;
+        @extend .fas;
         @extend .fa-fw;
         &.mu-arrow-left {
           @extend .fa-arrow-circle-left;
@@ -73,7 +73,7 @@ $mu-color-browser-inactive-tabs: darken($mu-color-component-title-background, 5%
           @extend .fa-arrow-circle-right;
         };
         &.mu-refresh {
-          @extend .fa-refresh;
+          @extend .fa-sync-alt;
         }
       }
       input {
