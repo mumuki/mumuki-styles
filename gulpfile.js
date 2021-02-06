@@ -7,7 +7,7 @@ const merge = require('merge-stream');
 const $ = glps();
 
 gulp.task('dist', (done) => runs('clear', ['css', 'scss', 'js', 'fonts'], done));
-gulp.task('dev', (done) => runs('dist', ['watch', 'serve'], done));
+gulp.task('dev', (done) => runs('watch', 'serve', done));
 
 gulp.task('serve', () => {
   gulp

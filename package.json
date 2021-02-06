@@ -4,10 +4,11 @@
   "description": "Mumuki Styles",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp dev",
+    "dev": "yarn build && gulp dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "yarn",
-    "build": "gulp dist && sass-shake -p dist/scss -f dist/scss/mumuki-styles.scss -t -d"
+    "build": "gulp dist && yarn clean-scss",
+    "clean-scss": "sass-shake -p dist/scss -f dist/scss/mumuki-styles.scss -t -d"
   },
   "repository": {
     "type": "git",
