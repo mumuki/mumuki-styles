@@ -2,6 +2,7 @@ const del = require('del');
 const gulp = require('gulp');
 const glps = require('gulp-load-plugins');
 const runs = require('run-sequence');
+const merge = require('merge-stream');
 
 const $ = glps();
 
@@ -24,15 +25,16 @@ gulp.task('css:dev', () => {
 
 gulp.task('scss:dev', ['scss:vendor:dev'], () => {
   return gulp.src('src/stylesheets/**/*.scss')
-    .pipe($.replace('@import "../../node_modules/@bower_components/', '@import "vendor/'))
+    .pipe($.replace('@import "../../node_modules/awesome-bootstrap-checkbox/', '@import "vendor/awesome-bootstrap-checkbox/'))
+    .pipe($.replace('@import "../../node_modules/bootstrap-sass/', '@import "vendor/bootstrap-sass/'))
+    .pipe($.replace('@import "../../node_modules/dev-awesome/', '@import "vendor/dev-awesome/'))
     .pipe($.replace('@import "../../node_modules/@fortawesome/', '@import "vendor/'))
     .pipe(gulp.dest('build/scss'));
 });
 
 gulp.task('scss:vendor:dev', () => {
   const sources = [
-    'node_modules/@bower_components/**/*.scss',
-    'node_modules/@fortawesome/**/*.scss'
+    'node_modules/**/*.scss'
   ];
   return gulp.src(sources)
     .pipe(gulp.dest('build/scss/vendor'));
@@ -46,9 +48,9 @@ gulp.task('js:dev', () => {
 
 gulp.task('fonts:dev', () => {
   const fonts = [
-    'node_modules/@bower_components/bootstrap-sass/assets/fonts/**/*',
+    'node_modules/bootstrap-sass/assets/fonts/**/*',
     'node_modules/@fortawesome/fontawesome-free/webfonts/*',
-    'node_modules/@bower_components/dev-awesome/dist/fonts/**/*',
+    'node_modules/dev-awesome/dist/fonts/**/*',
   ];
   return gulp.src(fonts)
     .pipe(gulp.dest('build/fonts'));
@@ -83,18 +85,28 @@ gulp.task('css', () => {
 
 gulp.task('scss', ['scss:vendor'], () => {
   return gulp.src('src/stylesheets/**/*.scss')
-    .pipe($.replace('@import "../../node_modules/@bower_components/', '@import "vendor/'))
+    .pipe($.replace('@import "../../node_modules/awesome-bootstrap-checkbox/', '@import "vendor/awesome-bootstrap-checkbox/'))
+    .pipe($.replace('@import "../../node_modules/bootstrap-sass/', '@import "vendor/bootstrap-sass/'))
+    .pipe($.replace('@import "../../node_modules/dev-awesome/', '@import "vendor/dev-awesome/'))
     .pipe($.replace('@import "../../node_modules/@fortawesome/', '@import "vendor/'))
     .pipe(gulp.dest('dist/scss'));
 });
 
 gulp.task('scss:vendor', () => {
-  const sources = [
-    'node_modules/@bower_components/**/*.scss',
-    'node_modules/@fortawesome/**/*.scss'
-  ];
-  return gulp.src(sources)
+  const fontawesome = gulp.src('node_modules/@fortawesome/**/*.scss')
     .pipe(gulp.dest('dist/scss/vendor'));
+
+  const bootstrap = gulp.src('node_modules/bootstrap-sass/**/*.scss')
+    .pipe(gulp.dest('dist/scss/vendor/bootstrap-sass'));
+
+  const devawesome = gulp.src('node_modules/dev-awesome/**/*.scss')
+    .pipe(gulp.dest('dist/scss/vendor/dev-awesome'));
+
+  const awesomebootstrapcheckbox = gulp.src('node_modules/awesome-bootstrap-checkbox/**/*.scss')
+    .pipe(gulp.dest('dist/scss/vendor/awesome-bootstrap-checkbox'));
+
+  return merge(fontawesome, bootstrap, devawesome, awesomebootstrapcheckbox);
+
 });
 
 gulp.task('js', () => {
@@ -105,9 +117,9 @@ gulp.task('js', () => {
 
 gulp.task('fonts', () => {
   const fonts = [
-    'node_modules/@bower_components/bootstrap-sass/assets/fonts/**/*',
+    'node_modules/bootstrap-sass/assets/fonts/**/*',
     'node_modules/@fortawesome/fontawesome-free/webfonts/*',
-    'node_modules/@bower_components/dev-awesome/dist/fonts/**/*',
+    'node_modules/dev-awesome/dist/fonts/**/*',
   ];
   return gulp.src(fonts)
     .pipe(gulp.dest('dist/fonts'));
