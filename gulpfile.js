@@ -7,54 +7,7 @@ const merge = require('merge-stream');
 const $ = glps();
 
 gulp.task('dist', (done) => runs('clear', ['css', 'scss', 'js', 'fonts'], done));
-
-gulp.task('build:dev', ['css:dev', 'scss:dev', 'js:dev', 'fonts:dev']);
-gulp.task('dev', (done) => runs('clear:dev', 'build:dev', 'watch', 'serve', done));
-
-
-gulp.task('clear:dev', () => {
-  return del(['build'], {force: true});
-});
-
-gulp.task('css:dev', () => {
-  return gulp.src('src/stylesheets/mumuki-styles.scss')
-    .pipe($.sass())
-    .pipe($.concat('mumuki-styles.css'))
-    .pipe(gulp.dest('build/css'));
-});
-
-gulp.task('scss:dev', ['scss:vendor:dev'], () => {
-  return gulp.src('src/stylesheets/**/*.scss')
-    .pipe($.replace('@import "../../node_modules/awesome-bootstrap-checkbox/', '@import "vendor/awesome-bootstrap-checkbox/'))
-    .pipe($.replace('@import "../../node_modules/bootstrap-sass/', '@import "vendor/bootstrap-sass/'))
-    .pipe($.replace('@import "../../node_modules/dev-awesome/', '@import "vendor/dev-awesome/'))
-    .pipe($.replace('@import "../../node_modules/@fortawesome/', '@import "vendor/'))
-    .pipe(gulp.dest('build/scss'));
-});
-
-gulp.task('scss:vendor:dev', () => {
-  const sources = [
-    'node_modules/**/*.scss'
-  ];
-  return gulp.src(sources)
-    .pipe(gulp.dest('build/scss/vendor'));
-});
-
-gulp.task('js:dev', () => {
-  return gulp.src(require('./src/assets.js').concat(require('./src/javascripts')))
-    .pipe($.concat('mumuki-styles.js'))
-    .pipe(gulp.dest('build/javascripts'));
-});
-
-gulp.task('fonts:dev', () => {
-  const fonts = [
-    'node_modules/bootstrap-sass/assets/fonts/**/*',
-    'node_modules/@fortawesome/fontawesome-free/webfonts/*',
-    'node_modules/dev-awesome/dist/fonts/**/*',
-  ];
-  return gulp.src(fonts)
-    .pipe(gulp.dest('build/fonts'));
-});
+gulp.task('dev', (done) => runs('dist', ['watch', 'serve'], done));
 
 gulp.task('serve', () => {
   gulp
@@ -68,7 +21,7 @@ gulp.task('serve', () => {
 });
 
 gulp.task('watch', () => {
-  gulp.watch('src/**/*', ['build:dev']);
+  gulp.watch('src/**/*', ['dist']);
 });
 
 
