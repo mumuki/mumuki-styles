@@ -27,20 +27,20 @@
     "@fortawesome/fontawesome-free": "~5.15.1",
     "awesome-bootstrap-checkbox": "^0.3.7",
     "bootstrap-sass": "3.3.7",
-    "del": "2.2.2",
     "dev-awesome": "git+https://github.com/mumuki/dev-awesome.git",
+    "jquery": "~3.1.1"
+  },
+  "devDependencies": {
+    "del": "2.2.2",
     "gulp": "3.9.1",
     "gulp-concat": "2.6.1",
     "gulp-load-plugins": "1.4.0",
     "gulp-replace": "0.5.4",
     "gulp-sass": "3.1.0",
     "gulp-webserver": "0.9.1",
-    "jquery": "~3.1.1",
+    "merge-stream": "^2.0.0",
     "run-sequence": "1.2.2",
     "sass-shake": "https://github.com/Javi/sass-shake"
-  },
-  "devDependencies": {
-    "merge-stream": "^2.0.0"
   },
   "engines": {
     "yarn": ">= 1.0.0"
