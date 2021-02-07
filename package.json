@@ -7,7 +7,8 @@
     "dev": "yarn build && gulp dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "yarn",
-    "build": "gulp dist && yarn clean-scss && yarn ignore-dist",
+    "build": "gulp dist && yarn build-gem && yarn clean-scss && yarn ignore-dist",
+    "build-gem": "cd gem && ./bin/setup && bundle exec rake",
     "clean-scss": "sass-shake -p dist/scss -f dist/scss/mumuki-styles.scss -t -d",
     "ignore-dist": "git ls-files -z dist/ | xargs -0 git update-index --skip-worktree"
   },
