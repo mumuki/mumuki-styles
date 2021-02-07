@@ -19,7 +19,8 @@ sed -i -r "s/VERSION = \"${VERSION_REGEXP}/VERSION = \"${NEW_VERSION}/" gem/lib/
 echo "[Mumuki::Styles] Generating dist..."
 yarn build
 
-echo "[Mumuki::Styles] Commiting files..."
+echo "[Mumuki::Styles] Committing files..."
+git ls-files -z dist/ | xargs -0 git update-index --no-skip-worktree
 git add dist package.json bower.json gem/lib/mumuki/styles/version.rb
 git commit -m "Welcome v${NEW_VERSION}!"
 
