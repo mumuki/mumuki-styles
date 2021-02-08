@@ -38,7 +38,6 @@ gulp.task('css', () => {
 
 gulp.task('scss', ['scss:vendor'], () => {
   return gulp.src('src/stylesheets/**/*.scss')
-    .pipe($.replace('@import "../../node_modules/awesome-bootstrap-checkbox/', '@import "vendor/awesome-bootstrap-checkbox/'))
     .pipe($.replace('@import "../../node_modules/bootstrap-sass/', '@import "vendor/bootstrap-sass/'))
     .pipe($.replace('@import "../../node_modules/dev-awesome/', '@import "vendor/dev-awesome/'))
     .pipe($.replace('@import "../../node_modules/@fortawesome/', '@import "vendor/'))
@@ -55,11 +54,7 @@ gulp.task('scss:vendor', () => {
   const devawesome = gulp.src('node_modules/dev-awesome/**/*.scss')
     .pipe(gulp.dest('dist/scss/vendor/dev-awesome'));
 
-  const awesomebootstrapcheckbox = gulp.src('node_modules/awesome-bootstrap-checkbox/**/*.scss')
-    .pipe(gulp.dest('dist/scss/vendor/awesome-bootstrap-checkbox'));
-
-  return merge(fontawesome, bootstrap, devawesome, awesomebootstrapcheckbox);
-
+  return merge(fontawesome, bootstrap, devawesome);
 });
 
 gulp.task('js', () => {

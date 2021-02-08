@@ -27,7 +27,6 @@
   "homepage": "https://github.com/mumuki/mumuki-styles#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "~5.15.1",
-    "awesome-bootstrap-checkbox": "^0.3.7",
     "bootstrap-sass": "3.3.7",
     "dev-awesome": "git+https://github.com/mumuki/dev-awesome.git",
     "jquery": "~3.1.1"

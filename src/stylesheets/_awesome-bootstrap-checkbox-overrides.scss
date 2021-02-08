@@ -1,8 +1,0 @@
-$font-family-icon: 'Font Awesome 5 Free';
-
-@import "../../node_modules/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.scss";
-
-.checkbox input[type="checkbox"]:checked+label::after,
-.checkbox input[type="radio"]:checked+label::after {
-  font-weight: 600;
-}
