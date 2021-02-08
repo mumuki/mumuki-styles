@@ -27,7 +27,8 @@
   "homepage": "https://github.com/mumuki/mumuki-styles#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "~5.15.1",
-    "bootstrap-sass": "3.3.7",
+    "@popperjs/core": "2.5.4",
+    "bootstrap": "5.0.0-beta1",
     "dev-awesome": "git+https://github.com/mumuki/dev-awesome.git",
     "jquery": "~3.1.1"
   },
