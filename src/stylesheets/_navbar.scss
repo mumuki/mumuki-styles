@@ -89,15 +89,6 @@ $avatar-size: 40px;
 
     .profile-dropdown {
       cursor: pointer;
-
-      &:hover {
-        opacity: 0.5;
-      }
-
-      &:focus {
-        outline: none;
-        opacity: 0.5;
-      }
     }
 
     img {
@@ -107,6 +98,15 @@ $avatar-size: 40px;
         border-radius: 50%;
         object-fit: cover;
         cursor: pointer;
+
+        &:hover {
+          opacity: 0.5;
+        }
+
+        &:focus {
+          outline: none;
+          opacity: 0.5;
+        }
       }
     }
   }
