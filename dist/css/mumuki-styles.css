@@ -6072,7 +6072,7 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 
 @font-face {
   font-family: "dev-awesome";
-  src: url("../fonts/dev-awesome.eot?639ea5cdd2b9450902ed682044bde547?#iefix") format("embedded-opentype"), url("../fonts/dev-awesome.woff2?639ea5cdd2b9450902ed682044bde547") format("woff2"), url("../fonts/dev-awesome.woff?639ea5cdd2b9450902ed682044bde547") format("woff");
+  src: url("../fonts/dev-awesome.eot?4d1a37cc5bee9db791cbc6758399c608?#iefix") format("embedded-opentype"), url("../fonts/dev-awesome.woff2?4d1a37cc5bee9db791cbc6758399c608") format("woff2"), url("../fonts/dev-awesome.woff?4d1a37cc5bee9db791cbc6758399c608") format("woff");
   font-weight: normal;
   font-style: normal; }
 
@@ -11797,17 +11797,17 @@ pre code {
       border: 1px solid #FFF; }
     .mu-navbar .mu-navbar-avatar .profile-dropdown {
       cursor: pointer; }
-      .mu-navbar .mu-navbar-avatar .profile-dropdown:hover {
-        opacity: 0.5; }
-      .mu-navbar .mu-navbar-avatar .profile-dropdown:focus {
-        outline: none;
-        opacity: 0.5; }
     .mu-navbar .mu-navbar-avatar img.mu-profile-avatar {
       width: 40px;
       height: 40px;
       border-radius: 50%;
       object-fit: cover;
       cursor: pointer; }
+      .mu-navbar .mu-navbar-avatar img.mu-profile-avatar:hover {
+        opacity: 0.5; }
+      .mu-navbar .mu-navbar-avatar img.mu-profile-avatar:focus {
+        outline: none;
+        opacity: 0.5; }
   .mu-navbar .mu-navbar-element {
     margin-left: 20px; }
   .mu-navbar .mu-navbar-icon {
