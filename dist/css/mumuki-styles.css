@@ -6072,7 +6072,7 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 
 @font-face {
   font-family: "dev-awesome";
-  src: url("../fonts/dev-awesome.eot?4d1a37cc5bee9db791cbc6758399c608?#iefix") format("embedded-opentype"), url("../fonts/dev-awesome.woff2?4d1a37cc5bee9db791cbc6758399c608") format("woff2"), url("../fonts/dev-awesome.woff?4d1a37cc5bee9db791cbc6758399c608") format("woff");
+  src: url("../fonts/dev-awesome.eot?b309596d6c42c170025666d3e6774a54?#iefix") format("embedded-opentype"), url("../fonts/dev-awesome.woff2?b309596d6c42c170025666d3e6774a54") format("woff2"), url("../fonts/dev-awesome.woff?b309596d6c42c170025666d3e6774a54") format("woff");
   font-weight: normal;
   font-style: normal; }
 
@@ -11826,7 +11826,7 @@ pre code {
     pointer-events: none; }
   .mu-navbar.mu-inverted img {
     box-shadow: 0 0 0 2px white; }
-  .mu-navbar.mu-inverted .caret, .mu-navbar.mu-inverted .navbar-icon {
+  .mu-navbar.mu-inverted .caret, .mu-navbar.mu-inverted .mu-navbar-icon {
     color: white; }
   .mu-navbar.mu-inverted .mu-level-number {
     color: #0B465D; }
