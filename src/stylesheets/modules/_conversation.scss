@@ -152,16 +152,16 @@
     margin-left: 15px;
   }
   .passed {
-    background-color: $brand-success-light;
+    background-color: $success-light;
   }
   .failed {
-    background-color: $brand-danger-light;
+    background-color: $danger-light;
   }
   .errored {
-    background-color: $brand-danger-light;
+    background-color: $danger-light;
   }
   .passed_with_warning {
-    background-color: $brand-warning-light;
+    background-color: $warning-light;
   }
 }
 

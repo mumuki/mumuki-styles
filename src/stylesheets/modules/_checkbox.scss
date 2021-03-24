@@ -58,7 +58,7 @@
     input[type="checkbox"] {
       &:checked ~ label:before {
         color: white;
-        background-color: $brand-complementary;
+        background-color: $complementary;
       }
     }
   }
