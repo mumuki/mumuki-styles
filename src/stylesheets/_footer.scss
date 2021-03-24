@@ -2,27 +2,34 @@ $breadcrumb-separator-gap: 8px;
 
 $avatar-size: 40px;
 
+// html, body and footer styles needed to stick footer to bottom
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 footer {
+  margin-top: auto;
+}
 
-  position: absolute;
-  height: 110px;
-  width: 100%;
-  bottom: 0;
+.mu-footer {
+  border-top: 1px solid $mu-color-separator;
+  margin-bottom: 22px;
+  padding-top: 10px;
 
-  .mu-footer {
-    border-top: 1px solid $mu-color-separator;
-    margin-bottom: 22px;
-    padding-top: 10px;
+  .mu-footer-row {
 
-    .mu-footer-row {
+    @media (min-width: 768px){
+      @include display-flex(row, space-between, center);
+    }
 
-      @media (min-width: 768px){
-        @include display-flex(row, space-between, center);
-      }
-
-      @media (max-width: 767px){
-        @include display-flex(column, space-between, center);
-      }
+    @media (max-width: 767px){
+      @include display-flex(column, space-between, center);
     }
   }
 }
