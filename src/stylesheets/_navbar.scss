@@ -3,10 +3,6 @@ $breadcrumb-separator-gap: 8px;
 $avatar-size: 40px;
 
 .mu-navbar {
-  @include display-flex(row, space-between, center);
-
-  height: 80px;
-  border: none;
 
   .mu-navbar-breadcrumb {
 
@@ -28,18 +24,30 @@ $avatar-size: 40px;
 
       @include display-flex(row, flex-start, center);
 
+      @include media-breakpoint-down(lg) {
+        @include display-flex(column, flex-start, flex-start);
+      }
+
       overflow: hidden;
 
       .mu-breadcrumb-list-item {
-        &:before {
-          content: '/';
-          margin: 0 $breadcrumb-separator-gap;
-          color: $mu-color-disabled;
+        @include media-breakpoint-up(lg) {
+          &:before {
+            content: '/';
+            margin: 0 $breadcrumb-separator-gap;
+            color: $mu-color-disabled;
+          }
         }
+
         &.brand {
           padding-top: 2px;
           padding-left: 3px;
           font-size: 38px;
+
+          @include media-breakpoint-down(lg) {
+            margin-bottom: -10px;
+          }
+
           &:before {
             content: '';
             margin: 0;
