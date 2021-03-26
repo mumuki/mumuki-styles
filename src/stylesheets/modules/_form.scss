@@ -1,0 +1,13 @@
+.mu-form {
+  fieldset {
+    margin-bottom: 15px;
+  }
+
+  label {
+    font-weight: bold;
+
+    &.form-check-label {
+      font-weight: normal;
+    }
+  }
+}

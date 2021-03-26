@@ -26,6 +26,14 @@ $custom-colors: (
 );
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
+// Other Bootstrap variables to override
+
+$input-color: $primary;
+$input-focus-color: $primary;
+$form-select-color: $primary;
+
+// More custom colors
+
 $success-light: lighten($success, 35%);
 $info-light: lighten($info, 35%);
 $info-lighter: #f4f6fb;
