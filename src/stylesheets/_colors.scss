@@ -15,6 +15,10 @@ $broken: #651621;
 // Other Bootswatch variables to override
 $link-color: $info;
 $dropdown-link-hover-bg: $primary;
+$pagination-bg: $complementary;
+$pagination-hover-bg: darken($complementary, 15%);
+$pagination-disabled-bg: lighten($complementary, 15%);
+$pagination-active-bg: $pagination-hover-bg;
 
 @import "../../node_modules/bootstrap/scss/bootstrap-utilities.scss";
 
@@ -27,10 +31,12 @@ $custom-colors: (
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
 // Other Bootstrap variables to override
-
 $input-color: $primary;
 $input-focus-color: $primary;
 $form-select-color: $primary;
+$pagination-focus-bg: darken($complementary, 15%);
+$pagination-focus-color: $pagination-color;
+$pagination-focus-box-shadow: 0 0 $input-btn-focus-blur $input-btn-focus-width lighten($complementary, 15%);
 
 // More custom colors
 
