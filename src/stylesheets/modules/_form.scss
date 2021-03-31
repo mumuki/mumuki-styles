@@ -10,4 +10,10 @@
       font-weight: normal;
     }
   }
+
+  .form-check-input[disabled].mu-read-only-input {
+    &, & + label {
+      opacity: 1;
+    }
+  }
 }
