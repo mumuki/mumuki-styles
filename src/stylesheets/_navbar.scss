@@ -3,6 +3,9 @@ $breadcrumb-separator-gap: 8px;
 $avatar-size: 40px;
 
 .mu-navbar {
+  > div .mu-navbar-breadcrumb-container {
+    min-width: 0;
+  }
 
   .mu-navbar-breadcrumb {
 
