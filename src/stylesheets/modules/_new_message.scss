@@ -9,13 +9,13 @@
   }
   .modal-dialog {
     position: fixed;
-    right: -50px;
+    right: 10px;
     bottom: -30px;
   }
   .mu-modal-header {
     @include display-flex(row nowrap, space-between);
     height: 40px;
-    background-color: $brand-info;
+    background-color: $info;
     padding: 0 15px 0 15px;
     .mu-modal-header-text {
       padding-left: 7px;

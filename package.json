@@ -4,10 +4,13 @@
   "description": "Mumuki Styles",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp dev",
+    "dev": "yarn build && gulp dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "yarn",
-    "build": "gulp dist && sass-shake -p dist/scss -f dist/scss/mumuki-styles.scss -t -d"
+    "build": "gulp dist && yarn build-gem && yarn clean-scss && yarn ignore-dist",
+    "build-gem": "cd gem && ./bin/setup && bundle exec rake",
+    "clean-scss": "sass-shake -p dist/scss -f dist/scss/mumuki-styles.scss -t -d",
+    "ignore-dist": "git ls-files -z dist/ | xargs -0 git update-index --skip-worktree"
   },
   "repository": {
     "type": "git",
@@ -23,11 +26,13 @@
   },
   "homepage": "https://github.com/mumuki/mumuki-styles#readme",
   "dependencies": {
-    "@bower_components/awesome-bootstrap-checkbox": "flatlogic/awesome-bootstrap-checkbox#v0.3.7",
-    "@bower_components/bootstrap-sass": "twbs/bootstrap-sass#v3.3.7",
-    "@bower_components/dev-awesome": "mumuki/dev-awesome#v0.10.0",
-    "@bower_components/jquery": "jquery/jquery-dist#3.1.1",
     "@fortawesome/fontawesome-free": "~5.15.1",
+    "@popperjs/core": "2.9.1",
+    "bootstrap": "5.0.0-beta3",
+    "dev-awesome": "git+https://github.com/mumuki/dev-awesome.git",
+    "jquery": "~3.1.1"
+  },
+  "devDependencies": {
     "del": "2.2.2",
     "gulp": "3.9.1",
     "gulp-concat": "2.6.1",
@@ -35,6 +40,7 @@
     "gulp-replace": "0.5.4",
     "gulp-sass": "3.1.0",
     "gulp-webserver": "0.9.1",
+    "merge-stream": "^2.0.0",
     "run-sequence": "1.2.2",
     "sass-shake": "https://github.com/Javi/sass-shake"
   },

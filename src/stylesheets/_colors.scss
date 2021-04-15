@@ -1,41 +1,75 @@
-$brand-info: #3498DB;
-$brand-primary: #0B465D;
-$brand-complementary: #FF5B81;
+@import "bootswatch/variables";
 
-$brand-danger: #d9534f;
-$brand-success: #5cb85c;
-$brand-warning: #F39C12;
-$brand-broken: #651621;
+// Standard Bootstrap colors
+$primary: #0B465D;
+$secondary: $gray-600;
+$success: #5cb85c;
+$info: #3498DB;
+$warning: #F39C12;
+$danger: #d9534f;
 
-$brand-info-light: lighten($brand-info, 35%);
-$brand-info-lighter: #f4f6fb;
+// Custom mumuki-styles colors
+$complementary: #ff5b81;
+$broken: #651621;
 
-$brand-danger-light: lighten($brand-danger, 35%);
-$brand-success-light: lighten($brand-success, 35%);
-$brand-warning-light: lighten($brand-warning, 35%);
+// Other Bootswatch variables to override
+$link-color: $info;
+$dropdown-link-hover-bg: $primary;
+$pagination-bg: $complementary;
+$pagination-hover-bg: darken($complementary, 15%);
+$pagination-disabled-bg: lighten($complementary, 15%);
+$pagination-active-bg: $pagination-hover-bg;
 
-$link-color: $brand-info;
+@import "../../node_modules/bootstrap/scss/bootstrap-utilities.scss";
 
-$code-color: $brand-info;
-$code-bg: $brand-info-lighter;
+// These colors are already defined for convenience, but must be also merged
+// with $theme-colors to auto-generate classes such as btn-{color}
+$custom-colors: (
+  "complementary": $complementary,
+  "broken": $broken
+);
+$theme-colors: map-merge($theme-colors, $custom-colors);
 
-$btn-success-bg: $brand-complementary;
+// Other Bootstrap variables to override
+$input-color: $primary;
+$input-focus-color: $primary;
+$form-select-color: $primary;
+$pagination-focus-bg: darken($complementary, 15%);
+$pagination-focus-color: $pagination-color;
+$pagination-focus-box-shadow: 0 0 $input-btn-focus-blur $input-btn-focus-width lighten($complementary, 15%);
+$table-color: $primary;
+$table-striped-color: $primary;
 
-$navbar-inverse-bg: $brand-info;
-$navbar-inverse-link-hover-color: $brand-primary;
-$navbar-default-link-hover-color: $brand-info-light;
+// More custom colors
 
-$mu-color-info: $brand-info;
-$mu-color-primary: $brand-primary;
-$mu-color-complementary: $brand-complementary;
+$success-light: lighten($success, 35%);
+$info-light: lighten($info, 35%);
+$info-lighter: #f4f6fb;
+$warning-light: lighten($warning, 35%);
+$danger-light: lighten($danger, 35%);
 
-$mu-color-danger: $brand-danger;
-$mu-color-success: $brand-success;
-$mu-color-warning: $brand-warning;
-$mu-color-broken: $brand-broken;
+$code-color: $info;
+$code-bg: $info-lighter;
+
+$btn-success-bg: $complementary;
+
+$body-color: $primary;
+
+$navbar-inverse-bg: $info;
+$navbar-inverse-link-hover-color: $primary;
+$navbar-default-link-hover-color: $info-light;
+
+$mu-color-info: $info;
+$mu-color-primary: $primary;
+$mu-color-complementary: $complementary;
+
+$mu-color-danger: $danger;
+$mu-color-success: $success;
+$mu-color-warning: $warning;
+$mu-color-broken: $broken;
 
 $mu-color-disabled: #AAAAAA;
-$mu-color-info-light: lighten($brand-info, 35%);
+$mu-color-info-light: lighten($info, 35%);
 $mu-color-info-lighter: #f4f6fb;
 
 $mu-color-danger-light: lighten($mu-color-danger, 35%);
@@ -43,9 +77,9 @@ $mu-color-success-light: lighten($mu-color-success, 35%);
 $mu-color-warning-light: lighten($mu-color-warning, 35%);
 $mu-color-broken-light: lighten($mu-color-broken, 35%);
 
-$mu-color-link: $brand-info;
-$mu-color-code: $brand-info;
-$mu-color-code-bg: $brand-info-lighter;
+$mu-color-link: $info;
+$mu-color-code: $info;
+$mu-color-code-bg: $info-lighter;
 
 $mu-color-separator: #ecf0f1;
 $mu-color-content-editable: $mu-color-separator;

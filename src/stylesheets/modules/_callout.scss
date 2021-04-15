@@ -24,10 +24,10 @@
 }
 
 $statuses: (
-  info: $brand-info,
-  danger: $brand-danger,
-  success: $brand-success,
-  warning: $brand-warning,
+  info: $info,
+  danger: $danger,
+  success: $success,
+  warning: $warning,
   broken: $mu-color-broken,
 );
 @each $status, $color in $statuses {

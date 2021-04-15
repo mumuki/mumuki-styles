@@ -1,0 +1,19 @@
+.mu-form {
+  fieldset {
+    margin-bottom: 15px;
+  }
+
+  label {
+    font-weight: bold;
+
+    &.form-check-label {
+      font-weight: normal;
+    }
+  }
+
+  .form-check-input[disabled].mu-read-only-input {
+    &, & + label {
+      opacity: 1;
+    }
+  }
+}
