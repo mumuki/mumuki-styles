@@ -39,22 +39,22 @@ mumuki.load(function () {
     })
   }
 
-  function getBrowserMain($browser) {
-    return $([
-      '<main>',
-      '  <iframe srcdoc="', escapeHTML($browser.data('srcdoc')), '" frameborder="0"></iframe>',
-      '</main>'
-    ].join(''));
+  function getBrowserMain($browser, options) {
+    return $(`
+      <main>
+        <iframe srcdoc="${escapeHTML($browser.data('srcdoc'))}" frameborder="0" ${options.allowScript ? '' : 'sandbox'}></iframe>
+      </main>
+    `);
   }
 
-  $.fn.renderWebBrowser = function () {
+  $.fn.renderWebBrowser = function (options = {}) {
     var self = this;
     self.empty();
     self.each(function (i) {
       var $browser = $(self[i]);
 
       var $header = getBrowserHeader($browser);
-      var $main = getBrowserMain($browser);
+      var $main = getBrowserMain($browser, options);
 
       $browser.empty();
 
