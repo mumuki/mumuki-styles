@@ -19,6 +19,7 @@ jobs:
         ruby-version: 2.6.3
         bundler: 2.1.4
         bundler-cache: true
+        working-directory: gem
     - name: Install JavaScript dependencies and build
       run: |
         yarn
