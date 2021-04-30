@@ -10656,7 +10656,7 @@ textarea.form-control-lg {
 
 @font-face {
   font-family: "dev-awesome";
-  src: url("../fonts/dev-awesome.eot?56f769dd86303015ad0443e9e1838cf2?#iefix") format("embedded-opentype"), url("../fonts/dev-awesome.woff2?56f769dd86303015ad0443e9e1838cf2") format("woff2"), url("../fonts/dev-awesome.woff?56f769dd86303015ad0443e9e1838cf2") format("woff");
+  src: url("../fonts/dev-awesome.eot?91c549e3790e8df3239fc1cb2a3a706d?#iefix") format("embedded-opentype"), url("../fonts/dev-awesome.woff2?91c549e3790e8df3239fc1cb2a3a706d") format("woff2"), url("../fonts/dev-awesome.woff?91c549e3790e8df3239fc1cb2a3a706d") format("woff");
   font-weight: normal;
   font-style: normal; }
 
@@ -16105,10 +16105,10 @@ pre {
   user-select: none;
   pointer-events: none; }
 
-.mu-navbar.mu-inverted img {
+.mu-navbar.mu-inverted .profile-dropdown img {
   box-shadow: 0 0 0 2px white; }
 
-.mu-navbar.mu-inverted .caret, .mu-navbar.mu-inverted .mu-navbar-icon {
+.mu-navbar.mu-inverted .dropdown-toggle, .mu-navbar.mu-inverted .mu-navbar-icon {
   color: white; }
 
 .mu-navbar.mu-inverted .mu-level-number {
@@ -16132,7 +16132,7 @@ pre {
 .nav-tabs > li > a {
   cursor: pointer; }
 
-a:link, .dropdown-item:hover {
+a:link, .dropdown-item:hover, .nav-link:hover {
   text-decoration: none; }
 
 a:hover {
