@@ -7,6 +7,10 @@ $avatar-size: 40px;
     min-width: 0;
   }
 
+  .navbar-toggler:not(.collapsed) {
+    margin-bottom: 15px;
+  }
+
   .mu-navbar-breadcrumb {
 
     ul {
