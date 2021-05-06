@@ -16002,6 +16002,9 @@ pre {
 .mu-navbar > div .mu-navbar-breadcrumb-container {
   min-width: 0; }
 
+.mu-navbar .navbar-toggler:not(.collapsed) {
+  margin-bottom: 15px; }
+
 .mu-navbar .mu-navbar-breadcrumb {
   display: flex;
   flex-flow: row;
