@@ -30,7 +30,7 @@
     "@popperjs/core": "2.9.2",
     "bootstrap": "5.0.1",
     "dev-awesome": "git+https://github.com/mumuki/dev-awesome.git",
-    "jquery": "~3.1.1"
+    "jquery": "~3.5.0"
   },
   "devDependencies": {
     "del": "2.2.2",
