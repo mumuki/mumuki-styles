@@ -8,3 +8,7 @@ body {
   font-size: $font-size-base;
   line-height: $line-height-base;
 }
+
+.fs-7 {
+  font-size: $font-size-base * 0.75;
+}
