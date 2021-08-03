@@ -69,8 +69,6 @@ mumuki.load(function () {
     return self;
   }
 
-  mumuki.resize(function () {
-    $('.mu-browser').renderWebBrowser();
-  });
+  $('.mu-browser').renderWebBrowser();
 
 });
