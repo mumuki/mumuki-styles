@@ -60,35 +60,42 @@ mumuki.load(function () {
       const y2 = $column.to.position().top + $column.to.height() / 2 + 5;
       return { x1: x1, x2: x2, y1: y1, y2: y2, mi: (x1 + x2) / 2, dx1: C, dx2: -C };
     },
+    self: function ($entity, $column) {
+      const x1 = $entity.from.position().left + $entity.from.width() + BORDER;
+      const y1 = $column.from.position().top + $column.from.height() / 2 + 5;
+      const x2 = $entity.to.position().left + $entity.from.width() + BORDER;
+      const y2 = $column.to.position().top + $column.to.height() / 2 + 5;
+      return { x1: x1, x2: x2, y1: y1, y2: y2, mi: BORDER * 5 + (x1 + x2) / 2, dx1: C, dx2: C };
+    }
   };
 
   const connectors = {
-    one_to_one: function (points) {
+    one_to_one: function (points, color) {
       return [
-        svgLine(points.x1 + points.dx1, points.x1 + points.dx1, points.y1 - C, points.y1 + C), // | from
-        svgLine(points.x2 + points.dx2, points.x2 + points.dx2, points.y2 - C, points.y2 + C), // | to
+        svgLine(points.x1 + points.dx1, points.x1 + points.dx1, points.y1 - C, points.y1 + C, color), // | from
+        svgLine(points.x2 + points.dx2, points.x2 + points.dx2, points.y2 - C, points.y2 + C, color), // | to
       ].join('');
     },
-    many_to_one: function (points) {
+    many_to_one: function (points, color) {
       return [
-        svgLine(points.x1, points.x1 + points.dx1, points.y1 - C, points.y1),  //                 \ from  many
-        svgLine(points.x1, points.x1 + points.dx1, points.y1 + C, points.y1),  //                 / from  many
-        svgLine(points.x2 + points.dx2, points.x2 + points.dx2, points.y2 - C, points.y2 + C), // | to one
+        svgLine(points.x1, points.x1 + points.dx1, points.y1 - C, points.y1, color),  //                 \ from  many
+        svgLine(points.x1, points.x1 + points.dx1, points.y1 + C, points.y1, color),  //                 / from  many
+        svgLine(points.x2 + points.dx2, points.x2 + points.dx2, points.y2 - C, points.y2 + C, color), // | to one
       ].join('');
     },
-    one_to_many: function (points) {
+    one_to_many: function (points, color) {
       return [
-        svgLine(points.x1 + points.dx1, points.x1 + points.dx1, points.y1 - C, points.y1 + C),  // | from one
-        svgLine(points.x2, points.x2 + points.dx2, points.y2 - C, points.y2),  //                  \ to  many
-        svgLine(points.x2, points.x2 + points.dx2, points.y2 + C, points.y2),  //                  / to  many
+        svgLine(points.x1 + points.dx1, points.x1 + points.dx1, points.y1 - C, points.y1 + C, color),  // | from one
+        svgLine(points.x2, points.x2 + points.dx2, points.y2 - C, points.y2, color),  //                  \ to  many
+        svgLine(points.x2, points.x2 + points.dx2, points.y2 + C, points.y2, color),  //                  / to  many
       ].join('');
     },
-    many_to_many: function (points) {
+    many_to_many: function (points, color) {
       return [
-        svgLine(points.x1, points.x1 + points.dx1, points.y1 - C, points.y1),  //                  \ from  many
-        svgLine(points.x1, points.x1 + points.dx1, points.y1 + C, points.y1),  //                  / from  many
-        svgLine(points.x2, points.x2 + points.dx2, points.y2 - C, points.y2),  //                  \ to  many
-        svgLine(points.x2, points.x2 + points.dx2, points.y2 + C, points.y2),  //                  / to  many
+        svgLine(points.x1, points.x1 + points.dx1, points.y1 - C, points.y1, color),  //                  \ from  many
+        svgLine(points.x1, points.x1 + points.dx1, points.y1 + C, points.y1, color),  //                  / from  many
+        svgLine(points.x2, points.x2 + points.dx2, points.y2 - C, points.y2, color),  //                  \ to  many
+        svgLine(points.x2, points.x2 + points.dx2, points.y2 + C, points.y2, color),  //                  / to  many
       ].join('');
     }
   };
@@ -124,9 +131,10 @@ mumuki.load(function () {
   }
 
   function appendEntities($diagram, entities, index) {
+    const width = $diagram.data('entities-width');
     entities.forEach(function (entity) {
       const $entity = $([
-        '<div id="', entityID(entity.name, index), '" class="mu-erd-entity">',
+        '<div id="', entityID(entity.name, index), '" class="mu-erd-entity" ', (width ? 'style="width: ' + width + ';"' : '') , '>',
         '  <div class="mu-erd-entity-name">',
         entity.name,
         '  </div>',
@@ -139,9 +147,9 @@ mumuki.load(function () {
     });
   }
 
-  function drawColumnFK(entity, index, column) {
+  function drawColumnFK(entity, index, $diagram, column) {
     try {
-      return drawFK(entity, column, column.fk, index);
+      return drawFK(entity, column, column.fk, index, $diagram);
     } catch (e) {
       console.warn("An error occurred when drawing foreign keys for entity", entity, column, column.fk)
     }
@@ -158,7 +166,16 @@ mumuki.load(function () {
     return direction.replace(' ', '_');
   }
 
-  function drawFK(entity, column, fk, index) {
+  function getColor($diagram) {
+    const withConnectorColors = $diagram.data("connectors-color");
+    if ([true, 'true'].indexOf(withConnectorColors) < 0) {
+      return '#000000';
+    }
+    const n = (Math.random() * 0xfffff * 1000000).toString(16);
+    return '#' + n.slice(0, 6);
+  }
+
+  function drawFK(entity, column, fk, index, $diagram) {
     if (!fk) return '';
     const $entity = {
       from: $('#' + entityID(entity.name, index)),
@@ -168,37 +185,38 @@ mumuki.load(function () {
       from: $('#' + columnID(entity.name, column.name, index)),
       to: $('#' + columnID(fk.to.entity, fk.to.column, index))
     };
-    const direction = getDirection($entity.from, $entity.to);
+    const direction = entity.name === fk.to.entity ? 'self' : getDirection($entity.from, $entity.to);
     const points = getPointsFrom(direction, $entity, $column);
+    const color = getColor($diagram);
     return [
-      svgLine(points.x1, points.mi, points.y1, points.y1),
-      svgLine(points.mi, points.mi, points.y1, points.y2),
-      svgLine(points.mi, points.x2, points.y2, points.y2),
-    ].join('') + connectors[fk.type](points);
+      svgLine(points.x1, points.mi, points.y1, points.y1, color),
+      svgLine(points.mi, points.mi, points.y1, points.y2, color),
+      svgLine(points.mi, points.x2, points.y2, points.y2, color),
+    ].join('') + connectors[fk.type](points, color);
   }
 
   function getPointsFrom(direction, $entity, $column) {
     return availableDirections[direction]($entity, $column);
   }
 
-  function drawConnectorLines(entity, index) {
+  function drawConnectorLines(entity, index, $diagram) {
     const columns = entity.columns || [];
-    return columns.map(drawColumnFK.bind(this, entity, index)).join('');
+    return columns.map(drawColumnFK.bind(this, entity, index, $diagram)).join('');
   }
 
-  function getSVGFor(entity, index) {
-    return ['<svg>', drawConnectorLines(entity, index), '</svg>'].join('');
+  function getSVGFor(entity, index, $diagram) {
+    return ['<svg>', drawConnectorLines(entity, index, $diagram), '</svg>'].join('');
   }
 
   function appendConnectors($diagram, entities, index) {
     entities.forEach(function (entity) {
-      const $svg = $(getSVGFor(entity, index));
+      const $svg = $(getSVGFor(entity, index, $diagram));
       $diagram.append($svg);
     });
   }
 
-  function svgLine(x1, x2, y1, y2) {
-    return ['<line x1="', x1, '" x2="', x2, '" y1="', y1, '" y2="', y2, '" stroke="black" stroke-width="1"/>'].join('');
+  function svgLine(x1, x2, y1, y2, color) {
+    return ['<line x1="', x1, '" x2="', x2, '" y1="', y1, '" y2="', y2, '" stroke="', color || '#000000' ,'" stroke-width="1"/>'].join('');
   }
 
   function mapEntityColumns(columnsObject) {

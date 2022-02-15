@@ -149,7 +149,8 @@ With jQuery you can manually render this component using `$('.mu-file-browser').
 ```
 
 #### mu-erd attributes
-
+* `data-entities-width`: "325px" empty is equal to "250px"
+* `data-connectors-color`: "true" or nothing
 * `data-entities`: (`Hash<EntityName, EntityColumns>`)
   * `EntityName`: (`String`).
   * `EntityColumns`: (`Hash<ColumnName, ColumnMetadata>`)
