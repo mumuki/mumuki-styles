@@ -12,7 +12,7 @@ jobs:
     - name: Set up JavaScript
       uses: actions/setup-node@v1
       with:
-        node-version: 8.11.4
+        node-version: 18.15.0
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
